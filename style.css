@@ -1,10 +1,14 @@
 /*
- * 0. FONDO ANIMADO
+ * 0. FONDO ANIMADO (GLOBAL - pero lo usamos en local con absolute)
 */
 @keyframes moveGradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+@keyframes slide {
+    0% { transform:translateX(-25%); }
+    100% { transform:translateX(25%); }
 }
 
 /*
@@ -12,24 +16,10 @@
  */
 body {
     font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-    
-    /* --- FONDO ANIMADO ROSA (COMPATIBLE) --- */
-    
-    /* 1. LOS COLORES DEL GRADIENTE */
-    background: linear-gradient(-45deg, #ffaaaa, #ffaeb3, #ffc6d9, #ffadc8);
-    
-    /* 2. EL TAMAÑO GRANDE */
-    background-size: 400% 400%;
-    
-    /* 3. LA ANIMACIÓN */
-    animation: moveGradient 20s ease infinite;
-    /* --- FIN DE FONDO --- */
-    
+    background: linear-gradient(120deg, #ffffff 0%, #fffbfd 100%); 
     color: #444; 
     min-height: 100vh;
     overflow-x: hidden;
-    
-    /* Mantenemos toda la configuración flex */
     display: flex;
     flex-direction: column; 
     justify-content: flex-start;
@@ -38,23 +28,23 @@ body {
     margin: 0;
 }
 
-
-/* * 2. VIDEO HERO (SECCIÓN SUPERIOR)
+/* * 2. HERO SECCIÓN
  */
-.video-hero {
-    position: relative;
+.hero-section {
     width: 100%;
-    height: 60vh;
-    overflow: hidden;
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    margin-bottom: 3rem;
+    background-color: #c54e62;
 }
 
-.background-video {
+.hero-video-column {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-width: 50%;
+}
+
+.hero-video-element {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -63,34 +53,36 @@ body {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -1;
-    filter: brightness(0.5);
 }
 
-.hero-content {
-    z-index: 1;
-    max-width: 800px;
-    padding: 1rem;
+.hero-text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    box-sizing: border-box;
 }
 
-.hero-content h1 {
+.hero-text-column h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    color: #ebe8e9;
 }
 
-.hero-content p {
+.hero-text-column p {
     font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    color: #ffb7b7;
 }
 
 .hero-buttons {
     display: flex;
     gap: 1.5rem;
+    width: 100%;
     justify-content: center;
 }
 
@@ -113,41 +105,118 @@ body {
     box-shadow: 0 15px 25px var(--color-sombra-hero); 
 }
 
-/* * 3. CONTENEDOR DE TARJETAS (SERVICIOS)
+/* * 3. CONTENEDOR DE TARJETAS (SERVICIOS) - GRID Y FONDO
  */
 .servicios-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2.5rem;
-    max-width: 1200px;
-    perspective: 1000px;
-    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;   
+    z-index: 0;         
+}
+
+/* Fondos animados (bg) dentro de servicios */
+.bg, .bg2, .bg3 {
+    animation: slide 3s ease-in-out infinite alternate;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    opacity: 0.5;
+    position: absolute; 
+    z-index: -1; 
+    background-image: linear-gradient(-60deg, #f8bbd0 50%, #fce4ec 50%);
+}
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+    background-image: linear-gradient(-60deg, #e91e63 50%, #f06292 50%);
+    z-index: -2;
+}
+.bg3 {
+    animation-duration: 5s;
+    background-image: linear-gradient(-60deg, #c2185b 50%, #d81b60 50%);
+    z-index: -3;
 }
 
 .servicio-card {
-    background-color: #ffffff;
+    background-color: transparent;
+    border-radius: 16px;
+    box-shadow: none;
+    padding: 0;
+    width: 280px; 
+    max-width: 100%;
+    height: 480px; 
+    text-align: center;
+    position: relative; 
+    z-index: 1;         
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.servicio-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
     padding: 2rem;
-    width: 280px;
-    text-align: center;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(250, 250, 250, 0.9); /* Transparencia para ver fondo */
+}
+
+.card-front {
+    transform: rotateY(0deg);
+    justify-content: flex-start;
+}
+.card-front h3 {
+    margin-top: 1.5rem;
+    margin-bottom: auto;
+}
+.card-front .icon-circle {
+    margin-bottom: 2rem;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .servicio-card h3 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--color-texto);
+    margin-bottom: 1rem;
 }
 
-.text-content {
+.text-content-back {
     text-align: left;
     font-size: 0.9rem;
     line-height: 1.6;
@@ -155,9 +224,11 @@ body {
     font-weight: 300;
     flex-grow: 1;
     margin-bottom: 1.5rem;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
-.text-content p {
+.text-content-back p {
     margin-bottom: 0.5rem;
     padding-left: 0.5rem;
 }
@@ -172,79 +243,35 @@ body {
     align-items: center;
     margin: 0 auto;
     box-shadow: 0 10px 20px var(--color-sombra);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.btn-ver-mas {
+.btn-ver-mas-flip, .btn-regresar-flip {
     display: inline-block;
     padding: 12px 25px;
     border-radius: 25px;
     text-decoration: none;
-    background-image: var(--gradiente); 
-    color: #333; 
+    background-image: var(--gradiente);
+    color: #333;
     font-weight: 600;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
-    box-shadow: 0 8px 15px var(--color-sombra); 
+    box-shadow: 0 8px 15px var(--color-sombra);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: auto;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
 }
 
-.btn-ver-mas::after {
-    content: '';
-}
-
-.btn-ver-mas:hover {
+.btn-ver-mas-flip:hover, .btn-regresar-flip:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 25px var(--color-sombra);
 }
 
-.servicio-card:hover {
-    transform: translateY(-12px) rotateX(3deg) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.servicio-card:hover .icon-circle {
-    transform: translateY(-20px) scale(1.1);
-    box-shadow: 0 20px 30px var(--color-sombra);
-}
-
-/* * 4. SECCIÓN DE PROPÓSITO
+/* * 4. SECCIÓN PROPÓSITO (HOVER)
  */
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-@keyframes fade-in-scale-up {
-    from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-@keyframes fade-in-project {
-    from {
-        opacity: 0;
-        transform: translateY(60px) scale(0.85);
-        filter: brightness(0.7);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: brightness(1);
-    }
-}
-
-.proposito-section {
+.proposito-hover-section {
     width: 100%;
     max-width: 900px;
     margin: 4rem auto;
@@ -253,62 +280,86 @@ body {
     text-align: center;
     border-top: 1px solid #eee;
     padding-top: 4rem;
-    view-timeline-name: --proposito-timeline;
 }
 
-.proposito-title {
+.proposito-hover-section h2 {
     font-size: 2.8rem;
     font-weight: 700;
     color: #E63C7D;
     margin-bottom: 1.5rem;
-    animation: fade-in-scale-up 1s ease-out;
-    animation-timeline: --proposito-timeline;
-    animation-range: entry 10% cover 30%;
-    animation-fill-mode: both;
 }
 
-.proposito-text {
+.proposito-hover-section .proposito-text {
     font-size: 1.15rem;
     line-height: 1.8;
     color: #555;
     margin-bottom: 2.5rem;
-    animation: fade-in-up 1s ease-out;
-    animation-timeline: --proposito-timeline;
-    animation-range: entry 20% cover 40%;
-    animation-fill-mode: both;
 }
 
-.proposito-ods {
+.proposito-hover-section .proposito-ods {
     font-size: 1rem;
     line-height: 1.6;
     color: #666;
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 2.5rem;
-    animation: fade-in-up 1s ease-out;
-    animation-timeline: --proposito-timeline;
-    animation-range: entry 30% cover 50%;
-    animation-fill-mode: both;
 }
 
-.proposito-ods .ods-subtext {
+.proposito-hover-section .proposito-ods .ods-subtext {
     font-weight: 400;
     text-transform: none;
     margin-top: 0.5rem;
 }
 
-.proposito-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fade-in-project 1.2s ease-out;
-    animation-timeline: --proposito-timeline;
-    animation-range: entry 40% cover 80%;
-    animation-fill-mode: both;
+.proposito-hover-article {
+    --hover: 0;
+    cursor: pointer;
 }
 
-/* * 5. SECCIÓN DE UBICACIONES
+.proposito-hover-article:hover {
+    --hover: 1;
+}
+
+.proposito-hover-figure {
+    width: 100%;
+    aspect-ratio: 8 / 5;
+    --bg: hsl(339, 83%, 97%);
+    --accent: #E63C7D;
+    transition: background 0.2s;
+    background: radial-gradient(circle at top left, var(--accent), transparent 75%), var(--bg);
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.proposito-hover-figure:after {
+    content: "";
+    position: absolute;
+    width: 20%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    bottom: 0%;
+    left: 10%;
+    background: linear-gradient(-65deg, var(--bg) 50%, var(--accent) 50%);
+    filter: blur(25px);
+    transform: translateX(calc(var(--hover) * 15%)) scale(calc(1 + (var(--hover) * 0.2)));
+    transition: transform 0.2s, background 0.2s;
+}
+
+.proposito-hover-figure img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    transform: translateX(calc(var(--hover) * -5%)) scale(calc(1 + (var(--hover) * 0.1)));
+    transition: transform 0.2s;
+}
+
+/* * 5. SECCIÓN UBICACIONES
  */
 .ubicaciones-container {
     display: flex;
@@ -320,7 +371,6 @@ body {
     margin: 4rem auto;
     padding: 0 1rem;
     box-sizing: border-box;
-    view-timeline-name: --proposito-timeline;
 }
 
 .ubicacion-card {
@@ -332,29 +382,20 @@ body {
     padding: 1.5rem;
     box-sizing: border-box;
     text-align: center;
-    animation: fade-in-up 1s ease-out;
-    animation-timeline: --proposito-timeline;
-    animation-range: entry 50% cover 70%;
-    animation-fill-mode: both;
 }
 
-.map-container {
-    position: relative;
-    overflow: hidden;
+.ubicacion-img-container {
     width: 100%;
-    padding-top: 75%;
+    height: 280px;
     border-radius: 8px;
+    overflow: hidden;
     margin-bottom: 1.5rem;
+    background-color: #eee;
 }
-
-.map-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+.ubicacion-img-container img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .ubicacion-title {
@@ -395,23 +436,18 @@ body {
 .btn-ubicacion:hover {
     transform: translateY(-5px);
 }
-
 .btn-ubicacion::after {
     content: ' >';
 }
 
-/* * 6. SECCIÓN DE IMPACTO
+/* * 6. SECCIÓN IMPACTO
  */
 .impacto-section {
     width: 100%;
     padding: 6rem 2rem;
     box-sizing: border-box;
     position: relative;
-    
-    background-image: 
-        linear-gradient(rgba(223, 22, 69, 0.92), rgba(223, 22, 69, 0.92)),
-        url("URL-DE-TU-IMAGEN-COLLAGE.png"); 
-    
+    background-image: linear-gradient(rgba(223, 22, 69, 0.92), rgba(223, 22, 69, 0.92)), url("URL-DE-TU-IMAGEN-COLLAGE.png"); 
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -480,7 +516,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* * 7. SECCIÓN DE RECONOCIMIENTOS
+/* * 7. SECCIÓN RECONOCIMIENTOS
  */
 .reconocimientos-section {
     width: 100%;
@@ -518,10 +554,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: fade-in-up 1s ease-out;
-    animation-timeline: --proposito-timeline;
-    animation-range: entry 70% cover 90%;
-    animation-fill-mode: both;
 }
 
 .reconocimiento-img-wrapper {
@@ -585,6 +617,7 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
+    align-items: start;
 }
 
 .ayudar-card {
@@ -675,10 +708,6 @@ body {
     background-color: #fff0f3;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-    animation: fade-in-up 1s ease-out;
-    animation-timeline: --proposito-timeline; 
-    animation-range: entry 80% cover 100%; 
-    animation-fill-mode: both;
 }
 
 .informes-section h2 {
@@ -730,11 +759,6 @@ body {
 
 /* * 10. SECCIÓN CONTÁCTANOS
  */
-@keyframes scroll-left {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
 .contacto-section {
     width: 100%;
     margin: 4rem auto;
@@ -750,14 +774,11 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
 }
+
 .contacto-info {
-    min-width: 0; /* Previene que el carrusel desborde el grid */
+    min-width: 0; 
 }
 
-
-.contacto-info h2 {
-    font-size: 2.8rem;
-}
 .contacto-info h2 {
     font-size: 2.8rem;
     font-weight: 700;
@@ -941,8 +962,182 @@ body {
     box-shadow: 0 12px 20px #d7113280; 
 }
 
+/* * 11. SECCIÓN MARCAS BENEFICIARIAS
+ */
+.beneficiarias-section {
+    width: 100%;
+    margin: 4rem auto;
+    padding: 4rem 0;
+    box-sizing: border-box;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
 
-/* * 11. REGLAS RESPONSIVE GENERALES
+.beneficiarias-section h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #E63C7D;
+    margin-bottom: 2rem;
+}
+
+.beneficiarias-header-img {
+    max-width: 650px;
+    width: 90%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.logo-scroller {
+    max-width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.logo-scroller .scroller-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    gap: 2rem;
+    animation: scroll-left 120s linear infinite;
+}
+
+.logo-scroller:hover .scroller-inner {
+    animation-play-state: paused;
+}
+
+.logo-item {
+    width: 200px;
+    height: 100px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.logo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* * 12. GALERÍA ACORDEÓN
+ */
+.galeria-acordeon {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    height: 430px;
+    margin: 4rem auto;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.galeria-acordeon > img{
+    flex:1;
+    width: 100px; /* Esto es clave para que funcione el acordeón */
+    object-fit: cover;
+    opacity: .8;
+    filter: grayscale(50%);
+    transition: all 0.5s ease; 
+}
+
+.galeria-acordeon > img:hover {
+    flex: 5;
+    opacity: 1;
+    filter: grayscale(0%) contrast(110%);
+    cursor:crosshair;
+}
+
+
+/* * 13. MENU DE NAVEGACION ANIMADO
+ */
+.main-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    position: fixed; 
+    top: 30px; 
+    left: 0;
+    z-index: 1000;
+    pointer-events: none; 
+}
+
+.expanding-menu {
+    display: flex;
+    background-color: #ffffff; 
+    border-radius: 60px; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+    padding: 10px; 
+    gap: 10px; 
+    pointer-events: auto;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;  
+    height: 60px; 
+    font-size: 1.8rem; 
+    border-radius: 50px; 
+    color: #E63C7D; 
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: transparent;
+}
+
+.menu-link .link-text {
+    font-size: 1.1rem; 
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 0px;
+    opacity: 0;
+    max-width: 0;
+    white-space: nowrap;
+    transition: all 0.4s ease;
+}
+
+.menu-link:hover {
+    width: auto; 
+    padding: 0 25px; 
+    background-color: #E63C7D; 
+    color: #ffffff; 
+    box-shadow: 0 5px 20px rgba(230, 60, 125, 0.5); 
+}
+
+.menu-link:hover .link-text {
+    opacity: 1;
+    max-width: 300px; 
+    margin-left: 12px;
+}
+
+/* * 14. REGLAS RESPONSIVE GENERALES
  */
 @media (max-width: 1024px) {
     .ayudar-grid {
@@ -962,22 +1157,47 @@ body {
     }
 }
 @media (max-width: 768px) {
-    .video-hero {
-        height: 70vh;
+    .main-header {
+        top: auto;
+        bottom: 30px; 
     }
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .expanding-menu {
+        padding: 8px;
+        gap: 8px;
+        max-width: 90%;
+        overflow-x: auto; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
     }
-    .hero-content p {
-        font-size: 1.2rem;
+    .menu-link {
+        width: 50px; 
+        height: 50px;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+    .hero-section {
+        flex-direction: column; 
+        height: auto;
+    }
+    .hero-video-column {
+        height: 50vh; 
+    }
+    .hero-text-column {
+        padding: 2rem;
     }
     .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; 
+        align-items: flex-start;
+        width: 100%;
     }
     .btn-hero {
-        width: 80%;
-        max-width: 250px;
+        width: auto; 
+        max-width: 200px; 
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+    .servicios-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     .proposito-title, .reconocimientos-section h2, .informes-section h2, .ayudar-section h2, .contacto-info h2 {
         font-size: 2.2rem;
@@ -1017,6 +1237,9 @@ body {
     .ayudar-card h3 {
         min-height: auto;
     }
+    .beneficiarias-section h2 {
+        font-size: 2.2rem;
+    }
 }
 @media (max-width: 500px) {
     .impacto-content h2 {
@@ -1035,137 +1258,4 @@ body {
     .stat-prefix {
         font-size: 1.5rem;
     }
-}
-/*
- * 16. SECCIÓN MARCAS BENEFICIARIAS
- */
-
-.beneficiarias-section {
-    width: 100%;
-    margin: 4rem auto;
-    padding: 4rem 0; /* Padding vertical, sin padding horizontal */
-    box-sizing: border-box;
-    text-align: center;
-    border-top: 1px solid #eee;
-}
-
-.beneficiarias-section h2 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #E63C7D; /* Rosa */
-    margin-bottom: 2rem;
-}
-
-.beneficiarias-header-img {
-    max-width: 650px;
-    width: 90%;
-    height: auto;
-    border-radius: 12px;
-    margin-bottom: 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-}
-
-/* --- Carrusel de Logos --- */
-.logo-scroller {
-    max-width: 100%;
-    overflow: hidden;
-    /* Efecto fade en los bordes */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-
-/* Reusamos la animación 'scroll-left' que ya existe */
-.logo-scroller .scroller-inner {
-    display: flex;
-    flex-wrap: nowrap;
-    width: max-content;
-    gap: 2rem;
-    
-    /* ¡AQUÍ EL MOVIMIENTO LENTO! */
-    /* 120 segundos para completar el ciclo, vs 40s de los testimonios */
-    animation: scroll-left 120s linear infinite;
-}
-
-/* Pausa la animación al pasar el mouse */
-.logo-scroller:hover .scroller-inner {
-    animation-play-state: paused;
-}
-
-/* --- Diseño Moderno del Logo --- */
-.logo-item {
-    width: 200px; /* Ancho fijo */
-    height: 100px; /* Altura fija */
-    flex-shrink: 0;
-    background: #ffffff;
-    border-radius: 12px;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    
-    /* Centramos la imagen dentro del contenedor */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    box-sizing: border-box;
-    
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.logo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Ajusta la imagen sin distorsionarla */
-    
-    /* Efecto moderno: B/N por defecto, color en hover */
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.logo-item:hover {
-    transform: scale(1.05); /* Crece un poco */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
-}
-
-.logo-item:hover img {
-    filter: grayscale(0%); /* Muestra el color */
-    opacity: 1;
-}
-
-/* Responsive para el título */
-@media (max-width: 600px) {
-    .beneficiarias-section h2 {
-        font-size: 2.2rem;
-    }
-}
-/*
- * 17. SECCIÓN GALERÍA ACORDEÓN
- */
-
-.galeria-acordeon {
-    display: flex;
-    width: 100%;
-    max-width: 1100px;
-    height: 430px;
-    margin: 4rem auto;
-    padding: 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    overflow: hidden; /* Oculta desbordes */
-}
-.galeria-acordeon > img{
-    flex:1;
-    width: 100px;
-
-    object-fit: cover;
-    opacity: .8;
-    filter: grayscale(50%);
-
-    transition: all 0.5s ease;
-}
-
-.galeria-acordeon > img:hover {
-    flex: 5;
-    opacity: 1;
-    filter: grayscale(0%) contrast(110%);
-    cursor:crosshair;
 }
