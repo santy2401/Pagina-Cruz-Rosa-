@@ -1,6 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- CÓDIGO DEL CONTADOR ---
+    // --- 1. INICIAR CARRUSELES (Lógica Simplificada y Robusta) ---
+    const scrollers = document.querySelectorAll(".testimonial-scroller, .logo-scroller");
+
+    scrollers.forEach((scroller) => {
+        // Solo añadimos la animación si no la tiene ya
+        if (!scroller.getAttribute("data-animated")) {
+            scroller.setAttribute("data-animated", true);
+
+            const scrollerInner = scroller.querySelector(".scroller-inner");
+            const scrollerContent = Array.from(scrollerInner.children);
+
+            // Duplicamos el contenido para el efecto infinito
+            scrollerContent.forEach((item) => {
+                const duplicatedItem = item.cloneNode(true);
+                duplicatedItem.setAttribute("aria-hidden", true);
+                scrollerInner.appendChild(duplicatedItem);
+            });
+        }
+    });
+    // ------------------------------------------------------------
+
+
+    // --- 2. CÓDIGO DEL CONTADOR ---
     const counters = document.querySelectorAll(".stat-number[data-to-value]");
     if (counters.length > 0) {
         const observer = new IntersectionObserver((entries) => {
@@ -17,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- CÓDIGO PARA "CÓMO AYUDAR" (ACORDEÓN) ---
+    // --- 3. CÓDIGO PARA "CÓMO AYUDAR" (ACORDEÓN) ---
     const ayudarBotones = document.querySelectorAll(".btn-ayudar");
     ayudarBotones.forEach(button => {
         button.addEventListener("click", () => {
@@ -27,22 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- CÓDIGO PARA CONTACTO (CARRUSEL Y TABS) ---
-    const scrollers = document.querySelectorAll(".testimonial-scroller, .logo-scroller");
-    if (scrollers.length > 0) {
-        scrollers.forEach(scroller => {
-            if (scroller.getAttribute("data-animated")) {
-                const scrollerInner = scroller.querySelector(".scroller-inner");
-                const scrollerContent = Array.from(scrollerInner.children);
-                scrollerContent.forEach(item => {
-                    const duplicatedItem = item.cloneNode(true);
-                    duplicatedItem.setAttribute("aria-hidden", true);
-                    scrollerInner.appendChild(duplicatedItem);
-                });
-            }
-        });
-    }
-
+    // --- 4. CÓDIGO PARA EL FORMULARIO (TABS) ---
     const tabWrapper = document.querySelector(".form-tabs");
     const tabButtons = document.querySelectorAll(".tab-button");
     const contactForms = document.querySelectorAll(".contact-form");
@@ -61,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- ¡NUEVO! CÓDIGO PARA TARJETAS VOLTEABLES ---
+    // --- 5. CÓDIGO PARA TARJETAS VOLTEABLES ---
     const flipButtons = document.querySelectorAll('.btn-ver-mas-flip');
     const backButtons = document.querySelectorAll('.btn-regresar-flip');
 
@@ -83,10 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-}); // <-- FIN DEL ÚNICO DOMContentLoaded
+}); // <-- FIN DEL DOMContentLoaded
 
 
-// --- FUNCIÓN DEL CONTADOR (DEBE ESTAR FUERA) ---
+// --- FUNCIÓN DEL CONTADOR (FUERA) ---
 function animateCounter(counter) {
     const target = +counter.getAttribute("data-to-value");
     const duration = 2500;

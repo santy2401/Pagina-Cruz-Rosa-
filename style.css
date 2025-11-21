@@ -105,19 +105,21 @@ body {
     box-shadow: 0 15px 25px var(--color-sombra-hero); 
 }
 
-/* * 3. CONTENEDOR DE TARJETAS (SERVICIOS) - GRID Y FONDO
- */
+/* * 3. CONTENEDOR DE TARJETAS (SERVICIOS) */
 .servicios-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    justify-content: center; /* Centra las tarjetas */
+    justify-items: center;   /* Asegura el centrado */
     gap: 3rem;
-    max-width: 900px;
-    margin: 0 auto;
+    
+    /* --- CORRECCIÓN: QUITAMOS EL LÍMITE DE ANCHO --- */
+    width: 100%; 
     padding: 4rem 2rem;
-    width: 100%;
     box-sizing: border-box;
-    position: relative;
+    
+    /* Configuración para el fondo */
+    position: relative; 
     overflow: hidden;   
     z-index: 0;         
 }
