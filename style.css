@@ -29,20 +29,41 @@ body {
 }
 
 /* =========================================
-   2. HEADER Y MENÚ
+   2. HEADER Y MENÚ (CON LOGO)
    ========================================= */
 .main-header {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center; 
+    gap: 20px; 
     box-sizing: border-box;
     position: fixed; 
     top: 30px; 
     left: 0;
     z-index: 1000;
     pointer-events: none; 
+    padding: 0 20px; 
 }
 
+
+.logo-container {
+    display: block;
+    pointer-events: auto; 
+    flex-shrink: 0; 
+}
+
+/* NUEVO: La imagen del logo en tamaño mediano */
+.main-logo-img {
+    height: 80px;
+    width: auto; 
+    object-fit: contain;
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    background-color: #fff; 
+}
+
+/* Menú existente (sin cambios mayores) */
 .expanding-menu {
     display: flex;
     background-color: #ffffff; 
@@ -50,11 +71,13 @@ body {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
     padding: 10px; 
     gap: 10px; 
-    pointer-events: auto;
+    pointer-events: auto; /* Permite clics en el menú */
 }
 
+/* ... (Mantén el resto de estilos de .menu-link y sus hovers igual) ... */
 .menu-link {
-    display: flex;
+    /* ... tus estilos actuales ... */
+     display: flex;
     align-items: center;
     justify-content: center;
     width: 60px; height: 60px; 
@@ -190,7 +213,7 @@ body {
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 .stat-item { display: flex; flex-direction: column; align-items: center; }
 .stat-item img { width: 100px; height: 100px; margin-bottom: 1rem; }
-.stat-number-wrapper { font-size: 3rem; font-weight: 700; line-height: 1.1; }
+.stat-number-wrapper {display: flex; justify-content: center; align-items: baseline; font-size: 3rem; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums;  font-feature-settings: "tnum"; }
 .stat-title { font-size: 1rem; font-weight: 600; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
 
@@ -468,9 +491,17 @@ body {
 @media (max-width: 768px) {
     /* Menú abajo estilo App */
     .main-header { 
-        top: auto; 
-        bottom: 20px; 
-        padding: 0 10px;
+       top: 10px; 
+        flex-direction: column; 
+        gap: 10px;
+    }
+    .main-logo-img {
+        height: 60px; 
+        width: auto;
+        object-fit: contain;
+
+        border-radius: 80px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .expanding-menu { 
         max-width: 100%; 
