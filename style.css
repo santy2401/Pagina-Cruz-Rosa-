@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&display=swap');
+
 /* =========================================
    0. ANIMACIONES
    ========================================= */
@@ -13,12 +15,18 @@
 @keyframes scroll-left {
     to { transform: translateX(-50%); }
 }
+/* Animación para el fondo de reconocimientos */
+@keyframes finisher-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 /* =========================================
    1. ESTILOS GENERALES Y ESTRUCTURA
    ========================================= */
 body {
-    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background: linear-gradient(120deg, #ffffff 0%, #fffbfd 100%); 
     color: #444; 
     margin: 0; padding: 0;
@@ -46,24 +54,21 @@ body {
     padding: 0 20px; 
 }
 
-
 .logo-container {
     display: block;
     pointer-events: auto; 
     flex-shrink: 0; 
 }
 
-/* NUEVO: La imagen del logo en tamaño mediano */
 .main-logo-img {
     height: 80px;
     width: auto; 
     object-fit: contain;
-    border-radius: 12px; 
+    border-radius: 40px; /* Redondeado estilo pastilla */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-    background-color: #fff; 
+    /* Fondo transparente (sin background-color) */
 }
 
-/* Menú existente (sin cambios mayores) */
 .expanding-menu {
     display: flex;
     background-color: #ffffff; 
@@ -71,13 +76,11 @@ body {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
     padding: 10px; 
     gap: 10px; 
-    pointer-events: auto; /* Permite clics en el menú */
+    pointer-events: auto; 
 }
 
-/* ... (Mantén el resto de estilos de .menu-link y sus hovers igual) ... */
 .menu-link {
-    /* ... tus estilos actuales ... */
-     display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 60px; height: 60px; 
@@ -94,7 +97,7 @@ body {
 .menu-link .link-text {
     font-size: 1.1rem; 
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     margin-left: 0px;
     opacity: 0;
     max-width: 0;
@@ -120,7 +123,7 @@ body {
    3. HERO SECCIÓN
    ========================================= */
 .hero-section {
-    width: 100%; height: 100vh; display: flex; background-color: #e74682;
+    width: 100%; height: 100vh; display: flex; background-color: #E68699;
 }
 .hero-video-column { flex: 1; position: relative; overflow: hidden; min-width: 50%; }
 .hero-video-element { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; width: auto; height: auto; }
@@ -135,17 +138,19 @@ body {
 /* =========================================
    4. SERVICIOS Y FONDO ANIMADO
    ========================================= */
+/* =========================================
+   4. SERVICIOS (NUEVO DISEÑO EXPANDIBLE)
+   ========================================= */
 .servicios-section-full {
     position: relative; width: 100%; overflow: hidden; padding: 4rem 0;
-    /* Quitamos background-color blanco para ver el fondo */
 }
 
 .servicios-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* <--- CAMBIA EL 2 POR UN 4 */
+    grid-template-columns: repeat(4, 1fr); 
     justify-items: center;
     gap: 2rem;
-    max-width: 1300px; /* Aumentamos el ancho máximo para que quepan las 4 */
+    max-width: 1300px; 
     margin: 0 auto;
     padding: 4rem 2rem;
     width: 100%;
@@ -154,7 +159,7 @@ body {
     z-index: 1;
 }
 
-/* Fondo animado */
+/* Fondo animado general (Lo dejamos igual, se ve bien) */
 .bg, .bg2, .bg3 {
     position: absolute; width: 200%; height: 200%; top: -50%; left: -50%; opacity: 0.6; z-index: 0;
     animation: slide 3s ease-in-out infinite alternate;
@@ -163,20 +168,108 @@ body {
 .bg2 { animation-duration: 4s; background-image: linear-gradient(-60deg, #e74482 50%, #e98596 50%); z-index: -1; }
 .bg3 { animation-duration: 5s; background-image: linear-gradient(-60deg, #f1bdc8 50%, #ffe3e6 50%); z-index: -2; }
 
-/* Tarjetas */
-.servicio-card { width: 280px; height: 480px; perspective: 1000px; z-index: 1; position: relative; background: transparent; }
-.card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
-.servicio-card.flipped .card-inner { transform: rotateY(180deg); }
-.card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 16px; padding: 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; align-items: center; background-color: rgba(250, 250, 250, 0.95); }
-.card-back { transform: rotateY(180deg); }
-.card-front h3 { margin-top: 1.5rem; margin-bottom: auto; }
-.card-front .icon-circle { margin-bottom: 2rem; }
-.card-back { justify-content: flex-start; align-items: flex-start; }
-.servicio-card h3 { font-size: 1.3rem; font-weight: 600; color: var(--color-texto); margin-bottom: 1rem; }
-.text-content-back { text-align: left; font-size: 0.9rem; line-height: 1.6; color: #555; font-weight: 300; flex-grow: 1; margin-bottom: 1.5rem; overflow-y: auto; padding-right: 5px; }
-.icon-circle { width: 110px; height: 110px; border-radius: 50%; background-image: var(--gradiente); display: flex; justify-content: center; align-items: center; margin: 0 auto; box-shadow: 0 10px 20px var(--color-sombra); }
-.btn-ver-mas-flip, .btn-regresar-flip { display: inline-block; padding: 12px 25px; border-radius: 25px; text-decoration: none; background-image: var(--gradiente); color: #333; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; box-shadow: 0 8px 15px var(--color-sombra); transition: transform 0.3s; margin-top: auto; border: none; cursor: pointer; width: 100%; max-width: 200px; }
-.btn-ver-mas-flip:hover, .btn-regresar-flip:hover { transform: translateY(-5px); box-shadow: 0 15px 25px var(--color-sombra); }
+
+/* --- NUEVAS TARJETAS EXPANDIBLES --- */
+
+.servicio-card-expand {
+    position: relative;
+    width: 280px;
+    height: 400px; /* Altura fija para buen diseño */
+    background-color: #FFF8FA; /* Color base clarito */
+    border-radius: 28px;
+    overflow: hidden; /* Esto hace que el color no se salga de las esquinas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.servicio-card-expand:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+/* El círculo de color que se expande */
+.expand-bg {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Al hacer hover, el círculo crece 12 veces su tamaño */
+.servicio-card-expand:hover .expand-bg {
+    transform: scale(14);
+}
+
+/* Contenido (Icono, Titulo, Texto) */
+.expand-content {
+    position: relative;
+    z-index: 2; /* Para que quede encima del color */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    padding: 2rem;
+    text-align: center;
+    color: #E63C7D; /* Color inicial del texto (rosa) */
+    transition: color 0.3s ease;
+}
+
+/* Icono */
+.expand-icon {
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+/* Título */
+.expand-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+/* Texto descriptivo (Oculto al inicio) */
+.expand-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 400;
+    opacity: 0; /* Invisible */
+    transform: translateY(20px); /* Un poco abajo */
+    transition: all 0.4s ease 0.1s; /* Animación con pequeño retraso */
+    max-height: 0; /* Para que no ocupe espacio visualmente al inicio */
+}
+
+/* --- ESTADO HOVER (CUANDO PASAS EL MOUSE) --- */
+
+/* 1. Cambiar texto a blanco (para contraste con fondo oscuro) */
+.servicio-card-expand:hover .expand-content {
+    color: #ffffff;
+}
+
+/* 2. Mover icono y título un poco arriba para dar espacio */
+.servicio-card-expand:hover .expand-icon {
+    transform: scale(1.1);
+    margin-bottom: 0.5rem;
+}
+
+/* 3. Aparecer la descripción */
+.servicio-card-expand:hover .expand-desc {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px; /* Le damos espacio para aparecer */
+}
+
+/* --- CASO ESPECIAL: TARJETA DE EDUCACIÓN (FONDO CLARO) --- */
+/* Como el fondo es #FFE3E6, el texto blanco no se ve. Lo ponemos rosa oscuro. */
+.servicio-card-expand.light-card:hover .expand-content {
+    color: #C2185B; /* Rosa fuerte para leerse bien sobre rosa claro */
+}
 
 
 /* =========================================
@@ -192,13 +285,28 @@ body {
 
 
 /* =========================================
-   6. UBICACIONES
+   6. UBICACIONES (MAPAS)
    ========================================= */
 .ubicaciones-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; width: 100%; max-width: 1100px; margin: 4rem auto; padding: 0 1rem; box-sizing: border-box; }
 .ubicacion-card { background-color: #ffe3e6; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); width: 450px; max-width: 100%; padding: 1.5rem; box-sizing: border-box; text-align: center; }
-.ubicacion-img-container { width: 100%; height: 280px; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; background-color: #eee; }
-.ubicacion-img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Contenedor del mapa (iframe) */
+.map-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 280px; 
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background-color: #eee;
+}
+.map-container iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
+
 .ubicacion-title { font-size: 1.8rem; font-weight: 700; color: #e74682; margin-bottom: 0.5rem; }
+.ubicacion-address { margin-bottom: 1rem; color: #555; line-height: 1.5; }
 .btn-ubicacion { display: inline-block; padding: 15px 35px; border-radius: 30px; text-decoration: none; color: #333; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.5px; background-image: linear-gradient(135deg, #f48120 0%, #ffca7b 100%); box-shadow: 0 8px 15px #a1860090; transition: transform 0.3s; margin-top: 1rem; }
 .mty-btn { background-image: linear-gradient(135deg, #e74682 0%, #f1bdc8 100%); box-shadow: 0 8px 15px #f0002890; }
 .btn-ubicacion:hover { transform: translateY(-5px); }
@@ -220,31 +328,15 @@ body {
 /* =========================================
    8. RECONOCIMIENTOS
    ========================================= */
-/* * 7. SECCIÓN RECONOCIMIENTOS (FONDO ANIMADO FINISHER STYLE)
- */
-
-/* Definimos la animación de colores */
-@keyframes finisher-gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 .reconocimientos-section {
     width: 100%;
-    margin: 4rem auto; /* Margen externo */
-    padding: 4rem 2rem; /* Espacio interno generoso */
+    margin: 4rem auto;
+    padding: 4rem 2rem;
     box-sizing: border-box;
     text-align: center;
-    
-    /* --- FONDO ANIMADO ESTILO FINISHER --- */
-    /* Usamos los colores de tu ejemplo: Rosa fuerte, Morado, Azul y Amarillo sutil */
     background: linear-gradient(-45deg, #f1bdc8, #e98596, #e74682, #f48120);
     background-size: 400% 400%;
     animation: finisher-gradient 10s ease infinite;
-    /* ------------------------------------ */
-    
-    border-radius: 0; /* Opcional: puedes ponerle bordes redondeados si quieres */
     position: relative;
     z-index: 1;
 }
@@ -252,15 +344,15 @@ body {
 .reconocimientos-section h2 {
     font-size: 2.8rem;
     font-weight: 700;
-    color: #ffffff; /* Título en Blanco para que resalte */
+    color: #ffffff; 
     margin-bottom: 1.5rem;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra para leerlo mejor */
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .reconocimientos-section > p {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #ffffff; /* Texto en Blanco */
+    color: #ffffff; 
     margin: 0 auto 3rem auto;
     max-width: 800px;
     font-weight: 400;
@@ -269,7 +361,7 @@ body {
 .reconocimientos-section > p strong {
     color: #fff;
     font-weight: 700;
-    text-decoration: underline; /* Un pequeño detalle para resaltar */
+    text-decoration: underline; 
     text-decoration-color: rgba(255,255,255,0.5);
 }
 
@@ -278,16 +370,14 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     max-width: 1100px;
-    margin: 0 auto; /* Centrar el grid */
+    margin: 0 auto; 
 }
 
-/* --- TARJETAS DE LOGOS (BLANCAS) --- */
-/* Necesitamos que sean blancas para que los logos se vean */
 .reconocimiento-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.95); /* Blanco casi sólido */
+    background-color: rgba(255, 255, 255, 0.95); 
     border-radius: 20px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -295,11 +385,11 @@ body {
 }
 
 .reconocimiento-item:hover {
-    transform: translateY(-5px); /* Pequeño movimiento al pasar el mouse */
+    transform: translateY(-5px); 
 }
 
 .reconocimiento-img-wrapper {
-    height: 80px; /* Altura controlada para los logos */
+    height: 80px; 
     width: 100%;
     display: flex;
     align-items: center;
@@ -312,48 +402,81 @@ body {
     max-width: 100%;
     width: auto;
     object-fit: contain;
-    /* Quitamos filtros para que se vean los colores originales de los logos */
     filter: none; 
 }
 
 .reconocimiento-item h3 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #E63C7D; /* Año en Rosa */
+    color: #E63C7D; 
     margin-bottom: 0.5rem;
 }
 
 .reconocimiento-item p {
     font-size: 0.9rem;
     line-height: 1.5;
-    color: #555; /* Texto descriptivo en gris oscuro */
+    color: #555; 
     font-weight: 400;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .reconocimientos-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 600px) {
-    .reconocimientos-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* =========================================
-   9. CÓMO AYUDAR (GRID CORREGIDO)
+   9. SECCIÓN AGRADECIMIENTO (TARJETA ROSA)
+   ========================================= */
+.agradecimiento-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 4rem auto; 
+    padding: 0 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.agradecimiento-card {
+    background-image: linear-gradient(135deg, #e74682 0%, #e98596 100%);
+    width: 100%;
+    border-radius: 40px; 
+    padding: 3rem;
+    text-align: center;
+    color: #ffffff; 
+    box-shadow: 0 15px 30px rgba(223, 22, 69, 0.3);
+    
+    animation: fade-in-up 1s ease-out;
+    animation-timeline: view();
+    animation-range: entry 20% cover 40%;
+    animation-fill-mode: both;
+}
+
+.agradecimiento-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.agradecimiento-text strong {
+    font-weight: 700; 
+}
+
+.agradecimiento-icon ion-icon {
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, 0.9); 
+    margin-top: 0.5rem;
+}
+
+
+/* =========================================
+   10. CÓMO AYUDAR
    ========================================= */
 .ayudar-section { width: 100%; max-width: 1200px; margin: 4rem auto; padding: 2rem; box-sizing: border-box; text-align: center; border-top: 1px solid #ffffff; padding-top: 4rem; }
 .ayudar-section h2 { font-size: 2.8rem; font-weight: 700; color: #E63C7D; margin-bottom: 1.5rem; }
 
-/* AQUÍ ESTÁ EL ARREGLO DE LAS TARJETAS EN FILA */
 .ayudar-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    grid-template-columns: repeat(5, 1fr); 
     gap: 1.5rem;
-    align-items: start; /* Evita que se estiren */
+    align-items: start; 
 }
 
 .ayudar-card { background-color: #fff0f3; border-radius: 20px; padding: 2rem 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; align-items: center; transition: all 0.3s ease; }
@@ -362,28 +485,25 @@ body {
 .ayudar-card h3 { font-size: 1.4rem; font-weight: 600; color: #dc5186; margin-bottom: 1rem; min-height: 50px; }
 .ayudar-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-out; }
 .ayudar-card.is-open .ayudar-content { max-height: 200px; opacity: 1; }
-.btn-ayudar { display: inline-block; padding: 12px 30px; border-radius: 30px; border: none; text-decoration: none; color: #333; font-weight: 600; font-size: 1.1rem; cursor: pointer; font-family: 'Poppins', sans-serif; background-image: var(--gradiente-btn); box-shadow: 0 8px 15px var(--sombra-btn); transition: transform 0.3s; margin-top: auto; }
+.btn-ayudar { display: inline-block; padding: 12px 30px; border-radius: 30px; border: none; text-decoration: none; color: #333; font-weight: 600; font-size: 1.1rem; cursor: pointer; font-family: 'DM Sans', sans-serif; background-image: var(--gradiente-btn); box-shadow: 0 8px 15px var(--sombra-btn); transition: transform 0.3s; margin-top: auto; }
 .btn-ayudar:hover { transform: translateY(-5px); }
 
 
 /* =========================================
-   10. INFORMES ANUALES
+   11. INFORMES ANUALES
    ========================================= */
-/* Contenedor de la cuadrícula */
 .informes-buttons-grid {
     display: grid;
-    /* Ajustamos para que quepan más botones y se vean bonitos */
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
     justify-content: center;
     gap: 1rem;
     padding: 0 1rem;
 }
 
-/* Estilo BASE del botón (Color 1: Rosa) */
 .btn-informe {
     display: inline-block;
-    padding: 12px 0; /* Padding horizontal 0 para centrar mejor en grid */
-    border-radius: 12px; /* Un poco más cuadrado, se ve moderno en listas largas */
+    padding: 12px 0; 
+    border-radius: 12px; 
     text-decoration: none;
     color: #ffffff;
     font-weight: 600;
@@ -398,20 +518,20 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* COLOR 2: NARANJA/DORADO (Pares) - El truco del patrón */
+/* COLOR 2: NARANJA/DORADO (Pares) */
 .btn-informe:nth-child(even) {
     background-image: linear-gradient(135deg, #f7d3e7 0%, #ef58a1 100%);
     box-shadow: 0 6px 15px rgba(255, 64, 156, 0.3);
 }
 
-/* Hover para ambos */
 .btn-informe:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
 }
 
+
 /* =========================================
-   11. CONTÁCTANOS
+   12. CONTÁCTANOS
    ========================================= */
 .contacto-section { width: 100%; margin: 4rem auto; padding: 4rem 2rem; box-sizing: border-box; border-top: 1px solid #ca4141; }
 .contacto-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -419,12 +539,12 @@ body {
 .contacto-info h2 { font-size: 2.8rem; font-weight: 700; color: #de3777; margin-bottom: 1.5rem; }
 .contacto-form-wrapper { background-color: #fbdfe5; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); }
 .form-tabs { display: flex; margin-bottom: 2rem; gap: 0.5rem; }
-.tab-button { flex-grow: 1; padding: 14px 20px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; background-color: #e0e0e0; color: #777; transition: all 0.3s ease; }
+.tab-button { flex-grow: 1; padding: 14px 20px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; background-color: #e0e0e0; color: #777; transition: all 0.3s ease; }
 .tab-button.is-active { background-color: #e98596; color: #000000; box-shadow: 0 5px 10px #f8058690; }
 .tab-button:nth-child(2).is-active { background-color: #f38e3a; color: #000000; box-shadow: none; }
 .contact-form { display: none; flex-direction: column; gap: 1rem; }
 .contact-form.is-active { display: flex; }
-.contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px 15px; border: 1px solid #8c4059; border-radius: 8px; font-size: 1rem; font-family: 'Poppins', sans-serif; box-sizing: border-box; }
+.contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px 15px; border: 1px solid #8c4059; border-radius: 8px; font-size: 1rem; font-family: 'DM Sans', sans-serif; box-sizing: border-box; }
 .btn-submit { display: inline-block; padding: 14px 30px; border-radius: 30px; border: none; text-decoration: none; color: #ffffff; font-weight: 600; font-size: 1.2rem; cursor: pointer; margin-top: 1rem; background-image: linear-gradient(135deg, #e74682 0%, #bd2a4a 100%); box-shadow: 0 8px 15px #d7113260; transition: transform 0.3s; }
 .btn-submit:hover { transform: translateY(-5px); }
 
@@ -435,7 +555,7 @@ body {
 
 
 /* =========================================
-   12. MARCAS BENEFICIARIAS
+   13. MARCAS BENEFICIARIAS
    ========================================= */
 .beneficiarias-section { width: 100%; margin: 4rem auto; padding: 4rem 0; box-sizing: border-box; text-align: center; border-top: 1px solid #eee; }
 .beneficiarias-section h2 { font-size: 2.8rem; font-weight: 700; color: #f24386; margin-bottom: 2rem; }
@@ -455,7 +575,7 @@ body {
 
 
 /* =========================================
-   13. GALERÍA ACORDEÓN
+   14. GALERÍA ACORDEÓN
    ========================================= */
 .galeria-acordeon { display: flex; width: 100%; max-width: 1100px; height: 430px; margin: 4rem auto; padding: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-radius: 12px; overflow: hidden; }
 .galeria-acordeon > img { flex: 1; width: 100px; object-fit: cover; opacity: .8; filter: grayscale(50%); transition: all 0.5s ease; }
@@ -463,7 +583,7 @@ body {
 
 
 /* =========================================
-   14. MEDIA QUERIES (CELULAR/TABLET)
+   15. VERSIÓN MÓVIL (RESPONSIVE DESIGN)
    ========================================= */
 
 /* --- Laptops pequeñas / Tablets en horizontal --- */
@@ -489,292 +609,55 @@ body {
 
 /* --- Celulares Grandes / Tablets Verticales --- */
 @media (max-width: 768px) {
-    /* Menú abajo estilo App */
-    .main-header { 
-       top: 10px; 
-        flex-direction: column; 
-        gap: 10px;
-    }
-    .main-logo-img {
-        height: 60px; 
-        width: auto;
-        object-fit: contain;
-
-        border-radius: 80px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    .expanding-menu { 
-        max-width: 100%; 
-        overflow-x: auto; /* Permite deslizar si los iconos no caben */
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.1); 
-    }
-    .menu-link { 
-        width: 45px; 
-        height: 45px; 
-        font-size: 1.4rem; 
-        flex-shrink: 0; 
-    }
-
-    /* Hero ajustado */
-    .hero-section { 
-        flex-direction: column; 
-        height: auto; 
-        min-height: 100vh; /* Asegura que cubra la pantalla al menos */
-    }
-    .hero-video-column { 
-        height: 40vh; /* Un poco menos de altura para dar espacio al texto */
-        min-height: 300px;
-    }
-    .hero-text-column { 
-        padding: 2rem 1.5rem; 
-        align-items: center; /* Centrar texto en móvil */
-        text-align: center;
-    }
-    .hero-buttons { 
-        flex-direction: row; 
-        align-items: center; 
-        justify-content: center;
-        width: 100%; 
-        flex-wrap: wrap; /* Permite que bajen si no caben */
-    }
-    .btn-hero { 
-        padding: 12px 20px; 
-        font-size: 1rem;
-    }
-
-    /* Ajustes de Grids */
-    .servicios-container { 
-        grid-template-columns: 1fr; 
-        gap: 2rem; 
-    }
-    .informes-buttons-grid { 
-        grid-template-columns: repeat(3, 1fr); 
-    }
-    .ayudar-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-    }
-
-    /* Textos */
-    h1, .hero-text-column h1 { font-size: 2.5rem !important; }
-    h2 { font-size: 2rem !important; }
-    .proposito-text, .reconocimientos-section > p, .informes-section p { 
-        font-size: 1rem; 
-        line-height: 1.6; 
-    }
-    
-    /* Espaciados */
-    .proposito-section, .reconocimientos-section, .informes-section, .ayudar-section, .impacto-section { 
-        margin-top: 2rem; 
-        padding-top: 3rem; 
-        padding-bottom: 3rem;
-    }
-}
-
-/* --- Celulares Pequeños --- */
-@media (max-width: 600px) {
-    .informes-buttons-grid { 
-        grid-template-columns: repeat(2, 1fr); /* Menos columnas para que los botones sean clicables */
-    }
-    .ayudar-grid { 
-        grid-template-columns: 1fr; 
-    }
-    .ayudar-card h3 { 
-        min-height: auto; 
-    }
-    .hero-buttons {
-        flex-direction: column; /* Botones uno encima del otro en pantallas muy angostas */
-        gap: 1rem;
-    }
-    .btn-hero {
-        width: 100%; /* Botones de ancho completo */
-        text-align: center;
-    }
-}
-
-@media (max-width: 500px) {
-    .impacto-content h2 { 
-        font-size: 2.5rem; 
-    }
-    .stats-grid { 
-        grid-template-columns: 1fr; 
-        gap: 2.5rem; 
-    }
-    .stat-number-wrapper { 
-        font-size: 2.5rem; 
-    }
-}
-/*
- * 15. SECCIÓN DE AGRADECIMIENTO
- */
-
-.agradecimiento-section {
-    width: 100%;
-    max-width: 1000px;
-    margin: 4rem auto; /* Margen arriba y abajo */
-    padding: 0 2rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-}
-
-.agradecimiento-card {
-    /* El mismo gradiente rosa de Monterrey */
-    background-image: linear-gradient(135deg, #e74682 0%, #e98596 100%);
-    
-    width: 100%;
-    border-radius: 40px; /* Bordes muy redondeados */
-    padding: 3rem;
-    text-align: center;
-    color: #ffffff; /* Texto blanco */
-    
-    /* Sombra rosa suave para que "flote" */
-    box-shadow: 0 15px 30px rgba(223, 22, 69, 0.3);
-    
-    /* Animación suave al aparecer */
-    animation: fade-in-up 1s ease-out;
-    animation-timeline: view();
-    animation-range: entry 20% cover 40%;
-    animation-fill-mode: both;
-}
-
-.agradecimiento-text {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-}
-
-.agradecimiento-text strong {
-    font-weight: 700; /* Negritas para resaltar lo importante */
-}
-
-.agradecimiento-icon ion-icon {
-    font-size: 3.5rem;
-    color: rgba(255, 255, 255, 0.9); /* Icono blanco casi sólido */
-    margin-top: 0.5rem;
-}
-
-/* Ajustes para celular */
-@media (max-width: 600px) {
-    .agradecimiento-card {
-        padding: 2rem;
-        border-radius: 25px;
-    }
-    .agradecimiento-text {
-        font-size: 1.1rem;
-    }
-}
-
-.agradecimiento-text strong {
-    font-weight: 700; /* Negritas para resaltar palabras clave */
-}
-
-.agradecimiento-icon ion-icon {
-    font-size: 3rem; /* Icono grande */
-    color: rgba(255, 255, 255, 0.8); /* Blanco semi-transparente */
-}
-
-/* Responsive para móvil */
-@media (max-width: 600px) {
-    .agradecimiento-card {
-        padding: 2rem;
-        border-radius: 25px;
-    }
-    .agradecimiento-text {
-        font-size: 1.1rem;
-    }
- /* * SECCIÓN AGRADECIMIENTO (TARJETA ROSA) 
- */
-.agradecimiento-section {
-    width: 100%;
-    max-width: 1000px; /* Un poco más angosta que el ancho total */
-    margin: 0 auto 4rem auto; /* Centrada y con margen abajo */
-    padding: 0 2rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-}
-
-.agradecimiento-card-grande {
-    /* El mismo gradiente rosa de tus botones MTY */
-    background-image: linear-gradient(135deg, #df1645 0%, #dd7687 100%);
-    
-    width: 100%;
-    border-radius: 40px; /* Bordes muy redondos */
-    padding: 3rem;
-    text-align: center;
-    color: #ffffff; /* Texto blanco */
-    box-shadow: 0 15px 30px rgba(223, 22, 69, 0.3); /* Sombra rosa */
-}
-
-.agradecimiento-texto {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    font-weight: 300;
-    margin-bottom: 1rem;
-}
-
-.agradecimiento-texto strong {
-    font-weight: 700; /* Negritas para resaltar */
-}
-
-.agradecimiento-icono ion-icon {
-    font-size: 3.5rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 1rem;
-}
-
-/* Ajuste para celular */
-@media (max-width: 600px) {
-    .agradecimiento-card-grande {
-        padding: 2rem;
-        border-radius: 25px;
-    }
-    .agradecimiento-texto {
-        font-size: 1.1rem;
-    }
-}
-
-/* =========================================
-   15. VERSIÓN MÓVIL (RESPONSIVE DESIGN)
-   ========================================= */
-
-@media (max-width: 768px) {
 
     /* --- 1. AJUSTES GENERALES DE TEXTO --- */
     h1 { font-size: 2.2rem !important; }
     h2 { font-size: 1.8rem !important; }
     p { font-size: 1rem !important; line-height: 1.5 !important; }
     
-    /* --- 2. MENÚ FLOTANTE (ABAJO) --- */
-    /* En celular es mejor tener el menú abajo para alcanzarlo con el pulgar */
+    /* --- 2. HEADER Y MENÚ FLOTANTE --- */
     .main-header {
         top: auto; 
         bottom: 20px; 
         padding: 0 15px;
+        flex-direction: row; /* En horizontal para el menú */
+        gap: 0;
+        display: block; /* Para manejar posicionamiento */
     }
+    
+    /* Logo oculto en versión móvil si estorba, o ajustado arriba */
+    .logo-container {
+        display: none; /* Ocultamos el logo del menú flotante en móvil para simplificar */
+    }
+
     .expanding-menu {
         width: 100%;
-        overflow-x: auto; /* Permite deslizar a los lados si los iconos no caben */
-        justify-content: flex-start; /* Alinea al inicio */
+        overflow-x: auto; 
+        justify-content: flex-start; 
         padding: 10px;
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.15); /* Sombra hacia arriba */
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.15); 
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        max-width: 95%;
     }
     .menu-link {
-        flex-shrink: 0; /* Evita que los botones se aplasten */
+        flex-shrink: 0; 
         width: 50px;
         height: 50px;
     }
 
     /* --- 3. HERO (VIDEO Y TEXTO) --- */
     .hero-section {
-        flex-direction: column; /* Pone el video arriba y texto abajo */
+        flex-direction: column; 
         height: auto;
         min-height: 100vh;
     }
     .hero-video-column {
         width: 100%;
-        height: 40vh; /* El video ocupa menos de la mitad */
+        height: 40vh; 
     }
     .hero-text-column {
         width: 100%;
@@ -782,22 +665,21 @@ body {
         text-align: center;
     }
     .hero-buttons {
-        flex-direction: column; /* Botones uno encima del otro */
+        flex-direction: column; 
         gap: 1rem;
     }
     .btn-hero {
-        width: 100%; /* Botones anchos para fácil clic */
+        width: 100%; 
         text-align: center;
     }
 
     /* --- 4. TODAS LAS CUADRÍCULAS A 1 COLUMNA --- */
-    /* Esto hace que las tarjetas se apilen verticalmente */
     .servicios-container,
     .ayudar-grid,
     .stats-grid,
     .reconocimientos-grid,
     .contacto-container {
-        grid-template-columns: 1fr !important; /* Fuerza 1 sola columna */
+        grid-template-columns: 1fr !important; 
         gap: 2rem;
         padding-left: 1rem;
         padding-right: 1rem;
@@ -806,7 +688,7 @@ body {
 
     /* --- 5. AJUSTES ESPECÍFICOS --- */
     
-    /* Informes (Años): Que se vean 3 por fila en vez de 1 */
+    /* Informes (Años): 3 por fila */
     .informes-buttons-grid {
         grid-template-columns: repeat(3, 1fr) !important;
     }
@@ -821,7 +703,7 @@ body {
     }
 
     /* Agradecimiento */
-    .agradecimiento-card-grande {
+    .agradecimiento-card {
         padding: 2rem 1.5rem;
         border-radius: 25px;
     }
@@ -831,11 +713,11 @@ body {
 
     /* Carruseles */
     .testimonial-card {
-        width: 280px; /* Hacemos las tarjetas un poco más angostas para móvil */
+        width: 280px; 
         padding: 1.5rem;
     }
     .logo-item {
-        width: 150px; /* Logos más pequeños */
+        width: 150px; 
         height: 80px;
     }
     
@@ -844,4 +726,43 @@ body {
         padding-top: 3rem !important;
         padding-bottom: 3rem !important;
     }
+}
+
+/* --- Celulares Pequeños --- */
+@media (max-width: 600px) {
+    .informes-buttons-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+    }
+    .ayudar-card h3 { 
+        min-height: auto; 
+    }
+}
+
+/* =========================================
+   ESTILOS PARA ANIMACIÓN SCROLL EN MÓVIL
+   ========================================= */
+
+/* Esta clase se agregará automáticamente con JS cuando la tarjeta sea visible */
+.servicio-card-expand.mobile-active .expand-bg {
+    transform: scale(14);
+}
+
+.servicio-card-expand.mobile-active .expand-desc { 
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px;
+}
+
+.servicio-card-expand.mobile-active .expand-content {
+    color : #ffffff; /* Texto en blanco */
+}
+
+.servicio-card-expand.mobile-active .expand-icon { 
+    transform: scale(1.1);
+    margin-bottom: 0.5rem;
+}
+
+/* Excepción para la tarjeta de Educación (fondo claro) */
+.servicio-card-expand.light-card.mobile-active .expand-content {
+    color: #C2185B; 
 }

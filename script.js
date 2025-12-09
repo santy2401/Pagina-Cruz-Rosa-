@@ -110,3 +110,40 @@ function animateCounter(counter) {
         counter.innerText = Math.ceil(current).toLocaleString('es-MX');
     }, 16);
 }
+
+/* =========================================
+   ANIMACIÓN DE TARJETAS AL HACER SCROLL (SOLO MÓVIL)
+   ========================================= */
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Detectamos si es un dispositivo móvil (pantalla menor a 768px)
+    if (window.innerWidth <= 768) {
+        
+        const cards = document.querySelectorAll('.servicio-card-expand');
+
+        // Configuración del observador
+        const observerOptions = {
+            root: null, // Usa la ventana del navegador como referencia
+            rootMargin: '0px',
+            threshold: 0.6 // LA MAGIA: Se activa cuando el 60% de la tarjeta es visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Si la tarjeta entra en pantalla:
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('mobile-active');
+                } 
+                // Si la tarjeta sale de la pantalla (Opcional: quita esto si quieres que se queden abiertas)
+                else {
+                    entry.target.classList.remove('mobile-active');
+                }
+            });
+        }, observerOptions);
+
+        // Empezar a observar cada tarjeta
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    }
+});
