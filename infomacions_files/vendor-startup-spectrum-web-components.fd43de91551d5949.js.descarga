@@ -1,0 +1,1128 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([["13616"],{484861:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("recommended-colors",(0,r.css)`
+            .heading {
+                display: var(--hz-mod-color-picker-recommended-header-display, block);
+            }
+        `)}},891811:function(t,e,o){o(189409)},476430:function(t,e,o){o(266608)},731761:function(t,e,o){o(943187)},415181:function(t,e,o){o(937660)},369078:function(t,e,o){o(947762)},387036:function(t,e,o){o(135944)},114711:function(t,e,o){o.r(e),o(457428)},987921:function(t,e,o){o(907931)},81794:function(t,e,o){o(939414)},57094:function(t,e,o){o(647378)},901455:function(t,e,o){o(239244)},129378:function(t,e,o){o(35)},175819:function(t,e,o){o(196352)},759666:function(t,e,o){o(628949)},174331:function(t,e,o){o(110231)},314282:function(t,e,o){o.r(e),o(95930)},905386:function(t,e,o){o.r(e),o(343999)},865223:function(t,e,o){o(618182)},329079:function(t,e,o){o(60851)},361853:function(t,e,o){o(712123)},674324:function(t,e,o){o(936139)},805964:function(t,e,o){o(782628)},383650:function(t,e,o){o.r(e),o(868719)},667275:function(t,e,o){o(315869)},347614:function(t,e,o){o(301666)},30282:function(t,e,o){o.r(e),o(945400)},725664:function(t,e,o){o.r(e),o(131339)},856854:function(t,e,o){o.r(e),o(553355)},349336:function(t,e,o){o(411071)},287848:function(t,e,o){o(993353)},63855:function(t,e,o){o(884320)},925543:function(t,e,o){o(565056)},489028:function(t,e,o){o(686059)},431568:function(t,e,o){o(206429)},845385:function(t,e,o){o(487707)},678642:function(t,e,o){o(685812)},553968:function(t,e,o){o(444002)},411765:function(t,e,o){o(290745)},494410:function(t,e,o){o.r(e),o(981076)},472057:function(t,e,o){o(445174)},88041:function(t,e,o){o(632581)},902009:function(t,e,o){o(340930)},601068:function(t,e,o){o(134763)},943792:function(t,e,o){o(658265)},799868:function(t,e,o){o(787733)},889782:function(t,e,o){o(449411)},614996:function(t,e,o){o(627617)},201339:function(t,e,o){o(140675)},955071:function(t,e,o){o(716777)},867101:function(t,e,o){o(532006)},338966:function(t,e,o){o(368509)},736690:function(t,e,o){o(90091)},513797:function(t,e,o){o(332164)},699865:function(t,e,o){o(915813)},736609:function(t,e,o){o(54154)},128858:function(t,e,o){o(392689)},385861:function(t,e,o){o(588786)},715601:function(t,e,o){o.d(e,{e:()=>d,Z:()=>s});var r,s,i=o(549744),n=o(907353),c=o(422038);let a=(0,n.css)`
+    :host {
+        display: block;
+        width: var(--mod-callout-width, 100%);
+        border-radius: var(--spectrum-corner-radius-100);
+        font-size: var(--spectrum-font-size-100);
+
+        --sx-callout-icon-color: var(--spectrum-gray-800);
+        --sx-callout-content-color: var(--spectrum-gray-800);
+        --mod-closebutton-height: var(--spectrum-component-height-200);
+        --mod-closebutton-width: var(--spectrum-component-height-200);
+        --mod-closebutton-icon-color-default: var(--spectrum-gray-800);
+    }
+
+    .body {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: var(--spectrum-spacing-100);
+        padding: var(--spectrum-spacing-300);
+        color: var(--sx-callout-content-color);
+        flex-grow: 1;
+    }
+
+    .close {
+        padding-block: var(--spectrum-spacing-75);
+        padding-inline-end: var(--spectrum-spacing-75);
+    }
+
+    .icon {
+        color: var(--sx-callout-icon-color);
+        flex-shrink: 0;
+        padding-block: var(--spectrum-spacing-300);
+        padding-inline-start: var(--spectrum-spacing-300);
+    }
+
+    ::slotted([slot="title"]) {
+        margin: 0;
+        font-size: var(--spectrum-font-size-200);
+        font-weight: var(--spectrum-bold-font-weight);
+    }
+
+    :host([variant="neutral"]) {
+        background-color: var(--spectrum-gray-100);
+    }
+
+    :host([variant="informative"]) {
+        --sx-callout-icon-color: var(--spectrum-accent-color-800);
+        background-color: var(--spectrum-indigo-200);
+    }
+
+    :host([variant="positive"]) {
+        --sx-callout-icon-color: var(--spectrum-green-800);
+        background-color: var(--spectrum-green-200);
+    }
+
+    :host([variant="notice"]) {
+        --sx-callout-icon-color: var(--spectrum-orange-800);
+        background-color: var(--spectrum-orange-200);
+    }
+
+    :host([variant="negative"]) {
+        --sx-callout-icon-color: var(--spectrum-red-800);
+        background-color: var(--spectrum-red-200);
+    }
+
+    :host([variant="premium"]) {
+        --mod-closebutton-icon-color-default: var(--sx-static-gray-800);
+        background: var(--sx-premium-subdued-background-color-default);
+    }
+
+    :host([variant="premium"]) .icon {
+        width: var(--spectrum-workflow-icon-size-200);
+        height: var(--spectrum-workflow-icon-size-200);
+    }
+
+    :host([variant="premium"]) .content {
+        color: var(--sx-static-gray-800);
+    }
+`;var l=o(925586);(r=s||(s={})).neutral="neutral",r.informative="informative",r.positive="positive",r.notice="notice",r.negative="negative",r.premium="premium";let u=Object.values(s);class d extends n.LitElement{constructor(){super(...arguments),this.open=!1,this.dismissable=!1,this.hideIcon=!1,this._variant=s.neutral}static get styles(){return a}get variant(){return this._variant}set variant(t){t!==this.variant&&(this.requestUpdate("variant",this.variant),u.includes(t)?this._variant=t:this._variant=s.neutral,this.setAttribute("variant",this.variant))}firstUpdated(t){super.firstUpdated(t),this.hasAttribute("variant")||this.setAttribute("variant",this.variant)}_shouldClose(){this.dispatchEvent(new CustomEvent("close",{composed:!0,bubbles:!0,cancelable:!0}))&&this.close()}close(){this.open=!1}_renderIcon(){switch(this.variant){case s.neutral:case s.informative:return(0,n.html)`<sx-icon-info class="icon"></sx-icon-info>`;case s.positive:return(0,n.html)`<sx-icon-checkmark-circle class="icon"></sx-icon-checkmark-circle>`;case s.notice:case s.negative:return(0,n.html)`<sx-icon-alert class="icon"></sx-icon-alert>`;case s.premium:return(0,n.html)`<sx-icon-premium class="icon"></sx-icon-premium>`;default:return n.nothing}}_renderCloseButton(){return this.dismissable?(0,n.html)` <div class="close">
+            <sp-close-button
+                quiet
+                label="Close"
+                size="xl"
+                static-color="black"
+                @click=${()=>this._shouldClose()}
+            ></sp-close-button>
+        </div>`:n.nothing}render(){return this.open?(0,n.html)`
+            <div class="body" role="alert">
+                ${(0,l.z)(!this.hideIcon,()=>(0,n.html)`<slot name="icon">${this._renderIcon()}</slot>`)}
+                <div class="content">
+                    <slot name="title"></slot>
+                    <slot></slot>
+                    <slot name="action"></slot>
+                </div>
+                ${this._renderCloseButton()}
+            </div>
+        `:n.nothing}}d.TAG_NAME="sx-callout",(0,i.__decorate)([(0,c.property)({type:Boolean,reflect:!0})],d.prototype,"open",void 0),(0,i.__decorate)([(0,c.property)({type:Boolean})],d.prototype,"dismissable",void 0),(0,i.__decorate)([(0,c.property)({type:Boolean,attribute:"hide-icon"})],d.prototype,"hideIcon",void 0),(0,i.__decorate)([(0,c.property)()],d.prototype,"variant",null)},713626:function(t,e,o){var r=o(715601);o(155514),o(255165),o(912950),o(88298),o(960801),customElements.get(r.e.TAG_NAME)||customElements.define(r.e.TAG_NAME,r.e)},192635:function(t,e,o){o.d(e,{Q:()=>s});var r=o(907353);let s=({hidden:t=!1,title:e="Alert",size:o="s"}={})=>"s"===o?(0,r.html)` <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden=${t?"true":"false"}
+              role="img"
+              fill="currentColor"
+              aria-label=${e}
+              viewBox="0 0 18 18"
+          >
+              <path
+                  d="M9 10.5a1 1 0 0 1-1-1V5a1 1 0 1 1 2 0v4.5a1 1 0 0 1-1 1Zm0 1.25a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Zm8.497 3.589a3.49 3.49 0 0 0 .079-3.474L12 1.815C11.394.68 10.273 0 9 0 7.732 0 6.613.676 6.007 1.808L.416 11.88a3.485 3.485 0 0 0 .089 3.459A3.375 3.375 0 0 0 3.416 17h11.169c1.199 0 2.288-.621 2.912-1.661ZM10.244 2.77l5.575 10.05c.253.473.238 1.03-.037 1.489-.264.438-.7.69-1.197.69H3.416c-.498 0-.933-.252-1.197-.69a1.493 1.493 0 0 1-.046-1.474l5.593-10.08C8.018 2.284 8.48 2 9.001 2s.982.283 1.243.771Z"
+              />
+          </svg>`:(0,r.html)` <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden=${t?"true":"false"}
+              role="img"
+              fill="currentColor"
+              aria-label=${e}
+              viewBox="0 0 22 22"
+          >
+              <path
+                  d="M11 13a1 1 0 0 1-1-1V6a1 1 0 1 1 2 0v6a1 1 0 0 1-1 1Zm0 1.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Zm10.39 4.3c.77-1.273.815-2.82.114-4.153L14.53 2.163C13.82.81 12.5 0 11.001 0 9.505 0 8.188.806 7.474 2.155L.49 14.912a4.18 4.18 0 0 0 .12 4.139C1.348 20.27 2.623 21 4.022 21H17.98c1.399 0 2.674-.729 3.41-1.95ZM12.77 3.11l6.972 12.734c.364.692.341 1.505-.063 2.174-.377.624-.996.982-1.7.982H4.022c-.703 0-1.322-.358-1.699-.982a2.188 2.188 0 0 1-.07-2.16L9.238 3.095C9.6 2.409 10.26 2 11.001 2s1.4.41 1.769 1.11Z"
+              />
+          </svg>`},691724:function(t,e,o){o.d(e,{x:()=>s});var r=o(907353);let s=({hidden:t=!1,title:e="Checkmark Circle",size:o="s"}={})=>"s"===o?(0,r.html)` <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden=${t?"true":"false"}
+              role="img"
+              fill="currentColor"
+              aria-label=${e}
+              viewBox="0 0 18 18"
+          >
+              <path
+                  d="M9.016 18a8.944 8.944 0 0 1-6.797-3.087A8.94 8.94 0 0 1 .023 8.386c.164-2.398 1.253-4.59 3.065-6.17S7.217-.137 9.618.02a8.944 8.944 0 0 1 6.168 3.066c3.26 3.74 2.871 9.436-.869 12.698A8.934 8.934 0 0 1 9.016 18ZM8.992 2c-1.69 0-3.304.603-4.59 1.724a7.008 7.008 0 0 0-.675 9.876 6.95 6.95 0 0 0 4.797 2.384 6.932 6.932 0 0 0 5.079-1.707 7.008 7.008 0 0 0 .675-9.876A6.947 6.947 0 0 0 9.48 2.016 6.817 6.817 0 0 0 8.992 2Zm-.83 11.26a1 1 0 0 0 .713-.395l4.924-6.546A1 1 0 1 0 12.2 5.115L7.947 10.77 5.401 8.38a1.001 1.001 0 0 0-1.369 1.459l3.36 3.154a1.001 1.001 0 0 0 .77.267Z"
+              />
+          </svg>`:(0,r.html)` <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden=${t?"true":"false"}
+              role="img"
+              fill="currentColor"
+              aria-label=${e}
+              viewBox="0 0 22 22"
+          >
+              <path
+                  d="M11 22C4.935 22 0 17.065 0 11S4.935 0 11 0s11 4.935 11 11-4.935 11-11 11Zm0-20c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9Zm-.858 13.948a.998.998 0 0 0 .712-.395L16.8 7.648a.999.999 0 1 0-1.598-1.2L9.927 13.46l-3.242-3.045a.999.999 0 1 0-1.37 1.457l4.056 3.809a1.002 1.002 0 0 0 .77.267Z"
+              />
+          </svg>`},148439:function(t,e,o){o.d(e,{G:()=>s});var r=o(907353);let s=({hidden:t=!1,title:e="Info",size:o="s"}={})=>"s"===o?(0,r.html)` <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden=${t?"true":"false"}
+              role="img"
+              fill="currentColor"
+              aria-label=${e}
+              viewBox="0 0 18 18"
+          >
+              <path d="M9 8a1 1 0 0 0-1 1v4a1 1 0 1 0 2 0V9a1 1 0 0 0-1-1Z" />
+              <circle cx="9" cy="5.5" r="1.5" />
+              <path
+                  d="M9 0C4.037 0 0 4.037 0 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9Zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7Z"
+              />
+          </svg>`:(0,r.html)` <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden=${t?"true":"false"}
+              role="img"
+              fill="currentColor"
+              aria-label=${e}
+              viewBox="0 0 22 22"
+          >
+              <path d="M11 9a1 1 0 0 0-1 1v7a1 1 0 1 0 2 0v-7a1 1 0 0 0-1-1Z" />
+              <circle cx="11" cy="6" r="1.5" />
+              <path
+                  d="M11 0C4.935 0 0 4.935 0 11s4.935 11 11 11 11-4.935 11-11S17.065 0 11 0Zm0 20c-4.963 0-9-4.037-9-9s4.037-9 9-9 9 4.037 9 9-4.037 9-9 9Z"
+              />
+          </svg>`},119976:function(t,e,o){o.d(e,{D:()=>s});var r=o(907353);let s=({hidden:t=!1,title:e="Premium"}={})=>(0,r.html)`
+        <svg
+            aria-hidden=${t?"true":"false"}
+            aria-label=${e}
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+        >
+            <g clip-path="url(#clip0_3570_9278)">
+                <path
+                    d="M9 0C13.9706 0 18 4.02943 18 9C18 13.9706 13.9706 18 9 18C4.02943 18 0 13.9706 0 9C0 4.02943 4.02943 0 9 0Z"
+                    fill="white"
+                />
+                <path
+                    d="M13.8631 6.47762C13.6991 6.22189 13.3588 6.14743 13.1031 6.31138C12.6278 6.6309 12.1728 6.98037 11.7415 7.3577C11.4896 7.56825 11.2463 7.77128 11.0057 7.95605C10.8053 7.60155 10.6071 7.22664 10.4084 6.85066C10.099 6.2652 9.78855 5.67866 9.46843 5.16087C9.4303 5.10655 9.38303 5.05929 9.32878 5.02115C9.07042 4.83994 8.71404 4.90252 8.53277 5.16087C8.20351 5.6937 7.88553 6.29312 7.57239 6.88611C7.37903 7.25135 7.18727 7.61444 6.99499 7.95497C6.7549 7.77127 6.51265 7.56824 6.26128 7.3577C5.8289 6.98037 5.37342 6.63017 4.89753 6.30923C4.78688 6.23833 4.65476 6.20932 4.52477 6.22746C4.22371 6.26935 4.01342 6.54738 4.05533 6.84851C4.19981 7.77786 4.39103 8.69929 4.62844 9.60931C4.84624 10.4386 5.02215 11.2783 5.15535 12.1252C5.19268 12.3974 5.42525 12.6001 5.7 12.6H12.3001C12.5752 12.6002 12.8077 12.3974 12.8448 12.1251C12.9785 11.2742 13.1552 10.4306 13.3739 9.59742C13.6107 8.69177 13.8014 7.77463 13.9448 6.84958C13.9628 6.7198 13.9338 6.58787 13.8631 6.47762Z"
+                    fill="url(#paint0_linear_3570_9278)"
+                />
+            </g>
+            <defs>
+                <linearGradient
+                    id="paint0_linear_3570_9278"
+                    x1="6.03509"
+                    y1="6.42386"
+                    x2="13.5776"
+                    y2="12.8364"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop offset="0.13391" stop-color="#EB577C" />
+                    <stop offset="0.92258" stop-color="#5A60D7" />
+                </linearGradient>
+                <clipPath id="clip0_3570_9278">
+                    <rect width="18" height="18" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+    `},88298:function(t,e,o){var r=o(907353),s=o(299046),i=o(192635);class n extends s.z{static get styles(){return[s.z.styles,(0,r.css)`
+                :host,
+                ::slotted(*),
+                img,
+                svg {
+                    width: unset;
+                }
+            `]}render(){return(0,i.Q)({hidden:!this.label,title:this.label,size:this.size})}}customElements.define("sx-icon-alert",n)},912950:function(t,e,o){var r=o(907353),s=o(299046),i=o(691724);class n extends s.z{static get styles(){return[s.z.styles,(0,r.css)`
+                :host,
+                ::slotted(*),
+                img,
+                svg {
+                    width: unset;
+                }
+            `]}render(){return(0,i.x)({hidden:!this.label,title:this.label,size:this.size})}}customElements.define("sx-icon-checkmark-circle",n)},255165:function(t,e,o){var r=o(907353),s=o(299046),i=o(148439);class n extends s.z{static get styles(){return[s.z.styles,(0,r.css)`
+                :host,
+                ::slotted(*),
+                img,
+                svg {
+                    width: unset;
+                }
+            `]}render(){return(0,i.G)({hidden:!this.label,title:this.label,size:this.size})}}customElements.define("sx-icon-info",n)},960801:function(t,e,o){var r=o(907353),s=o(299046),i=o(119976);class n extends s.z{static get styles(){return[s.z.styles,(0,r.css)`
+                :host,
+                ::slotted(*),
+                img,
+                svg {
+                    width: unset;
+                }
+            `]}render(){return(0,i.D)({hidden:!this.label,title:this.label})}}customElements.define("sx-icon-premium",n)},702277:function(t,e,o){o.d(e,{Ji:()=>p,el:()=>d,ww:()=>s});var r,s,i=o(549744),n=o(124480),c=o(907353);let a=(0,c.css)`
+    :host {
+        --mod-toast-spacing-bottom-edge-to-text: var(--spectrum-spacing-300);
+        --mod-toast-spacing-text-to-action-button-horizontal: var(--spectrum-spacing-100);
+
+        --mod-toast-spacing-close-button: 0;
+
+        --mod-toast-spacing-text-and-action-button-to-divider: 0px;
+
+        --mod-button-border-width: 2px;
+
+        pointer-events: all;
+
+        max-width: var(--mod-toast-max-width, 576px);
+    }
+
+    ::slotted(.force-wrap) {
+        white-space: normal;
+    }
+
+    .body + .buttons {
+        border-inline-start: none;
+    }
+
+    .closeButton {
+        margin-inline: 8px;
+    }
+
+    .content ::slotted(p) {
+        margin-block: 0;
+    }
+
+    :host([variant="neutral"]) {
+        background-color: var(--spectrum-gray-800);
+        --mod-toast-text-and-icon-color: var(--spectrum-gray-25);
+        --mod-closebutton-icon-color-default: var(--x-transparent-white-900);
+    }
+
+    :host([variant="neutral-subdued"]) {
+        background-color: var(--spectrum-gray-100);
+        --mod-toast-text-and-icon-color: var(--spectrum-gray-700);
+        --mod-closebutton-icon-color-default: var(--spectrum-gray-800);
+    }
+
+    :host([variant="informative"]) {
+        background-color: var(--spectrum-blue-900);
+        --mod-toast-text-and-icon-color: var(--spectrum-gray-25);
+        --mod-closebutton-icon-color-default: var(--x-transparent-white-900);
+    }
+
+    :host([variant="informative-subdued"]) {
+        background-color: var(--spectrum-indigo-100);
+        --mod-toast-text-and-icon-color: var(--spectrum-gray-800);
+        --mod-closebutton-icon-color-default: var(--spectrum-gray-800);
+    }
+
+    :host([variant="informative-subdued"]) .type {
+        color: var(--spectrum-accent-color-800);
+    }
+
+    :host([variant="positive"]) {
+        background-color: var(--spectrum-green-900);
+        --mod-toast-text-and-icon-color: var(--spectrum-gray-25);
+        --mod-closebutton-icon-color-default: var(--x-transparent-white-900);
+    }
+
+    :host([variant="positive-subdued"]) {
+        background-color: var(--spectrum-green-100);
+        --mod-toast-text-and-icon-color: var(--spectrum-gray-800);
+        --mod-closebutton-icon-color-default: var(--spectrum-gray-800);
+    }
+
+    :host([variant="positive-subdued"]) .type {
+        color: var(--spectrum-green-800);
+    }
+
+    :host([variant="negative"]) {
+        background-color: var(--spectrum-red-900);
+        --mod-toast-text-and-icon-color: var(--spectrum-gray-25);
+        --mod-closebutton-icon-color-default: var(--x-transparent-white-900);
+    }
+
+    :host([variant="notice"]) {
+        background-color: var(--spectrum-orange-100);
+        --mod-toast-text-and-icon-color: var(--spectrum-gray-800);
+        --mod-closebutton-icon-color-default: var(--spectrum-gray-800);
+    }
+
+    :host([variant="notice"]) .type {
+        color: var(--spectrum-orange-800);
+    }
+
+    :host([variant="premium"]) {
+        background: var(--sx-premium-subdued-background-color-default);
+        --mod-toast-text-and-icon-color: var(--sx-static-gray-800);
+        --mod-closebutton-icon-color-default: var(--sx-static-gray-800);
+    }
+`;var l=o(422038);(r=s||(s={})).NEUTRAL="neutral",r.NEUTRAL_SUBDUED="neutral-subdued",r.INFORMATIVE="informative",r.INFORMATIVE_SUBDUED="informative-subdued",r.POSITIVE="positive",r.POSITIVE_SUBDUED="positive-subdued",r.NEGATIVE="negative",r.NOTICE="notice",r.PREMIUM="premium";let u=Object.values(s),d=[s.NEUTRAL_SUBDUED,s.INFORMATIVE_SUBDUED,s.POSITIVE_SUBDUED,s.NOTICE,s.PREMIUM];class p extends n.y{constructor(){super(...arguments),this.dataTestId=`sx-toast-${this.sxVariant}`,this._sxVariant=""}static get styles(){return[...n.y.styles,a]}set sxVariant(t){if(t===this.sxVariant)return;let e=this.sxVariant;u.includes(t)?(this.setAttribute("variant",t),this._sxVariant=t):(this.removeAttribute("variant"),this._sxVariant=""),this.requestUpdate("variant",e)}get sxVariant(){return this._sxVariant}_renderIcon(t){switch(t){case s.NEUTRAL:case s.NEUTRAL_SUBDUED:case s.INFORMATIVE:case s.INFORMATIVE_SUBDUED:return(0,c.html)` <sx-icon-info class="type"></sx-icon-info> `;case s.POSITIVE:case s.POSITIVE_SUBDUED:return(0,c.html)` <sx-icon-checkmark-circle class="type"></sx-icon-checkmark-circle> `;case s.NEGATIVE:case s.NOTICE:return(0,c.html)` <sx-icon-alert class="type"></sx-icon-alert> `;case s.PREMIUM:return(0,c.html)` <sx-icon-premium class="type"></sx-icon-premium> `;default:return(0,c.html)` <sx-icon-info class="type"></sx-icon-info> `}}_shouldClose(){this.dispatchEvent(new CustomEvent("close",{composed:!0,bubbles:!0,cancelable:!0}))&&this.close()}_resolveCloseButtonVariant(){return d.includes(this.sxVariant)?"black":"white"}render(){return(0,c.html)`
+            ${this._renderIcon(this.sxVariant)}
+            <div class="body" role="alert" data-testid=${this.dataTestId}>
+                <div class="content">
+                    <slot></slot>
+                </div>
+                <slot name="action"></slot>
+            </div>
+            <div class="buttons">
+                <sp-close-button
+                    @click=${this._shouldClose}
+                    label="Close"
+                    static-color=${this._resolveCloseButtonVariant()}
+                    class="closeButton"
+                ></sp-close-button>
+            </div>
+        `}}p.TAG_NAME="sx-toast",(0,i.__decorate)([(0,l.property)({type:String,attribute:"variant",reflect:!0})],p.prototype,"sxVariant",null),(0,i.__decorate)([(0,l.property)({type:String})],p.prototype,"dataTestId",void 0)},601336:function(t,e,o){var r=o(702277);o(255165),o(912950),o(88298),o(960801),customElements.get(r.Ji.TAG_NAME)||customElements.define(r.Ji.TAG_NAME,r.Ji)},121427:function(t,e,o){o(977398)},563107:function(t,e,o){o(791172)},934873:function(t,e,o){o(255884)},15805:function(t,e,o){o.r(e),o(450851)},676737:function(t,e,o){o.r(e),o(774388)},833075:function(t,e,o){o.r(e),o(739946)},998869:function(t,e,o){o(250715)},242375:function(t,e,o){o(452780)},136877:function(t,e,o){o(847937)},652877:function(t,e,o){o(588627)},126633:function(t,e,o){o(456372)},296057:function(t,e,o){o(88548)},155514:function(t,e,o){o(293725)},35073:function(t,e,o){o(105406)},673981:function(t,e,o){o(241153)},987224:function(t,e,o){o(870964)},557613:function(t,e,o){o(294220)},247233:function(t,e,o){o(671197)},477543:function(t,e,o){o(207552)},770347:function(t,e,o){o.r(e),o(174773)},509557:function(t,e,o){o(895284)},724765:function(t,e,o){o(927643)},911845:function(t,e,o){o(683485)},12075:function(t,e,o){o(96860)},338989:function(t,e,o){o(919863)},975653:function(t,e,o){o(889111)},409837:function(t,e,o){o(936110)},83117:function(t,e,o){o(24324)},236125:function(t,e,o){o(316194)},887877:function(t,e,o){o(732260)},747809:function(t,e,o){o(62369)},289867:function(t,e,o){o(316944)},513505:function(t,e,o){o(471717)},12165:function(t,e,o){o(59009)},727109:function(t,e,o){o(665696)},981552:function(t,e,o){o(129764)},603603:function(t,e,o){o(728015)},724365:function(t,e,o){o(217641)},979817:function(t,e,o){o(555375)},412929:function(t,e,o){o(195578)},281421:function(t,e,o){o(741775)},735641:function(t,e,o){o(330321)},768615:function(t,e,o){o(787906)},223651:function(t,e,o){o(868995)},270301:function(t,e,o){o(995233)},837097:function(t,e,o){o(708547)},156523:function(t,e,o){o(855472)},940123:function(t,e,o){o(85783)},611437:function(t,e,o){o(464656)},655487:function(t,e,o){o(223273)},533607:function(t,e,o){o.d(e,{x:()=>r});let r=51532==o.j?{toNormalized:(t,e,o)=>t<100?(t-e)/(100-e)*.5:.5*(1+(t-100)/(o-100)),fromNormalized:(t,e,o)=>t<.5?2*t*(100-e)+e:2*(t-.5)*(o-100)+100}:null},344189:function(t,e,o){o(969806)},54655:function(t,e,o){o(696160)},644857:function(t,e,o){o(889549)},66105:function(t,e,o){o(462033)},583840:function(t,e,o){o(520144)},903236:function(t,e,o){o(10501)},175750:function(t,e,o){o(983393)},898807:function(t,e,o){o(647089)},752690:function(t,e,o){o(323320)},773315:function(t,e,o){o(669640)},519937:function(t,e,o){o(835312)},887494:function(t,e,o){o(789653)},509832:function(t,e,o){o(552373)},333101:function(t,e,o){o(351929)},372814:function(t,e,o){o(333528)},554597:function(t,e,o){o(64864)},435457:function(t,e,o){o(657111)},390029:function(t,e,o){o(3509)},90541:function(t,e,o){o(887413)},286425:function(t,e,o){o(669383)},507376:function(t,e,o){o(660128)},670237:function(t,e,o){o(611533)},434936:function(t,e,o){if(o.d(e,{A:()=>s}),51532==o.j)var r=o(71796);let s=51532==o.j?r.A:null},940493:function(t,e,o){if(o.d(e,{A:()=>s}),51532==o.j)var r=o(364137);let s=51532==o.j?r.A:null},91380:function(t,e,o){if(o.d(e,{A:()=>s}),51532==o.j)var r=o(252984);let s=51532==o.j?r.A:null},5589:function(t,e,o){if(o.d(e,{A:()=>s}),51532==o.j)var r=o(339245);let s=51532==o.j?r.A:null},451531:function(t,e,o){if(o.d(e,{A:()=>s}),51532==o.j)var r=o(659491);let s=51532==o.j?r.A:null},22001:function(t,e,o){if(o.d(e,{A:()=>s}),51532==o.j)var r=o(239893);let s=51532==o.j?r.A:null},532273:function(t,e,o){if(o.d(e,{S:()=>r.S}),51532==o.j)var r=o(194083)},345845:function(t,e,o){o.r(e);var r=o(964348);o(353833);var s=o(23937);o(391231);var i=o(460958);r.S.registerThemeFragment("large-express","scale",s.A),r.S.registerThemeFragment("large-spectrum-two","scale",i.A)},592207:function(t,e,o){o.r(e);var r=o(964348);o(118667);var s=o(957209);o(10197);var i=o(220900);r.S.registerThemeFragment("medium-express","scale",s.A),r.S.registerThemeFragment("medium-spectrum-two","scale",i.A)},67674:function(t,e,o){o(44487)},953282:function(t,e,o){o.r(e),o(391231)},603598:function(t,e,o){o.r(e),o(10197)},260268:function(t,e,o){o.r(e),o(336279)},258194:function(t,e,o){o.r(e),o(940991)},311657:function(t,e,o){o.r(e),o(679805)},182091:function(t,e,o){o.r(e),o(846608)},595949:function(t,e,o){o.r(e),o(341877)},442309:function(t,e,o){o.r(e),o(496919)},647598:function(t,e,o){o.d(e,{R:()=>s});var r=o(907353);let s=(0,r.css)`
+    :host,
+    :root {
+        /* [CCEX-247941]: Remove these tokens when sx-toast and sx-callout are removed. */
+        --sx-static-gray-800: #292929;
+        --sx-premium-subdued-background-color-default: linear-gradient(
+            123deg,
+            var(--spectrum-blue-300) 0%,
+            var(--spectrum-indigo-300) 60.81%
+        );
+    }
+`},326702:function(t,e,o){o.d(e,{R:()=>s});var r=o(907353);let s=(0,r.css)`
+    :host,
+    :root {
+        /* [CCEX-247941]: Remove these tokens when sx-toast and sx-callout are removed. */
+        --sx-static-gray-800: #292929;
+        --sx-premium-subdued-background-color-default: linear-gradient(123deg, #bfe4ff 0%, #cecef6 60.81%);
+    }
+`},23937:function(t,e,o){o.d(e,{A:()=>n});var r=o(907353),s=o(572201);let i=(0,r.css)`
+    ${s.A}
+`,n=51532==o.j?i:null},957209:function(t,e,o){o.d(e,{A:()=>n});var r=o(907353),s=o(624241);let i=(0,r.css)`
+    ${s.A}
+`,n=51532==o.j?i:null},460958:function(t,e,o){o.d(e,{A:()=>n});var r=o(907353),s=o(833489);let i=(0,r.css)`
+    ${s.A}
+`,n=51532==o.j?i:null},220900:function(t,e,o){o.d(e,{A:()=>n});var r=o(907353),s=o(399561);let i=(0,r.css)`
+    ${s.A}
+`,n=51532==o.j?i:null},568681:function(t,e,o){if(o.d(e,{A:()=>s}),51532==o.j)var r=o(218716);let s=51532==o.j?r.A:null},519326:function(t,e,o){o.d(e,{A:()=>c});var r=o(907353),s=o(107831),i=o(647598);let n=(0,r.css)`
+    ${i.R}
+    ${s.A}
+`,c=51532==o.j?n:null},324542:function(t,e,o){o.d(e,{A:()=>c});var r=o(907353),s=o(772981),i=o(326702);let n=(0,r.css)`
+    ${i.R}
+    ${s.A}
+`,c=51532==o.j?n:null},216736:function(t,e,o){if(o.d(e,{A:()=>s}),51532==o.j)var r=o(573668);let s=51532==o.j?r.A:null},689351:function(t,e,o){o.d(e,{A:()=>c});var r=o(907353),s=o(464495),i=o(647598);let n=(0,r.css)`
+    ${s.A}
+    ${i.R}
+`,c=51532==o.j?n:null},281893:function(t,e,o){o.d(e,{A:()=>c});var r=o(907353),s=o(852701),i=o(326702);let n=(0,r.css)`
+    ${s.A}
+    ${i.R}
+`,c=51532==o.j?n:null},777457:function(t,e,o){o.r(e);var r=o(964348);o(796589);var s=o(689351);o(336279);var i=o(519326);r.S.registerThemeFragment("dark-express","color",s.A),r.S.registerThemeFragment("dark-spectrum-two","color",i.A)},250993:function(t,e,o){o.r(e);var r=o(964348);o(484485);var s=o(281893);o(940991);var i=o(324542);r.S.registerThemeFragment("light-express","color",s.A),r.S.registerThemeFragment("light-spectrum-two","color",i.A)},368827:function(t,e,o){o.d(e,{A:()=>n});var r=o(907353);if(51532==o.j)var s=o(614866);if(51532==o.j)var i=o(655581);function n(){(0,s.TW)("sp-action-button",[(0,r.css)`
+            :host([wrap]) #label {
+                white-space: normal;
+            }
+
+            :host(:not([disabled])) #label {
+                pointer-events: auto !important;
+            }
+
+            /* CCEX-101468 - ensure hover state does not persist after tapping on mobile */
+            @media (hover: none), (pointer: coarse) {
+                :host([quiet]:not([selected])) {
+                    --mod-actionbutton-background-color-hover: transparent;
+                }
+            }
+
+            /* CCEX-151536 - enable the label to be sticky */
+            :host([enable-sticky-label]) #label {
+                position: sticky;
+                left: 0px;
+                right: 0px;
+            }
+        `,i.p])}},904575:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-alert-banner",(0,r.css)`
+            /* CCEX-125305 - requirement to set the content in center */
+            :host([justify-content-center]) {
+                justify-content: center;
+            }
+
+            :host([justify-content-center]) .body {
+                inline-size: auto;
+            }
+        `)}},670961:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-badge",(0,r.css)`
+            :host {
+                /* Missing and broken in Spectrum CSS */
+                height: var(--spectrum-badge-height);
+                box-sizing: border-box;
+            }
+
+            /* CCEX-146506 - Implement XS Badge for panel header */
+            :host([size="xs"]) {
+                /* Copy the size="s" configuration, internal to Spectrum CSS */
+                --spectrum-badge-height: var(--spectrum-component-height-75);
+                --spectrum-badge-label-spacing-vertical-top: var(--spectrum-spacing-50);
+                --spectrum-badge-label-spacing-vertical-bottom: var(--spectrum-spacing-50);
+                --spectrum-badge-label-spacing-horizontal: var(--spectrum-component-edge-to-visual-only-75);
+                --spectrum-badge-workflow-icon-size: var(--spectrum-workflow-icon-size-50);
+                /* This is an incorrect usage of this token, but the only way to make it look right */
+                --spectrum-badge-icon-text-spacing: var(--spectrum-component-edge-to-visual-only-75); /* 4px / 5px */
+                --spectrum-badge-icon-spacing-horizontal: var(--spectrum-spacing-50);
+                --spectrum-badge-icon-spacing-vertical-top: var(--spectrum-component-top-to-workflow-icon-50);
+                /* stylelint-disable-next-line unit-disallowed-list -- bespoke padding value because we're special */
+                --spectrum-badge-icon-only-spacing-horizontal: 1px;
+                --spectrum-icon-size: var(--spectrum-workflow-icon-size-75);
+
+                /* Override to support XS */
+                --spectrum-badge-height: var(--spectrum-component-height-50); /* 20px / 26px */
+
+                /* This is an incorrect usage of this token, but the only way to make it look right */
+                --spectrum-badge-label-spacing-horizontal: var(
+                    --spectrum-component-edge-to-visual-only-75
+                ); /* 4px / 5px */
+
+                --spectrum-badge-label-spacing-vertical-top: var(--spectrum-spacing-50);
+                --spectrum-badge-label-spacing-vertical-bottom: var(--spectrum-spacing-50);
+
+                --spectrum-badge-font-size: var(--spectrum-font-size-75);
+                --spectrum-badge-corner-radius: var(--spectrum-corner-radius-75);
+            }
+
+            /* CCEX-211087 - Implement sp-badge variant="accent-subdued" */
+            :host([variant="accent"]) {
+                --mod-badge-background-color-accent: var(--spectrum-indigo-900);
+                --mod-badge-label-icon-color: var(--spectrum-gray-25);
+            }
+
+            /* CCEX-211087 - Implement sp-badge variant="accent-subdued" */
+            :host([variant="accent-subdued"]) {
+                --mod-badge-background-color-default: var(--spectrum-indigo-300);
+                --mod-badge-label-icon-color: var(--spectrum-indigo-900);
+            }
+        `)}},916828:function(t,e,o){o.d(e,{A:()=>n});var r=o(907353);if(51532==o.j)var s=o(614866);if(51532==o.j)var i=o(655581);function n(){(0,s.TW)("sp-button",[(0,r.css)`
+            /* CCEX-133016 - Fix regressions caused by new text-wrap support */
+            ::slotted([slot="icon"]) {
+                align-self: center;
+                margin-block-start: 0;
+            }
+
+            :host(:not([disabled])) ::slotted(*) {
+                pointer-events: auto;
+            }
+
+            #label {
+                white-space: nowrap;
+            }
+
+            :host([wrap]) ::slotted([slot="icon"]) {
+                align-self: flex-start;
+                margin-block-start: var(
+                    --mod-button-icon-margin-block-start,
+                    max(
+                        0px,
+                        var(--spectrum-button-top-to-icon) -
+                            var(--mod-button-border-width, var(--spectrum-button-border-width)) +
+                            (var(--_icon-size-difference, 0px) / 2)
+                    )
+                );
+            }
+
+            :host([wrap]) #label {
+                white-space: normal;
+            }
+
+            :host([premium]) {
+                background: linear-gradient(
+                        95deg,
+                        var(--spectrum-fuchsia-900) 0%,
+                        var(--spectrum-indigo-900) 60%,
+                        var(--spectrum-blue-900) 100%
+                    )
+                    border-box;
+            }
+        `,i.p])}},200594:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-card",(0,r.css)`
+            #cover-photo {
+                /* CCEX-102268 - Card cover photo no longer hides overflow */
+                overflow: hidden;
+            }
+
+            /* CCEX-102854 - Preview had width at 0% */
+            #preview ::slotted(*) {
+                width: 100%;
+            }
+        `)}},563212:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-clear-button",(0,r.css)`
+            :host {
+                /* CCEX-160680: Fixes clear button color; investigate removing after SWC 1.0.1 */
+                --mod-clear-button-background-color: transparent;
+                --mod-clear-button-background-color-hover: transparent;
+                --mod-clear-button-background-color-down: transparent;
+            }
+        `)}},762403:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-close-button",(0,r.css)`
+            :host([floating]) {
+                --mod-closebutton-background-color-default: var(--spectrum-gray-25);
+                box-shadow: var(--spectrum-drop-shadow-x) var(--spectrum-drop-shadow-y) var(--spectrum-drop-shadow-blur)
+                    var(--spectrum-drop-shadow-color);
+            }
+        `)}},225736:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-dialog",(0,r.css)`
+            :host([error]) {
+                inline-size: var(--spectrum-dialog-confirm-medium-width);
+            }
+        `)}},85127:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-dropzone",(0,r.css)`
+            /* PR #65391 - makes dropzone content in overlays clickable */
+            :host::after {
+                display: none;
+            }
+        `)}},942369:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-icon",(0,r.css)`
+            /* [CCEX-143327] Fix clipped icons, already fixed in Spectrum CSS, will get updated through SWC as well */
+            :host(:not(:root)) {
+                overflow: visible;
+            }
+        `)}},735968:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-link",(0,r.css)`
+            /* [CCEX-219281] Fix for Safari focus-visible styling on quiet links due to specificity. */
+            :host a:focus-visible {
+                -webkit-text-decoration: underline double;
+                text-decoration: underline double;
+            }
+        `)}},785375:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-menu-item",(0,r.css)`
+            #label {
+                /* Remove calculations that were causing truncation of text */
+                width: var(--swc-menu-item-label-width, 100%);
+            }
+
+            .checkmark {
+                /* [CCEX-154801] Adds ability to align the checkmark icon in a menu item. */
+                align-self: var(--swc-menu-checkmark-align-self, start);
+            }
+        `)}},358231:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-menu",(0,r.css)`
+            :host {
+                /* CCEX-104834 Margins were removed in the upgrade */
+                margin-block: var(--spectrum-spacing-75);
+
+                /* Allow overriding menu width */
+                width: var(--swc-menu-width);
+            }
+        `)}},652136:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-number-field",(0,r.css)`
+            :host {
+                /* CCEX-192926 - number field too wide due to new SWC inline-size calculation */
+                --mod-stepper-width: 100%;
+                /* CCEX-117373 - support setting width of NumberField */
+                inline-size: var(--swc-stepper-inline-size, var(--spectrum-stepper-width));
+            }
+
+            .input {
+                /* CCEX-117373 - support setting text align of NumberField */
+                text-align: var(--swc-stepper-text-align, start);
+            }
+        `)}},44299:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-picker-button",(0,r.css)`
+            /* Add support for full-width Picker Button for edu use case */
+            :host([full-width]) .spectrum-PickerButton-fill {
+                width: 100%;
+            }
+
+            .spectrum-PickerButton-fill {
+                border-color: var(
+                    --mod-sp-picker-button-border-color,
+                    var(--mod-picker-button-border-color, var(--spectrum-picker-button-border-color))
+                );
+            }
+        `)}},598998:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-picker",(0,r.css)`
+            /* CCEX-246363 - revert SWC 1.9.0 change */
+            :host {
+                --mod-popover-inline-size: initial;
+            }
+        `)}},566847:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-popover",(0,r.css)`
+            :host {
+                max-height: var(--swc-popover-max-height, none);
+            }
+        `)}},351564:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-search",(0,r.css)`
+            :host {
+                --mod-search-border-width: var(--spectrum-border-width-200);
+                --system-search-size-s-border-radius: var(--spectrum-component-height-75);
+                --system-search-size-m-border-radius: var(--spectrum-component-height-100);
+                --system-search-size-l-border-radius: var(--spectrum-component-height-200);
+                --system-search-size-xl-border-radius: var(--spectrum-component-height-300);
+                --system-search-border-radius: var(--system-search-size-m-border-radius);
+            }
+
+            /* CCEX-156032 - [SWC 1.0.0] Search icon inside search field is misaligned */
+            :host .icon-search {
+                display: flex;
+                align-items: center;
+            }
+        `)}},984657:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-slider",(0,r.css)`
+            #number-field {
+                /* CCEX-117373 - remove padding from Slider's NumberField */
+                --mod-textfield-spacing-inline: 0;
+
+                /* CCEX-117373 - center text and remove padding from Slider's NumberField */
+                --swc-stepper-text-align: center;
+
+                /* CCEX-117373 - decrease width of Slider's NumberField, support --swc-slider-stepper-inline-size */
+                --swc-stepper-inline-size: var(
+                    --swc-slider-stepper-inline-size,
+                    var(--x-spectrum-stepper-field-inline-size)
+                );
+            }
+        `)}},647044:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-switch",(0,r.css)`
+            :host {
+                --spectrum-switch-main-color: var(--spectrum-gray-50);
+                --spectrum-switch-invert-color: var(--spectrum-gray-900);
+
+                --spectrum-switch-control-border-width: var(--spectrum-border-width-200);
+                --spectrum-switch-handle-border-color-hover: var(--spectrum-switch-main-color);
+                --spectrum-switch-handle-border-color-down: var(--spectrum-switch-main-color);
+                --spectrum-switch-handle-border-color-focus: var(--spectrum-switch-main-color);
+                --spectrum-switch-handle-border-color-hover: var(--spectrum-switch-main-color);
+                --spectrum-switch-handle-border-color-focus: var(--spectrum-switch-main-color);
+
+                --spectrum-switch-control-height: var(--spectrum-switch-custom-control-height-m);
+                --spectrum-switch-control-width: var(--spectrum-switch-custom-control-width-m);
+                --spectrum-switch-spacing-top-to-control: var(--spectrum-switch-custom-spacing-top-to-control-m);
+                --spectrum-switch-spacing-top-to-label: var(--spectrum-switch-custom-spacing-top-to-label-m);
+
+                --spectrum-switch-overall-height: calc(
+                    var(--spectrum-switch-control-height) + var(--spectrum-switch-control-border-width) * 2
+                );
+            }
+
+            :host([size="s"]) {
+                --spectrum-switch-control-height: var(--spectrum-switch-custom-control-height-s);
+                --spectrum-switch-control-width: var(--spectrum-switch-custom-control-width-s);
+                --spectrum-switch-spacing-top-to-control: var(--spectrum-switch-custom-spacing-top-to-control-s);
+                --spectrum-switch-spacing-top-to-label: var(--spectrum-switch-custom-spacing-top-to-label-s);
+            }
+
+            :host([size="l"]) {
+                --spectrum-switch-control-height: var(--spectrum-switch-custom-control-height-l);
+                --spectrum-switch-control-width: var(--spectrum-switch-custom-control-width-l);
+                --spectrum-switch-spacing-top-to-control: var(--spectrum-switch-custom-spacing-top-to-control-l);
+                --spectrum-switch-spacing-top-to-label: var(--spectrum-switch-custom-spacing-top-to-label-l);
+            }
+
+            :host([size="xl"]) {
+                --spectrum-switch-control-height: var(--spectrum-switch-custom-control-height-xl);
+                --spectrum-switch-control-width: var(--spectrum-switch-custom-control-width-xl);
+                --spectrum-switch-spacing-top-to-control: var(--spectrum-switch-custom-spacing-top-to-control-xl);
+                --spectrum-switch-spacing-top-to-label: var(--spectrum-switch-custom-spacing-top-to-label-xl);
+            }
+
+            /* body */
+            #switch {
+                box-sizing: border-box;
+                border-width: 0;
+                outline: var(--spectrum-switch-control-border-width) solid
+                    var(--highcontrast-switch-handle-border-color-default, var(--spectrum-switch-invert-color));
+                outline-offset: calc(-1 * var(--spectrum-switch-control-border-width));
+                height: var(--spectrum-switch-overall-height);
+                border-radius: var(--spectrum-switch-overall-height);
+                background-color: var(--highcontrast-switch-background-color, var(--spectrum-switch-main-color));
+
+                margin-block: var(--mod-switch-spacing-top-to-control, var(--spectrum-switch-spacing-top-to-control));
+            }
+
+            @media (hover: hover) {
+                :host(:hover) #switch {
+                    outline-color: var(
+                        --highcontrast-switch-handle-border-color-hover,
+                        var(--spectrum-switch-invert-color)
+                    );
+                }
+            }
+
+            :host([checked]) #switch {
+                outline-color: var(
+                    --highcontrast-switch-handle-border-color-selected-default,
+                    var(--spectrum-switch-invert-color)
+                );
+            }
+
+            /* handle */
+            #switch::before {
+                background-color: var(--highcontrast-switch-background-color, var(--spectrum-switch-invert-color));
+                border-color: var(--spectrum-switch-main-color);
+                margin: var(--spectrum-switch-control-border-width);
+                transition: all var(--spectrum-animation-duration-100) ease-in-out;
+            }
+
+            :host([checked]) #input + #switch:before {
+                background-color: var(--highcontrast-switch-background-color, var(--spectrum-switch-main-color));
+
+                border-color: var(--highcontrast-switch-background-color, var(--spectrum-switch-invert-color));
+                /* stylelint-disable-next-line unit-disallowed-list -- force tiny border to match S2 */
+                border-width: 1px;
+                transform: translateX(
+                    calc(var(--spectrum-switch-control-width) - var(--spectrum-switch-control-border-width) * 2 - 100%)
+                );
+            }
+
+            /* emphasized */
+            :host([emphasized][checked]) #switch {
+                transition: all var(--spectrum-animation-duration-100) ease-in-out;
+                outline-color: var(
+                    --highcontrast-switch-background-color-selected-default,
+                    var(--spectrum-switch-background-color-selected-default)
+                );
+            }
+            :host([emphasized][checked]) #input + #switch:before {
+                border-color: var(
+                    --highcontrast-switch-background-color-selected-default,
+                    var(--spectrum-switch-background-color-selected-default)
+                );
+            }
+            @media (hover: hover) {
+                :host([emphasized][checked]:hover) #input:enabled + #switch {
+                    outline-color: var(
+                        --highcontrast-switch-background-color-selected-hover,
+                        var(--spectrum-switch-background-color-selected-hover)
+                    );
+                }
+            }
+            :host([emphasized][checked]) #input:focus-visible + #switch {
+                outline-color: var(
+                    --highcontrast-switch-background-color-selected-focus,
+                    var(--spectrum-switch-background-color-selected-focus)
+                );
+            }
+            :host([emphasized][checked]) #input:focus-visible + #switch:before {
+                border-color: var(
+                    --highcontrast-switch-background-color-selected-focus,
+                    var(--spectrum-switch-background-color-selected-focus)
+                );
+            }
+            :host([emphasized][checked]:active) #switch {
+                outline-color: var(
+                    --highcontrast-switch-background-color-selected-down,
+                    var(
+                        --mod-switch-background-color-selected-down,
+                        var(--spectrum-switch-background-color-selected-down)
+                    )
+                );
+            }
+
+            /* disabled */
+            :host([disabled]) {
+                --spectrum-switch-main-color: var(--spectrum-gray-50);
+                --spectrum-switch-invert-color: var(--spectrum-gray-300);
+                --spectrum-switch-handle-border-color-disabled: var(
+                    --highcontrast-switch-handle-background-color-disabled,
+                    var(--spectrum-switch-main-color)
+                );
+                --spectrum-switch-background-color-disabled: var(--spectrum-switch-main-color);
+                --spectrum-switch-background-color-selected-disabled: var(--spectrum-switch-invert-color);
+            }
+            :host([disabled][checked]) #switch,
+            :host([disabled]) #switch {
+                outline-color: var(--highcontrast-switch-label-color-disabled, var(--spectrum-switch-invert-color));
+            }
+
+            :host([checked][disabled]) #input + #switch:before {
+                border-color: var(--highcontrast-switch-background-color, var(--spectrum-switch-invert-color));
+            }
+
+            /* RTL */
+            :host([checked]) #input + #switch:dir(rtl)::before,
+            :host([dir="rtl"][checked]) #input + #switch::before {
+                transform: translateX(
+                    calc(100% - var(--spectrum-switch-control-width) + var(--spectrum-switch-control-border-width) * 2)
+                );
+            }
+        `)}},483107:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-textfield",(0,r.css)`
+            :host([quiet]) #textfield:after {
+                pointer-events: none;
+            }
+
+            /* Add new --mod tokens for inline-spacing-start/inline-spacing-end */
+            .input {
+                padding-inline-start: calc(
+                    var(
+                            --mod-textfield-spacing-inline,
+                            var(--swc-textfield-spacing-inline-start, var(--spectrum-textfield-spacing-inline))
+                        ) - var(--mod-textfield-border-width, var(--spectrum-textfield-border-width))
+                );
+                padding-inline-end: calc(
+                    var(
+                            --mod-textfield-spacing-inline,
+                            var(--swc-textfield-spacing-inline-end, var(--spectrum-textfield-spacing-inline))
+                        ) - var(--mod-textfield-border-width, var(--spectrum-textfield-border-width))
+                );
+                text-align: var(--swc-textfield-text-align, start);
+            }
+        `)}},432895:function(t,e,o){o.d(e,{s:()=>s});var r=o(907353);o(532273);let s=(0,r.css)`
+    /* Hz global alias tokens */
+    :host {
+        --hz-object-frame-default: var(--spectrum-blue-900);
+        --hz-object-frame-hover: var(--spectrum-blue-1100);
+        --hz-object-frame-down: var(--spectrum-blue-1200);
+        --hz-object-frame-key-focus: var(--spectrum-blue-1100);
+        --hz-object-frame-subdued-default: var(--spectrum-blue-600);
+        --hz-object-frame-subdued-transparent: rgba(
+            var(--spectrum-blue-600-rgb),
+            var(--spectrum-transparent-white-600-opacity)
+        );
+        --hz-object-frame-extra-subdued: var(--spectrum-blue-400);
+        --hz-object-frame-locked: var(--spectrum-gray-500);
+    }
+
+    /* CJK font customizations */
+    :host(:lang(ko)),
+    :host(:lang(ja)),
+    :host(:lang(zh)) {
+        /* stylelint-disable unit-disallowed-list -- Per design request cap font weights for CJK */
+        --spectrum-extra-bold-font-weight: 700;
+        --spectrum-black-font-weight: 700;
+        /* stylelint-enable */
+
+        /* Remap font weights to match S1 update */
+        --spectrum-heading-cjk-font-weight: var(--spectrum-extra-bold-font-weight);
+        --spectrum-body-cjk-strong-font-weight: var(--spectrum-extra-bold-font-weight);
+
+        /* Remap legacy tokens which are still referenced in some places (i.e. FontPicker). Leaving this because SWC itself uses alias tokens and will remove it themselves. */
+        --spectrum-alias-heading-text-font-weight-regular: var(--spectrum-extra-bold-font-weight);
+    }
+
+    :host(:lang(ko)),
+    :host(:lang(ja)),
+    :host(:lang(zh)) {
+        /* Remove letter spacing */
+        --spectrum-cjk-letter-spacing: 0;
+    }
+
+    /* Commented out on purpose: i18n team may decide in the future to reduce CJK font sizes for desktop */
+    /*
+    :host([scale="medium"]:lang(ko)),
+    :host([scale="medium"]:lang(ja)),
+    :host([scale="medium"]:lang(zh)) {
+        /* stylelint-disable unit-disallowed-list -- CJK fonts are smaller by default, desktop
+        --spectrum-font-size-50: 10px;
+        --spectrum-font-size-75: 11px;
+        --spectrum-font-size-100: 12px;
+        --spectrum-font-size-200: 14px;
+        --spectrum-font-size-300: 16px;
+        --spectrum-font-size-400: 18px;
+        --spectrum-font-size-500: 20px;
+        --spectrum-font-size-600: 22px;
+        --spectrum-font-size-700: 25px;
+        --spectrum-font-size-800: 28px;
+        --spectrum-font-size-900: 32px;
+        --spectrum-font-size-1000: 36px;
+        --spectrum-font-size-1100: 40px;
+        --spectrum-font-size-1200: 45px;
+        --spectrum-font-size-1300: 50px;
+        /* stylelint-enable
+    }
+    */
+
+    /* Adjust CJK font sizes lower for large scale */
+    :host([scale="large"]:lang(ko)),
+    :host([scale="large"]:lang(ja)),
+    :host([scale="large"]:lang(zh)) {
+        /* stylelint-disable unit-disallowed-list -- CJK fonts are smaller by default, mobile */
+        --spectrum-font-size-50: 12px;
+        --spectrum-font-size-75: 13px;
+        --spectrum-font-size-100: 15px;
+        --spectrum-font-size-200: 17px;
+        --spectrum-font-size-300: 19px;
+        --spectrum-font-size-400: 22px;
+        --spectrum-font-size-500: 24px;
+        --spectrum-font-size-600: 27px;
+        --spectrum-font-size-700: 31px;
+        --spectrum-font-size-800: 34px;
+        --spectrum-font-size-900: 39px;
+        --spectrum-font-size-1000: 44px;
+        --spectrum-font-size-1100: 49px;
+        --spectrum-font-size-1200: 55px;
+        --spectrum-font-size-1300: 62px;
+        /* stylelint-enable */
+    }
+
+    /* Font family fixes */
+    :host {
+        --custom-font-family-stack: adobe-clean, system-ui, sans-serif;
+        --custom-cjk-font-family-stack: var(--custom-cjk-font-family), system-ui, sans-serif;
+
+        --spectrum-sans-serif-font-family: var(--custom-font-family-stack);
+        --spectrum-cjk-font-family-stack: var(--custom-cjk-font-family-stack);
+    }
+
+    /* CJK customizations */
+    :lang(ja),
+    :lang(ko),
+    :lang(zh),
+    :host(:lang(ja)),
+    :host(:lang(ko)),
+    :host(:lang(zh)) {
+        /* Leaving this because SWC itself uses alias tokens and will remove it themselves. */
+        --spectrum-alias-body-text-font-family: var(--custom-cjk-font-family-stack);
+        --spectrum-sans-font-family-stack: var(--custom-cjk-font-family-stack);
+    }
+
+    /* Japanese customizations */
+    :lang(ja),
+    :host(:lang(ja)) {
+        --custom-cjk-font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic";
+    }
+
+    /* Korean customizations */
+    :lang(ko),
+    :host(:lang(ko)) {
+        --custom-cjk-font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic";
+    }
+
+    /* Simplified Chinese customizations */
+    :lang(zh-Hans),
+    :host(:lang(zh-Hans)) {
+        --custom-cjk-font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei";
+    }
+
+    /* Traditional Chinese customizations */
+    :lang(zh-Hant),
+    :host(:lang(zh-Hant)) {
+        --custom-cjk-font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei";
+    }
+
+    /* CJK font family stack */
+    :lang(ko),
+    :lang(ja),
+    :lang(zh),
+    :host(:lang(ko)),
+    :host(:lang(ja)),
+    :host(:lang(zh)) {
+        font-family: var(--spectrum-cjk-font-family-stack);
+    }
+
+    /* Word break CJK */
+    :lang(ja),
+    :lang(ko),
+    :lang(zh) {
+        * {
+            word-break: keep-all;
+            overflow-wrap: anywhere;
+            line-break: strict;
+        }
+    }
+
+    /* Adjust spacing for CJK to better align labels vertically */
+    :lang(ja),
+    :lang(ko),
+    :lang(zh),
+    :host(:lang(ja)),
+    :host(:lang(ko)),
+    :host(:lang(zh)) {
+        --spectrum-button-top-to-text-medium: 9px; /* previously 7px; */
+        --spectrum-button-bottom-to-text-medium: 6px; /* previously 8px; */
+
+        --spectrum-button-top-to-text-large: 12px; /* previously 10px; */
+        --spectrum-button-bottom-to-text-large: 8px; /* previously 10px; */
+    }
+
+    /* Switch customizations */
+    :host([scale="medium"]) {
+        /* stylelint-disable unit-disallowed-list -- harcoding to match S2 */
+        --spectrum-switch-custom-control-height-s: 12px;
+        --spectrum-switch-custom-control-width-s: 22px;
+        --spectrum-switch-custom-spacing-top-to-control-s: 4px;
+        --spectrum-switch-custom-spacing-top-to-label-s: 4px;
+
+        --spectrum-switch-custom-control-height-m: 14px;
+        --spectrum-switch-custom-control-width-m: 26px;
+        --spectrum-switch-custom-spacing-top-to-control-m: 7px;
+        --spectrum-switch-custom-spacing-top-to-label-m: 6px;
+
+        --spectrum-switch-custom-control-height-l: 16px;
+        --spectrum-switch-custom-control-width-l: 30px;
+        --spectrum-switch-custom-spacing-top-to-control-l: 10px;
+        --spectrum-switch-custom-spacing-top-to-label-l: 9px;
+
+        --spectrum-switch-custom-control-height-xl: 18px;
+        --spectrum-switch-custom-control-width-xl: 34px;
+        --spectrum-switch-custom-spacing-top-to-control-xl: 13px;
+        --spectrum-switch-custom-spacing-top-to-label-xl: 12px;
+        /* stylelint-enable */
+    }
+
+    :host([scale="large"]) {
+        /* stylelint-disable unit-disallowed-list -- harcoding to match S2 */
+        --spectrum-switch-custom-control-height-s: 16px;
+        --spectrum-switch-custom-control-width-s: 30px;
+        --spectrum-switch-custom-spacing-top-to-control-s: 5px;
+        --spectrum-switch-custom-spacing-top-to-label-s: 5px;
+
+        --spectrum-switch-custom-control-height-m: 18px;
+        --spectrum-switch-custom-control-width-m: 34px;
+        --spectrum-switch-custom-spacing-top-to-control-m: 9px;
+        --spectrum-switch-custom-spacing-top-to-label-m: 8px;
+
+        --spectrum-switch-custom-control-height-l: 20px;
+        --spectrum-switch-custom-control-width-l: 38px;
+        --spectrum-switch-custom-spacing-top-to-control-l: 13px;
+        --spectrum-switch-custom-spacing-top-to-label-l: 12px;
+
+        --spectrum-switch-custom-control-height-xl: 22px;
+        --spectrum-switch-custom-control-width-xl: 46px;
+        --spectrum-switch-custom-spacing-top-to-control-xl: 16px;
+        --spectrum-switch-custom-spacing-top-to-label-xl: 15px;
+        /* stylelint-enable */
+    }
+
+    :host {
+        /* stylelint-disable unit-disallowed-list -- Custom Gray scale that needs to remain same as we move to S2 */
+        --hz-appshell-frame-bg-color: rgb(29, 29, 29);
+        /* Layout border radius needed for S2 App Frame specifications */
+        --hz-app-frame-content-border-radius: 16px;
+        /* stylelint-enable */
+    }
+`},546041:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-toast",(0,r.css)`
+            :host {
+                max-inline-size: var(--mod-toast-max-inline-size, var(--spectrum-toast-max-inline-size));
+            }
+        `)}},452049:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-tooltip",(0,r.css)`
+            @media (any-hover: none) {
+                :host {
+                    display: none;
+                }
+            }
+
+            /* CCEX-210274 - hide the tip of the tooltip */
+            :host([hide-tip]) #tip {
+                display: none;
+            }
+        `)}},259304:function(t,e,o){o.d(e,{A:()=>i});var r=o(907353);if(51532==o.j)var s=o(614866);function i(){(0,s.TW)("sp-tray",(0,r.css)`
+            :host {
+                --mod-modal-max-width: none;
+
+                /* Force nested menus to be 100% */
+                --swc-menu-width: 100%;
+            }
+
+            /* Menus need to be adjusted for the safe area bottom on mobile */
+            ::slotted(sp-menu) {
+                padding-block-end: var(--mobile-safe-area-bottom);
+            }
+        `)}},550161:function(t,e,o){o.d(e,{bS:()=>I,sq:()=>_});var r=o(907353);if(51532==o.j)var s=o(614866);if(51532==o.j)var i=o(368827);if(51532==o.j)var n=o(200594);if(51532==o.j)var c=o(358231);if(51532==o.j)var a=o(785375);if(51532==o.j)var l=o(85127);if(51532==o.j)var u=o(483107);if(51532==o.j)var d=o(259304);if(51532==o.j)var p=o(546041);if(51532==o.j)var m=o(452049);if(51532==o.j)var h=o(566847);if(51532==o.j)var f=o(44299);if(51532==o.j)var v=o(225736);if(51532==o.j)var g=o(984657);if(51532==o.j)var b=o(652136);if(51532==o.j)var w=o(916828);if(51532==o.j)var x=o(670961);if(51532==o.j)var k=o(904575);if(51532==o.j)var y=o(351564);if(51532==o.j)var C=o(563212);if(51532==o.j)var z=o(942369);if(51532==o.j)var A=o(484861);if(51532==o.j)var j=o(647044);if(51532==o.j)var E=o(735968);if(51532==o.j)var S=o(762403);if(51532==o.j)var T=o(598998);function _(){r.LitElement.addInitializer(t=>t.addController(new s.Wu(t)))}function I(){(0,i.A)(),(0,n.A)(),(0,c.A)(),(0,a.A)(),(0,l.A)(),(0,u.A)(),(0,d.A)(),(0,p.A)(),(0,m.A)(),(0,f.A)(),(0,h.A)(),(0,v.A)(),(0,g.A)(),(0,b.A)(),(0,w.A)(),(0,x.A)(),(0,k.A)(),(0,y.A)(),(0,C.A)(),(0,z.A)(),(0,A.A)(),(0,j.A)(),(0,E.A)(),(0,S.A)(),(0,T.A)()}},614866:function(t,e,o){o.d(e,{TW:()=>i,Wu:()=>n});var r=o(907353);let s=new Map;function i(t,e){let o=t.toLowerCase(),r=s.get(o)??[];0===r.length&&s.set(o,r),Array.isArray(e)?r.push(...e):r.push(e)}class n{constructor(t){this.host=t,this._componentFragmentsAdopted=!1}hostConnected(){this._componentFragmentsAdopted||this.adoptComponentFragments()}adoptComponentFragments(){var t;let e=(t=this.host.tagName,s.get(t.toLowerCase()));if(e)if(r.supportsAdoptingStyleSheets)for(let t of e)t.styleSheet&&this.host.shadowRoot?.adoptedStyleSheets.push(t.styleSheet);else e.forEach(t=>{let e=document.createElement("style");e.textContent=t.cssText,this.host.shadowRoot?.appendChild(e)});this._componentFragmentsAdopted=!0}}},655581:function(t,e,o){o.d(e,{p:()=>s});var r=o(907353);let s=(0,r.css)`
+    :host([floating]) {
+        box-shadow: var(
+            --mod-floating-focus-ring-box-shadow,
+            var(--spectrum-drop-shadow-x) var(--spectrum-drop-shadow-y) var(--spectrum-drop-shadow-blur)
+                var(--spectrum-drop-shadow-color)
+        );
+    }
+
+    :host([floating]:focus-visible)::after {
+        box-shadow: 0 0 0 var(--spectrum-focus-indicator-gap) var(--spectrum-gray-25),
+            0 0 0 calc(2 * var(--spectrum-focus-indicator-gap)) var(--spectrum-indigo-800),
+            0 0 0 calc(3 * var(--spectrum-focus-indicator-gap)) var(--spectrum-gray-25);
+    }
+
+    [button-reset] {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    [floating-element] {
+        position: relative;
+        box-sizing: border-box;
+        outline: none;
+        cursor: pointer;
+    }
+
+    [floating-element]::before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        inset: 0;
+        box-shadow: var(
+            --mod-floating-focus-ring-box-shadow,
+            var(--spectrum-drop-shadow-x) var(--spectrum-drop-shadow-y) var(--spectrum-drop-shadow-blur)
+                var(--spectrum-drop-shadow-color)
+        );
+        transform-origin: center;
+        border-radius: var(--floating-focus-ring-border-radius, 0);
+        transition: box-shadow var(--spectrum-animation-duration-200) ease-in-out;
+    }
+
+    [floating-element]:focus-visible::before {
+        box-shadow: 0 0 0 var(--spectrum-focus-indicator-gap) var(--spectrum-gray-25),
+            0 0 0 calc(2 * var(--spectrum-focus-indicator-gap)) var(--spectrum-indigo-800),
+            0 0 0 calc(3 * var(--spectrum-focus-indicator-gap)) var(--spectrum-gray-25);
+    }
+`}}]);
+//# sourceMappingURL=vendor-startup-spectrum-web-components.fd43de91551d5949.js.map

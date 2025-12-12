@@ -421,7 +421,7 @@ body {
 
 
 /* =========================================
-   9. SECCIÓN AGRADECIMIENTO (TARJETA ROSA)
+   9. SECCIÓN AGRADECIMIENTO (CON ANIMACIÓN)
    ========================================= */
 .agradecimiento-section {
     width: 100%;
@@ -434,35 +434,86 @@ body {
 }
 
 .agradecimiento-card {
-    background-image: linear-gradient(135deg, #e74682 0%, #e98596 100%);
+    /* Mantenemos el fondo original clarito */
+    background-image: linear-gradient(135deg, #FFE3E6 0%, #FFF8FA 100%);
     width: 100%;
     border-radius: 40px; 
+    /* IMPORTANTE: relative y hidden para que la animación no se salga de la tarjeta */
+    position: relative;
+    overflow: hidden; 
+    
     padding: 3rem;
     text-align: center;
-    color: #ffffff; 
-    box-shadow: 0 15px 30px rgba(223, 22, 69, 0.3);
+    color: #E98596; 
+    box-shadow: 0 15px 30px rgba(243, 30, 80, 0.3);
     
+    /* Animación de entrada al hacer scroll */
     animation: fade-in-up 1s ease-out;
     animation-timeline: view();
     animation-range: entry 20% cover 40%;
     animation-fill-mode: both;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efecto al pasar el mouse sobre la tarjeta entera */
+.agradecimiento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(230, 60, 125, 0.4);
+}
+
+/* Reutilizamos las clases que ya creaste para los servicios, 
+   pero ajustadas dentro de esta tarjeta */
+
+.agradecimiento-card .expand-bg {
+    position: absolute;
+    top: -100px;    /* Empezamos un poco más afuera porque la tarjeta es grande */
+    right: -100px;
+    width: 200px;   /* Círculo base más grande */
+    height: 200px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.6s ease-in-out; /* Un poco más lento para ser elegante */
+}
+
+/* Al hacer hover, el círculo crece MUCHO para cubrir toda la tarjeta ancha */
+.agradecimiento-card:hover .expand-bg {
+    transform: scale(20); 
+}
+
+/* El contenido debe estar encima del fondo (z-index 2) */
+.agradecimiento-card .expand-content {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+/* Cambio de color del texto al hacer hover */
+.agradecimiento-card:hover .expand-content {
+    color: #ffffff;
+}
+
+/* Asegurar que el icono también se ponga blanco brillante */
+.agradecimiento-card:hover ion-icon {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* Estilos del texto (mantenidos igual) */
 .agradecimiento-text {
     font-size: 1.5rem;
     line-height: 1.6;
     font-weight: 300;
     margin-bottom: 1.5rem;
 }
-
 .agradecimiento-text strong {
     font-weight: 700; 
 }
-
 .agradecimiento-icon ion-icon {
     font-size: 3.5rem;
-    color: rgba(255, 255, 255, 0.9); 
+    color: rgba(233, 133, 150, 0.8); /* Color original del icono */
     margin-top: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 
@@ -470,7 +521,7 @@ body {
    10. CÓMO AYUDAR
    ========================================= */
 .ayudar-section { width: 100%; max-width: 1200px; margin: 4rem auto; padding: 2rem; box-sizing: border-box; text-align: center; border-top: 1px solid #ffffff; padding-top: 4rem; }
-.ayudar-section h2 { font-size: 2.8rem; font-weight: 700; color: #E63C7D; margin-bottom: 1.5rem; }
+.ayudar-section h2 { font-size: 2.8rem; font-weight: 700; color: #E98596; margin-bottom: 1.5rem; }
 
 .ayudar-grid {
     display: grid;
@@ -482,10 +533,10 @@ body {
 .ayudar-card { background-color: #fff0f3; border-radius: 20px; padding: 2rem 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; align-items: center; transition: all 0.3s ease; }
 .ayudar-img-wrapper { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin-bottom: 1.5rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); flex-shrink: 0; }
 .ayudar-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-.ayudar-card h3 { font-size: 1.4rem; font-weight: 600; color: #dc5186; margin-bottom: 1rem; min-height: 50px; }
+.ayudar-card h3 { font-size: 1.4rem; font-weight: 600; color: #E98596; margin-bottom: 1rem; min-height: 50px; }
 .ayudar-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-out; }
 .ayudar-card.is-open .ayudar-content { max-height: 200px; opacity: 1; }
-.btn-ayudar { display: inline-block; padding: 12px 30px; border-radius: 30px; border: none; text-decoration: none; color: #333; font-weight: 600; font-size: 1.1rem; cursor: pointer; font-family: 'DM Sans', sans-serif; background-image: var(--gradiente-btn); box-shadow: 0 8px 15px var(--sombra-btn); transition: transform 0.3s; margin-top: auto; }
+.btn-ayudar { display: inline-block; padding: 12px 30px; border-radius: 30px; border: none; text-decoration: none; color: #636363; font-weight: 600; font-size: 1.1rem; cursor: pointer; font-family: 'DM Sans', sans-serif; background-image: var(--gradiente-btn); box-shadow: 0 8px 15px var(--sombra-btn); transition: transform 0.3s; margin-top: auto; }
 .btn-ayudar:hover { transform: translateY(-5px); }
 
 
@@ -512,7 +563,7 @@ body {
     text-align: center;
     
     /* COLOR 1: ROSA (Impares) */
-    background-image: linear-gradient(135deg, #e74682 0%, #f48120 100%); 
+    background-image: linear-gradient(135deg, #e98596 0%, #e98596 100%); 
     box-shadow: 0 6px 15px rgba(241, 88, 124, 0.3);
     
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -520,7 +571,7 @@ body {
 
 /* COLOR 2: NARANJA/DORADO (Pares) */
 .btn-informe:nth-child(even) {
-    background-image: linear-gradient(135deg, #f7d3e7 0%, #ef58a1 100%);
+    background-image: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%);
     box-shadow: 0 6px 15px rgba(255, 64, 156, 0.3);
 }
 
@@ -537,20 +588,20 @@ body {
 .contacto-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .contacto-info { min-width: 0; }
 .contacto-info h2 { font-size: 2.8rem; font-weight: 700; color: #de3777; margin-bottom: 1.5rem; }
-.contacto-form-wrapper { background-color: #fbdfe5; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); }
+.contacto-form-wrapper { background-color: #FFF8FA; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); }
 .form-tabs { display: flex; margin-bottom: 2rem; gap: 0.5rem; }
 .tab-button { flex-grow: 1; padding: 14px 20px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; background-color: #e0e0e0; color: #777; transition: all 0.3s ease; }
-.tab-button.is-active { background-color: #e98596; color: #000000; box-shadow: 0 5px 10px #f8058690; }
-.tab-button:nth-child(2).is-active { background-color: #f38e3a; color: #000000; box-shadow: none; }
+.tab-button.is-active { background-color: #E98596; color: #000000; box-shadow: 0 5px 10px #f8058690; }
+.tab-button:nth-child(2).is-active { background-color: #F9B680; color: #000000; box-shadow: none; }
 .contact-form { display: none; flex-direction: column; gap: 1rem; }
 .contact-form.is-active { display: flex; }
-.contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px 15px; border: 1px solid #8c4059; border-radius: 8px; font-size: 1rem; font-family: 'DM Sans', sans-serif; box-sizing: border-box; }
+.contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px 15px; border: 1px solid #a1083b; border-radius: 8px; font-size: 1rem; font-family: 'DM Sans', sans-serif; box-sizing: border-box; }
 .btn-submit { display: inline-block; padding: 14px 30px; border-radius: 30px; border: none; text-decoration: none; color: #ffffff; font-weight: 600; font-size: 1.2rem; cursor: pointer; margin-top: 1rem; background-image: linear-gradient(135deg, #e74682 0%, #bd2a4a 100%); box-shadow: 0 8px 15px #d7113260; transition: transform 0.3s; }
 .btn-submit:hover { transform: translateY(-5px); }
 
 /* Carrusel Testimonios */
 .testimonial-scroller { margin-top: 3rem; max-width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent); }
-.testimonial-card { width: 350px; flex-shrink: 0; background: #fad4dc; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); border: 1px solid #f2dce4; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.testimonial-card { width: 350px; flex-shrink: 0; background: #FFF8FA; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); border: 1px solid #d12967; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .testimonial-card img { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 1.5rem; object-fit: cover; }
 
 
@@ -558,12 +609,12 @@ body {
    13. MARCAS BENEFICIARIAS
    ========================================= */
 .beneficiarias-section { width: 100%; margin: 4rem auto; padding: 4rem 0; box-sizing: border-box; text-align: center; border-top: 1px solid #eee; }
-.beneficiarias-section h2 { font-size: 2.8rem; font-weight: 700; color: #f24386; margin-bottom: 2rem; }
+.beneficiarias-section h2 { font-size: 2.8rem; font-weight: 650; color: #f24386; margin-bottom: 2rem; }
 .beneficiarias-header-img { max-width: 650px; width: 90%; height: auto; border-radius: 12px; margin-bottom: 3rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); }
 
 .logo-scroller { max-width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-.logo-item { width: 200px; height: 100px; flex-shrink: 0; background: #ffffff; border-radius: 12px; border: 1px solid #f0f0f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.logo-item img { width: 100%; height: 100%; object-fit: contain; filter: none; opacity: 1; transition: all 4s ease; }
+.logo-item { width: 280px; height: 150px; flex-shrink: 0; background: #ffffff; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 40px 55px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.logo-item img { width: 120%; height: 190%; object-fit: contain; filter: none; opacity: 1; transition: all 4s ease; }
 .logo-item:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.07); }
 .logo-item:hover img { filter: grayscale(0%); opacity: 1; }
 
@@ -754,7 +805,7 @@ body {
 }
 
 .servicio-card-expand.mobile-active .expand-content {
-    color : #ffffff; /* Texto en blanco */
+    color : #f3f3f3; /* Texto en blanco */
 }
 
 .servicio-card-expand.mobile-active .expand-icon { 
@@ -765,4 +816,129 @@ body {
 /* Excepción para la tarjeta de Educación (fondo claro) */
 .servicio-card-expand.light-card.mobile-active .expand-content {
     color: #C2185B; 
+}
+/* --- NUEVA SECCIÓN DE TESTIMONIOS AISLADA --- */
+.testimonios-aislados-section {
+    width: 100%;
+    margin: 4rem auto;
+    padding: 3rem 0;
+    box-sizing: border-box;
+    background-color: #FFF8FA; /* Fondo rosita muy tenue */
+    border-top: 1px solid #ffeef2;
+    overflow: hidden; /* Para que el carrusel no rompa la pantalla */
+}
+
+/* Ajuste del carrusel para que esté centrado si no lo estaba */
+.testimonial-scroller {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* --- B. NUEVA TARJETA DE AGRADECIMIENTO ANIMADA (FIGURE) - DISEÑO DOS COLUMNAS --- */
+
+.agradecimiento-figure-section {
+    padding: 4rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+    overflow: hidden; /* Importante para que no se vea el contenido saliendo */
+}
+
+.agradecimiento-content-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    
+    /* Disposición de dos columnas */
+    display: flex; 
+    gap: 0;
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    background-color: #fff; /* Asegura un fondo blanco para el contenedor */
+    
+    /* Estilos base para la animación al hacer scroll (oculto inicialmente) */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Estilos para cuando la sección está visible (se activa con JavaScript) */
+.agradecimiento-content-wrapper.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.figure-col {
+    flex: 1; /* Ambas columnas ocupan el mismo ancho */
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 1. Columna de Imagen (Izquierda) */
+.image-col {
+    padding: 0;
+}
+
+.image-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+
+/* 2. Columna de Texto (Derecha) */
+.agradecimiento-figure {
+    background: var(--c, rgba(230, 60, 125, 1)); /* Usa el color rosa oscuro como fondo */
+    cursor: default; /* Ya no es interactivo como la figura anterior */
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.agradecimiento-figure figcaption {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ffffff;
+    padding: 3rem;
+
+    /* ANTES: clip-path para animación de hover */
+    /* AHORA: Animación de entrada de derecha a izquierda del contenido */
+    transform: translateX(var(--_x, 100%));
+    transition: transform 0.8s ease-out;
+}
+
+/* Esto se activará con JavaScript cuando el contenedor principal sea visible */
+.agradecimiento-content-wrapper.is-visible .agradecimiento-figure figcaption {
+    --_x: 0%; /* Al ser visible, la traducción es 0, haciendo que el texto "entre" */
+}
+
+
+.agradecimiento-figure-text {
+    max-width: 90%; 
+    text-align: center;
+    line-height: 1.5;
+}
+
+.agradecimiento-figure-text strong {
+    font-weight: 600;
+    color: #FFF;
+}
+
+.agradecimiento-figure-text ion-icon {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    display: block; 
 }
