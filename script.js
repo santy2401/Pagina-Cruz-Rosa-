@@ -89,7 +89,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+// --- 6. CÓDIGO PARA ANIMACIÓN TÍTULO "NUESTROS EJES" ---
+    const tituloEjes = document.querySelector('.ejes-anim-text');
 
+    if (tituloEjes) {
+        const titleObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Opcional: Dejar de observar para que solo pase una vez
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.5 }); // Se activa al ver el 50% del título
+
+        titleObserver.observe(tituloEjes);
+    }
 }); // <-- FIN DEL DOMContentLoaded
 
 

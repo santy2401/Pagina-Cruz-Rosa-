@@ -15,7 +15,6 @@
 @keyframes scroll-left {
     to { transform: translateX(-50%); }
 }
-/* Animación para el fondo de reconocimientos */
 @keyframes finisher-gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -64,9 +63,8 @@ body {
     height: 80px;
     width: auto; 
     object-fit: contain;
-    border-radius: 40px; /* Redondeado estilo pastilla */
+    border-radius: 40px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-    /* Fondo transparente (sin background-color) */
 }
 
 .expanding-menu {
@@ -136,10 +134,7 @@ body {
 
 
 /* =========================================
-   4. SERVICIOS Y FONDO ANIMADO
-   ========================================= */
-/* =========================================
-   4. SERVICIOS (NUEVO DISEÑO EXPANDIBLE)
+   4. SERVICIOS (TARJETAS EXPANDIBLES)
    ========================================= */
 .servicios-section-full {
     position: relative; width: 100%; overflow: hidden; padding: 4rem 0;
@@ -159,7 +154,6 @@ body {
     z-index: 1;
 }
 
-/* Fondo animado general (Lo dejamos igual, se ve bien) */
 .bg, .bg2, .bg3 {
     position: absolute; width: 200%; height: 200%; top: -50%; left: -50%; opacity: 0.6; z-index: 0;
     animation: slide 3s ease-in-out infinite alternate;
@@ -168,16 +162,13 @@ body {
 .bg2 { animation-duration: 4s; background-image: linear-gradient(-60deg, #e74482 50%, #e98596 50%); z-index: -1; }
 .bg3 { animation-duration: 5s; background-image: linear-gradient(-60deg, #f1bdc8 50%, #ffe3e6 50%); z-index: -2; }
 
-
-/* --- NUEVAS TARJETAS EXPANDIBLES --- */
-
 .servicio-card-expand {
     position: relative;
     width: 280px;
-    height: 400px; /* Altura fija para buen diseño */
-    background-color: #FFF8FA; /* Color base clarito */
+    height: 400px;
+    background-color: #FFF8FA; 
     border-radius: 28px;
-    overflow: hidden; /* Esto hace que el color no se salga de las esquinas */
+    overflow: hidden; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
@@ -188,7 +179,6 @@ body {
     transform: translateY(-5px);
 }
 
-/* El círculo de color que se expande */
 .expand-bg {
     position: absolute;
     top: -50px;
@@ -200,33 +190,29 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-/* Al hacer hover, el círculo crece 12 veces su tamaño */
 .servicio-card-expand:hover .expand-bg {
     transform: scale(14);
 }
 
-/* Contenido (Icono, Titulo, Texto) */
 .expand-content {
     position: relative;
-    z-index: 2; /* Para que quede encima del color */
+    z-index: 2;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrado vertical */
-    align-items: center; /* Centrado horizontal */
+    justify-content: center;
+    align-items: center; 
     padding: 2rem;
     text-align: center;
-    color: #E63C7D; /* Color inicial del texto (rosa) */
+    color: #E63C7D; 
     transition: color 0.3s ease;
 }
 
-/* Icono */
 .expand-icon {
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
 }
 
-/* Título */
 .expand-title {
     font-size: 1.5rem;
     font-weight: 700;
@@ -234,41 +220,33 @@ body {
     line-height: 1.2;
 }
 
-/* Texto descriptivo (Oculto al inicio) */
 .expand-desc {
     font-size: 0.95rem;
     line-height: 1.5;
     font-weight: 400;
-    opacity: 0; /* Invisible */
-    transform: translateY(20px); /* Un poco abajo */
-    transition: all 0.4s ease 0.1s; /* Animación con pequeño retraso */
-    max-height: 0; /* Para que no ocupe espacio visualmente al inicio */
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: all 0.4s ease 0.1s; 
+    max-height: 0; 
 }
 
-/* --- ESTADO HOVER (CUANDO PASAS EL MOUSE) --- */
-
-/* 1. Cambiar texto a blanco (para contraste con fondo oscuro) */
 .servicio-card-expand:hover .expand-content {
     color: #ffffff;
 }
 
-/* 2. Mover icono y título un poco arriba para dar espacio */
 .servicio-card-expand:hover .expand-icon {
     transform: scale(1.1);
     margin-bottom: 0.5rem;
 }
 
-/* 3. Aparecer la descripción */
 .servicio-card-expand:hover .expand-desc {
     opacity: 1;
     transform: translateY(0);
-    max-height: 200px; /* Le damos espacio para aparecer */
+    max-height: 200px; 
 }
 
-/* --- CASO ESPECIAL: TARJETA DE EDUCACIÓN (FONDO CLARO) --- */
-/* Como el fondo es #FFE3E6, el texto blanco no se ve. Lo ponemos rosa oscuro. */
 .servicio-card-expand.light-card:hover .expand-content {
-    color: #C2185B; /* Rosa fuerte para leerse bien sobre rosa claro */
+    color: #C2185B; 
 }
 
 
@@ -285,26 +263,12 @@ body {
 
 
 /* =========================================
-   6. UBICACIONES (MAPAS)
+   6. UBICACIONES (Eliminado del HTML pero mantenido aquí por si acaso)
    ========================================= */
 .ubicaciones-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; width: 100%; max-width: 1100px; margin: 4rem auto; padding: 0 1rem; box-sizing: border-box; }
 .ubicacion-card { background-color: #ffe3e6; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); width: 450px; max-width: 100%; padding: 1.5rem; box-sizing: border-box; text-align: center; }
-
-/* Contenedor del mapa (iframe) */
-.map-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 280px; 
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    background-color: #eee;
-}
-.map-container iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%; border: 0;
-}
-
+.map-container { position: relative; overflow: hidden; width: 100%; height: 280px; border-radius: 8px; margin-bottom: 1.5rem; background-color: #eee; }
+.map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 .ubicacion-title { font-size: 1.8rem; font-weight: 700; color: #e74682; margin-bottom: 0.5rem; }
 .ubicacion-address { margin-bottom: 1rem; color: #555; line-height: 1.5; }
 .btn-ubicacion { display: inline-block; padding: 15px 35px; border-radius: 30px; text-decoration: none; color: #333; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.5px; background-image: linear-gradient(135deg, #f48120 0%, #ffca7b 100%); box-shadow: 0 8px 15px #a1860090; transition: transform 0.3s; margin-top: 1rem; }
@@ -326,7 +290,607 @@ body {
 
 
 /* =========================================
-   8. RECONOCIMIENTOS
+   8. RECONOCIMIENTOS (FONDO ANIMADO TIPO ONDAS)
+   ========================================= */
+
+.reconocimientos-section {
+    width: 100%;
+    margin: 4rem auto;
+    padding: 6rem 2rem; /* Un poco más de espacio vertical */
+    box-sizing: border-box;
+    text-align: center;
+    position: relative; /* Necesario para contener el fondo absoluto */
+    overflow: hidden;   /* Para recortar los círculos que se salgan */
+    background: #dbd0d3; /* Color de fondo base (el más clarito) */
+}
+
+/* --- Capa de contenido (para que esté encima del fondo) --- */
+.reconocimientos-content {
+    position: relative;
+    z-index: 2; /* Mayor que el fondo */
+}
+
+.reconocimientos-section h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #C51D4A; /* Usando el tono fuerte (495 C) para el título */
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- EL FONDO ANIMADO (RIPPLE) --- */
+.ripple-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Al fondo */
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    
+    /* Animación suave de expansión/contracción tipo respiración */
+    animation: ripple 8s infinite ease-in-out alternate;
+}
+
+/* --- TAMAÑOS Y POSICIONES (Efecto desde la esquina inferior izquierda) --- */
+/* Ajustamos 'bottom' y 'left' negativos para que el centro de la onda sea la esquina */
+
+.small {
+    width: 400px; height: 400px;
+    bottom: -200px; left: -200px; 
+    z-index: 5;
+}
+
+.medium {
+    width: 800px; height: 800px;
+    bottom: -400px; left: -400px; 
+    z-index: 4;
+}
+
+.large {
+    width: 1200px; height: 1200px;
+    bottom: -600px; left: -600px; 
+    z-index: 3;
+}
+
+.xlarge {
+    width: 1600px; height: 1600px;
+    bottom: -800px; left: -800px; 
+    z-index: 2;
+}
+
+.xxlarge {
+    width: 2200px; height: 2200px;
+    bottom: -1100px; left: -1100px; 
+    z-index: 1;
+}
+
+/* --- COLORES (Según tu paleta) --- */
+
+/* Color más fuerte (Centro): Pantone 495 C -> Aprox #C51D4A */
+.shade5 { background: rgba(197, 29, 74, 0.15); animation-delay: 0s; }
+
+/* Color vibrante (Medio): Pantone 701 C -> Aprox #FF94B2 */
+.shade4 { background: rgba(255, 148, 178, 0.2); animation-delay: 0.5s; }
+
+/* Color Rosita claro: #FFE3E6 */
+.shade3 { background: rgba(255, 227, 230, 0.4); animation-delay: 1s; }
+
+/* Color muy claro/Blanco: #FFF8FA */
+.shade2 { background: #ffeef2; animation-delay: 1.5s; }
+
+/* Fondo externo */
+.shade1 { background: #fff0f4; animation-delay: 2s; }
+
+
+/* --- KEYFRAMES --- */
+@keyframes ripple {
+    0% { transform: scale(0.9); }
+    100% { transform: scale(1.1); }
+}
+
+
+/* --- GRID DE TARJETAS (Ajustado para contraste) --- */
+.reconocimientos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto; 
+    position: relative;
+    z-index: 10;
+}
+
+.reconocimiento-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Un poco transparente para ver el fondo */
+    backdrop-filter: blur(5px); /* Efecto vidrio elegante */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(197, 29, 74, 0.1); /* Sombra rosada suave */
+    transition: transform 0.3s ease;
+}
+
+.reconocimiento-item:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(197, 29, 74, 0.2); }
+.reconocimiento-img-wrapper { height: 80px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.reconocimiento-item img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: none; }
+
+/* Texto de las tarjetas */
+.reconocimiento-item h3 { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: #C51D4A; /* Pantone 495 C */
+    margin-bottom: 0.5rem; 
+}
+/* =========================================
+   9. SECCIÓN AGRADECIMIENTO (LEGACY - Reemplazado por el nuevo diseño abajo)
+   ========================================= */
+/* (Puedes dejar esto aquí, no afecta ya que cambiamos el HTML) */
+
+
+/* =========================================
+   10. CÓMO AYUDAR
+   ========================================= */
+.ayudar-section { width: 100%; max-width: 1200px; margin: 4rem auto; padding: 2rem; box-sizing: border-box; text-align: center; border-top: 1px solid #ffffff; padding-top: 4rem; }
+.ayudar-section h2 { font-size: 2.8rem; font-weight: 700; color: #E98596; margin-bottom: 1.5rem; }
+.ayudar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; align-items: start; }
+.ayudar-card { background-color: #fff0f3; border-radius: 20px; padding: 2rem 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; align-items: center; transition: all 0.3s ease; }
+.ayudar-img-wrapper { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin-bottom: 1.5rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); flex-shrink: 0; }
+.ayudar-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.ayudar-card h3 { font-size: 1.4rem; font-weight: 600; color: #E98596; margin-bottom: 1rem; min-height: 50px; }
+.ayudar-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-out; }
+.ayudar-card.is-open .ayudar-content { max-height: 200px; opacity: 1; }
+.btn-ayudar { display: inline-block; padding: 12px 30px; border-radius: 30px; border: none; text-decoration: none; color: #636363; font-weight: 600; font-size: 1.1rem; cursor: pointer; font-family: 'DM Sans', sans-serif; background-image: var(--gradiente-btn); box-shadow: 0 8px 15px var(--sombra-btn); transition: transform 0.3s; margin-top: auto; }
+.btn-ayudar:hover { transform: translateY(-5px); }
+
+
+/* =========================================
+   11. INFORMES ANUALES
+   ========================================= */
+.informes-buttons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); justify-content: center; gap: 1rem; padding: 0 1rem; }
+.btn-informe { display: inline-block; padding: 12px 0; border-radius: 12px; text-decoration: none; color: #ffffff; font-weight: 600; font-size: 1.1rem; cursor: default; text-align: center; background-image: linear-gradient(135deg, #e98596 0%, #e98596 100%); box-shadow: 0 6px 15px rgba(241, 88, 124, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.btn-informe:nth-child(even) { background-image: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); box-shadow: 0 6px 15px rgba(255, 64, 156, 0.3); }
+.btn-informe:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+
+
+/* =========================================
+   12. CONTÁCTANOS (FORMULARIO)
+   ========================================= */
+/* (Mantenido aunque se eliminó del HTML principal por si deseas volver a usarlo) */
+.contacto-section { width: 100%; margin: 4rem auto; padding: 4rem 2rem; box-sizing: border-box; border-top: 1px solid #ca4141; }
+.contacto-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.contacto-info { min-width: 0; }
+.contacto-info h2 { font-size: 2.8rem; font-weight: 700; color: #de3777; margin-bottom: 1.5rem; }
+.contacto-form-wrapper { background-color: #FFF8FA; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); }
+.form-tabs { display: flex; margin-bottom: 2rem; gap: 0.5rem; }
+.tab-button { flex-grow: 1; padding: 14px 20px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; background-color: #e0e0e0; color: #777; transition: all 0.3s ease; }
+.tab-button.is-active { background-color: #E98596; color: #000000; box-shadow: 0 5px 10px #f8058690; }
+.tab-button:nth-child(2).is-active { background-color: #F9B680; color: #000000; box-shadow: none; }
+.contact-form { display: none; flex-direction: column; gap: 1rem; }
+.contact-form.is-active { display: flex; }
+.contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px 15px; border: 1px solid #a1083b; border-radius: 8px; font-size: 1rem; font-family: 'DM Sans', sans-serif; box-sizing: border-box; }
+.btn-submit { display: inline-block; padding: 14px 30px; border-radius: 30px; border: none; text-decoration: none; color: #ffffff; font-weight: 600; font-size: 1.2rem; cursor: pointer; margin-top: 1rem; background-image: linear-gradient(135deg, #e74682 0%, #bd2a4a 100%); box-shadow: 0 8px 15px #d7113260; transition: transform 0.3s; }
+.btn-submit:hover { transform: translateY(-5px); }
+
+/* Carrusel Testimonios (Estilos Base) */
+.testimonial-scroller { margin-top: 3rem; max-width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent); }
+.testimonial-card { width: 350px; flex-shrink: 0; background: #FFF8FA; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); border: 1px solid #d12967; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.testimonial-card img { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 1.5rem; object-fit: cover; }
+
+
+/* =========================================
+   13. MARCAS BENEFICIARIAS (LOGOS GRANDES)
+   ========================================= */
+.beneficiarias-section { width: 100%; margin: 4rem auto; padding: 4rem 0; box-sizing: border-box; text-align: center; border-top: 1px solid #eee; }
+.beneficiarias-section h2 { font-size: 3.5rem; font-weight: 700; color: #F9B680; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.beneficiarias-header-img { max-width: 650px; width: 90%; height: auto; border-radius: 12px; margin-bottom: 3rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); }
+
+.logo-scroller { max-width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+.logo-item { width: 280px; height: 150px; flex-shrink: 0; background: #ffffff; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 40px 55px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+/* Ajuste de logos grandes */
+.logo-item img { width: 120%; height: 190%; object-fit: contain; filter: none; opacity: 1; transition: all 4s ease; }
+.logo-item:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.07); }
+.logo-item:hover img { filter: grayscale(0%); opacity: 1; }
+
+.scroller-inner { display: flex; flex-wrap: nowrap; width: max-content; gap: 2rem; }
+.testimonial-scroller[data-animated="true"] .scroller-inner, 
+.logo-scroller[data-animated="true"] .scroller-inner { animation: scroll-left 40s linear infinite; }
+.testimonial-scroller:hover .scroller-inner, .logo-scroller:hover .scroller-inner { animation-play-state: paused; }
+
+
+/* =========================================
+   14. GALERÍA ACORDEÓN
+   ========================================= */
+.galeria-acordeon { display: flex; width: 100%; max-width: 1100px; height: 430px; margin: 4rem auto; padding: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-radius: 12px; overflow: hidden; }
+.galeria-acordeon > img { flex: 1; width: 100px; object-fit: cover; opacity: .8; filter: grayscale(50%); transition: all 0.5s ease; }
+.galeria-acordeon > img:hover { flex: 5; opacity: 1; filter: grayscale(0%) contrast(110%); cursor: crosshair; }
+
+
+/* =========================================
+   15. VERSIÓN MÓVIL (RESPONSIVE DESIGN)
+   ========================================= */
+@media (max-width: 1024px) {
+    .ayudar-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+    .reconocimientos-grid { grid-template-columns: repeat(2, 1fr); }
+    .contacto-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    p { font-size: 1rem !important; line-height: 1.5 !important; }
+    
+    .main-header { top: auto; bottom: 20px; padding: 0 15px; flex-direction: row; gap: 0; display: block; }
+    .logo-container { display: none; }
+    .expanding-menu { width: 100%; overflow-x: auto; justify-content: flex-start; padding: 10px; box-shadow: 0 -5px 20px rgba(0,0,0,0.15); position: fixed; bottom: 20px; left: 0; right: 0; margin: 0 auto; max-width: 95%; }
+    .menu-link { flex-shrink: 0; width: 50px; height: 50px; }
+
+    .hero-section { flex-direction: column; height: auto; min-height: 100vh; }
+    .hero-video-column { width: 100%; height: 40vh; }
+    .hero-text-column { width: 100%; padding: 2rem 1.5rem; text-align: center; }
+    .hero-buttons { flex-direction: column; gap: 1rem; }
+    .btn-hero { width: 100%; text-align: center; }
+
+    .servicios-container, .ayudar-grid, .stats-grid, .reconocimientos-grid, .contacto-container { grid-template-columns: 1fr !important; gap: 2rem; padding-left: 1rem; padding-right: 1rem; width: 100%; }
+    .informes-buttons-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .ubicaciones-container { flex-direction: column; align-items: center; }
+    .ubicacion-card { width: 100%; }
+    
+    .testimonial-card { width: 280px; padding: 1.5rem; }
+    .logo-item { width: 150px; height: 80px; }
+    
+    /* --- AJUSTE RESPONSIVE PARA LA NUEVA SECCIÓN DE AGRADECIMIENTO --- */
+    .agradecimiento-fondo-seccion {
+        width: 100%;
+        min-height: 500px;
+    }
+    .tarjeta-rosa-texto {
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+    }
+    .tarjeta-rosa-texto p {
+        font-size: 1.1rem;
+    }
+
+    section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+}
+
+@media (max-width: 600px) {
+    .informes-buttons-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .ayudar-card h3 { min-height: auto; }
+}
+
+/* Animación Scroll en Móvil */
+.servicio-card-expand.mobile-active .expand-bg { transform: scale(14); }
+.servicio-card-expand.mobile-active .expand-desc { opacity: 1; transform: translateY(0); max-height: 200px; }
+.servicio-card-expand.mobile-active .expand-content { color : #f3f3f3; }
+.servicio-card-expand.mobile-active .expand-icon { transform: scale(1.1); margin-bottom: 0.5rem; }
+.servicio-card-expand.light-card.mobile-active .expand-content { color: #C2185B; }
+
+
+/* =========================================
+   16. TESTIMONIOS AISLADOS (SECCIÓN NUEVA)
+   ========================================= */
+.testimonios-aislados-section {
+    width: 100%;
+    margin: 4rem auto;
+    padding: 3rem 0;
+    box-sizing: border-box;
+    background-color: #FFF8FA; 
+    border-top: 1px solid #ffeef2;
+    overflow: hidden; 
+}
+.testimonial-scroller {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&display=swap');
+
+/* =========================================
+   0. ANIMACIONES
+   ========================================= */
+@keyframes moveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes slide {
+    0% { transform:translateX(-25%); }
+    100% { transform:translateX(25%); }
+}
+@keyframes scroll-left {
+    to { transform: translateX(-50%); }
+}
+@keyframes finisher-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   1. ESTILOS GENERALES Y ESTRUCTURA
+   ========================================= */
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(120deg, #ffffff 0%, #fffbfd 100%); 
+    color: #444; 
+    margin: 0; padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =========================================
+   2. HEADER Y MENÚ (CON LOGO)
+   ========================================= */
+.main-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 20px; 
+    box-sizing: border-box;
+    position: fixed; 
+    top: 30px; 
+    left: 0;
+    z-index: 1000;
+    pointer-events: none; 
+    padding: 0 20px; 
+}
+
+.logo-container {
+    display: block;
+    pointer-events: auto; 
+    flex-shrink: 0; 
+}
+
+.main-logo-img {
+    height: 80px;
+    width: auto; 
+    object-fit: contain;
+    border-radius: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+}
+
+.expanding-menu {
+    display: flex;
+    background-color: #ffffff; 
+    border-radius: 60px; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+    padding: 10px; 
+    gap: 10px; 
+    pointer-events: auto; 
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; height: 60px; 
+    font-size: 1.8rem; 
+    border-radius: 50px; 
+    color: #db3877; 
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: transparent;
+}
+
+.menu-link .link-text {
+    font-size: 1.1rem; 
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    margin-left: 0px;
+    opacity: 0;
+    max-width: 0;
+    white-space: nowrap;
+    transition: all 0.4s ease;
+}
+
+.menu-link:hover {
+    width: auto; 
+    padding: 0 25px; 
+    background-color: #d30d59; 
+    color: #ffffff; 
+    box-shadow: 0 5px 20px rgba(230, 60, 125, 0.5); 
+}
+
+.menu-link:hover .link-text {
+    opacity: 1;
+    max-width: 300px; 
+    margin-left: 12px;
+}
+
+/* =========================================
+   3. HERO SECCIÓN
+   ========================================= */
+.hero-section {
+    width: 100%; height: 100vh; display: flex; background-color: #E68699;
+}
+.hero-video-column { flex: 1; position: relative; overflow: hidden; min-width: 50%; }
+.hero-video-element { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; width: auto; height: auto; }
+.hero-text-column { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem; box-sizing: border-box; }
+.hero-text-column h1 { font-size: 3.5rem; font-weight: 700; color: #ebe8e9; margin-bottom: 1rem; line-height: 1.2; }
+.hero-text-column p { font-size: 1.5rem; color: #fff8fa; margin-bottom: 2rem; }
+.hero-buttons { display: flex; gap: 1.5rem; justify-content: center; width: 100%; }
+.btn-hero { display: inline-block; padding: 15px 35px; border-radius: 30px; text-decoration: none; color: #333; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.5px; background-image: var(--gradiente-hero); box-shadow: 0 8px 15px var(--color-sombra-hero); transition: transform 0.3s; }
+.btn-hero:hover { transform: translateY(-5px); box-shadow: 0 15px 25px var(--color-sombra-hero); }
+
+
+/* =========================================
+   4. SERVICIOS (TARJETAS EXPANDIBLES)
+   ========================================= */
+.servicios-section-full {
+    position: relative; width: 100%; overflow: hidden; padding: 4rem 0;
+}
+
+.servicios-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    justify-items: center;
+    gap: 2rem;
+    max-width: 1300px; 
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.bg, .bg2, .bg3 {
+    position: absolute; width: 200%; height: 200%; top: -50%; left: -50%; opacity: 0.6; z-index: 0;
+    animation: slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #f8bbd0 50%, #fce4ec 50%);
+}
+.bg2 { animation-duration: 4s; background-image: linear-gradient(-60deg, #e74482 50%, #e98596 50%); z-index: -1; }
+.bg3 { animation-duration: 5s; background-image: linear-gradient(-60deg, #f1bdc8 50%, #ffe3e6 50%); z-index: -2; }
+
+.servicio-card-expand {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    background-color: #FFF8FA; 
+    border-radius: 28px;
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.servicio-card-expand:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.expand-bg {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.5s ease-in-out;
+}
+
+.servicio-card-expand:hover .expand-bg {
+    transform: scale(14);
+}
+
+.expand-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    padding: 2rem;
+    text-align: center;
+    color: #E63C7D; 
+    transition: color 0.3s ease;
+}
+
+.expand-icon {
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.expand-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.expand-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 400;
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: all 0.4s ease 0.1s; 
+    max-height: 0; 
+}
+
+.servicio-card-expand:hover .expand-content {
+    color: #ffffff;
+}
+
+.servicio-card-expand:hover .expand-icon {
+    transform: scale(1.1);
+    margin-bottom: 0.5rem;
+}
+
+.servicio-card-expand:hover .expand-desc {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px; 
+}
+
+.servicio-card-expand.light-card:hover .expand-content {
+    color: #C2185B; 
+}
+
+
+/* =========================================
+   5. PROPÓSITO
+   ========================================= */
+.proposito-hover-section { width: 100%; max-width: 900px; margin: 4rem auto; padding: 2rem; box-sizing: border-box; text-align: center; border-top: 1px solid #eee; padding-top: 4rem; }
+.proposito-title { font-size: 2.8rem; font-weight: 700; color: #E63C7D; margin-bottom: 1.5rem; }
+.proposito-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 2.5rem; }
+.proposito-ods { font-size: 1rem; line-height: 1.6; color: #666; font-weight: 600; text-transform: uppercase; margin-bottom: 2.5rem; }
+.proposito-hover-figure { width: 100%; aspect-ratio: 8/5; --bg: hsl(339, 83%, 97%); --accent: #E63C7D; transition: background 0.2s; background: radial-gradient(circle at top left, var(--accent), transparent 75%), var(--bg); margin: 0; position: relative; overflow: hidden; border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); cursor: pointer; }
+.proposito-hover-figure img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s; }
+.proposito-hover-figure:hover img { transform: scale(1.05); }
+
+
+/* =========================================
+   6. UBICACIONES (Eliminado del HTML pero mantenido aquí por si acaso)
+   ========================================= */
+.ubicaciones-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; width: 100%; max-width: 1100px; margin: 4rem auto; padding: 0 1rem; box-sizing: border-box; }
+.ubicacion-card { background-color: #ffe3e6; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); width: 450px; max-width: 100%; padding: 1.5rem; box-sizing: border-box; text-align: center; }
+.map-container { position: relative; overflow: hidden; width: 100%; height: 280px; border-radius: 8px; margin-bottom: 1.5rem; background-color: #eee; }
+.map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.ubicacion-title { font-size: 1.8rem; font-weight: 700; color: #e74682; margin-bottom: 0.5rem; }
+.ubicacion-address { margin-bottom: 1rem; color: #555; line-height: 1.5; }
+.btn-ubicacion { display: inline-block; padding: 15px 35px; border-radius: 30px; text-decoration: none; color: #333; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.5px; background-image: linear-gradient(135deg, #f48120 0%, #ffca7b 100%); box-shadow: 0 8px 15px #a1860090; transition: transform 0.3s; margin-top: 1rem; }
+.mty-btn { background-image: linear-gradient(135deg, #e74682 0%, #f1bdc8 100%); box-shadow: 0 8px 15px #f0002890; }
+.btn-ubicacion:hover { transform: translateY(-5px); }
+
+
+/* =========================================
+   7. IMPACTO
+   ========================================= */
+.impacto-section { width: 100%; padding: 6rem 2rem; box-sizing: border-box; position: relative; background-image: linear-gradient(rgba(223, 10, 117, 0.92), rgba(252, 193, 222, 0.92)), url("URL-DE-TU-IMAGEN-COLLAGE.png"); background-size: cover; background-position: center center; background-attachment: fixed; }
+.impacto-content { max-width: 1000px; margin: 0 auto; text-align: center; color: #ffffff; }
+.impacto-content h2 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.stat-item { display: flex; flex-direction: column; align-items: center; }
+.stat-item img { width: 100px; height: 100px; margin-bottom: 1rem; }
+.stat-number-wrapper {display: flex; justify-content: center; align-items: baseline; font-size: 3rem; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums;  font-feature-settings: "tnum"; }
+.stat-title { font-size: 1rem; font-weight: 600; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+
+/* =========================================
+   8. RECONOCIMIENTOS (CERTIFICACIONES)
    ========================================= */
 .reconocimientos-section {
     width: 100%;
@@ -349,22 +913,6 @@ body {
     text-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.reconocimientos-section > p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #ffffff; 
-    margin: 0 auto 3rem auto;
-    max-width: 800px;
-    font-weight: 400;
-}
-
-.reconocimientos-section > p strong {
-    color: #fff;
-    font-weight: 700;
-    text-decoration: underline; 
-    text-decoration-color: rgba(255,255,255,0.5);
-}
-
 .reconocimientos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -384,137 +932,17 @@ body {
     transition: transform 0.3s ease;
 }
 
-.reconocimiento-item:hover {
-    transform: translateY(-5px); 
-}
-
-.reconocimiento-img-wrapper {
-    height: 80px; 
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.reconocimiento-item img {
-    max-height: 100%;
-    max-width: 100%;
-    width: auto;
-    object-fit: contain;
-    filter: none; 
-}
-
-.reconocimiento-item h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #E63C7D; 
-    margin-bottom: 0.5rem;
-}
-
-.reconocimiento-item p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #555; 
-    font-weight: 400;
-}
+.reconocimiento-item:hover { transform: translateY(-5px); }
+.reconocimiento-img-wrapper { height: 80px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.reconocimiento-item img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: none; }
+.reconocimiento-item h3 { font-size: 1.5rem; font-weight: 700; color: #E63C7D; margin-bottom: 0.5rem; }
+.reconocimiento-item p { font-size: 0.9rem; line-height: 1.5; color: #555; font-weight: 400; }
 
 
 /* =========================================
-   9. SECCIÓN AGRADECIMIENTO (CON ANIMACIÓN)
+   9. SECCIÓN AGRADECIMIENTO (LEGACY - Reemplazado por el nuevo diseño abajo)
    ========================================= */
-.agradecimiento-section {
-    width: 100%;
-    max-width: 1000px;
-    margin: 4rem auto; 
-    padding: 0 2rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-}
-
-.agradecimiento-card {
-    /* Mantenemos el fondo original clarito */
-    background-image: linear-gradient(135deg, #FFE3E6 0%, #FFF8FA 100%);
-    width: 100%;
-    border-radius: 40px; 
-    /* IMPORTANTE: relative y hidden para que la animación no se salga de la tarjeta */
-    position: relative;
-    overflow: hidden; 
-    
-    padding: 3rem;
-    text-align: center;
-    color: #E98596; 
-    box-shadow: 0 15px 30px rgba(243, 30, 80, 0.3);
-    
-    /* Animación de entrada al hacer scroll */
-    animation: fade-in-up 1s ease-out;
-    animation-timeline: view();
-    animation-range: entry 20% cover 40%;
-    animation-fill-mode: both;
-    
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efecto al pasar el mouse sobre la tarjeta entera */
-.agradecimiento-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(230, 60, 125, 0.4);
-}
-
-/* Reutilizamos las clases que ya creaste para los servicios, 
-   pero ajustadas dentro de esta tarjeta */
-
-.agradecimiento-card .expand-bg {
-    position: absolute;
-    top: -100px;    /* Empezamos un poco más afuera porque la tarjeta es grande */
-    right: -100px;
-    width: 200px;   /* Círculo base más grande */
-    height: 200px;
-    border-radius: 50%;
-    z-index: 1;
-    transition: transform 0.6s ease-in-out; /* Un poco más lento para ser elegante */
-}
-
-/* Al hacer hover, el círculo crece MUCHO para cubrir toda la tarjeta ancha */
-.agradecimiento-card:hover .expand-bg {
-    transform: scale(20); 
-}
-
-/* El contenido debe estar encima del fondo (z-index 2) */
-.agradecimiento-card .expand-content {
-    position: relative;
-    z-index: 2;
-    transition: color 0.3s ease;
-}
-
-/* Cambio de color del texto al hacer hover */
-.agradecimiento-card:hover .expand-content {
-    color: #ffffff;
-}
-
-/* Asegurar que el icono también se ponga blanco brillante */
-.agradecimiento-card:hover ion-icon {
-    color: #ffffff;
-    opacity: 1;
-}
-
-/* Estilos del texto (mantenidos igual) */
-.agradecimiento-text {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-}
-.agradecimiento-text strong {
-    font-weight: 700; 
-}
-.agradecimiento-icon ion-icon {
-    font-size: 3.5rem;
-    color: rgba(233, 133, 150, 0.8); /* Color original del icono */
-    margin-top: 0.5rem;
-    transition: color 0.3s ease;
-}
+/* (Puedes dejar esto aquí, no afecta ya que cambiamos el HTML) */
 
 
 /* =========================================
@@ -522,14 +950,7 @@ body {
    ========================================= */
 .ayudar-section { width: 100%; max-width: 1200px; margin: 4rem auto; padding: 2rem; box-sizing: border-box; text-align: center; border-top: 1px solid #ffffff; padding-top: 4rem; }
 .ayudar-section h2 { font-size: 2.8rem; font-weight: 700; color: #E98596; margin-bottom: 1.5rem; }
-
-.ayudar-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 1.5rem;
-    align-items: start; 
-}
-
+.ayudar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; align-items: start; }
 .ayudar-card { background-color: #fff0f3; border-radius: 20px; padding: 2rem 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; align-items: center; transition: all 0.3s ease; }
 .ayudar-img-wrapper { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin-bottom: 1.5rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); flex-shrink: 0; }
 .ayudar-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
@@ -543,47 +964,16 @@ body {
 /* =========================================
    11. INFORMES ANUALES
    ========================================= */
-.informes-buttons-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
-    justify-content: center;
-    gap: 1rem;
-    padding: 0 1rem;
-}
-
-.btn-informe {
-    display: inline-block;
-    padding: 12px 0; 
-    border-radius: 12px; 
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 1.1rem; 
-    cursor: default;
-    text-align: center;
-    
-    /* COLOR 1: ROSA (Impares) */
-    background-image: linear-gradient(135deg, #e98596 0%, #e98596 100%); 
-    box-shadow: 0 6px 15px rgba(241, 88, 124, 0.3);
-    
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* COLOR 2: NARANJA/DORADO (Pares) */
-.btn-informe:nth-child(even) {
-    background-image: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%);
-    box-shadow: 0 6px 15px rgba(255, 64, 156, 0.3);
-}
-
-.btn-informe:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
-}
+.informes-buttons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); justify-content: center; gap: 1rem; padding: 0 1rem; }
+.btn-informe { display: inline-block; padding: 12px 0; border-radius: 12px; text-decoration: none; color: #ffffff; font-weight: 600; font-size: 1.1rem; cursor: default; text-align: center; background-image: linear-gradient(135deg, #e98596 0%, #e98596 100%); box-shadow: 0 6px 15px rgba(241, 88, 124, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.btn-informe:nth-child(even) { background-image: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); box-shadow: 0 6px 15px rgba(255, 64, 156, 0.3); }
+.btn-informe:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
 
 /* =========================================
-   12. CONTÁCTANOS
+   12. CONTÁCTANOS (FORMULARIO)
    ========================================= */
+/* (Mantenido aunque se eliminó del HTML principal por si deseas volver a usarlo) */
 .contacto-section { width: 100%; margin: 4rem auto; padding: 4rem 2rem; box-sizing: border-box; border-top: 1px solid #ca4141; }
 .contacto-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .contacto-info { min-width: 0; }
@@ -599,14 +989,14 @@ body {
 .btn-submit { display: inline-block; padding: 14px 30px; border-radius: 30px; border: none; text-decoration: none; color: #ffffff; font-weight: 600; font-size: 1.2rem; cursor: pointer; margin-top: 1rem; background-image: linear-gradient(135deg, #e74682 0%, #bd2a4a 100%); box-shadow: 0 8px 15px #d7113260; transition: transform 0.3s; }
 .btn-submit:hover { transform: translateY(-5px); }
 
-/* Carrusel Testimonios */
+/* Carrusel Testimonios (Estilos Base) */
 .testimonial-scroller { margin-top: 3rem; max-width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent); }
 .testimonial-card { width: 350px; flex-shrink: 0; background: #FFF8FA; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); border: 1px solid #d12967; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .testimonial-card img { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 1.5rem; object-fit: cover; }
 
 
 /* =========================================
-   13. MARCAS BENEFICIARIAS
+   13. MARCAS BENEFICIARIAS (LOGOS GRANDES)
    ========================================= */
 .beneficiarias-section { width: 100%; margin: 4rem auto; padding: 4rem 0; box-sizing: border-box; text-align: center; border-top: 1px solid #eee; }
 .beneficiarias-section h2 { font-size: 2.8rem; font-weight: 650; color: #f24386; margin-bottom: 2rem; }
@@ -614,11 +1004,11 @@ body {
 
 .logo-scroller { max-width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
 .logo-item { width: 280px; height: 150px; flex-shrink: 0; background: #ffffff; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 40px 55px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+/* Ajuste de logos grandes */
 .logo-item img { width: 120%; height: 190%; object-fit: contain; filter: none; opacity: 1; transition: all 4s ease; }
 .logo-item:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.07); }
 .logo-item:hover img { filter: grayscale(0%); opacity: 1; }
 
-/* ANIMACIÓN COMPARTIDA DE CARRUSELES */
 .scroller-inner { display: flex; flex-wrap: nowrap; width: max-content; gap: 2rem; }
 .testimonial-scroller[data-animated="true"] .scroller-inner, 
 .logo-scroller[data-animated="true"] .scroller-inner { animation: scroll-left 40s linear infinite; }
@@ -636,309 +1026,253 @@ body {
 /* =========================================
    15. VERSIÓN MÓVIL (RESPONSIVE DESIGN)
    ========================================= */
-
-/* --- Laptops pequeñas / Tablets en horizontal --- */
 @media (max-width: 1024px) {
-    .ayudar-grid { 
-        grid-template-columns: repeat(3, 1fr); 
-    }
+    .ayudar-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* --- Tablets --- */
 @media (max-width: 900px) {
-    .stats-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 3rem; 
-    }
-    .reconocimientos-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-    }
-    .contacto-container { 
-        grid-template-columns: 1fr; 
-    }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+    .reconocimientos-grid { grid-template-columns: repeat(2, 1fr); }
+    .contacto-container { grid-template-columns: 1fr; }
 }
 
-/* --- Celulares Grandes / Tablets Verticales --- */
 @media (max-width: 768px) {
-
-    /* --- 1. AJUSTES GENERALES DE TEXTO --- */
     h1 { font-size: 2.2rem !important; }
     h2 { font-size: 1.8rem !important; }
     p { font-size: 1rem !important; line-height: 1.5 !important; }
     
-    /* --- 2. HEADER Y MENÚ FLOTANTE --- */
-    .main-header {
-        top: auto; 
-        bottom: 20px; 
-        padding: 0 15px;
-        flex-direction: row; /* En horizontal para el menú */
-        gap: 0;
-        display: block; /* Para manejar posicionamiento */
-    }
+    .main-header { top: auto; bottom: 20px; padding: 0 15px; flex-direction: row; gap: 0; display: block; }
+    .logo-container { display: none; }
+    .expanding-menu { width: 100%; overflow-x: auto; justify-content: flex-start; padding: 10px; box-shadow: 0 -5px 20px rgba(0,0,0,0.15); position: fixed; bottom: 20px; left: 0; right: 0; margin: 0 auto; max-width: 95%; }
+    .menu-link { flex-shrink: 0; width: 50px; height: 50px; }
+
+    .hero-section { flex-direction: column; height: auto; min-height: 100vh; }
+    .hero-video-column { width: 100%; height: 40vh; }
+    .hero-text-column { width: 100%; padding: 2rem 1.5rem; text-align: center; }
+    .hero-buttons { flex-direction: column; gap: 1rem; }
+    .btn-hero { width: 100%; text-align: center; }
+
+    .servicios-container, .ayudar-grid, .stats-grid, .reconocimientos-grid, .contacto-container { grid-template-columns: 1fr !important; gap: 2rem; padding-left: 1rem; padding-right: 1rem; width: 100%; }
+    .informes-buttons-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .ubicaciones-container { flex-direction: column; align-items: center; }
+    .ubicacion-card { width: 100%; }
     
-    /* Logo oculto en versión móvil si estorba, o ajustado arriba */
-    .logo-container {
-        display: none; /* Ocultamos el logo del menú flotante en móvil para simplificar */
-    }
-
-    .expanding-menu {
+    .testimonial-card { width: 280px; padding: 1.5rem; }
+    .logo-item { width: 150px; height: 80px; }
+    
+    /* --- AJUSTE RESPONSIVE PARA LA NUEVA SECCIÓN DE AGRADECIMIENTO --- */
+    .agradecimiento-fondo-seccion {
         width: 100%;
-        overflow-x: auto; 
-        justify-content: flex-start; 
-        padding: 10px;
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.15); 
-        position: fixed;
-        bottom: 20px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        max-width: 95%;
+        min-height: 500px;
     }
-    .menu-link {
-        flex-shrink: 0; 
-        width: 50px;
-        height: 50px;
-    }
-
-    /* --- 3. HERO (VIDEO Y TEXTO) --- */
-    .hero-section {
-        flex-direction: column; 
-        height: auto;
-        min-height: 100vh;
-    }
-    .hero-video-column {
-        width: 100%;
-        height: 40vh; 
-    }
-    .hero-text-column {
-        width: 100%;
+    .tarjeta-rosa-texto {
+        max-width: 100%;
         padding: 2rem 1.5rem;
-        text-align: center;
     }
-    .hero-buttons {
-        flex-direction: column; 
-        gap: 1rem;
-    }
-    .btn-hero {
-        width: 100%; 
-        text-align: center;
+    .tarjeta-rosa-texto p {
+        font-size: 1.1rem;
     }
 
-    /* --- 4. TODAS LAS CUADRÍCULAS A 1 COLUMNA --- */
-    .servicios-container,
-    .ayudar-grid,
-    .stats-grid,
-    .reconocimientos-grid,
-    .contacto-container {
-        grid-template-columns: 1fr !important; 
-        gap: 2rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        width: 100%;
-    }
-
-    /* --- 5. AJUSTES ESPECÍFICOS --- */
-    
-    /* Informes (Años): 3 por fila */
-    .informes-buttons-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
-    }
-
-    /* Ubicaciones */
-    .ubicaciones-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .ubicacion-card {
-        width: 100%;
-    }
-
-    /* Agradecimiento */
-    .agradecimiento-card {
-        padding: 2rem 1.5rem;
-        border-radius: 25px;
-    }
-    .agradecimiento-icon ion-icon {
-        font-size: 2.5rem;
-    }
-
-    /* Carruseles */
-    .testimonial-card {
-        width: 280px; 
-        padding: 1.5rem;
-    }
-    .logo-item {
-        width: 150px; 
-        height: 80px;
-    }
-    
-    /* Espaciados entre secciones */
-    section {
-        padding-top: 3rem !important;
-        padding-bottom: 3rem !important;
-    }
+    section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
 }
 
-/* --- Celulares Pequeños --- */
 @media (max-width: 600px) {
-    .informes-buttons-grid { 
-        grid-template-columns: repeat(2, 1fr) !important; 
-    }
-    .ayudar-card h3 { 
-        min-height: auto; 
-    }
+    .informes-buttons-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .ayudar-card h3 { min-height: auto; }
 }
+
+/* Animación Scroll en Móvil */
+.servicio-card-expand.mobile-active .expand-bg { transform: scale(14); }
+.servicio-card-expand.mobile-active .expand-desc { opacity: 1; transform: translateY(0); max-height: 200px; }
+.servicio-card-expand.mobile-active .expand-content { color : #f3f3f3; }
+.servicio-card-expand.mobile-active .expand-icon { transform: scale(1.1); margin-bottom: 0.5rem; }
+.servicio-card-expand.light-card.mobile-active .expand-content { color: #C2185B; }
+
 
 /* =========================================
-   ESTILOS PARA ANIMACIÓN SCROLL EN MÓVIL
+   16. TESTIMONIOS AISLADOS (SECCIÓN NUEVA)
    ========================================= */
-
-/* Esta clase se agregará automáticamente con JS cuando la tarjeta sea visible */
-.servicio-card-expand.mobile-active .expand-bg {
-    transform: scale(14);
-}
-
-.servicio-card-expand.mobile-active .expand-desc { 
-    opacity: 1;
-    transform: translateY(0);
-    max-height: 200px;
-}
-
-.servicio-card-expand.mobile-active .expand-content {
-    color : #f3f3f3; /* Texto en blanco */
-}
-
-.servicio-card-expand.mobile-active .expand-icon { 
-    transform: scale(1.1);
-    margin-bottom: 0.5rem;
-}
-
-/* Excepción para la tarjeta de Educación (fondo claro) */
-.servicio-card-expand.light-card.mobile-active .expand-content {
-    color: #C2185B; 
-}
-/* --- NUEVA SECCIÓN DE TESTIMONIOS AISLADA --- */
 .testimonios-aislados-section {
     width: 100%;
     margin: 4rem auto;
     padding: 3rem 0;
     box-sizing: border-box;
-    background-color: #FFF8FA; /* Fondo rosita muy tenue */
+    background-color: #FFF8FA; 
     border-top: 1px solid #ffeef2;
-    overflow: hidden; /* Para que el carrusel no rompa la pantalla */
+    overflow: hidden; 
 }
-
-/* Ajuste del carrusel para que esté centrado si no lo estaba */
 .testimonial-scroller {
     max-width: 1000px;
     margin: 0 auto;
 }
 
-/* --- B. NUEVA TARJETA DE AGRADECIMIENTO ANIMADA (FIGURE) - DISEÑO DOS COLUMNAS --- */
 
-.agradecimiento-figure-section {
-    padding: 4rem 1.5rem;
+/* =========================================
+   17. ESTILOS AGRADECIMIENTO FONDO IMAGEN (NUEVO)
+   ========================================= */
+
+/* 1. La sección principal que contiene la imagen de fondo */
+.agradecimiento-fondo-seccion {
+    width: 100%;
+    min-height: 500px; /* Altura mínima para que se luzca la foto */
+    
+    /* CAPA OSCURA + IMAGEN DE FONDO */
+    /* Asegúrate de que la ruta de la imagen sea correcta */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Copia de IMG-20240820-WA0055.jpg');
+    
+    background-size: cover;      
+    background-position: center; 
+    background-attachment: fixed; /* Efecto Parallax */
+    
+    /* Configuración para alinear el contenido interno */
+    display: flex;
+    align-items: center; 
+    padding: 2rem;       
+    box-sizing: border-box;
+}
+
+/* 2. El contenedor que empuja la tarjeta a la derecha */
+.alinear-derecha-container {
+    width: 100%;
+    max-width: 1100px;   
+    margin: 0 auto;      
+    display: flex;
+    justify-content: center; /* Alineación a la DERECHA */
+}
+
+/* 3. La tarjeta rosa con el texto */
+/* Busca esto en la sección 17 de tu CSS y actualízalo */
+
+.tarjeta-rosa-texto {
+    /* CAMBIO DE COLOR AQUÍ: #E98596 con 95% de opacidad */
+    background-color: rgba(233, 133, 150, 0.95); 
+    
+    color: #ffffff; 
+    max-width: 500px; 
+    padding: 3rem;    
+    border-radius: 20px; 
+    text-align: center; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
+    backdrop-filter: blur(5px); 
+}
+
+.tarjeta-rosa-texto p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.tarjeta-rosa-texto strong {
+    font-weight: 700;
+    color: #fff;
+}
+
+.icono-rosa-blanco {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+/* =========================================
+   18. TÍTULO ANIMADO "NUESTROS EJES" (AUTO-SCROLL)
+   ========================================= */
+
+.titulo-ejes-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f7f7f7;
-    overflow: hidden; /* Importante para que no se vea el contenido saliendo */
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 5;
 }
 
-.agradecimiento-content-wrapper {
-    max-width: 1000px;
+.ejes-anim-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 5rem;
+    
+    /* ESTADO INICIAL (Antes de hacer scroll) */
+    color: transparent;
+    text-shadow: 0 0 0px rgba(230, 60, 125, 0.6); /* Sombra rosa tenue */
+    
+    padding: 0 1rem;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    
+    /* Suavizado para cuando regrese al estado original (opcional) */
+    transition: all 0.5s ease-out;
+}
+
+/* La línea blanca que cruza */
+.ejes-anim-text:before {
+    content: "";
     width: 100%;
-    
-    /* Disposición de dos columnas */
-    display: flex; 
-    gap: 0;
-    border-radius: 1rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    background-color: #fff; /* Asegura un fondo blanco para el contenedor */
-    
-    /* Estilos base para la animación al hacer scroll (oculto inicialmente) */
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    height: 6px;
+    background: #fff;
+    position: absolute;
+    left: -100%; /* Fuera a la izquierda */
+    top: 50%;
+    transition: transform 0.8s cubic-bezier(1, -0.04, 0, 1.16); /* Animación más lenta y elegante */
+    z-index: 10;
 }
 
-/* Estilos para cuando la sección está visible (se activa con JavaScript) */
-.agradecimiento-content-wrapper.is-visible {
-    opacity: 1;
+.ejes-anim-text span {
+    display: block;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    overflow: hidden;
+    left: 0;
+}
+
+.ejes-anim-text span:first-child:before, 
+.ejes-anim-text span:last-child:before {
+    content: attr(data-text);
+    color: #fff;
+    display: block;
+    width: 100%;
+    transition: all 0.4s ease-out;
+}
+
+/* Posiciones iniciales (Texto partido escondido) */
+.ejes-anim-text span:first-child { top: 0; }
+.ejes-anim-text span:first-child:before { transform: translateY(100%); }
+
+.ejes-anim-text span:last-child { bottom: 0; display: flex; align-items: flex-end; }
+.ejes-anim-text span:last-child:before { transform: translateY(-100%); }
+
+
+/* --- ESTADO ACTIVADO (CLASE .visible) --- */
+/* Esto ocurre automáticamente al hacer scroll */
+
+.ejes-anim-text.visible {
+    text-shadow: none; /* Se quita la sombra rosa */
+}
+
+/* 1. La línea cruza toda la pantalla */
+.ejes-anim-text.visible:before {
+    transform: translateX(200%); 
+}
+
+/* 2. El texto blanco aparece justo después de la línea */
+.ejes-anim-text.visible span:first-child:before,
+.ejes-anim-text.visible span:last-child:before {
+    transition-delay: 0.2s; /* Pequeño retraso para esperar a la línea */
+}
+
+.ejes-anim-text.visible span:first-child:before {
     transform: translateY(0);
 }
 
-.figure-col {
-    flex: 1; /* Ambas columnas ocupan el mismo ancho */
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.ejes-anim-text.visible span:last-child:before {
+    transform: translateY(0);
 }
 
-/* 1. Columna de Imagen (Izquierda) */
-.image-col {
-    padding: 0;
-}
-
-.image-col img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-}
-
-
-/* 2. Columna de Texto (Derecha) */
-.agradecimiento-figure {
-    background: var(--c, rgba(230, 60, 125, 1)); /* Usa el color rosa oscuro como fondo */
-    cursor: default; /* Ya no es interactivo como la figura anterior */
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-}
-
-.agradecimiento-figure figcaption {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #ffffff;
-    padding: 3rem;
-
-    /* ANTES: clip-path para animación de hover */
-    /* AHORA: Animación de entrada de derecha a izquierda del contenido */
-    transform: translateX(var(--_x, 100%));
-    transition: transform 0.8s ease-out;
-}
-
-/* Esto se activará con JavaScript cuando el contenedor principal sea visible */
-.agradecimiento-content-wrapper.is-visible .agradecimiento-figure figcaption {
-    --_x: 0%; /* Al ser visible, la traducción es 0, haciendo que el texto "entre" */
-}
-
-
-.agradecimiento-figure-text {
-    max-width: 90%; 
-    text-align: center;
-    line-height: 1.5;
-}
-
-.agradecimiento-figure-text strong {
-    font-weight: 600;
-    color: #FFF;
-}
-
-.agradecimiento-figure-text ion-icon {
-    font-size: 3.5rem;
-    color: white;
-    margin-bottom: 1rem;
-    display: block; 
+/* Responsive */
+@media (max-width: 768px) {
+    .ejes-anim-text { font-size: 3rem; letter-spacing: -1px; }
 }
