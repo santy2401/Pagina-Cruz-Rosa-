@@ -28,11 +28,17 @@ body {
     font-family: 'DM Sans', sans-serif;
     background: linear-gradient(120deg, #ffffff 0%, #fffbfd 100%); 
     color: #444; 
-    margin: 0; padding: 0;
-    overflow-x: hidden;
+    
+    /* CORRECCIONES PARA MÓVIL: */
+    margin: 0; 
+    padding: 0;
+    width: 100%;
+    max-width: 100vw;       /* Asegura que el cuerpo no exceda el ancho de la ventana */
+    overflow-x: hidden;     /* CORTA cualquier cosa que se salga horizontalmente */
+    
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center;  <-- ELIMINADO: Esto causaba problemas de alineación */
 }
 
 /* =========================================
@@ -137,7 +143,11 @@ body {
    4. SERVICIOS (TARJETAS EXPANDIBLES)
    ========================================= */
 .servicios-section-full {
-    position: relative; width: 100%; overflow: hidden; padding: 4rem 0;
+    position: relative; 
+    width: 100%; 
+    max-width: 100vw; /* Agregado por seguridad */
+    overflow: hidden; /* Esto es vital para cortar los fondos animados */
+    padding: 4rem 0;
 }
 
 .servicios-container {
@@ -906,9 +916,9 @@ body {
 }
 
 .reconocimientos-section h2 {
-    font-size: 2.8rem;
+   font-size: 3.5rem; /* Más grande */
     font-weight: 700;
-    color: #ffffff; 
+    color: #F9B680;    /* Nuevo color */
     margin-bottom: 1.5rem;
     text-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
@@ -964,12 +974,73 @@ body {
 /* =========================================
    11. INFORMES ANUALES
    ========================================= */
-.informes-buttons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); justify-content: center; gap: 1rem; padding: 0 1rem; }
-.btn-informe { display: inline-block; padding: 12px 0; border-radius: 12px; text-decoration: none; color: #ffffff; font-weight: 600; font-size: 1.1rem; cursor: default; text-align: center; background-image: linear-gradient(135deg, #e98596 0%, #e98596 100%); box-shadow: 0 6px 15px rgba(241, 88, 124, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.btn-informe:nth-child(even) { background-image: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); box-shadow: 0 6px 15px rgba(255, 64, 156, 0.3); }
-.btn-informe:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+/* ================= 11. INFORMES ANUALES ================= */
+.informes-section {
+    width: 100%;
+    max-width: 1000px; /* Ancho máximo para que se lea bien */
+    margin: 4rem auto; 
+    padding: 0 2rem;
+    box-sizing: border-box;
+    text-align: center; /* Centrar todo el contenido */
+}
 
+/* ESTILO DEL TÍTULO */
+.informes-section h2 {
+    font-family: 'Poppins', sans-serif; /* La tipografía de tus títulos */
+    font-size: 3rem;    /* Tamaño grande */
+    font-weight: 700;   /* Negritas */
+    color: #E63C7D;     /* COLOR ROSA CRUZ ROSA */
+    margin-bottom: 1.5rem;
+}
 
+/* ESTILO DE LOS PÁRRAFOS DE TEXTO */
+.informes-section p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #555;        /* Gris suave para lectura */
+    max-width: 800px;   /* Para que el texto no se estire demasiado */
+    margin: 0 auto 1rem auto; /* Centrado automático */
+}
+
+/* ESTILO DE LA PARRILLA DE BOTONES (Se mantiene igual) */
+.informes-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 1rem 0 1rem; /* Un poco de espacio arriba de los botones */
+}
+
+.btn-informe {
+    display: inline-block;
+    padding: 12px 0; 
+    border-radius: 12px; 
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif; /* Asegura la fuente en botones */
+    font-size: 1.1rem; 
+    cursor: default;
+    text-align: center;
+    
+    /* COLOR 1: ROSA (Impares) */
+    background-image: linear-gradient(135deg, #e98596 0%, #e98596 100%); 
+    box-shadow: 0 6px 15px rgba(241, 88, 124, 0.3);
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* COLOR 2: NARANJA/DORADO (Pares) */
+.btn-informe:nth-child(even) {
+    background-image: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%);
+    box-shadow: 0 6px 15px rgba(255, 64, 156, 0.3);
+}
+
+.btn-informe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+}
 /* =========================================
    12. CONTÁCTANOS (FORMULARIO)
    ========================================= */
