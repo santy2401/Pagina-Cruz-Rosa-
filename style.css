@@ -377,18 +377,125 @@ body {
 .btn-ayudar { display: inline-block; padding: 12px 30px; border-radius: 30px; border: none; text-decoration: none; color: #636363; font-weight: 600; font-size: 1.1rem; cursor: pointer; font-family: 'DM Sans', sans-serif; background-image: var(--gradiente-btn); box-shadow: 0 8px 15px var(--sombra-btn); transition: transform 0.3s; margin-top: auto; }
 .btn-ayudar:hover { transform: translateY(-5px); }
 
+/* ================= 11. INFORMES ANUALES (FONDO COMPLETO + SVG) ================= */
+.informes-section {
+    width: 100%;
+    margin: 4rem auto; 
+    padding: 6rem 2rem; 
+    box-sizing: border-box;
+    text-align: center;
+    position: relative; 
+    overflow: hidden; /* Corta lo que se salga */
+    
+    /* --- 1. FONDO DE COLOR (GRADIENTE) --- */
+    /* Usamos un degradado suave de Naranja pastel a Rosa pastel para cubrir todo el espacio */
+    background: linear-gradient(135deg, #fff8f0 0%, #ffeef2 50%, #ffe3e6 100%);
+}
 
-/* =========================================
-   11. INFORMES ANUALES
-   ========================================= */
-.informes-section { width: 100%; max-width: 1000px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; text-align: center; }
-.informes-section h2 { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 700; color: #E63C7D; margin-bottom: 1.5rem; }
-.informes-section p { font-family: 'DM Sans', sans-serif; font-size: 1.15rem; line-height: 1.6; color: #555; max-width: 800px; margin: 0 auto 1rem auto; }
-.informes-buttons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); justify-content: center; gap: 1rem; padding: 2rem 1rem 0 1rem; }
+/* --- 2. CAPA DE ANIMACIÓN SVG (LAS ONDAS) --- */
+.svg-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Z-INDEX 1: Para que quede ENCIMA del color de fondo pero DEBAJO del texto */
+    z-index: 1; 
+    
+    opacity: 0.6; /* Transparencia para que se fusione bonito con el color */
+    pointer-events: none; /* Para que no estorbe al clickear botones */
+}
+
+.svg-background svg {
+    width: 100%;
+    height: 100%;
+    /* Esto hace que el SVG se estire para cubrir TODO el cuadro */
+    preserveAspectRatio: none; 
+    clip-path: url(#cache);
+}
+
+/* --- 3. CONTENIDO (TEXTO Y BOTONES) --- */
+.informes-content-wrapper {
+    position: relative;
+    /* Z-INDEX 2: Para que el texto y botones queden HASTA ENFRENTE */
+    z-index: 2; 
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ESTILO DEL TÍTULO */
+.informes-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #E63C7D;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(255,255,255,0.5); /* Sombra blanca para leerse mejor */
+}
+
+.informes-section p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #444; 
+    max-width: 800px;
+    margin: 0 auto 1rem auto;
+}
+
+/* ESTILO DE LOS BOTONES (GRID) */
+.informes-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 1rem 0 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* TUS ANIMACIONES SVG (Sin cambios, solo asegúrate de tenerlas en el CSS) */
+#red {
+    fill: none;
+    opacity: 0.15;
+    stroke: #E63C7D;
+    stroke-width: 12;
+    stroke-miterlimit: 10;
+    animation: show 4s forwards infinite ease-in-out; 
+}
+
+#blue {
+    fill: none;
+    opacity: 0.15;
+    stroke: #F9B680;
+    stroke-width: 12;
+    stroke-miterlimit: 10;
+    animation: show 4s forwards infinite ease-in-out;
+    animation-delay: 1s;
+}
+
+#light-blue {
+    fill: none;
+    opacity: 0.5;
+    stroke: #E98596;
+    stroke-width: 6;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 800;
+    animation: draw 4s forwards infinite ease-in-out;    
+}
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes show {
+    0% { opacity: 0.15; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.15; }
+}
+
+/* --- ESTILOS DE BOTONES --- */
 .btn-informe { display: inline-block; padding: 12px 0; border-radius: 12px; text-decoration: none; color: #ffffff; font-weight: 600; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; cursor: default; text-align: center; background-image: linear-gradient(135deg, #e98596 0%, #e98596 100%); box-shadow: 0 6px 15px rgba(241, 88, 124, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .btn-informe:nth-child(even) { background-image: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); box-shadow: 0 6px 15px rgba(255, 64, 156, 0.3); }
 .btn-informe:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-
 
 /* =========================================
    12. CONTÁCTANOS (FORMULARIO)
@@ -723,3 +830,9 @@ body {
 .servicio-card-expand.mobile-active .expand-content { color : #f3f3f3; }
 .servicio-card-expand.mobile-active .expand-icon { transform: scale(1.1); margin-bottom: 0.5rem; }
 .servicio-card-expand.light-card.mobile-active .expand-content { color: #C2185B; }
+/* Nueva animación suave para Informes */
+@keyframes soft-gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
