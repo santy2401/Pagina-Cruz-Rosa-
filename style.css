@@ -263,20 +263,111 @@ body {
 .reconocimiento-item img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: none; }
 .reconocimiento-item h3 { font-size: 1.5rem; font-weight: 700; color: #C51D4A; margin-bottom: 0.5rem; }
 
-
 /* =========================================
    10. CÓMO AYUDAR
    ========================================= */
-.ayudar-section { width: 100%; max-width: 1200px; margin: 4rem auto; padding: 2rem; box-sizing: border-box; text-align: center; border-top: 1px solid #ffffff; padding-top: 4rem; }
-.ayudar-section h2 { font-size: 2.8rem; font-weight: 700; color: #E98596; margin-bottom: 1.5rem; }
-.ayudar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; align-items: start; }
-.ayudar-card { background-color: #fff0f3; border-radius: 20px; padding: 2rem 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; align-items: center; transition: all 0.3s ease; }
-.ayudar-img-wrapper { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin-bottom: 1.5rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); flex-shrink: 0; }
-.ayudar-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-.ayudar-card h3 { font-size: 1.4rem; font-weight: 600; color: #E98596; margin-bottom: 1rem; min-height: 50px; }
-.btn-ayudar { display: inline-block; padding: 12px 30px; border-radius: 30px; border: none; text-decoration: none; color: #636363; font-weight: 600; font-size: 1.1rem; cursor: pointer; font-family: 'DM Sans', sans-serif; background-image: var(--gradiente-btn); box-shadow: 0 8px 15px var(--sombra-btn); transition: transform 0.3s; margin-top: auto; }
-.btn-ayudar:hover { transform: translateY(-5px); }
+.ayudar-section { 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 4rem auto; 
+    padding: 2rem; 
+    box-sizing: border-box; 
+    text-align: center; 
+    border-top: 1px solid #ffffff; 
+    padding-top: 4rem; 
+}
 
+.ayudar-section h2 { 
+    font-size: 2.8rem; 
+    font-weight: 700; 
+    color: #E98596; 
+    margin-bottom: 1.5rem; 
+}
+
+.ayudar-grid { 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 1.5rem; 
+    align-items: stretch; /* Para que todas las tarjetas tengan la misma altura */
+}
+
+.ayudar-card { 
+    background-color: #fff0f3; 
+    border-radius: 20px; 
+    padding: 2rem 1.5rem; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    transition: all 0.3s ease; 
+}
+
+.ayudar-img-wrapper { 
+    width: 120px; /* Ajusté un poco el tamaño para que quepa bien */
+    height: 120px; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    margin-bottom: 1.5rem; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    flex-shrink: 0; 
+}
+
+.ayudar-img-wrapper img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.ayudar-card h3 { 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+    color: #E98596; 
+    margin-bottom: 1rem; 
+    min-height: 40px; /* Para alinear los títulos */
+    line-height: 1.3;
+}
+/* --- ESTADO INICIAL: Texto Oculto --- */
+.ayudar-content {
+    max-height: 0;          /* Altura cero para ocultar */
+    opacity: 0;             /* Transparente */
+    overflow: hidden;       /* Para que no se salga el texto */
+    margin-bottom: 0;       /* Sin margen para que no ocupe espacio */
+    
+    color: #777; 
+    font-size: 0.95rem;
+    line-height: 1.5;
+    
+    /* Animación suave al abrir/cerrar */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- ESTADO ABIERTO: Se activa con JavaScript --- */
+.ayudar-card.tarjeta-abierta .ayudar-content {
+    max-height: 200px;      /* Le damos altura suficiente para mostrar el texto */
+    opacity: 1;             /* Visible */
+    margin-bottom: 1.5rem;  /* Recuperamos el espacio */
+}
+
+.btn-ayudar { 
+    display: inline-block; 
+    padding: 10px 25px; 
+    border-radius: 30px; 
+    border: none; 
+    text-decoration: none; 
+    color: #636363; 
+    font-weight: 600; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    font-family: 'DM Sans', sans-serif; 
+    background-image: var(--gradiente-btn); 
+    box-shadow: 0 8px 15px var(--sombra-btn); 
+    transition: transform 0.3s; 
+    z-index: 2; /* Asegura que el botón esté siempre pulsable */
+}
+
+.btn-ayudar:hover { 
+    transform: translateY(-5px); 
+}
 
 /* =========================================
    11. INFORMES ANUALES (FONDO COMPLETO + SVG)

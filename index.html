@@ -180,34 +180,55 @@
         </div>
     </section>
 
-    <section class="ayudar-section" id="ayudar">
+  <section class="ayudar-section" id="ayudar">
         <h2>Cómo ayudar</h2>
         <div class="ayudar-grid">
+            
             <div class="ayudar-card">
                 <div class="ayudar-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/voluntariado.jpg" alt="Voluntariado"></div>
-                <h3>Voluntariado</h3>
+                <h3>Conviértete en voluntario</h3>
+                <div class="ayudar-content">
+                    <p>Dona tu tiempo, trabajo y esfuerzo por una causa noble.</p>
+                </div>
                 <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #5a4050c7;">Ver más</button>
             </div>
+
             <div class="ayudar-card">
                 <div class="ayudar-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/donativos_recurrentes.jpg" alt="Becas"></div>
-                <h3>Becas</h3>
+                <h3>Becas Recurrentes</h3>
+                <div class="ayudar-content">
+                    <p>Tu donativo puede ser mediante aportaciones mensuales o anuales.</p>
+                </div>
                 <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #49303fc7;">Ver más</button>
             </div>
+
             <div class="ayudar-card">
                 <div class="ayudar-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/donativos_especie.jpg" alt="Donativos"></div>
-                <h3>Donativos</h3>
+                <h3>Donativos en especie</h3>
+                <div class="ayudar-content">
+                    <p>¿Te gustaría realizar una colecta y apoyar a la causa?</p>
+                </div>
                 <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #382531c7;">Ver más</button>
             </div>
+
             <div class="ayudar-card">
                 <div class="ayudar-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/educacion.jpg" alt="Educación"></div>
-                <h3>Campañas</h3>
+                <h3>Campañas Educativas</h3>
+                <div class="ayudar-content">
+                    <p>Informamos sobre la detección temprana del cáncer.</p>
+                </div>
                 <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #503e46ec;">Ver más</button>
             </div>
+
             <div class="ayudar-card">
                 <div class="ayudar-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/empresa.jpg" alt="Empresa"></div>
-                <h3>Empresas</h3>
+                <h3>¿Eres una empresa?</h3>
+                <div class="ayudar-content">
+                    <p>Haz que tu empresa contribuya a una causa social.</p>
+                </div>
                 <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #382b31ec;">Ver más</button>
             </div>
+
         </div>
     </section>
 
@@ -332,6 +353,31 @@
             
             // 2. Agregar la clase 'active' al que se le dio click
             this.classList.add('active-link');
+        });
+    });
+</script>
+<script>
+    // --- SCRIPT PARA LAS TARJETAS DE "CÓMO AYUDAR" ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const botonesAyudar = document.querySelectorAll('.btn-ayudar');
+
+        botonesAyudar.forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                e.preventDefault(); // Evita que la página salte si es un enlace
+                
+                // 1. Identificar la tarjeta padre
+                const tarjeta = boton.closest('.ayudar-card');
+                
+                // 2. Alternar la clase 'tarjeta-abierta'
+                tarjeta.classList.toggle('tarjeta-abierta');
+                
+                // 3. Cambiar el texto del botón (Opcional)
+                if (tarjeta.classList.contains('tarjeta-abierta')) {
+                    boton.innerText = "Ver menos";
+                } else {
+                    boton.innerText = "Ver más";
+                }
+            });
         });
     });
 </script>
