@@ -6,10 +6,48 @@
     <title>Cruz Rosa - Prototipo</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
+
     <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        .carousel-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(230, 60, 125, 0.2);
+        }
+        .carousel-track {
+            display: flex;
+            width: 500%; /* 5 imágenes (4 originales + 1 repetida) */
+            animation: scrollCarousel 16s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+        .carousel-slide {
+            width: 20%;
+            flex-shrink: 0;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+        @keyframes scrollCarousel {
+            0%, 20% { transform: translateX(0%); }       
+            25%, 45% { transform: translateX(-20%); }    
+            50%, 70% { transform: translateX(-40%); }    
+            75%, 95% { transform: translateX(-60%); }    
+            100% { transform: translateX(-80%); }        
+        }
+        .mobile-split-gallery h2, .mobile-split-gallery p {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,7 +57,6 @@
         </a>
         
         <nav class="expanding-menu">
-            <a href="#proposito" class="menu-link"><ion-icon name="flag-outline"></ion-icon><span class="link-text">Propósito</span></a>
             <a href="#ejes" class="menu-link"><ion-icon name="grid-outline"></ion-icon><span class="link-text">Ejes</span></a>
             <a href="#certificaciones" class="menu-link"><ion-icon name="trophy-outline"></ion-icon><span class="link-text">Certificaciones</span></a>
             <a href="#aliados" class="menu-link"><ion-icon name="people-outline"></ion-icon><span class="link-text">Aliados</span></a>
@@ -29,103 +66,412 @@
         </nav>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-video-column">
-            <video autoplay muted loop playsinline class="hero-video-element" 
-                   src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/video_cruz_rosa_web.mp4">
-            </video>
+    <<section class="hero-section">
+    <div class="hero-video-column">
+        <video autoplay muted loop playsinline class="hero-video-element">
+            <source src="video de inicio.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+    </div>
+    <div class="hero-text-column">
+        <h1>En Cruz Rosa lo hacemos por ellas</h1>
+        <p>El propósito es brindar un trato digno y calidad de vida a mujeres con cualquier diagnóstico de cáncer,poniendo a su disposición un albergue integral especializado único en México, que les otorga
+apoyo asistencial, además de ofrecerles atención psicológica, emocional y actividades
+recreativas, para que puedan afrontar su situación de manera positiva y con una esperanza de
+vida, que las lleve a lograr completar sus tratamientos de manera adecuada y oportuna</p>
+        <div class="hero-buttons">
+            <a href="https://cruzrosa.org.mx/" class="btn-hero" target="_blank" style="--gradiente-hero: linear-gradient(135deg, #E98596 0%, #E98596 100%); --color-sombra-hero: #3b030c90;">MONTERREY</a>
+            <a href="https://cruzrosagdl.mx/" class="btn-hero" target="_blank" style="--gradiente-hero: linear-gradient(135deg, #F9B680 0%, #F9B680 100%); --color-sombra-hero: #120c0090;">GUADALAJARA</a>
         </div>
-        <div class="hero-text-column">
-            <h1>En Cruz Rosa lo hacemos por ellas</h1>
-            <p>Brindar un trato digno y calidad de vida a mujeres con cualquier diagnóstico de cáncer, poniendo a su disposición un albergue integral especializado único en México.</p>
-            <div class="hero-buttons">
-                <a href="https://cruzrosa.org.mx/" class="btn-hero" target="_blank" style="--gradiente-hero: linear-gradient(135deg, #e74682 0%, #f1bdc8 100%); --color-sombra-hero: #3b030c90;">MONTERREY</a>
-                <a href="https://cruzrosagdl.mx/" class="btn-hero" target="_blank" style="--gradiente-hero: linear-gradient(135deg, #f48120 0%, #ffc354 100%); --color-sombra-hero: #120c0090;">GUADALAJARA</a>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    
+
 
     <section class="servicios-section-full" id="ejes">
-        <div class="titulo-ejes-wrapper">
-             <h2 class="ejes-anim-text" data-text="Nuestros Ejes">
-                <span data-text="Nuestros Ejes"></span>
-                <span data-text="Nuestros Ejes"></span>
-             </h2>
-        </div>
-        <div class="bg"></div><div class="bg2"></div><div class="bg3"></div>
-        <div class="servicios-container">
-            <div class="servicio-card-expand">
-                <div class="expand-bg" style="background-color: #E63C7D;"></div>
-                <div class="expand-content">
-                    <div class="expand-icon"><ion-icon name="home-outline" style="font-size: 3rem;"></ion-icon></div>
-                    <h3 class="expand-title">Albergue Digno</h3>
-                    <div class="expand-desc"><p>Brindamos hospedaje, alimentación y atención integral.</p></div>
-                </div>
-            </div>
-            <div class="servicio-card-expand">
-                <div class="expand-bg" style="background-color: #E68699;"></div>
-                <div class="expand-content">
-                    <div class="expand-icon"><ion-icon name="heart-circle-outline" style="font-size: 3rem;"></ion-icon></div>
-                    <h3 class="expand-title">Desarrollo Integral</h3>
-                    <div class="expand-desc"><p>Acompañamiento psicológico y emocional.</p></div>
-                </div>
-            </div>
-            <div class="servicio-card-expand">
-                <div class="expand-bg" style="background-color: #F9B680;"></div>
-                <div class="expand-content">
-                    <div class="expand-icon"><ion-icon name="medkit-outline" style="font-size: 3rem;"></ion-icon></div>
-                    <h3 class="expand-title">Apoyo Médico</h3>
-                    <div class="expand-desc"><p>Estudios clínicos, prótesis y mangas de compresión.</p></div>
-                </div>
-            </div>
-            <div class="servicio-card-expand light-card">
-                <div class="expand-bg" style="background-color: #FFE3E6;"></div>
-                <div class="expand-content">
-                    <div class="expand-icon"><ion-icon name="school-outline" style="font-size: 3rem;"></ion-icon></div>
-                    <h3 class="expand-title">Educación</h3>
-                    <div class="expand-desc"><p>Campañas informativas para detección oportuna.</p></div>
-                </div>
+    <div class="titulo-ejes-wrapper" id="contenedor-titulo-ejes">
+        <article class="ejes-article-anim">
+            <p class="ejes-p-anim">
+                <span class="txt-gris">EJES DE ACCIÓN</span> 
+                <span class="txt-naranja">CRUZ</span> 
+                <span class="txt-rosa">ROSA</span>
+                
+                <span class="ejes-split top" data-text="EJES DE ACCIÓN CRUZ ROSA"></span>
+                <span class="ejes-split bottom" data-text="EJES DE ACCIÓN CRUZ ROSA"></span>
+            </p>
+        </article>
+    </div>
+
+    <div class="bg"></div>
+    <div class="bg2"></div>
+    <div class="bg3"></div>
+
+    <div class="servicios-container">
+    <div class="servicio-card-expand">
+        <div class="expand-bg" style="background-color: #E63C7D;"></div>
+        <div class="expand-content">
+            <div class="expand-icon"><img src="eje 1 (1).png" alt="Albergue" class="img-eje-custom"></div>
+            <h3 class="expand-title">Albergue</h3>
+            <h3 class="eje-numero">Eje 1.</h3>
+            <div class="expand-desc">
+                <ul>
+                    <li>Ofrecemos hospedaje y servicios básicos para pacientes y cuidadores.</li>
+                    <li>Cama limpia, agua caliente, espacio seguro y alimentación enfocada en efectos secundarios.</li>
+                    <li>Contamos con apoyo médico oncológico y de enfermería.</li>
+                    <li>Traslados a hospitales y clínicas para evitar gastos en transporte.</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div class="servicio-card-expand">
+        <div class="expand-bg" style="background-color: #E68699;"></div>
+        <div class="expand-content">
+            <div class="expand-icon"><img src="eje2.png" alt="Desarrollo" class="img-eje-custom"></div>
+            <h3 class="expand-title">Desarrollo Integral</h3>
+            <h3 class="eje-numero">Eje 2.</h3>
+            <div class="expand-desc">
+                <ul>
+                    <li>Acompañamiento psicológico-emocional para mujeres y familias.</li>
+                    <li>Abordamos la salud mental para mejor comprensión del proceso de la enfermedad.</li>
+                    <li>Actividades recreativas para desconectar el pensamiento de la enfermedad.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="servicio-card-expand">
+        <div class="expand-bg" style="background-color: #F9B680;"></div>
+        <div class="expand-content">
+            <div class="expand-icon"><img src="eje 3 (1).png" alt="Apoyo" class="img-eje-custom"></div>
+            <h3 class="expand-title">Apoyo En El Proceso</h3>
+            <h3 class="eje-numero">Eje 3.</h3>
+            <div class="expand-desc">
+                <ul>
+                    <li>Estudios clínicos, prótesis, rehabilitación y mangas de compresión.</li>
+                    <li>Área especializada en Linfedema con terapias de tratamiento y seguimiento.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="servicio-card-expand">
+        <div class="expand-bg" style="background-color: #FFE3E6;"></div>
+        <div class="expand-content">
+            <div class="expand-icon"><img src="eje4.png" alt="Educativo" class="img-eje-custom"></div>
+            <h3 class="expand-title">Educativo Informativo</h3>
+            <h3 class="eje-numero">Eje 4.</h3>
+            <div class="expand-desc">
+                <ul>
+                    <li>Módulos en hospitales públicos con información sobre detección oportuna.</li>
+                    <li>Asesorías sobre el proceso y cómo sobrellevar el tratamiento.</li>
+                    <li>Campañas educativas y charlas de sensibilización para detección temprana.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</section>
+
+<script>
+    function toggleTitulo(debeOcultar) {
+        const titulo = document.getElementById('contenedor-titulo-ejes');
+        if (debeOcultar) {
+            titulo.classList.add('titulo-oculto');
+        } else {
+            titulo.classList.remove('titulo-oculto');
+        }
+    }
+</script>
 
     <section class="reconocimientos-section" id="certificaciones">
-        <div class="ripple-background">
-            <div class="circle xxlarge shade1"></div>
-            <div class="circle xlarge shade2"></div>
-            <div class="circle large shade3"></div>
-            <div class="circle medium shade4"></div>
-            <div class="circle small shade5"></div>
-        </div>
-        <div class="reconocimientos-content">
-            <h2>Certificaciones y Acreditaciones</h2>
-            <div class="reconocimientos-grid">
-                <div class="reconocimiento-item"><div class="reconocimiento-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/08/filantrofilia.webp"></div><h3>2014</h3></div>
-                <div class="reconocimiento-item"><div class="reconocimiento-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/08/social-value.png"></div><h3>2016</h3></div>
-                <div class="reconocimiento-item"><div class="reconocimiento-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/08/iepam.png"></div><h3>2021</h3></div>
-                <div class="reconocimiento-item"><div class="reconocimiento-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/logo-osc.png"></div><h3>2023</h3></div>
-                <div class="reconocimiento-item"><div class="reconocimiento-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/08/neurona-estrategica.webp"></div><h3>2023</h3></div>
-                <div class="reconocimiento-item"><div class="reconocimiento-img-wrapper"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/logo-cemefi.png"></div><h3>2024</h3></div>
+    <div class="ripple-background">
+        <div class="circle xxlarge shade1"></div>
+        <div class="circle xlarge shade2"></div>
+        <div class="circle large shade3"></div>
+        <div class="circle medium shade4"></div>
+        <div class="circle small shade5"></div>
+    </div>
+
+    <div class="reconocimientos-content">
+        <h2>Certificaciones y Acreditaciones</h2>
+        <div class="reconocimientos-grid">
+            <div class="reconocimiento-item">
+                <div class="reconocimiento-img-wrapper">
+                    <img src="certificado filitrafilia.webp" alt="Filantrofilia">
+                </div>
+                <h3>2014</h3>
+            </div>
+
+            <div class="reconocimiento-item">
+                <div class="reconocimiento-img-wrapper">
+                    <img src="certificado social value.png" alt="Social Value">
+                </div>
+                <h3>2016</h3>
+            </div>
+
+            <div class="reconocimiento-item">
+                <div class="reconocimiento-img-wrapper">
+                    <img src="certificado IEPAM_2021-01-01.png" alt="IEPAM">
+                </div>
+                <h3>2021</h3>
+            </div>
+
+            <div class="reconocimiento-item">
+                <div class="reconocimiento-img-wrapper">
+                    <img src="certificacion confio.png" alt="Confío">
+                </div>
+                <h3>2023</h3>
+            </div>
+
+            <div class="reconocimiento-item">
+                <div class="reconocimiento-img-wrapper">
+                    <img src="certifacion nurona estretegica.webp" alt="Neurona Estratégica">
+                </div>
+                <h3>2023</h3>
+            </div>
+
+            <div class="reconocimiento-item">
+                <div class="reconocimiento-img-wrapper">
+                    <img src="certificacion logo-cemefi.jpg" alt="CEMEFI">
+                </div>
+                <h3>2024</h3>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+    <section class="beneficiarias-section" id="aliados">
+    <h2>Aliados Sociales</h2>
+    <div class="logo-scroller" data-animated="true">
+        <div class="scroller-inner">
+            <div class="logo-item"><img src="marca el orden de las cosas.png" alt="El Orden de las Cosas"></div>
+            <div class="logo-item"><img src="marca eme.pe.jpg" alt="Eme Pe"></div>
+            <div class="logo-item"><img src="marca emwa.png" alt="EMWA Marca"></div>
+            <div class="logo-item"><img src="marca enviaflores.webp" alt="Enviaflores"></div>
+            <div class="logo-item"><img src="Marca-y-productos-Estee-Lauder.webp" alt="Estee Lauder"></div>
+            <div class="logo-item"><img src="marca frisa fundacion.jpg" alt="Frisa Fundacion"></div>
+            <div class="logo-item"><img src="marca heb.webp" alt="HEB"></div>
+
+            <div class="logo-item"><img src="marca el orden de las cosas.png" alt="El Orden de las Cosas"></div>
+            <div class="logo-item"><img src="marca enviaflores.webp" alt="Enviaflores"></div>
+            <div class="logo-item"><img src="Marca-y-productos-Estee-Lauder.webp" alt="Estee Lauder"></div>
+            <div class="logo-item"><img src="marca frisa fundacion.jpg" alt="Frisa Fundacion"></div>
+            <div class="logo-item"><img src="marca heb.webp" alt="HEB"></div>
+        </div>
+    </div>
+</section>
+
+        <section class="agradecimiento-fondo-seccion">
+            <div class="alinear-derecha-container">
+                <div class="tarjeta-rosa-texto">
+                     <ion-icon name="rose-outline" class="icono-rosa-blanco"></ion-icon> 
+                     <p>
+                        <strong>Agradecemos profundamente</strong> a todos nuestros <strong>socios y patrocinadores</strong>, 
+                        cuya responsabilidad social nos permite continuar nuestra misión de <strong>apoyar a mujeres</strong> 
+                        con diagnóstico de cáncer y a sus familias.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <section class="impacto-section" id="impacto">
         <div class="impacto-content">
             <h2>Impacto</h2>
             <div class="stats-grid">
-                <div class="stat-item"><div class="stat-number-wrapper"><span>+37,500</span></div><div class="stat-title">PERSONAS ATENDIDAS</div></div>
-                <div class="stat-item"><div class="stat-number-wrapper"><span>+636,199</span></div><div class="stat-title">SERVICIOS BRINDADOS</div></div>
-                <div class="stat-item"><div class="stat-number-wrapper"><span>$112M</span></div><div class="stat-title">BENEFICIO COMUNITARIO</div></div>
-                <div class="stat-item"><div class="stat-number-wrapper"><span>+119</span></div><div class="stat-title">PERSONAS VOLUNTARIAS</div></div>
+                <div class="stat-item">
+                    <div class="stat-number-wrapper"><span class="stat-prefix">+</span><span class="stat-number">37,500</span></div>
+                    <div class="stat-title">PERSONAS ATENDIDAS</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number-wrapper"><span class="stat-prefix">+</span><span class="stat-number">636,199</span></div>
+                    <div class="stat-title">SERVICIOS BRINDADOS</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number-wrapper"><span class="stat-prefix">$</span><span class="stat-number">112M</span></div>
+                    <div class="stat-title">BENEFICIO COMUNITARIO</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number-wrapper"><span class="stat-prefix">+</span><span class="stat-number">119</span></div>
+                    <div class="stat-title">PERSONAS VOLUNTARIAS</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <script src="script.js" defer></script>
+ <section class="ayudar-section" id="ayudar">
+    <h2>Cómo ayudar</h2>
+    <div class="ayudar-grid">
+        
+        <div class="ayudar-card">
+            <div class="ayudar-img-wrapper">
+                <img src="voluntariado.jpg" alt="Voluntariado">
+            </div>
+            <h3>Conviértete en voluntario</h3>
+            <div class="ayudar-content">
+                <p>Dona tu tiempo, trabajo y esfuerzo por una causa noble.</p>
+            </div>
+            <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #5a4050c7;">Ver más</button>
+        </div>
+
+        <div class="ayudar-card">
+            <div class="ayudar-img-wrapper">
+                <img src="Becas recurrentes.png" alt="Becas">
+            </div>
+            <h3>Becas Recurrentes</h3>
+            <div class="ayudar-content">
+                <p>Tu donativo puede ser mediante aportaciones mensuales o anuales.</p>
+            </div>
+            <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #49303fc7;">Ver más</button>
+        </div>
+
+        <div class="ayudar-card">
+            <div class="ayudar-img-wrapper">
+                <img src="donativos en especie.jpg" alt="Donativos">
+            </div>
+            <h3>Donativos en especie</h3>
+            <div class="ayudar-content">
+                <p>¿Te gustaría realizar una colecta y apoyar a la causa?</p>
+            </div>
+            <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #382531c7;">Ver más</button>
+        </div>
+
+        <div class="ayudar-card">
+            <div class="ayudar-img-wrapper">
+                <img src="campanas educativas.jpg" alt="Educación">
+            </div>
+            <h3>Campañas Educativas</h3>
+            <div class="ayudar-content">
+                <p>Informamos sobre la detección temprana del cáncer.</p>
+            </div>
+            <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #503e46ec;">Ver más</button>
+        </div>
+
+        <div class="ayudar-card">
+            <div class="ayudar-img-wrapper">
+                <img src="empresas.jpg" alt="Empresa">
+            </div>
+            <h3>¿Eres una empresa?</h3>
+            <div class="ayudar-content">
+                <p>Haz que tu empresa contribuya a una causa social.</p>
+            </div>
+            <button type="button" class="btn-ayudar" style="--gradiente-btn: linear-gradient(135deg, #FFE3E6 0%, #FFE3E6 100%); --sombra-btn: #382b31ec;">Ver más</button>
+        </div>
+
+    </div>
+</section>
+    <section class="ubicaciones-animadas-section" id="ubicaciones">
+        
+        <div class="anim-title-wrapper">
+            <div class="anim-text-box">
+                <h2 class="anim-title">Ubicaciones</h2>
+            </div>
+        </div>
+
+        <div class="ubicaciones-grid-links">
+            <a href="https://www.google.com/maps/place/CRUZ+ROSA+A.B.P./@25.6991057,-100.3343974,17.52z/data=!4m6!3m5!1s0x866295e7cf42cc87:0xe086c78536c63ed8!8m2!3d25.7036688!4d-100.3419523!16s%2Fg%2F11_tt5d6v?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="ubicacion-link-card">
+                <div class="ubicacion-img-container">
+                    <img src="./infomacions_files/imagen de monterrey.webp" alt="Ubicación Monterrey">
+                    <div class="ubicacion-overlay">
+                        <ion-icon name="location-outline"></ion-icon>
+                        <h3>Monterrey</h3>
+                        <span>Ver en Mapa</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.google.com/maps/place/Cruz+Rosa/@20.6846885,-103.3808538,17z/data=!3m1!4b1!4m6!3m5!1s0x8428ae15a4e6fe07:0xe39c04178722f9f6!8m2!3d20.6846885!4d-103.3782789!16s%2Fg%2F11g88cxxnh?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="ubicacion-link-card">
+                <div class="ubicacion-img-container">
+                    <img src="./infomacions_files/imagen de GDL.webp" alt="Ubicación Guadalajara">
+                    <div class="ubicacion-overlay">
+                        <ion-icon name="location-outline"></ion-icon>
+                        <h3>Guadalajara</h3>
+                        <span>Ver en Mapa</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </section>
+
+    <section class="informes-section" id="informes">
+        <div class="svg-background">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <defs><clipPath id="cache"><rect width="100%" height="100%" /></clipPath></defs>
+                <path id="red" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96V320H1392C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320H0V96Z"></path>
+                <path id="blue" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,133.3C672,117,768,139,864,160C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160"></path>
+                <path id="light-blue" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,229.3C960,213,1056,171,1152,160C1248,149,1344,171,1392,181.3L1440,192"></path>
+            </svg>
+        </div>
+
+        <div class="informes-content-wrapper">
+            <h2>Consulta nuestros informes anuales</h2>
+            <p>La suma de esfuerzos y la participación activa contribuyen al resultado de una asociación fortalecida.</p>
+            <div class="informes-buttons-grid">
+                <a href="#" class="btn-informe">2024</a>
+                <a href="#" class="btn-informe">2023</a>
+                <a href="#" class="btn-informe">2022</a>
+                <a href="#" class="btn-informe">2021</a>
+                <a href="#" class="btn-informe">2020</a>
+                <a href="#" class="btn-informe">2019</a>
+                <a href="#" class="btn-informe">2018</a>
+                <a href="#" class="btn-informe">2017</a>
+                <a href="#" class="btn-informe">2016</a>
+                <a href="#" class="btn-informe">2015</a>
+                <a href="#" class="btn-informe">2014</a>
+                <a href="#" class="btn-informe">2013</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonios-aislados-section">
+        <div class="testimonial-scroller" data-animated="true">
+            <div class="scroller-inner">
+                <div class="testimonial-card"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/testimonio_03.jpg" alt="Sofía"><p>"Me ayudaron con estudios, medicamentos, apoyo psicológico y hasta talleres que me hicieron sentir útil mientras me recuperaba. Cruz Rosa no solo apoya ...transforma vidas."</p><p>Sofía, Paciente</p></div>
+                <div class="testimonial-card"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/testimonio_01.jpg" alt="Ana"><p>"Cruz Rosa fue mi luz en medio de latormenta. Me ofrecieron hospedaje, comida y sobre todo, un acompañamiento humano que mehizo sentir en familia. Gracias a ellas, hoy estoy viva, fuerte y agradecida con la vida."</p><p>Ana Laura, Paciente</p></div>
+                <div class="testimonial-card"><img src="https://cruzrosa.prototipo.digital/wp-content/uploads/2025/07/testimonio_02.jpg" alt="María"><p>"Gracias a Cruz Rosa, tuve un lugar digno donde quedarme durante mis quimioterapias. Nunca me faltóun plato de comida ni una palabrade aliento. Me salvaron la vida, y también me devolvieron la esperanza."</p><p>María del Carmen, Paciente</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="galeria-acordeon">
+       <img src="https://cruzrosa.org.mx/images/trabajo-social.jpg" alt="Trabajo Social">
+       <img src="https://cruzrosa.org.mx/images/psicologia.jpg" alt="Psicología">
+       <img src="https://cruzrosagdl.mx/wp-content/uploads/2023/02/1-1-600x600.png" alt="GDL">
+       <img src="https://cruzrosagdl.mx/wp-content/uploads/2022/08/psicologia.jpg" alt="GDL">
+    </section>
+
+    <section class="mobile-split-gallery">
+        <h2 style="color: #E63C7D; margin-bottom: 1rem; font-size: 2rem;">Nuestra Comunidad</h2>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 2rem;">Galería de actividades</p>
+        
+        <div class="carousel-container">
+            <div class="carousel-track">
+                 <div class="carousel-slide">
+                     <img src="https://cruzrosa.org.mx/images/trabajo-social.jpg" alt="Comunidad 1">
+                 </div>
+                 <div class="carousel-slide">
+                     <img src="https://cruzrosa.org.mx/images/psicologia.jpg" alt="Comunidad 2">
+                 </div>
+                 <div class="carousel-slide">
+                     <img src="https://cruzrosagdl.mx/wp-content/uploads/2023/02/1-1-600x600.png" alt="Comunidad 3">
+                 </div>
+                 <div class="carousel-slide">
+                     <img src="https://cruzrosagdl.mx/wp-content/uploads/2022/08/psicologia.jpg" alt="Comunidad 4">
+                 </div>
+                 <div class="carousel-slide">
+                     <img src="https://cruzrosa.org.mx/images/trabajo-social.jpg" alt="Comunidad 1 loop">
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js" defer></script> 
     <script>
+        // Script para detectar la animación de ejes
         document.addEventListener('DOMContentLoaded', () => {
              const title = document.querySelector('.ejes-anim-text');
              if(title){
@@ -140,5 +486,35 @@
              }
         });
     </script>
+    <script>
+    // Script para la barra de menú móvil (Efecto Activo)
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuLinks.forEach(l => l.classList.remove('active-link'));
+            this.classList.add('active-link');
+        });
+    });
+</script>
+<script>
+    // --- SCRIPT PARA LAS TARJETAS DE "CÓMO AYUDAR" ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const botonesAyudar = document.querySelectorAll('.btn-ayudar');
+
+        botonesAyudar.forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                const tarjeta = boton.closest('.ayudar-card');
+                tarjeta.classList.toggle('tarjeta-abierta');
+                if (tarjeta.classList.contains('tarjeta-abierta')) {
+                    boton.innerText = "Ver menos";
+                } else {
+                    boton.innerText = "Ver más";
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

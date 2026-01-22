@@ -146,8 +146,8 @@ body {
 .hero-video-column { flex: 1; position: relative; overflow: hidden; min-width: 50%; }
 .hero-video-element { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; width: auto; height: auto; }
 .hero-text-column { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem; box-sizing: border-box; }
-.hero-text-column h1 { font-size: 3.5rem; font-weight: 700; color: #ebe8e9; margin-bottom: 1rem; line-height: 1.2; }
-.hero-text-column p { font-size: 1.5rem; color: #fff8fa; margin-bottom: 2rem; }
+.hero-text-column h1 { font-size: 6.5rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem; line-height: 1.2; }
+.hero-text-column p { font-size: 1.8rem; color: #fff8fa; margin-bottom: 2rem; }
 .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; width: 100%; }
 .btn-hero { display: inline-block; padding: 15px 35px; border-radius: 30px; text-decoration: none; color: #333; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.5px; background-image: var(--gradiente-hero); box-shadow: 0 8px 15px var(--color-sombra-hero); transition: transform 0.3s; }
 .btn-hero:hover { transform: translateY(-5px); box-shadow: 0 15px 25px var(--color-sombra-hero); }
@@ -188,15 +188,16 @@ body {
 
 .servicio-card-expand {
     position: relative;
-    width: 280px;
-    height: 400px;
-    background-color: #FFF8FA; 
-    border-radius: 28px;
-    overflow: hidden; 
+    width: 100%;
+    max-width: 320px;
+    height: 480px; /* Ajustamos altura para el texto largo */
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
+    transition: 0.4s;
 }
+
 .servicio-card-expand:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: translateY(-5px); }
 
 .expand-bg { position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; border-radius: 50%; z-index: 1; transition: transform 0.5s ease-in-out; }
@@ -205,25 +206,74 @@ body {
 .expand-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; color: #E63C7D; transition: color 0.3s ease; }
 .expand-icon { margin-bottom: 1.5rem; transition: transform 0.3s ease; }
 .expand-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 1rem 0; line-height: 1.2; }
-.expand-desc { font-size: 0.95rem; line-height: 1.5; font-weight: 400; opacity: 0; transform: translateY(20px); transition: all 0.4s ease 0.1s; max-height: 0; }
-
+.expand-desc {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    overflow-y: auto;
+    padding: 0 10px;
+    color: #fff;
+}
 .servicio-card-expand:hover .expand-content { color: #ffffff; }
 .servicio-card-expand:hover .expand-icon { transform: scale(1.1); margin-bottom: 0.5rem; }
-.servicio-card-expand:hover .expand-desc { opacity: 1; transform: translateY(0); max-height: 200px; }
-.servicio-card-expand.light-card:hover .expand-content { color: #C2185B; }
+.servicio-card-expand:hover .expand-desc {
+    opacity: 1;
+    max-height: 320px;
+    transform: translateY(-40px);
+}.servicio-card-expand.light-card:hover .expand-content { color: #C2185B; }
+
+/* Estilos para el ocultado del título */
+#contenedor-titulo-ejes {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.titulo-oculto {
+    opacity: 0 !important;
+    transform: translateY(-20px) !important;
+    pointer-events: none;
+}
+
+/* Ajuste de las imágenes personalizadas (iconos) */
+.img-eje-custom {
+    width: 100px; /* Tamaño que pediste para los iconos */
+    height: auto;
+    margin-bottom: 1.5rem;
+    transition: all 0.5s ease;
+}
+
+/* Efecto: El icono cambia a blanco cuando el fondo de color se expande */
+.servicio-card-expand:hover .img-eje-custom {
+    transform: translateY(-80px) scale(0.8);
+    filter: brightness(0) invert(1);
+}
+.servicio-card-expand:hover .expand-title,
+.servicio-card-expand:hover .eje-numero {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
 
 
-/* =========================================
-   5. PROPÓSITO
-   ========================================= */
-.proposito-hover-section { width: 100%; max-width: 900px; margin: 4rem auto; padding: 2rem; box-sizing: border-box; text-align: center; border-top: 1px solid #eee; padding-top: 4rem; }
-.proposito-title { font-size: 2.8rem; font-weight: 700; color: #E63C7D; margin-bottom: 1.5rem; }
-.proposito-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 2.5rem; }
-.proposito-ods { font-size: 1rem; line-height: 1.6; color: #666; font-weight: 600; text-transform: uppercase; margin-bottom: 2.5rem; }
-.proposito-hover-figure { width: 100%; aspect-ratio: 8/5; --bg: hsl(339, 83%, 97%); --accent: #E63C7D; transition: background 0.2s; background: radial-gradient(circle at top left, var(--accent), transparent 75%), var(--bg); margin: 0; position: relative; overflow: hidden; border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); cursor: pointer; }
-.proposito-hover-figure img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s; }
-.proposito-hover-figure:hover img { transform: scale(1.05); }
+/* Colores definitivos del título animado */
+.txt-gris { color: #DDDDDD; }
+.txt-naranja { color: #F9B680; }
+.txt-rosa { color: #E98596; }
 
+/* Corrección de la franja blanca entre secciones */
+.servicios-section-full {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.reconocimientos-section {
+    margin-top: 0 !important;
+    padding-top: 6rem;
+    z-index: 5;
+    position: relative;
+}
 
 /* =========================================
    7. IMPACTO
@@ -242,12 +292,12 @@ body {
    ========================================= */
 .reconocimientos-section { width: 100%; margin: 4rem auto; padding: 6rem 2rem; box-sizing: border-box; text-align: center; position: relative; overflow: hidden; background: #dbd0d3; }
 .reconocimientos-content { position: relative; z-index: 2; }
-.reconocimientos-section h2 { font-size: 3.5rem; font-weight: 700; color: #F9B680; margin-bottom: 2.5rem; position: relative; z-index: 2; text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.reconocimientos-section h2 { font-size: 4.8rem; font-weight: 700; color: #F9B680; margin-bottom: 2.5rem; position: relative; z-index: 2; text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 .ripple-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
 .circle { position: absolute; border-radius: 50%; animation: ripple 8s infinite ease-in-out alternate; }
 .small { width: 400px; height: 400px; bottom: -200px; left: -200px; z-index: 5; }
 .medium { width: 800px; height: 800px; bottom: -400px; left: -400px; z-index: 4; }
-.large { width: 1200px; height: 1200px; bottom: -600px; left: -600px; z-index: 3; }
+.large { width: 1200px; height: 1200px; bottom:-659px ; left:-659px ; z-index :3 ; }
 .xlarge { width: 1600px; height: 1600px; bottom: -800px; left: -800px; z-index: 2; }
 .xxlarge { width: 2200px; height: 2200px; bottom: -1100px; left: -1100px; z-index: 1; }
 .shade5 { background: rgba(197, 29, 74, 0.15); animation-delay: 0s; }
@@ -446,20 +496,104 @@ body {
 
 
 /* =========================================
-   18. TÍTULO ANIMADO "NUESTROS EJES"
+   18. TÍTULO ANIMADO "EJES DE ACCIÓN CRUZ ROSA"
    ========================================= */
-.titulo-ejes-wrapper { display: flex; justify-content: center; align-items: center; margin-bottom: 3rem; position: relative; z-index: 5; }
-.ejes-anim-text { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 5rem; color: transparent; text-shadow: 0 0 0px rgba(230, 60, 125, 0.6); padding: 0 1rem; margin: 0; position: relative; overflow: hidden; line-height: 1.1; text-transform: uppercase; letter-spacing: -2px; transition: all 0.5s ease-out; }
-.ejes-anim-text:before { content: ""; width: 100%; height: 6px; background: #fff; position: absolute; left: -100%; top: 50%; transition: transform 0.8s cubic-bezier(1, -0.04, 0, 1.16); z-index: 10; }
-.ejes-anim-text span { display: block; position: absolute; height: 50%; width: 100%; overflow: hidden; left: 0; }
-.ejes-anim-text span:first-child:before, .ejes-anim-text span:last-child:before { content: attr(data-text); color: #fff; display: block; width: 100%; transition: all 0.4s ease-out; }
-.ejes-anim-text span:first-child { top: 0; } .ejes-anim-text span:first-child:before { transform: translateY(100%); }
-.ejes-anim-text span:last-child { bottom: 0; display: flex; align-items: flex-end; } .ejes-anim-text span:last-child:before { transform: translateY(-100%); }
-.ejes-anim-text.visible { text-shadow: none; } .ejes-anim-text.visible:before { transform: translateX(200%); }
-.ejes-anim-text.visible span:first-child:before, .ejes-anim-text.visible span:last-child:before { transition-delay: 0.2s; }
-.ejes-anim-text.visible span:first-child:before { transform: translateY(0); } .ejes-anim-text.visible span:last-child:before { transform: translateY(0); }
+.titulo-ejes-wrapper { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 4rem; 
+    padding: 2rem 0; 
+    position: relative; 
+    z-index: 5; 
+}
 
+.ejes-article-anim {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
+.ejes-p-anim {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 5rem; /* Ajustado para MacBook Air M4 */
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Colores específicos solicitados */
+.txt-gris { color: #DDDDDD; }
+.txt-naranja { color: #F9B680; }
+.txt-rosa { color: #E98596; }
+
+/* Línea blanca que cruza horizontalmente en el hover */
+.ejes-p-anim:before { 
+    content: ""; 
+    width: 100%; 
+    height: 8px; 
+    background: #fff; 
+    position: absolute; 
+    left: -100%; 
+    top: 50%; 
+    transition: transform 0.8s cubic-bezier(1, -0.04, 0, 1.16); 
+    z-index: 10; 
+}
+
+/* Capas divididas para el efecto de texto blanco */
+.ejes-split { 
+    display: block; 
+    position: absolute; 
+    height: 50%; 
+    width: 100%; 
+    overflow: hidden; 
+    left: 0; 
+    z-index: 2; 
+}
+
+.ejes-split:before { 
+    content: attr(data-text); 
+    color: #fff; 
+    display: block; 
+    width: 100%; 
+    transition: all 0.4s ease-out; 
+}
+
+.ejes-split.top { top: 0; } 
+.ejes-split.top:before { transform: translateY(100%); }
+
+.ejes-split.bottom { 
+    bottom: 0; 
+    display: flex; 
+    align-items: flex-end; 
+} 
+.ejes-split.bottom:before { transform: translateY(-100%); }
+
+/* --- EFECTO HOVER --- */
+.ejes-p-anim:hover:before { 
+    transform: translateX(200%); 
+}
+
+.ejes-p-anim:hover .ejes-split:before { 
+    transition-delay: 0.2s; 
+    transform: translateY(0); 
+}
+
+/* Estilo para el subtítulo del número de eje en las tarjetas */
+.eje-numero {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
 /* =========================================
    19. EFECTO SPLIT IMAGE (SOLO MÓVIL)
    ========================================= */
@@ -579,8 +713,8 @@ body {
 /* 2. Definimos el cambio de color de letra (Gris -> Blanco -> Gris) */
 @keyframes color-auto {
     0% { color: #636363; }
-    40% { color: #ffffff; }
-    60% { color: #ffffff; }
+    40% { color: #636363; }
+    60% { color: #636363; }
     100% { color: #636363; }
 }
 
@@ -593,40 +727,26 @@ body {
 
 .anim-text-box {
     position: relative;
-    padding: 10px 50px; 
-    border: 3px solid #F9B680; /* Borde Naranja */
+    padding: 10px 50px;
+    border: 3px solid #F9B680; /* Marco Naranja */
     border-radius: 8px;
-    cursor: default;
-    overflow: hidden; 
+    background-color: white;
+    display: inline-block;
 }
 
 /* El fondo animado */
-.anim-text-box::before {
-    content: "";
-    width: 100%;
-    height: 0%; 
-    position: absolute;
-    left: 0;
-    bottom: 0;      
-    background-color: #F9B680; /* Relleno Naranja */
-    z-index: 0;
-    
-    /* AQUI ESTÁ LA MAGIA AUTOMÁTICA */
-    /* 4s de duración, movimiento suave, se repite infinito */
-    animation: llenar-auto 4s ease-in-out infinite;
+.anim-text-box::before { 
+    content: none !important; 
 }
 
 .anim-title {
-    position: relative;
-    z-index: 1; 
-    margin: 0;
-    font-family: 'Poppins', sans-serif; 
-    font-size: 3.5rem; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
     font-weight: 700;
-    color: #636363; /* Color inicial Gris */
-    
-    /* ANIMACIÓN DE COLOR AUTOMÁTICA */
-    animation: color-auto 4s ease-in-out infinite;
+    color: #636363; /* Letras Grises fijas */
+    animation: none !important; /* Desactiva cualquier animación de color */
+    position: relative;
+    z-index: 1;
 }
 
 /* Ajuste para celular */
