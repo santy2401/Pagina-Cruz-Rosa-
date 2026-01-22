@@ -181,10 +181,10 @@ body {
 .bg, .bg2, .bg3 {
     position: absolute; width: 200%; height: 200%; top: -50%; left: -50%; opacity: 0.6; z-index: 0;
     animation: slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #f8bbd0 50%, #fce4ec 50%);
+    background-image: linear-gradient(-60deg, #f5e4d7 50%, #fce4ec 50%);
 }
-.bg2 { animation-duration: 4s; background-image: linear-gradient(-60deg, #e74482 50%, #e98596 50%); z-index: -1; }
-.bg3 { animation-duration: 5s; background-image: linear-gradient(-60deg, #f1bdc8 50%, #ffe3e6 50%); z-index: -2; }
+.bg2 { animation-duration: 4s; background-image: linear-gradient(-60deg, #d2d2d2 50%, #FFF8FA 50%); z-index: -1; }
+.bg3 { animation-duration: 5s; background-image: linear-gradient(-60deg, #DDDDDD 50%, #ffe3e6 50%); z-index: -2; }
 
 .servicio-card-expand {
     position: relative;
