@@ -206,22 +206,41 @@ body {
 .expand-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; color: #E63C7D; transition: color 0.3s ease; }
 .expand-icon { margin-bottom: 1.5rem; transition: transform 0.3s ease; }
 .expand-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 1rem 0; line-height: 1.2; }
+
 .expand-desc {
     opacity: 0;
     max-height: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
     transition: all 0.5s ease;
-    overflow-y: auto;
-    padding: 0 10px;
+    overflow: hidden; /* QUITA LA BARRA DE SCROLL */
+    padding: 0 20px;
+    text-align: center; /* CENTRA EL TEXTO */
+    font-size: 0.9rem;
+    line-height: 1.3;
     color: #fff;
 }
+.expand-desc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expand-desc li {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
 .servicio-card-expand:hover .expand-content { color: #ffffff; }
 .servicio-card-expand:hover .expand-icon { transform: scale(1.1); margin-bottom: 0.5rem; }
 .servicio-card-expand:hover .expand-desc {
     opacity: 1;
-    max-height: 320px;
-    transform: translateY(-40px);
-}.servicio-card-expand.light-card:hover .expand-content { color: #C2185B; }
+    max-height: 400px;
+    transform: translateY(-60px); /* Sube a ocupar el espacio de los títulos */
+}
+
+.servicio-card-expand.light-card:hover .expand-content { color: #C2185B; }
 
 /* Estilos para el ocultado del título */
 #contenedor-titulo-ejes {
@@ -246,16 +265,17 @@ body {
 
 /* Efecto: El icono cambia a blanco cuando el fondo de color se expande */
 .servicio-card-expand:hover .img-eje-custom {
-    transform: translateY(-80px) scale(0.8);
+    transform: translateY(-50px) scale(0.7); 
     filter: brightness(0) invert(1);
 }
+
 .servicio-card-expand:hover .expand-title,
 .servicio-card-expand:hover .eje-numero {
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    max-height: 0;
+    margin: 0;
 }
-
 
 /* Colores definitivos del título animado */
 .txt-gris { color: #DDDDDD; }
@@ -292,7 +312,7 @@ body {
    ========================================= */
 .reconocimientos-section { width: 100%; margin: 4rem auto; padding: 6rem 2rem; box-sizing: border-box; text-align: center; position: relative; overflow: hidden; background: #dbd0d3; }
 .reconocimientos-content { position: relative; z-index: 2; }
-.reconocimientos-section h2 { font-size: 4.8rem; font-weight: 700; color: #F9B680; margin-bottom: 2.5rem; position: relative; z-index: 2; text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.reconocimientos-section h2 { font-size: 5.8rem; font-weight: 700; color: #F9B680; margin-bottom: 2.5rem; position: relative; z-index: 2; text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 .ripple-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
 .circle { position: absolute; border-radius: 50%; animation: ripple 8s infinite ease-in-out alternate; }
 .small { width: 400px; height: 400px; bottom: -200px; left: -200px; z-index: 5; }
@@ -453,10 +473,10 @@ body {
    13. MARCAS BENEFICIARIAS
    ========================================= */
 .beneficiarias-section { width: 100%; margin: 4rem auto; padding: 4rem 0; box-sizing: border-box; text-align: center; border-top: 1px solid #eee; }
-.beneficiarias-section h2 { font-size: 3.5rem; font-weight: 700; color: #F9B680; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.beneficiarias-section h2 { font-size: 4.5rem; font-weight: 700; color: #F9B680; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
 .logo-scroller { max-width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-.logo-item { width: 280px; height: 150px; flex-shrink: 0; background: #ffffff; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 40px 55px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.logo-item img { width: 120%; height: 190%; object-fit: contain; filter: none; opacity: 1; transition: all 4s ease; }
+.logo-item { width: 250px; height: 150px; flex-shrink: 0; background: #ffffff; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 40px 55px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.logo-item img { width: 150%; height: 190%; object-fit: contain; filter: none; opacity: 1; transition: all 4s ease; }
 .logo-item:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.07); }
 .scroller-inner { display: flex; flex-wrap: nowrap; width: max-content; gap: 2rem; }
 .testimonial-scroller[data-animated="true"] .scroller-inner, .logo-scroller[data-animated="true"] .scroller-inner { animation: scroll-left 40s linear infinite; }
@@ -492,7 +512,7 @@ body {
 .tarjeta-rosa-texto { background-color: rgba(233, 133, 150, 0.95); color: #ffffff; max-width: 500px; padding: 3rem; border-radius: 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
 .tarjeta-rosa-texto p { font-family: 'Poppins', sans-serif; font-size: 1.3rem; line-height: 1.6; margin: 0; }
 .tarjeta-rosa-texto strong { font-weight: 700; color: #fff; }
-.icono-rosa-blanco { font-size: 4rem; margin-bottom: 1.5rem; display: inline-block; }
+.icono-rosa-blanco { font-size: 3.5rem; margin-bottom: 1.5rem; display: inline-block; }
 
 
 /* =========================================
@@ -728,7 +748,7 @@ body {
 .anim-text-box {
     position: relative;
     padding: 10px 50px;
-    border: 3px solid #F9B680; /* Marco Naranja */
+    border: 3px solid #F9B680;
     border-radius: 8px;
     background-color: white;
     display: inline-block;
@@ -743,8 +763,8 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
-    color: #636363; /* Letras Grises fijas */
-    animation: none !important; /* Desactiva cualquier animación de color */
+    color: #636363; /* Letras grises fijas */
+    animation: none !important; /* Sin cambio de color */
     position: relative;
     z-index: 1;
 }
