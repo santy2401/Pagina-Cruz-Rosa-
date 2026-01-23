@@ -166,16 +166,17 @@ body {
 
 .servicios-container {
     display: grid;
+    /* Forzamos 4 columnas iguales en una sola fila */
     grid-template-columns: repeat(4, 1fr); 
-    justify-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 1300px; 
     margin: 0 auto;
     padding: 4rem 2rem;
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    align-items: stretch;
 }
 
 .bg, .bg2, .bg3 {
@@ -187,38 +188,65 @@ body {
 .bg3 { animation-duration: 5s; background-image: linear-gradient(-60deg, #DDDDDD 50%, #ffe3e6 50%); z-index: -2; }
 
 .servicio-card-expand {
-    position: relative;
+   position: relative;
     width: 100%;
-    max-width: 320px;
-    height: 480px; /* Ajustamos altura para el texto largo */
-    background: #fff;
+    height: 480px; /* Altura suficiente para el texto largo */
+    background-color: #ffffff;
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: 0.4s;
+    transition: all 0.4s ease;
+    border: 1px solid #f0f0f0;
 }
 
 .servicio-card-expand:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: translateY(-5px); }
 
-.expand-bg { position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; border-radius: 50%; z-index: 1; transition: transform 0.5s ease-in-out; }
-.servicio-card-expand:hover .expand-bg { transform: scale(14); }
+.expand-bg {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.servicio-card-expand:hover .expand-bg { transform: scale(18); }
 
-.expand-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; color: #E63C7D; transition: color 0.3s ease; }
-.expand-icon { margin-bottom: 1.5rem; transition: transform 0.3s ease; }
-.expand-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 1rem 0; line-height: 1.2; }
+.expand-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    color: #E63C7D;
+    transition: color 0.3s ease;
+}.expand-icon { margin-bottom: 1.5rem; transition: transform 0.3s ease; }
+.expand-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
 
 .expand-desc {
     opacity: 0;
     max-height: 0;
     transform: translateY(20px);
     transition: all 0.5s ease;
-    overflow: hidden; /* QUITA LA BARRA DE SCROLL */
-    padding: 0 20px;
-    text-align: center; /* CENTRA EL TEXTO */
+    overflow: hidden; /* Evita la barra de scroll gris */
+    padding: 0 10px;
+    text-align: center;
     font-size: 0.9rem;
-    line-height: 1.3;
+    line-height: 1.4;
     color: #fff;
 }
+
 .expand-desc ul {
     list-style: none;
     padding: 0;
@@ -235,9 +263,13 @@ body {
 .servicio-card-expand:hover .expand-content { color: #ffffff; }
 .servicio-card-expand:hover .expand-icon { transform: scale(1.1); margin-bottom: 0.5rem; }
 .servicio-card-expand:hover .expand-desc {
-    opacity: 1;
-    max-height: 400px;
-    transform: translateY(-60px); /* Sube a ocupar el espacio de los títulos */
+   opacity: 1;
+    max-height: 350px;
+    transform: translateY(-50px); /* Sube a la posición central */
+}
+.servicio-card-expand.light-card:hover .expand-content,
+.servicio-card-expand.light-card:hover .expand-desc {
+    color: #C2185B !important;
 }
 
 .servicio-card-expand.light-card:hover .expand-content { color: #C2185B; }
@@ -257,7 +289,7 @@ body {
 
 /* Ajuste de las imágenes personalizadas (iconos) */
 .img-eje-custom {
-    width: 100px; /* Tamaño que pediste para los iconos */
+    width: 100px;
     height: auto;
     margin-bottom: 1.5rem;
     transition: all 0.5s ease;
@@ -265,7 +297,7 @@ body {
 
 /* Efecto: El icono cambia a blanco cuando el fondo de color se expande */
 .servicio-card-expand:hover .img-eje-custom {
-    transform: translateY(-50px) scale(0.7); 
+    transform: translateY(-40px) scale(0.7); 
     filter: brightness(0) invert(1);
 }
 
@@ -275,6 +307,7 @@ body {
     visibility: hidden;
     max-height: 0;
     margin: 0;
+    transition: all 0.3s ease;
 }
 
 /* Colores definitivos del título animado */
@@ -284,8 +317,12 @@ body {
 
 /* Corrección de la franja blanca entre secciones */
 .servicios-section-full {
+   position: relative; 
+    width: 100%; 
+    max-width: 100vw; 
+    overflow: hidden; 
+    padding: 6rem 0 0 0; /* Sin padding inferior para evitar franjas blancas */
     margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
 }
 
 .reconocimientos-section {
@@ -608,12 +645,10 @@ body {
 
 /* Estilo para el subtítulo del número de eje en las tarjetas */
 .eje-numero {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
 }
+
 /* =========================================
    19. EFECTO SPLIT IMAGE (SOLO MÓVIL)
    ========================================= */
