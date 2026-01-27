@@ -899,7 +899,8 @@ body {
     .ubicacion-link-card {
         height: 250px; 
     }
-    
+
+    /* nueva pagina acerca de CR */
 }
 
 .btn-extra-header {
@@ -940,11 +941,409 @@ body {
     width: auto; /* Se expande según el contenido */
     padding: 0 25px; 
     background-color: #d30d59;
-    box-shadow: 0 5px 20px rgba(#E98596);
+    box-shadow: 0 5px 20px rgba(#cf7f8c);
 }
 
 .btn-extra-header:hover .btn-text {
     opacity: 1;
     max-width: 300px;
     margin-left: 12px;
+}
+/* --- SECCIÓN HISTORIA ACERCA DE --- */
+.historia-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-historia {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.historia-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Mitad y mitad */
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Cuadro Rosa del lado izquierdo */
+.cuadro-rosa-info {
+    background-color: #E98596;
+    padding: 3rem;
+    border-radius: 30px;
+    color: white;
+    box-shadow: 0 15px 35px rgba(233, 133, 150, 0.3);
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Animación de Imágenes del lado derecho */
+.imagenes-stack {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-card {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+    border: 5px solid white;
+}
+
+/* Posición inicial de las cartas */
+.card-1 {
+    transform: rotate(-5deg) translateX(-20px);
+    z-index: 1;
+}
+
+.card-2 {
+    transform: rotate(5deg) translateX(20px);
+    z-index: 2;
+}
+
+/* Animación al pasar el mouse por el contenedor */
+.imagenes-stack:hover .card-1 {
+    transform: rotate(-11deg) translateX(-80px) scale(1.05);
+}
+
+.imagenes-stack:hover .card-2 {
+    transform: rotate(12deg) translateX(80px) scale(1.05);
+}
+
+/* Responsive para celular */
+@media (max-width: 768px) {
+    .historia-container {
+        grid-template-columns: 1fr;
+    }
+    .titulo-historia {
+        font-size: 2.2rem;
+    }
+    .imagenes-stack {
+        height: 300px;
+        margin-top: 2rem;
+    }
+    .img-card {
+        width: 280px;
+    }
+}
+/* --- SECCIÓN CONSTITUCIÓN LEGAL --- */
+.constitucion-section {
+    padding: 4rem 2rem;
+    background-color: #ffffff; /* Fondo rosa casi blanco muy sutil */
+}
+
+.constitucion-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.constitucion-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.constitucion-header h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #636363;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.doc-icon {
+    font-size: 2.5rem;
+    color: #E98596;
+}
+
+/* Tarjeta principal */
+.constitucion-card {
+    background: rgb(255, 255, 255);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    border-left: 8px solid #F9B680; /* Borde naranja característico */
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.constitucion-card strong {
+    color: #E98596;
+    font-weight: 600;
+}
+
+.divisor-sutil {
+    height: 1px;
+    background: linear-gradient(to right, #F9B680, transparent);
+    margin: 2rem 0;
+}
+
+/* Cuadro inferior de registro */
+.registro-footer {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ffe6ea;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #777;
+    font-style: italic;
+}
+
+.registro-footer ion-icon {
+    font-size: 1.8rem;
+    color: #F9B680;
+    flex-shrink: 0;
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .constitucion-card {
+        padding: 1.5rem;
+    }
+    .constitucion-header h2 {
+        font-size: 1.6rem;
+    }
+}
+/* --- SECCIÓN OBJETO SOCIAL ESTILO IMAGEN --- */
+.objeto-social-completo {
+    padding: 6rem 2rem;
+    background-color: #FFF8FA;
+    text-align: center;
+}
+
+.titulo-seccion-centro {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.intro-objeto-social {
+    max-width: 900px;
+    margin: 0 auto 4rem auto;
+    font-size: 1.1rem;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.cards-objeto-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Espacio entre filas */
+}
+
+.fila-objeto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-mini {
+    width: 320px;
+    height: 160px;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: white;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.card-mini:hover {
+    transform: translateY(-5px);
+}
+
+.card-mini ion-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+}
+
+.card-mini-txt h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.card-mini-txt p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.flecha-guia {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Ajuste móvil */
+@media (max-width: 1024px) {
+    .fila-objeto {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .flecha-guia {
+        transform: rotate(90deg); /* Apunta hacia abajo en móvil */
+    }
+    .card-mini {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+/* --- SECCIÓN DONATARIA AUTORIZADA --- */
+.donataria-section {
+    padding: 6rem 2rem;
+    background-color: #FFF8FA;
+    position: relative;
+    overflow: hidden;
+}
+
+.donataria-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.donataria-content {
+    background: white;
+    padding: 4rem;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    border-top: 8px solid #F9B680; /* Acento Naranja */
+}
+
+.donataria-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.donataria-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: #636363;
+    margin: 0;
+}
+
+.donataria-header ion-icon {
+    font-size: 2.5rem;
+    color: #E98596;
+}
+
+.registro-destacado {
+    background-color: #FFE3E6;
+    color: #E98596;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 2rem 0;
+    text-align: center;
+    border: 2px dashed #E98596;
+}
+
+.btn-dof {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #E98596;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 2rem;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.btn-dof:hover {
+    color: #F9B680;
+    border-bottom-color: #F9B680;
+}
+
+/* Decoración Sello de Agua */
+.sello-agua {
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    font-size: 15rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.02);
+    pointer-events: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Animación de Medalla */
+.donataria-img {
+    display: flex;
+    justify-content: center;
+}
+
+.escudo-fiscal {
+    width: 250px;
+    height: 250px;
+    background-color: #F9B680;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 15px #FFF8FA, 0 0 0 30px #FFE3E6;
+    animation: pulse-border 3s infinite;
+}
+
+.escudo-fiscal ion-icon {
+    font-size: 8rem;
+    color: white;
+}
+
+@keyframes pulse-border {
+    0% { transform: scale(1); box-shadow: 0 0 0 15px #FFF8FA, 0 0 0 30px #FFE3E6; }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 25px #FFF8FA, 0 0 0 45px #FFE3E6; }
+    100% { transform: scale(1); box-shadow: 0 0 0 15px #FFF8FA, 0 0 0 30px #FFE3E6; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .donataria-container { grid-template-columns: 1fr; }
+    .donataria-img { order: -1; margin-bottom: 2rem; }
+    .donataria-content { padding: 2rem; }
 }
