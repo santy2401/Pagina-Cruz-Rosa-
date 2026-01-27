@@ -901,3 +901,50 @@ body {
     }
     
 }
+
+.btn-extra-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Tamaño inicial circular */
+    height: 60px;
+    background-color: #E98596; 
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden; /* Oculta el texto que sobresale */
+    margin-left: 20px;
+    position: relative;
+}
+
+.btn-extra-header .btn-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    max-width: 0;
+    transition: all 0.4s ease;
+}
+
+.btn-extra-header ion-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0; /* Evita que el icono se aplaste */
+}
+
+/* --- EFECTO HOVER (Igual que el menú) --- */
+.btn-extra-header:hover {
+    width: auto; /* Se expande según el contenido */
+    padding: 0 25px; 
+    background-color: #d30d59;
+    box-shadow: 0 5px 20px rgba(#E98596);
+}
+
+.btn-extra-header:hover .btn-text {
+    opacity: 1;
+    max-width: 300px;
+    margin-left: 12px;
+}
