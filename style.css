@@ -1347,3 +1347,263 @@ body {
     .donataria-img { order: -1; margin-bottom: 2rem; }
     .donataria-content { padding: 2rem; }
 }
+
+/* --- SECCIÓN PROPÓSITOS (CRUZ INTERACTIVA) --- */
+.propositos-section {
+    padding: 8rem 2rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.propositos-container {
+    position: relative;
+    max-width: 1100px;
+    height: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 100px; /* Espacio para la cruz */
+}
+
+/* Estilo de la Cruz Central */
+.eje-central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.linea-vertical, .linea-horizontal {
+    position: absolute;
+    background-color: #F9B680; /* Naranja de la empresa */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(249, 182, 128, 0.4);
+}
+
+.linea-vertical {
+    width: 12px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Flechas de la cruz */
+.linea-vertical::before, .linea-vertical::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.linea-vertical::before { border-bottom: 30px solid #F9B680; top: -30px; }
+.linea-vertical::after { border-top: 30px solid #F9B680; bottom: -30px; }
+
+.linea-horizontal {
+    height: 12px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.linea-horizontal::before, .linea-horizontal::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.linea-horizontal::before { border-right: 30px solid #F9B680; left: -30px; }
+.linea-horizontal::after { border-left: 30px solid #F9B680; right: -30px; }
+
+/* Círculo central con pulso */
+.circulo-pulso {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; height: 40px;
+    background-color: #e89c5e;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+/* Estilo de los Cuadrantes */
+.cuadrante {
+    background: rgb(255, 236, 242);
+    border: 2px solid #c0c0c0;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.cuadrante-contenido p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    text-align: center;
+    margin: 0;
+}
+
+/* Animaciones al Hover */
+.cuadrante:hover {
+    transform: scale(1.05);
+    border-color: #E98596; /* Cambia a rosa al interactuar */
+    box-shadow: 0 15px 35px rgba(233, 133, 150, 0.15);
+    z-index: 10;
+}
+
+/* Responsive para móvil */
+@media (max-width: 850px) {
+    .propositos-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .eje-central { display: none; } /* Ocultamos la cruz en móvil para mejor lectura */
+}
+
+/* --- ANIMACIÓN DE TÍTULOS EN ACERCA DE --- */
+
+.titulo-animado-container {
+    text-align: center;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.titulo-revelado {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Efecto de subida para cada palabra */
+.anim-1, .anim-2 {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: subirRevelar 0.8s ease forwards;
+}
+
+.anim-2 {
+    animation-delay: 0.3s; /* La palabra VISIÓN sale un poco después */
+}
+
+/* Línea naranja que se expande debajo del título */
+.linea-decorativa {
+    width: 0;
+    height: 4px;
+    background: linear-gradient(to right, #F9B680, #E98596);
+    margin: 10px auto 0;
+    border-radius: 2px;
+    animation: expandirLinea 1s ease forwards 0.8s;
+}
+
+/* KEYFRAMES */
+@keyframes subirRevelar {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expandirLinea {
+    to {
+        width: 150px;
+    }
+}
+
+/* Efecto sutil de pulso en el texto naranja al pasar el mouse */
+.titulo-revelado:hover .txt-naranja {
+    text-shadow: 0 0 15px rgba(249, 182, 128, 0.4);
+    transition: 0.3s;
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+    .titulo-revelado {
+        font-size: 2.2rem;
+    }
+}
+/* --- SECCIÓN VISIÓN BLANCA NEUMÓRFICA --- */
+.vision-neumorphic-section {
+    padding: 8rem 2rem;
+    background: #ffffff; /* Fondo blanco para integrar con la página */
+    text-align: center;
+}
+
+.vision-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+/* Tarjeta Neumórfica más blanca */
+.card-vision {
+    width: 100%;
+    max-width: 800px; 
+    min-height: 300px;
+    border-radius: 50px;
+    background: #f9f9f9; /* Blanco hueso para resaltar sutilmente */
+    
+    /* Sombra más suave y clara */
+    box-shadow: 15px 15px 40px #e0e0e0,
+               -15px -15px 40px #ffffff;
+               
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+.card-vision:hover {
+    transform: translateY(-10px);
+    box-shadow: 20px 20px 50px #d1d1d1,
+               -20px -20px 50px #ffffff;
+}
+
+.card-vision-content ion-icon {
+    font-size: 3.5rem;
+    color: #F9B680; /* Tu color naranja institucional */
+    margin-bottom: 1.5rem;
+}
+
+.card-vision-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+
+/* Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+    .card-vision {
+        padding: 2rem;
+        border-radius: 35px;
+    }
+    .card-vision-content p {
+        font-size: 1rem;
+    }
+}
