@@ -1607,3 +1607,252 @@ body {
         font-size: 1rem;
     }
 }
+
+/* --- SECCIÓN VALORES --- */
+.valores-section {
+    padding: 8rem 2rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* Animación del Título Nuestros Valores */
+.titulo-shimmer {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #DDDDDD; /* Gris institucional */
+    background: linear-gradient(to right, #DDDDDD 20%, #F9B680 40%, #E98596 60%, #DDDDDD 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brilloTexto 4s linear infinite;
+}
+
+.subrayado-animado {
+    width: 80px;
+    height: 5px;
+    background: #F9B680;
+    margin: 10px auto 4rem;
+    border-radius: 10px;
+    animation: latido 2s infinite ease-in-out;
+}
+
+/* Grid de Tarjetas */
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.valor-card {
+    padding: 2rem;
+    transition: 0.3s;
+}
+
+/* Animación Flotante para los Iconos */
+.icono-flotante {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 3rem;
+    background: #FFF8FA;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    animation: flotar 3s infinite ease-in-out;
+}
+
+/* Colores específicos para cada círculo de icono */
+.color-rosa ion-icon { color: #E98596; }
+.color-naranja ion-icon { color: #F9B680; }
+.color-gris ion-icon { color: #DDDDDD; }
+.color-rosa-claro ion-icon { color: #F1BDC8; }
+
+/* Retrasos en la animación para que no floten todos igual */
+.valores-grid .valor-card:nth-child(2) .icono-flotante { animation-delay: 0.5s; }
+.valores-grid .valor-card:nth-child(3) .icono-flotante { animation-delay: 1s; }
+.valores-grid .valor-card:nth-child(4) .icono-flotante { animation-delay: 1.5s; }
+
+/* KEYFRAMES */
+@keyframes brilloTexto {
+    to { background-position: 200% center; }
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes latido {
+    0%, 100% { width: 80px; opacity: 1; }
+    50% { width: 120px; opacity: 0.6; }
+}
+
+/* Efecto hover en la tarjeta */
+.valor-card:hover h3 {
+    color: #E98596;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* --- CONTENEDOR DE FIGURAS --- */
+.decoracion-geometrica {
+    position: relative;
+    overflow: hidden; /* Evita que las figuras creen scroll lateral */
+}
+
+/* Círculo Grande Rosa (Fondo) */
+.decoracion-geometrica::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-color: #FFE3E6; /* Rosa claro institucional */
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+    opacity: 0.6;
+    animation: flotarSuave 8s infinite ease-in-out;
+}
+
+/* Óvalo Naranja (Fondo) */
+.decoracion-geometrica::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    background-color: #F9B680; /* Naranja institucional */
+    border-radius: 100px; /* Forma de óvalo */
+    bottom: -50px;
+    left: -80px;
+    transform: rotate(30deg);
+    z-index: 0;
+    opacity: 0.3;
+    animation: flotarSuave 12s infinite ease-in-out reverse;
+}
+
+/* Círculo Rosa Fuerte Pequeño (Decorativo) */
+.circulo-decorativo-extra {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #F1BDC8; /* Rosa medio */
+    border-radius: 50%;
+    top: 20%;
+    left: 10%;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+/* --- ANIMACIÓN --- */
+@keyframes flotarSuave {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -30px) rotate(10deg); }
+}
+
+/* Asegurar que el contenido NO sea tapado por las figuras */
+.titulo-animado-container, 
+.vision-container, 
+.card-vision {
+    position: relative;
+    z-index: 2; /* Siempre por encima de las figuras */
+}
+/* --- ESQUEMA DE MEDIOS CÍRCULOS --- */
+.modelo-ondas-final {
+    padding: 8rem 2rem;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.contenedor-ondas-mitad {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end; /* Alinea los círculos a la base */
+    justify-content: center;
+}
+
+.onda-circular {
+    position: absolute;
+    bottom: -50px; /* Esconde la parte inferior para que parezca medio círculo */
+    border-radius: 50% 50% 0 0; /* Forma de arco/medio círculo */
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s ease;
+    border: 5px solid white;
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.05);
+}
+
+/* Tamaños proporcionales para el efecto concéntrico */
+.color-amarillo-onda {
+    width: 100%; height: 500px;
+    background-color: #FBC02D;
+    z-index: 1;
+}
+
+.color-roja-onda {
+    width: 80%; height: 400px;
+    background-color: #EF5350;
+    z-index: 2;
+}
+
+.color-naranja-onda-f {
+    width: 60%; height: 300px;
+    background-color: #FF9800;
+    z-index: 3;
+}
+
+.color-azul-onda {
+    width: 40%; height: 200px;
+    background-color: #29B6F6;
+    z-index: 4;
+}
+
+/* Estilo y posicionamiento del Texto */
+.texto-onda {
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    max-width: 180px;
+    opacity: 0.9;
+}
+
+/* Colocamos cada texto en una "altura" y posición distinta para que NO se tapen */
+.pos-izquierda { top: 40px; left: 5%; }
+.pos-centro-izq { top: 40px; left: 15%; }
+.pos-centro-der { top: 40px; right: 15%; }
+.pos-derecha    { top: 40px; right: 5%; }
+
+.texto-onda h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.texto-onda p {
+    font-size: 0.85rem;
+    line-height: 1.2;
+}
+
+/* Efecto hover para resaltar la etapa */
+.onda-circular:hover {
+    transform: translateY(-10px);
+    filter: brightness(1.1);
+    z-index: 10; /* Se trae al frente al tocarla */
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor-ondas-mitad { height: 400px; }
+    .texto-onda { max-width: 120px; font-size: 0.7rem; }
+    .texto-onda h3 { font-size: 0.9rem; }
+}
