@@ -1754,105 +1754,78 @@ body {
     0%, 100% { transform: translate(0, 0) rotate(0deg); }
     50% { transform: translate(20px, -30px) rotate(10deg); }
 }
-
-/* Asegurar que el contenido NO sea tapado por las figuras */
-.titulo-animado-container, 
-.vision-container, 
-.card-vision {
-    position: relative;
-    z-index: 2; /* Siempre por encima de las figuras */
-}
-/* --- ESQUEMA DE MEDIOS CÍRCULOS --- */
-.modelo-ondas-final {
-    padding: 8rem 2rem;
+/* --- MODELO DE INTERVENCIÓN FIJO --- */
+.modelo-fijo-section {
+    padding: 6rem 2rem;
     background-color: #ffffff;
     overflow: hidden;
 }
 
-.contenedor-ondas-mitad {
+.modelo-estatico-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     height: 500px;
-    margin: 0 auto;
+    margin: 3rem auto;
+}
+
+.onda-fija {
+    height: 100%;
+    border-radius: 0 500px 500px 0; /* Mantiene la curva de arco */
     display: flex;
-    align-items: flex-end; /* Alinea los círculos a la base */
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-end; /* Empuja el texto hacia el borde derecho de la curva */
+    position: relative;
+    border-right: 10px solid white;
+    box-shadow: 15px 0 30px rgba(0,0,0,0.05);
 }
 
-.onda-circular {
-    position: absolute;
-    bottom: -50px; /* Esconde la parte inferior para que parezca medio círculo */
-    border-radius: 50% 50% 0 0; /* Forma de arco/medio círculo */
+/* Colores institucionales */
+.c-amarilla { background-color: #FBC02D; width: 100%; }
+.c-roja     { background-color: #EF5350; width: 85%; }
+.c-naranja  { background-color: #FF9800; width: 70%; }
+.c-azul     { background-color: #29B6F6; width: 55%; }
+
+/* Alineación Perfecta del Texto */
+.bloque-contenido {
     display: flex;
-    justify-content: center;
-    transition: all 0.5s ease;
-    border: 5px solid white;
-    box-shadow: 0 -10px 25px rgba(0,0,0,0.05);
-}
-
-/* Tamaños proporcionales para el efecto concéntrico */
-.color-amarillo-onda {
-    width: 100%; height: 500px;
-    background-color: #FBC02D;
-    z-index: 1;
-}
-
-.color-roja-onda {
-    width: 80%; height: 400px;
-    background-color: #EF5350;
-    z-index: 2;
-}
-
-.color-naranja-onda-f {
-    width: 60%; height: 300px;
-    background-color: #FF9800;
-    z-index: 3;
-}
-
-.color-azul-onda {
-    width: 40%; height: 200px;
-    background-color: #29B6F6;
-    z-index: 4;
-}
-
-/* Estilo y posicionamiento del Texto */
-.texto-onda {
-    position: absolute;
+    align-items: center;
+    gap: 20px;
+    padding: 0 50px;
     color: white;
-    text-align: center;
-    padding: 10px;
-    max-width: 180px;
+    width: 350px; /* Asegura que todos los textos tengan el mismo ancho */
+    text-align: left;
+}
+
+.bloque-contenido ion-icon {
+    font-size: 3.5rem;
+    flex-shrink: 0;
+}
+
+.info-texto h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.info-texto p {
+    font-size: 0.95rem;
+    margin-top: 5px;
+    line-height: 1.3;
     opacity: 0.9;
 }
 
-/* Colocamos cada texto en una "altura" y posición distinta para que NO se tapen */
-.pos-izquierda { top: 40px; left: 5%; }
-.pos-centro-izq { top: 40px; left: 15%; }
-.pos-centro-der { top: 40px; right: 15%; }
-.pos-derecha    { top: 40px; right: 5%; }
-
-.texto-onda h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+/* Ajuste para dispositivos móviles */
+@media (max-width: 900px) {
+    .modelo-estatico-wrapper { height: auto; }
+    .onda-fija { 
+        height: auto; 
+        border-radius: 20px; 
+        padding: 2rem; 
+        margin-bottom: 15px; 
+        width: 100% !important; 
+    }
+    .bloque-contenido { width: 100%; padding: 0; }
 }
 
-.texto-onda p {
-    font-size: 0.85rem;
-    line-height: 1.2;
-}
-
-/* Efecto hover para resaltar la etapa */
-.onda-circular:hover {
-    transform: translateY(-10px);
-    filter: brightness(1.1);
-    z-index: 10; /* Se trae al frente al tocarla */
-}
-
-/* Responsive para pantallas pequeñas */
-@media (max-width: 768px) {
-    .contenedor-ondas-mitad { height: 400px; }
-    .texto-onda { max-width: 120px; font-size: 0.7rem; }
-    .texto-onda h3 { font-size: 0.9rem; }
-}
