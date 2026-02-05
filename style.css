@@ -323,29 +323,15 @@ body {
 }
 
 .titulo-impacto-colores {
-    font-size: 7.5rem; /* Tamaño más grande e imponente */
+    font-size: 6.5rem;
     font-weight: 900;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem 0;
     text-transform: uppercase;
-    letter-spacing: 5px;
-    font-family: 'Poppins', sans-serif;
-
-    /* EFECTO DE COLORES ANIMADOS EN EL TEXTO */
-    background: linear-gradient(
-        to right, 
-        #F1BDC8, 
-        #E98596, 
-        #F1BDC8, 
-        #E98596
-    );
-    background-size: 300% auto; /* Hacemos el degradado más grande que el texto */
-    -webkit-background-clip: text; /* Recortamos el fondo a la forma de las letras */
-    -webkit-text-fill-color: transparent; /* Hacemos el relleno del texto transparente */
-    
-    /* ANIMACIONES: Revelado + Movimiento de colores */
-    animation: 
-        colorFlow 4s linear infinite, 
-        revealTitle 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    background: linear-gradient(to right, #F1BDC8, #E98596, #F9B680, #F1BDC8);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorFlow 4s linear infinite;
 }
 
 /* Animación 1: Flujo de colores institucional */
@@ -480,51 +466,59 @@ body {
     color: #C51D4A; 
 }
 /* =========================================
-   10. CÓMO AYUDAR
+   10. CÓMO AYUDAR (VERSION ESCALADA XL)
    ========================================= */
-.ayudar-section { 
+.como-ayudar-section { 
     width: 100%; 
-    max-width: 1200px; 
-    margin: 4rem auto; 
+    /* Aumentamos el ancho máximo para que ocupe más pantalla */
+    max-width: 1450px; 
+    margin: 6rem auto; 
     padding: 2rem; 
     box-sizing: border-box; 
     text-align: center; 
-    border-top: 1px solid #ffffff; 
     padding-top: 4rem; 
 }
 
-.ayudar-section h2 { 
-    font-size: 2.8rem; 
-    font-weight: 700; 
+.como-ayudar-section h2 { 
+    /* Título más grande para jerarquía visual */
+    font-size: 5.5rem; 
+    font-weight: 800; 
     color: #E98596; 
-    margin-bottom: 1.5rem; 
+    margin-bottom: 4rem; 
 }
 
 .ayudar-grid { 
     display: grid; 
     grid-template-columns: repeat(5, 1fr); 
-    gap: 1.5rem; 
-    align-items: stretch; /* Para que todas las tarjetas tengan la misma altura */
+    gap: 2.5rem; /* Aumentamos el espacio entre tarjetas */
+    align-items: stretch; 
 }
 
 .ayudar-card { 
     background-color: #fff0f3; 
-    border-radius: 20px; 
-    padding: 2rem 1.5rem; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    border-radius: 40px; /* Bordes más curvos y modernos */
+    padding: 4rem 2rem; /* Aumentamos el padding interno */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05); 
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    transition: all 0.3s ease; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.ayudar-card:hover {
+    transform: translateY(-15px); /* Elevación más pronunciada */
+    box-shadow: 0 20px 50px rgba(233, 133, 150, 0.2);
 }
 
 .ayudar-img-wrapper { 
-    width: 120px; /* Ajusté un poco el tamaño para que quepa bien */
-    height: 120px; 
+    /* Círculos mucho más grandes y visibles */
+    width: 200px; 
+    height: 200px; 
     border-radius: 50%; 
     overflow: hidden; 
-    margin-bottom: 1.5rem; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 2.5rem; 
+    border: 6px solid #fff; /* Borde blanco para resaltar la foto */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
     flex-shrink: 0; 
 }
 
@@ -532,57 +526,70 @@ body {
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.ayudar-card:hover .ayudar-img-wrapper img {
+    transform: scale(1.1); /* Efecto zoom en la foto al pasar el mouse */
 }
 
 .ayudar-card h3 { 
-    font-size: 1.2rem; 
-    font-weight: 700; 
+    /* Títulos más grandes y legibles */
+    font-size: 1.8rem; 
+    font-weight: 800; 
     color: #E98596; 
-    margin-bottom: 1rem; 
-    min-height: 40px; /* Para alinear los títulos */
-    line-height: 1.3;
-}
-/* --- ESTADO INICIAL: Texto Oculto --- */
-.ayudar-content {
-    max-height: 0;          /* Altura cero para ocultar */
-    opacity: 0;             /* Transparente */
-    overflow: hidden;       /* Para que no se salga el texto */
-    margin-bottom: 0;       /* Sin margen para que no ocupe espacio */
-    
-    color: #777; 
-    font-size: 0.95rem;
-    line-height: 1.5;
-    
-    /* Animación suave al abrir/cerrar */
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-bottom: 1.5rem; 
+    min-height: 60px; 
+    line-height: 1.2;
 }
 
-/* --- ESTADO ABIERTO: Se activa con JavaScript --- */
-.ayudar-card.tarjeta-abierta .ayudar-content {
-    max-height: 200px;      /* Le damos altura suficiente para mostrar el texto */
-    opacity: 1;             /* Visible */
-    margin-bottom: 1.5rem;  /* Recuperamos el espacio */
+.ayudar-content p {
+    /* Texto descriptivo más grande */
+    font-size: 1.15rem;
+    color: #666;
+    line-height: 1.6;
 }
 
 .btn-ayudar { 
     display: inline-block; 
-    padding: 10px 25px; 
-    border-radius: 30px; 
+    padding: 15px 35px; /* Botón más grande */
+    border-radius: 50px; 
     border: none; 
-    text-decoration: none; 
     color: #636363; 
-    font-weight: 600; 
-    font-size: 1rem; 
+    font-weight: 700; 
+    font-size: 1.1rem; 
     cursor: pointer; 
-    font-family: 'DM Sans', sans-serif; 
     background-image: var(--gradiente-btn); 
-    box-shadow: 0 8px 15px var(--sombra-btn); 
-    transition: transform 0.3s; 
-    z-index: 2; /* Asegura que el botón esté siempre pulsable */
+    box-shadow: 0 10px 20px var(--sombra-btn); 
+    transition: all 0.3s ease; 
+}
+/* --- ESTADO INICIAL: Texto Oculto por defecto --- */
+.ayudar-content {
+    max-height: 0;           /* Altura cero para ocultar */
+    opacity: 0;              /* Invisible */
+    overflow: hidden;        /* Corta el texto sobrante */
+    margin-bottom: 0;        /* Sin espacio extra abajo */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Animación suave */
+    
+    /* Estilo del texto */
+    font-size: 1.15rem;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
 }
 
-.btn-ayudar:hover { 
-    transform: translateY(-5px); 
+/* --- ESTADO ABIERTO: Se activa al hacer clic (vía clase .tarjeta-abierta) --- */
+.ayudar-card.tarjeta-abierta .ayudar-content {
+    max-height: 300px;       /* Suficiente altura para mostrar el párrafo */
+    opacity: 1;              /* Se vuelve visible */
+    margin-bottom: 2rem;     /* Espacio entre el texto y el botón */
+}
+
+/* Ajuste opcional para el botón cuando la tarjeta está abierta */
+.ayudar-card.tarjeta-abierta .btn-ayudar {
+    transform: scale(0.95);
+    background-image: linear-gradient(135deg, #F1BDC8 0%, #E98596 100%);
+    color: white;
 }
 
 /* =========================================
@@ -966,12 +973,19 @@ body {
     section { padding-top: 3rem !important; padding-bottom: 3rem !important; width: 100%; overflow: hidden; }
 }
 .ubicaciones-grid-links {
-        grid-template-columns: 1fr !important; /* Una sola columna */
-        gap: 1.5rem;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 3rem;
+    max-width: 1450px; /* Ancho XL para ocupar más pantalla */
+    margin: 0 auto;
+}
     
     .ubicacion-link-card {
-        height: 250px; /* Un poco más bajitas en celular */
+    height: 500px; /* Foto mucho más grande */
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     }
     
     .anim-title {
@@ -988,165 +1002,118 @@ body {
 .servicio-card-expand.mobile-active .expand-content { color : #f3f3f3; }
 .servicio-card-expand.mobile-active .expand-icon { transform: scale(1.1); margin-bottom: 0.5rem; }
 .servicio-card-expand.light-card.mobile-active .expand-content { color: #C2185B; }
+
 /* =========================================
-   SECCIÓN UBICACIONES (ANIMACIÓN AUTOMÁTICA)
+   SECCIÓN UBICACIONES XL (PANTALLA COMPLETA)
    ========================================= */
 .ubicaciones-animadas-section {
     width: 100%;
-    margin: 4rem auto;
-    padding: 2rem;
-    box-sizing: border-box;
+    padding: 2rem 0 0 0;
+    background-color: #ffffff;
     text-align: center;
-    background-color: #fff; 
 }
 
-/* --- ANIMACIÓN DEL TÍTULO AUTOMÁTICA --- */
-
-/* 1. Definimos el movimiento (Sube, Espera, Baja) */
-@keyframes llenar-auto {
-    0% { height: 0%; }        /* Empieza vacío */
-    40% { height: 100%; }     /* Se llena suavemente */
-    60% { height: 100%; }     /* SE QUEDA LLENO UN RATO */
-    100% { height: 0%; }      /* Se vacía suavemente */
-}
-
-/* 2. Definimos el cambio de color de letra (Gris -> Blanco -> Gris) */
-@keyframes color-auto {
-    0% { color: #636363; }
-    40% { color: #636363; }
-    60% { color: #636363; }
-    100% { color: #636363; }
-}
-
-.anim-title-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3rem;
-}
-
-.anim-text-box {
-    position: relative;
-    padding: 10px 50px;
-    border: 3px solid #F9B680;
-    border-radius: 8px;
-    background-color: white;
-    display: inline-block;
-}
-
-/* El fondo animado */
-.anim-text-box::before { 
-    content: none !important; 
-}
-
-.anim-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #636363; /* Letras grises fijas */
-    animation: none !important; /* Sin cambio de color */
-    position: relative;
-    z-index: 1;
-}
-
-/* Ajuste para celular */
-@media (max-width: 768px) {
-    .anim-title {
-        font-size: 2rem;
-    }
-}
-
-
-/* --- GRID DE IMÁGENES (MONTERREY Y GDL) --- */
 .ubicaciones-grid-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .ubicacion-link-card {
-    display: block;
     width: 100%;
-    height: 350px; 
-    border-radius: 20px;
+    height: 650px; /* Altura imponente */
+    position: relative;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    text-decoration: none;
-}
-
-.ubicacion-img-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
 }
 
 .ubicacion-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: transform 0.6s ease;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
 }
 
-.ubicacion-overlay {
+/* OVERLAY: Separa Texto e Iconos */
+.ubicacion-overlay-full {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.3); 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between; 
+    align-items: flex-end; 
+    padding: 5rem;
+    box-sizing: border-box;
+}
+
+.info-content {
+    text-align: left;
     color: #fff;
-    opacity: 0.9;
-    transition: background 0.3s ease;
+    z-index: 10;
 }
 
-.ubicacion-overlay h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0.5rem 0;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+.info-content h3 {
+    font-size: clamp(4rem, 12vw, 9rem); /* Nombre Gigante */
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -3px;
 }
 
-.ubicacion-overlay ion-icon {
-    font-size: 3rem;
-    color: #F9B680;
-    margin-bottom: 0.5rem;
+/* TARJETA FLOTANTE (MAPA) */
+.location-app-wrapper { margin-bottom: 25px; position: relative; }
+.hover-card-trigger { color: #F9B680; font-weight: 700; cursor: pointer; text-decoration: underline; }
+
+.card-location {
+    bottom: 80px; left: 0;
+    width: 240px; height: 140px;
+    background: white;
+    border-radius: 20px;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+    pointer-events: none;
 }
 
-.ubicacion-overlay span {
-    background-color: #F9B680;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1rem;
-    color: #fff;
-    margin-top: 10px;
-    transform: translateY(20px);
-    opacity: 0;
+.reference:hover .card-location { transform: scale(1); }
+
+.inner-card-location { border-radius: 18px; height: 100%; width: 100%; overflow: hidden; position: relative; }
+.bg-map-mty { width: 100%; height: 100%; background: #daecdd; opacity: 0.6; }
+.marker-location { background: #E98596; width: 15px; height: 15px; border-radius: 50%; border: 3px solid white; top: 40%; left: 50%; animation: pulse 2s infinite; }
+
+.description-location { padding: 10px; background: rgba(255,255,255,0.9); position: absolute; bottom: 0; width: 100%; }
+.city-name { font-weight: 700; color: #E98596; display: block; font-size: 0.9rem; }
+.btn-map-link { font-size: 0.7rem; color: #666; text-decoration: none; }
+
+/* REDES SOCIALES ANIMADAS */
+.example-2 { display: flex !important; gap: 15px; margin: 0; list-style: none; z-index: 20; }
+.example-2 .icon-content a {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    display: flex; justify-content: center; align-items: center;
+    position: relative; overflow: hidden;
     transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
-/* Efectos Hover Imágenes */
-.ubicacion-link-card:hover img { transform: scale(1.1); }
-.ubicacion-link-card:hover .ubicacion-overlay { background: rgba(0, 0, 0, 0.5); }
-.ubicacion-link-card:hover span { transform: translateY(0); opacity: 1; }
+.example-2 .icon-content a i { position: relative; z-index: 5; font-size: 1.8rem; color: white; }
+.example-2 .icon-content a .filled { position: absolute; bottom: 0; left: 0; width: 100%; height: 0; transition: all 0.4s ease; z-index: 1; }
+.example-2 .icon-content a:hover .filled { height: 100%; }
 
-/* Responsive de Grid */
-@media (max-width: 768px) {
-    .ubicaciones-grid-links {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem;
-    }
-    .ubicacion-link-card {
-        height: 250px; 
-    }
+/* Colores de Redes */
+.example-2 .icon-content a[data-social="facebook"] .filled { background-color: #1877F2; }
+.example-2 .icon-content a[data-social="instagram"] .filled { background-color: #E4405F; }
+.example-2 .icon-content a[data-social="tiktok"] .filled { background-color: #000; }
+.example-2 .icon-content a[data-social="youtube"] .filled { background-color: #FF0000; }
+
+/* LIMPIEZA: BORRA TODO LO QUE DIGA .ubicacion-overlay AL FINAL DE TU ARCHIVO */
 
     /* nueva pagina acerca de CR */
-}
+
 
 .btn-extra-header {
     display: flex;
