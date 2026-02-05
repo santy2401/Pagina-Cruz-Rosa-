@@ -311,16 +311,107 @@ body {
 }
 
 /* =========================================
-   7. IMPACTO
+   SECCIÓN IMPACTO - ANIMACIÓN INSTITUCIONAL
    ========================================= */
-.impacto-section { width: 100%; padding: 6rem 2rem; box-sizing: border-box; position: relative; background-image: linear-gradient(rgba(223, 10, 117, 0.92), rgba(252, 193, 222, 0.92)), url("URL-DE-TU-IMAGEN-COLLAGE.png"); background-size: cover; background-position: center center; background-attachment: fixed; }
-.impacto-content { max-width: 1000px; margin: 0 auto; text-align: center; color: #ffffff; }
-.impacto-content h2 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-.stat-item { display: flex; flex-direction: column; align-items: center; }
-.stat-number-wrapper {display: flex; justify-content: center; align-items: baseline; font-size: 3rem; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums;  font-feature-settings: "tnum"; }
-.stat-title { font-size: 1rem; font-weight: 600; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
+.impacto-section {
+    width: 100%;
+    padding: 8rem 0;
+    /* Fondo suave sugerido anteriormente */
+    background: linear-gradient(135deg, #FFE3E6 0%, #F1BDC8 100%);
+    text-align: center;
+}
+
+.titulo-impacto-colores {
+    font-size: 7.5rem; /* Tamaño más grande e imponente */
+    font-weight: 900;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-family: 'Poppins', sans-serif;
+
+    /* EFECTO DE COLORES ANIMADOS EN EL TEXTO */
+    background: linear-gradient(
+        to right, 
+        #F1BDC8, 
+        #E98596, 
+        #F1BDC8, 
+        #E98596
+    );
+    background-size: 300% auto; /* Hacemos el degradado más grande que el texto */
+    -webkit-background-clip: text; /* Recortamos el fondo a la forma de las letras */
+    -webkit-text-fill-color: transparent; /* Hacemos el relleno del texto transparente */
+    
+    /* ANIMACIONES: Revelado + Movimiento de colores */
+    animation: 
+        colorFlow 4s linear infinite, 
+        revealTitle 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Animación 1: Flujo de colores institucional */
+@keyframes colorFlow {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+}
+
+/* Animación 2: Revelado con escala y suavizado */
+@keyframes revealTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Estilos para las tarjetas de estadísticas */
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.4); /* Tarjetas semi-transparentes */
+    padding: 2.5rem;
+    border-radius: 25px;
+    min-width: 250px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #E98596; /* Rosa fuerte institucional */
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .titulo-impacto-colores { font-size: 3.5rem; }
+}
 
 /* =========================================
    8. RECONOCIMIENTOS
@@ -640,20 +731,71 @@ body {
 
 
 /* =========================================
-   17. ESTILOS AGRADECIMIENTO FONDO IMAGEN
+   17. ESTILOS AGRADECIMIENTO (ESCALADO XL)
    ========================================= */
 .agradecimiento-fondo-seccion {
-    width: 100%; min-height: 500px; background-color: #222; 
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Copia de IMG-20240820-WA0055.jpg');
-    background-size: cover; background-position: center; 
-    display: flex; align-items: center; padding: 2rem; box-sizing: border-box; align-self: stretch; 
+    width: 100%; 
+    /* Aumentamos la altura de la foto de fondo */
+    min-height: 700px; 
+    background-color: #222; 
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url('./Copia de IMG-20240820-WA0055.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; /* Agregué efecto parallax para que se vea más profesional */
+    display: flex; 
+    align-items: center; 
+    padding: 4rem 2rem; 
+    box-sizing: border-box;
 }
-.alinear-derecha-container { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; }
-.tarjeta-rosa-texto { background-color: rgba(233, 133, 150, 0.95); color: #ffffff; max-width: 500px; padding: 3rem; border-radius: 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
-.tarjeta-rosa-texto p { font-family: 'Poppins', sans-serif; font-size: 1.3rem; line-height: 1.6; margin: 0; }
-.tarjeta-rosa-texto strong { font-weight: 700; color: #fff; }
-.icono-rosa-blanco { font-size: 3.5rem; margin-bottom: 1.5rem; display: inline-block; }
 
+.alinear-derecha-container { 
+    width: 100%; 
+    max-width: 1300px; /* Contenedor más ancho */
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: center; 
+}
+
+.tarjeta-rosa-texto { 
+    background-color: rgba(233, 133, 150, 0.92); 
+    color: #ffffff; 
+    /* Cuadro de texto mucho más grande */
+    max-width: 850px; 
+    padding: 5rem 4rem; 
+    border-radius: 40px; 
+    text-align: center; 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3); 
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.tarjeta-rosa-texto p { 
+    font-family: 'Poppins', sans-serif; 
+    /* Letras más grandes para legibilidad */
+    font-size: 1.8rem; 
+    line-height: 1.5; 
+    margin: 0; 
+}
+
+.tarjeta-rosa-texto strong { 
+    font-weight: 800; 
+    color: #fff; 
+}
+
+.icono-rosa-blanco { 
+    /* Icono más grande para acompañar el texto */
+    font-size: 5rem; 
+    margin-bottom: 2rem; 
+    display: inline-block; 
+}
+
+/* Ajuste para tablets y móviles */
+@media (max-width: 768px) {
+    .agradecimiento-fondo-seccion { min-height: 500px; }
+    .tarjeta-rosa-texto { padding: 3rem 2rem; }
+    .tarjeta-rosa-texto p { font-size: 1.4rem; }
+}
 
 /* =========================================
    18. TÍTULO ANIMADO "EJES DE ACCIÓN CRUZ ROSA"
