@@ -325,15 +325,16 @@ body {
 .titulo-impacto-colores {
     font-size: 6.5rem;
     font-weight: 900;
-    margin-bottom: 4rem 0;
+    text-align: center; /* <--- ESTA ES LA LÍNEA QUE CENTRA EL TEXTO */
+    margin-bottom: 4rem; /* <--- CORREGIDO: Antes tenías '4rem 0', lo cual es incorrecto para margin-bottom */
     text-transform: uppercase;
     background: linear-gradient(to right, #F1BDC8, #E98596, #F9B680, #F1BDC8);
     background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: colorFlow 4s linear infinite;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho para poder centrar */
 }
-
 /* Animación 1: Flujo de colores institucional */
 @keyframes colorFlow {
     0% { background-position: 0% center; }
@@ -592,21 +593,107 @@ body {
     color: white;
 }
 
-/* =========================================
-   11. INFORMES ANUALES (FONDO COMPLETO + SVG)
-   ========================================= */
-.informes-section {
+/* --- SECCIÓN INFORMES XL --- */
+.informes-section-xl {
     width: 100%;
-    margin: 4rem auto; 
-    padding: 6rem 2rem; 
-    box-sizing: border-box;
+    padding: 10rem 2rem;
+    /* Recuperamos el degradado de fondo suave */
+    background: linear-gradient(135deg, #fffafa 0%, #fff0f3 100%);
     text-align: center;
-    position: relative; 
-    overflow: hidden; 
-    background: linear-gradient(135deg, #fff8f0 0%, #ffeef2 50%, #ffe3e6 100%);
+    position: relative; /* Necesario para las ondas absolutas */
+    overflow: hidden;
 }
-.svg-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.6; pointer-events: none; }
-.svg-background svg { width: 100%; height: 100%; preserveAspectRatio: none; clip-path: url(#cache); }
+
+.informes-content-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+/* Título mucho más grande y animado */
+.titulo-informes-xl {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5.5rem; /* Tamaño masivo solicitado */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(to right, #E63C7D, #F9B680, #E63C7D);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: flowGradient 5s linear infinite;
+}
+
+@keyframes flowGradient {
+    to { background-position: 200% center; }
+}
+
+/* Texto descriptivo escalado */
+
+.descripcion-informes-xl {
+    font-size: 2.2rem; /* Aumentado para mayor impacto visual */
+    color: #444; /* Un tono un poco más oscuro para que resalte sobre el fondo rosa claro */
+    font-weight: 500; /* Grosor medio para darle más cuerpo a las letras */
+    max-width: 1100px; /* Un poco más ancho para acomodar el texto más grande */
+    margin: 0 auto 5rem auto;
+    line-height: 1.4;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Grid de botones de años grandes */
+.grid-informes-botones {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Cuadros más anchos */
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Estilo Premium para los Cuadros de Año */
+.btn-informe-xl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px; /* Cuadros más altos */
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.6rem; /* Texto del año más grande */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+    color: #E98596;
+    border: 3px solid #FFE3E6;
+    box-shadow: 0 10px 25px rgba(233, 133, 150, 0.1);
+}
+
+.btn-informe-xl:hover {
+    transform: translateY(-12px) scale(1.05);
+    background: #E98596;
+    color: white;
+    border-color: #E98596;
+    box-shadow: 0 15px 35px rgba(233, 133, 150, 0.4);
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+    .titulo-informes-xl { font-size: 3.2rem; }
+    .descripcion-informes-xl { font-size: 1.3rem; }
+    .grid-informes-botones { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .btn-informe-xl { height: 70px; font-size: 1.2rem; }
+}
+.svg-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Queda detrás del contenido */
+    pointer-events: none; /* No interfiere con los clics de los botones */
+}
+.svg-background svg {
+    width: 100%;
+    height: 100%;
+}
 
 .informes-content-wrapper { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
 .informes-section h2 { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 700; color: #E63C7D; margin-bottom: 1.5rem; text-shadow: 0 2px 4px rgba(255,255,255,0.5); }
@@ -703,9 +790,15 @@ body {
     display: flex; 
     flex-wrap: nowrap; 
     width: max-content; 
-    gap: 4rem; /* Espacio elegante entre logotipos */
+    gap: 3rem; 
+    animation: scroll-testimonios 40s linear infinite; /* Animación activada */
 }
-
+@keyframes scroll-testimonios {
+    to { transform: translateX(calc(-50% - 1.5rem)); }
+}
+.testimonial-scroller:hover .scroller-inner {
+    animation-play-state: paused;
+}
 /* Animación de scroll infinito */
 @keyframes scroll-left {
     to { transform: translateX(calc(-50% - 2rem)); }
@@ -723,19 +816,134 @@ body {
 /* =========================================
    14. GALERÍA ACORDEÓN (SOLO PC)
    ========================================= */
-.galeria-acordeon { display: flex; width: 100%; max-width: 1100px; height: 430px; margin: 4rem auto; padding: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-radius: 12px; overflow: hidden; }
-.galeria-acordeon > img { flex: 1; width: 100px; object-fit: cover; opacity: .8; filter: grayscale(50%); transition: all 0.5s ease; }
-.galeria-acordeon > img:hover { flex: 5; opacity: 1; filter: grayscale(0%) contrast(110%); cursor: crosshair; }
+/* --- SECCIÓN CARRUSEL PREMIUM XL --- */
+.comunidad-carrusel-premium {
+    width: 100%;
+    padding: 8rem 0;
+    background-color: #ffffff;
+    overflow: hidden;
+}
 
+.subtitulo-comunidad-xl {
+    font-size: 1.8rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.carrusel-premium-container {
+    width: 100%;
+    height: 500px; /* Altura sugerida para que no se vea vacío */
+    position: relative;
+    overflow: hidden;
+    background-color: transparent; /* Quitamos fondos que distraigan */
+}
+
+/* 3. Ajuste para que el carrusel se mueva correctamente con imágenes completas */
+.carrusel-premium-track {
+    display: flex;
+    width: max-content; /* IMPORTANTE: Esto elimina la separación excesiva entre fotos */
+    height: 100%;
+    animation: scrollLento 50s linear infinite;
+}
+
+.carrusel-premium-slide {
+    width: auto; /* Permite que cada imagen use solo el ancho que necesita */
+    height: 100%;
+    flex-shrink: 0;
+    padding: 0 10px; /* Un pequeño espacio de 10px para que no estén totalmente pegadas */
+}
+
+.carrusel-premium-slide img {
+    width: auto; /* Mantiene la proporción original */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    object-fit: contain; /* Asegura que la imagen se vea íntegra */
+    border-radius: 15px; /* Opcional: bordes redondeados para estilo moderno */
+}
+
+/* Animación de desplazamiento pausado */
+/* 5. Ajuste de la animación */
+@keyframes scrollLento {
+    0% { transform: translateX(0); }
+    /* Ajustamos para que el scroll sea infinito según el contenido real */
+    100% { transform: translateX(-50%); } 
+}
+
+/* Interacción al pasar el mouse */
+.carrusel-premium-container:hover .carrusel-premium-track {
+    animation-play-state: paused; /* Se detiene para que puedan ver la foto */
+}
+
+.carrusel-premium-slide:hover img {
+    transform: scale(1.05); /* Efecto zoom suave */
+    filter: brightness(1.1);
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+    .carrusel-premium-container { height: 450px; }
+    .subtitulo-comunidad-xl { font-size: 1.3rem; }
+}
 
 /* =========================================
    16. TESTIMONIOS AISLADOS
    ========================================= */
-.testimonios-aislados-section { width: 100%; margin: 4rem auto; padding: 3rem 0; box-sizing: border-box; background-color: #FFF8FA; border-top: 1px solid #ffeef2; overflow: hidden; }
-.testimonial-scroller { max-width: 1000px; margin: 0 auto; }
-.testimonial-card { width: 350px; flex-shrink: 0; background: #FFF8FA; border-radius: 12px; padding: 2rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); border: 1px solid #d12967; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.testimonial-card img { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 1.5rem; object-fit: cover; }
+.testimonios-aislados-section { 
+    width: 100%; 
+    margin: 6rem auto; 
+    padding: 5rem 0; 
+    background-color: #FFF8FA; 
+    border-top: 1px solid #ffeef2; 
+    overflow: hidden; 
+}
+.testimonial-scroller { 
+    max-width: 100%; /* Permitimos que ocupe todo el ancho para el movimiento */
+    margin: 0 auto; 
+}
 
+.testimonial-card { 
+    width: 500px; /* Tamaño aumentado */
+    min-height: 400px;
+    flex-shrink: 0; 
+    background: #ffffff; 
+    border-radius: 30px; 
+    padding: 3.5rem; 
+    box-shadow: 0 15px 35px rgba(230, 60, 125, 0.1); 
+    border: 2px solid #f1bdc8; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    transition: transform 0.4s ease;
+}
+.testimonial-card:hover {
+    transform: scale(1.02);
+    border-color: #E98596;
+}
+
+.testimonial-card img { 
+    width: 100px; /* Foto más grande */
+    height: 100px; 
+    border-radius: 50%; 
+    margin-bottom: 2rem; 
+    object-fit: cover; 
+    border: 4px solid #FFE3E6;
+}
+.testimonio-texto {
+    font-size: 1.45rem; 
+    line-height: 1.6;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-family: 'DM Sans', sans-serif;
+}
+.paciente-nombre {
+    font-weight: 800;
+    color: #E63C7D;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 /* =========================================
    17. ESTILOS AGRADECIMIENTO (ESCALADO XL)
