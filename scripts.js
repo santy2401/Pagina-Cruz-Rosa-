@@ -285,6 +285,14 @@ function decorateHeroLCP(loadStyle, config, createTag) {
         if (heroPicture) {
           div.append(heroPicture);
         }
+        // Dentro de la función decorateHeroLCP...
+if (['on', 'yes'].includes(getMetadata('hero-inject-logo')?.toLowerCase()?.trim())) {
+    const logoContainer = createTag('div', { id: 'main-large-logo', class: 'logo-hero-container' });
+    const logo = getIconElementDeprecated('adobe-express-logo');
+    logo.classList.add('express-logo');
+    logoContainer.append(logo);
+    heroSection.prepend(logoContainer); // Inyecta el contenedor con el logo
+}
         div.append(h1);
         main.prepend(heroSection);
       } else {
@@ -447,4 +455,14 @@ loadPage();
   // eslint-disable-next-line import/no-unresolved
   import('https://da.live/scripts/dapreview.js').then(({ default: daPreview }) => daPreview(loadPage));
 }());
-
+// --- Lógica de desaparición del logo al hacer scroll ---
+  window.addEventListener('scroll', () => {
+    const logo = document.getElementById('main-large-logo');
+    if (!logo) return;
+    
+    if (window.scrollY > 100) {
+      logo.classList.add('logo-hidden');
+    } else {
+      logo.classList.remove('logo-hidden');
+    }
+  }, { passive: true });

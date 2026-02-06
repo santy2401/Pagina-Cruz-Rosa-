@@ -72,6 +72,46 @@ body {
     pointer-events: none; 
     padding: 0 20px; 
 }
+/* Contenedor del logo gigante */
+.logo-hero-container {
+    position: fixed; 
+    top: 40px;
+    left: 50px;
+    z-index: 2000;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.logo-hero-container .express-logo {
+    width: 180px !important; /* Tamaño XL */
+    height: auto !important;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+    animation: entranceLogo 1.2s ease-out, floatLogo 4s ease-in-out infinite;
+}
+
+.logo-hero-container img {
+    width: 180px; /* Tamaño XL solicitado */
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+    animation: entranceLogo 1.2s ease-out, floatLogo 4s ease-in-out infinite;
+}
+
+/* Clase que aplicaremos con JS al bajar */
+.logo-hidden {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+    pointer-events: none;
+}
+
+/* Animación de entrada (Aparece y cae un poco) */
+@keyframes entranceLogo {
+    0% { opacity: 0; transform: translateY(-30px) scale(0.5); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Animación de flotación constante */
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
 .logo-container {
     display: block;
