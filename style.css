@@ -80,10 +80,10 @@ body {
 }
 
 .main-logo-img {
-    height: 80px;
+    height: 90px;
     width: auto; 
     object-fit: contain;
-    border-radius: 40px;
+    border-radius: 80px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
 }
 
@@ -980,13 +980,6 @@ body {
     margin: 0 auto;
 }
     
-    .ubicacion-link-card {
-    height: 500px; /* Foto mucho más grande */
-    border-radius: 40px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    }
     
     .anim-title {
         font-size: 2rem; /* Título más pequeño */
@@ -1003,9 +996,7 @@ body {
 .servicio-card-expand.mobile-active .expand-icon { transform: scale(1.1); margin-bottom: 0.5rem; }
 .servicio-card-expand.light-card.mobile-active .expand-content { color: #C2185B; }
 
-/* =========================================
-   SECCIÓN UBICACIONES XL (PANTALLA COMPLETA)
-   ========================================= */
+/* --- SECCIÓN UBICACIONES XL (PANTALLA COMPLETA) --- */
 .ubicaciones-animadas-section {
     width: 100%;
     padding: 2rem 0 0 0;
@@ -1021,87 +1012,218 @@ body {
 
 .ubicacion-link-card {
     width: 100%;
-    height: 650px; /* Altura imponente */
+    height: 700px; /* Un poco más alta para que luzca el cuadro blanco */
     position: relative;
     overflow: hidden;
+    background-color: #ffffff; /* Fondo base blanco por si la imagen tarda en cargar */
 }
-
 .ubicacion-img-container img {
     width: 100%; height: 100%;
     object-fit: cover;
     transition: transform 1.2s ease;
 }
 
-/* OVERLAY: Separa Texto e Iconos */
 .ubicacion-overlay-full {
     position: absolute;
     top: 0; left: 0; 
     width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.4) 100%);
     display: flex;
     justify-content: space-between; 
     align-items: flex-end; 
-    padding: 5rem;
+    padding: 0; /* Dejamos que los márgenes de .info-content y .example-2 controlen el espacio */
     box-sizing: border-box;
 }
 
 .info-content {
     text-align: left;
-    color: #fff;
+    color: #ffffff; /* Texto oscuro para resaltar sobre el blanco */
     z-index: 10;
+    padding: 2.5rem 2.5rem; /* Espaciado interno para el "cuadro de texto" */
+    border-radius: 25px; /* Bordes redondeados para que parezca una tarjeta flotante */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque premium detrás del blanco */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    margin-bottom: 3rem; /* Separación del borde inferior */
+    margin-left: 3rem; /* Separación del borde izquierdo */
+    border: 1px solid rgba(255, 255, 255, 0.253);
+    max-width: 450px;
 }
 
 .info-content h3 {
-    font-size: clamp(4rem, 12vw, 9rem); /* Nombre Gigante */
+    font-size: clamp(2rem, 5vw, 4.5rem) !important; 
+    color: #E98596; /* Color rosa institucional */
     font-weight: 900;
     margin: 0;
+    line-height: 1;
     text-transform: uppercase;
-    line-height: 0.9;
-    letter-spacing: -3px;
+    letter-spacing: -1px;
 }
 
-/* TARJETA FLOTANTE (MAPA) */
-.location-app-wrapper { margin-bottom: 25px; position: relative; }
-.hover-card-trigger { color: #F9B680; font-weight: 700; cursor: pointer; text-decoration: underline; }
+/* --- TEXTO DE UBICACIÓN CORREGIDO --- */
+.main-title-location {
+  font-size: 1.3rem !important;
+    color: #ffffff !important; /* Gris oscuro para que se lea en el blanco */
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: none !important; /* Quitamos sombras externas */
+}
+
+.hover-card-trigger {
+    color: #F9B680 !important; /* Color naranja institucional */
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.hover-card-trigger:hover {
+    border-bottom-color: #F9B680;
+}
+
+/* --- TARJETA FLOTANTE --- */
+.location-app-wrapper { margin-bottom: 40px; position: relative; }
 
 .card-location {
-    bottom: 80px; left: 0;
-    width: 240px; height: 140px;
+    position: absolute;
+    bottom: 110%; /* Ajustado para que flote justo arriba del texto */
+    left: 0;
+    width: 240px;
+    height: 140px;
     background: white;
     border-radius: 20px;
-    transform: scale(0);
+    transform: scale(0); /* Estado inicial */
     transform-origin: bottom left;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1000;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.4);
-    pointer-events: none;
+    z-index: 2000; /* Prioridad máxima */
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+    overflow: hidden;
+    visibility: hidden;
 }
 
-.reference:hover .card-location { transform: scale(1); }
 
-.inner-card-location { border-radius: 18px; height: 100%; width: 100%; overflow: hidden; position: relative; }
-.bg-map-mty { width: 100%; height: 100%; background: #daecdd; opacity: 0.6; }
-.marker-location { background: #E98596; width: 15px; height: 15px; border-radius: 50%; border: 3px solid white; top: 40%; left: 50%; animation: pulse 2s infinite; }
+.reference {
+    position: relative;
+    display: inline-block;}
 
-.description-location { padding: 10px; background: rgba(255,255,255,0.9); position: absolute; bottom: 0; width: 100%; }
-.city-name { font-weight: 700; color: #E98596; display: block; font-size: 0.9rem; }
-.btn-map-link { font-size: 0.7rem; color: #666; text-decoration: none; }
+.reference:hover .card-location {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+}
 
-/* REDES SOCIALES ANIMADAS */
-.example-2 { display: flex !important; gap: 15px; margin: 0; list-style: none; z-index: 20; }
+/* Ajuste al contenedor interno para que el contenido sea visible */
+.inner-card-location { 
+    border-radius: 18px; 
+    height: 100%; 
+    width: 100%; 
+    overflow: hidden; 
+    position: relative; 
+    background-color: #ffffff; /* Asegura un color base si el bg-map falla */
+}
+
+/* El fondo no debe ser tan transparente para que no se pierda lo de adentro */
+.bg-map-mty { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background: #dadada; 
+    opacity: 1;
+    z-index: 1; /* Al fondo */
+}
+
+.marker-location {
+    background-color: #E98596; 
+    width: 15px; 
+    height: 15px; 
+    border-radius: 50%; 
+    border: 3px solid white; 
+    top: 30%; 
+    left: 50%; 
+    position: absolute; 
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(160, 128, 133, 0.5); /* Sutil brillo rosa */
+    animation: pulse-map 2s infinite;
+}
+
+@keyframes pulse-map {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(233, 133, 150, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(233, 133, 150, 0); }
+    100% { transform: scale(0.9); }
+}
+
+.cloud {
+    position: absolute;
+    z-index: 5; /* Entre el mapa y el texto */
+    background: white;
+    border-radius: 50%;
+    filter: blur(4px);
+    opacity: 0.7;
+    animation: moveClouds 10s linear infinite;
+}
+
+/* Nube 1 */
+.cloud:nth-child(1) { width: 40px; height: 15px; top: 20px; left: 10%; }
+/* Nube 2 */
+.cloud:nth-child(2) { width: 50px; height: 20px; top: 50px; left: 60%; animation-delay: 2s; }
+
+@keyframes moveClouds {
+    from { transform: translateX(-50px); }
+    to { transform: translateX(250px); }
+}
+.description-location { 
+    padding: 10px; 
+    background: rgba(255, 255, 255, 0.9); 
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    z-index: 15; /* Siempre al frente */
+    text-align: center;
+}
+
+.city-name { 
+    font-weight: 800; 
+    color: #E98596; 
+    display: block; 
+    font-size: 0.9rem; 
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* --- ICONOS PNG CORREGIDOS --- */
+.example-2 {
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+}
 .example-2 .icon-content a {
-    width: 70px; height: 70px;
+   width: 60px; /* Reducido de 70px a 60px para el set completo */
+    height: 60px;
     border-radius: 50%;
     background-color: rgba(255,255,255,0.2);
     backdrop-filter: blur(10px);
-    display: flex; justify-content: center; align-items: center;
-    position: relative; overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid rgba(255,255,255,0.3);
 }
 
-.example-2 .icon-content a i { position: relative; z-index: 5; font-size: 1.8rem; color: white; }
-.example-2 .icon-content a .filled { position: absolute; bottom: 0; left: 0; width: 100%; height: 0; transition: all 0.4s ease; z-index: 1; }
+.social-png {
+    width: 26px; /* Ajusta el tamaño de tu PNG */
+    height: 26px;
+    object-fit: contain;
+    position: relative;
+    z-index: 5;
+    filter: brightness(0) invert(1); /* Convierte el PNG a blanco si es oscuro */
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 0;
+    transition: all 0.4s ease; z-index: 1;
+}
+
 .example-2 .icon-content a:hover .filled { height: 100%; }
 
 /* Colores de Redes */
@@ -1109,8 +1231,14 @@ body {
 .example-2 .icon-content a[data-social="instagram"] .filled { background-color: #E4405F; }
 .example-2 .icon-content a[data-social="tiktok"] .filled { background-color: #000; }
 .example-2 .icon-content a[data-social="youtube"] .filled { background-color: #FF0000; }
+.example-2 .icon-content a[data-social="linkedin"] .filled { background-color: #0077B5; }
+.example-2 .icon-content a[data-social="x-twitter"] .filled { background-color: #000000; }
 
-/* LIMPIEZA: BORRA TODO LO QUE DIGA .ubicacion-overlay AL FINAL DE TU ARCHIVO */
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -55px;
+}
 
     /* nueva pagina acerca de CR */
 
