@@ -220,7 +220,7 @@ body {
 .servicio-card-expand {
     position: relative;
     width: 100%;
-    height: 750px; /* Aumentado significativamente */
+    height: 790px; /* Aumentado significativamente */
     background-color: #fbfbfb;
     border-radius: 40px;
     overflow: hidden;
@@ -2416,4 +2416,3 @@ body {
     }
     .bloque-contenido { width: 100%; padding: 0; }
 }
-
