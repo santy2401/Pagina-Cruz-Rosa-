@@ -1488,7 +1488,9 @@ body {
     top: -55px;
 }
 
-    /* nueva pagina acerca de CR */
+    /* =========================================
+   1.2 NUEVA PAGINA ACEERCA DE CRUZ ROSA - ESTILOS GENERALES`
+   ========================================= */
 
 
 .btn-extra-header {
@@ -1538,29 +1540,99 @@ body {
     margin-left: 12px;
 }
 /* --- SECCIÓN HISTORIA ACERCA DE --- */
+.titulo-seccion-superior {
+    font-size: 3.5rem !important; /* Aumentado significativamente */
+    font-weight: 800;
+    color: #E98596;
+    text-align: center;
+    margin-bottom: 4rem;
+    letter-spacing: 1px;
+}
+.cuadro-rosa-interactivo {
+    background: linear-gradient(135deg, #E98596 0%, #d36b7d 100%);
+    padding: 5rem; /* Más espacio interno para que se vea cuadrada */
+    border-radius: 40px; /* Menos redondeado para dar aspecto más sólido */
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(233, 133, 150, 0.4);
+    font-size: 1.65rem !important; /* Texto interno XL */
+    line-height: 1.6;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.cuadro-rosa-interactivo:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 40px 70px rgba(233, 133, 150, 0.6);
+}
+.brillo-tarjeta {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+.cuadro-rosa-interactivo:hover .brillo-tarjeta {
+    left: 150%;
+}
+.cuadro-rosa-interactivo p {
+    margin-bottom: 2rem;
+}
+
 .historia-section {
     padding: 6rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
+.acerca-contenedor-principal h1, 
+main h1 {
+    font-size: 3rem !important; /* Aumentado de tamaño significativamente */
+    font-weight: 800;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: #E98596;
+}
 
 .titulo-historia {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: 5.5rem !important; /* Tamaño masivo para impacto visual inmediato */
+    font-weight: 900;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    line-height: 1.1;
+    letter-spacing: -2px;
 }
 
 .intro-text {
-    font-size: 1.2rem;
-    color: #666;
+    color: #636363; /* Color institucional solicitado */
+    font-size: 1.9rem;
     line-height: 1.6;
     text-align: center;
-    margin-bottom: 4rem;
     max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 5rem auto;
+    
+    /* Aplicación de la animación */
+    opacity: 0; /* Inicia invisible */
+    animation: revelarTexto 1.2s ease-out forwards;
+    animation-delay: 0.5s; /* Aparece después del título principal */
+}
+@keyframes revelarTexto {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Empieza 20px abajo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición original */
+    }
 }
 
 .historia-container {
@@ -1572,13 +1644,60 @@ body {
 
 /* Cuadro Rosa del lado izquierdo */
 .cuadro-rosa-info {
-    background-color: #E98596;
-    padding: 3rem;
-    border-radius: 30px;
+   background-color: #E98596;
+    padding: 4.5rem; /* Más espacio interno */
+    border-radius: 40px;
     color: white;
-    box-shadow: 0 15px 35px rgba(233, 133, 150, 0.3);
-    font-size: 1.15rem;
-    line-height: 1.7;
+    box-shadow: 0 20px 45px rgba(233, 133, 150, 0.3);
+    font-size: 1.6rem !important; /* Texto más grande solicitado */
+    line-height: 1.6;
+    height: fit-content;
+}
+.marcos-fotos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem; /* Espacio entre las dos fotos */
+    perspective: 1000px; /* Añade profundidad 3D */
+}
+.marco-foto {
+    background-color: #ffffff;
+    padding: 15px 15px 50px 15px; /* Padding inferior más grande para estilo Polaroid */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border-radius: 5px; /* Bordes ligeramente curvos */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+}
+.marco-foto img {
+    width: 280px; /* Tamaño de la imagen */
+    height: auto;
+    display: block;
+    border: 1px solid #eee; /* Borde sutil a la foto */
+}
+.polaroid-1 {
+    transform: rotate(-4deg);
+}
+
+.polaroid-2 {
+    transform: rotate(4deg);
+}
+
+/* --- ANIMACIÓN AL PASAR EL MOUSE (HOVER) --- */
+.marco-foto:hover {
+    transform: rotate(0deg) scale(1.1) translateY(-10px);
+    z-index: 10;
+    box-shadow: 0 25px 50px rgba(233, 133, 150, 0.3); /* Sombra rosa al resaltar */
+}
+/* Ajuste para que se vea bien en tablets/móviles */
+@media (max-width: 1100px) {
+    .historia-container {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+    }
+    .marcos-fotos-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
 
 /* Animación de Imágenes del lado derecho */
