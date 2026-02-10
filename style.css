@@ -61,18 +61,20 @@ body {
 .main-header {
     width: 100%;
     display: flex;
-    justify-content: center; /* Esto lo centra horizontalmente */
+    justify-content: center; /* Esto centra el menú horizontalmente */
     align-items: center; 
     position: fixed; 
-    top: 30px; 
+    top: 25px; 
     left: 0;
     z-index: 1000;
     pointer-events: none; 
-    padding: 0; 
+    padding: 0 20px; 
+    box-sizing: border-box;
 }
 
 .expanding-menu, .btn-extra-header {
-    pointer-events: auto; /* Permite que los botones sean clickeables */
+    pointer-events: auto; /* Permite clics solo en los elementos */
+    margin: 0 10px; /* Espaciado uniforme entre el menú y el botón extra */
 }
 
 /* Contenedor del logo gigante */
@@ -192,7 +194,7 @@ body {
 }
 
 .hero-video-column { 
-    flex: 1.1; /* Le da un poco más de prioridad al video para que respire */
+    flex: 1.2; /* Le da un poco más de prioridad al video para que respire */
     position: relative; 
     overflow: hidden; 
 }
@@ -210,48 +212,45 @@ body {
 }
 
 .hero-text-column {
-    flex: 0.9; /* Reduce ligeramente el ancho de la columna de texto */
+    flex: 0.8; /* Reduce ligeramente el ancho de la columna de texto */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5% !important; 
+    padding: 3% 5% !important; 
     box-sizing: border-box;
     z-index: 10;
 }
 
 .hero-text-column h1 {
-    /* Ajustamos el clamp: el 8vw era muy agresivo para laptops pequeñas */
-    font-size: clamp(2.2rem, 6vw, 6rem) !important; 
+    /* Mínimo 1.8rem, ideal 5vw, máximo 5rem */
+    font-size: clamp(1.8rem, 5vw, 5rem) !important; 
     line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: #ffffff;
-    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .hero-text-column p {
-    /* Hacemos el párrafo más adaptable */
-    font-size: clamp(1.1rem, 1.5vw, 1.7rem) !important;
+    /* Párrafo más compacto para dejar aire a los botones */
+    font-size: clamp(0.95rem, 1.1vw, 1.3rem) !important;
     line-height: 1.4;
-    color: #fff8fa;
-    margin-bottom: 2.5rem;
-    max-width: 95%; /* Evita que el texto toque el video */
+    max-width: 90%;
 }
 
 .hero-buttons { 
-    display: flex; 
-    gap: 1.2rem; 
-    justify-content: flex-start; /* Alinea botones a la izquierda con el texto */
-    width: 100%; 
+   display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* Permite que los botones se pongan uno abajo del otro si no caben */
+    justify-content: flex-start;
+    margin-top: 1.5rem;
 }
 
 .btn-hero { 
     display: inline-block; 
-    padding: 14px 28px; 
+    padding: 12px 24px; 
     border-radius: 30px; 
     text-decoration: none; 
     color: #333; 
     font-weight: 600; 
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem); /* Botones que también escalan */
+    font-size: 0.9rem;
     background-image: var(--gradiente-hero); 
     box-shadow: 0 8px 15px var(--color-sombra-hero); 
     transition: all 0.3s ease; 
