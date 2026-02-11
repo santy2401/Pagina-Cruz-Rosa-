@@ -409,6 +409,7 @@ body {
     color: #E63C7D; /* Color rosa fuerte institucional */
     margin: 0;
     transition: all 0.4s ease;
+    line-height: 1.2;
 }
 
 .expand-desc {
@@ -416,6 +417,7 @@ body {
     max-height: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
+    margin-top: 1rem;
     
     /* CAMBIOS AQUÍ */
     text-align: left; /* Alinea el texto a ambos lados */
@@ -447,7 +449,12 @@ body {
 }
 
 .expand-desc p { 
-    margin-bottom: 25px; 
+    margin-bottom: 0.8rem; 
+}
+/* Mantener los dos h3 juntos, pero separarlos del texto de abajo */
+.expand-title + .expand-title {
+    margin-top: -1rem; /* Junta los dos títulos */
+    margin-bottom: 2rem; /* Aleja ambos títulos de la descripción */
 }
 
 /* Ajustes para Eje 4 */
