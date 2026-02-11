@@ -1196,25 +1196,39 @@ body {
 .ejes-p-anim {
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
-    font-size: 5.5rem; 
+    font-size: 9.5rem; /* Mismo tamaño que el Hero para consistencia */
     margin: 0;
     position: relative;
     overflow: hidden;
-    line-height: 1.1;
+    line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: -2px;
     cursor: pointer;
     display: inline-block;
+    font-size: clamp(2.5rem, 5vw, 3.8rem) !important; /* Mismo tamaño que el Hero para consistencia */
+    font-weight: 900;
+    text-align: center;
+    text-transform: none !important; /* Evita que el CSS cambie tus mayúsculas/minúsculas */
+    margin: 0;
+    line-height: 1.2;
 }
 .ejes-p-anim:hover span {
     color: #E98596 !important; /* Cambia todas las palabras a rosa institucional */
     transition: color 0.4s ease; /* Hace que el cambio sea suave */
 }
 
-/* Colores específicos solicitados */
-.txt-gris { color: #636363; }
-.txt-naranja { color: #F9B680; }
-.txt-rosa { color: #E98596; }
+.txt-gris {
+    color: #4A4A4A; /* Gris oscuro elegante */
+}
+
+.txt-naranja {
+    color: #F9B680; /* Naranja institucional */
+}
+
+.txt-rosa {
+    color: #E98596; /* Rosa institucional */
+}
+
 
 /* Línea blanca que cruza horizontalmente en el hover */
 .ejes-p-anim:before { 
