@@ -1159,6 +1159,10 @@ body {
     cursor: pointer;
     display: inline-block;
 }
+.ejes-p-anim:hover span {
+    color: #E98596 !important; /* Cambia todas las palabras a rosa institucional */
+    transition: color 0.4s ease; /* Hace que el cambio sea suave */
+}
 
 /* Colores específicos solicitados */
 .txt-gris { color: #636363; }
