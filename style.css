@@ -430,17 +430,17 @@ body {
 
 .impacto-section {
     width: 100%;
-    padding: 8rem 0;
-    /* Fondo suave sugerido anteriormente */
+    padding: 2rem 0 6rem 0 !important; /* Subimos la sección eliminando padding superior excesivo */
     background: linear-gradient(135deg, #FFE3E6 0%, #F1BDC8 100%);
     text-align: center;
 }
 
 .titulo-impacto-colores {
-    font-size: clamp(2.5rem, 5vw, 4rem) !important; /* Bajamos de 6.5rem a 4rem */
+    font-size: clamp(2.2rem, 5vw, 3.5rem) !important; /* Bajamos de 6.5rem a 4rem */
     font-weight: 900;
     text-align: center; /* <--- ESTA ES LA LÍNEA QUE CENTRA EL TEXTO */
     margin-bottom: 2.5rem; /* <--- CORREGIDO: Antes tenías '4rem 0', lo cual es incorrecto para margin-bottom */
+    margin-top: 0 !important;
     text-transform: uppercase;
     background: linear-gradient(to right, #F1BDC8, #E98596, #F9B680, #F1BDC8);
     background-size: 300% auto;
@@ -471,17 +471,19 @@ body {
 
 /* Estilos para las tarjetas de estadísticas */
 .stats-grid {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    max-width: 1200px;
+    display: flex !important; /* Usamos flex para asegurar que se acuesten */
+    flex-direction: row !important; /* Fuerza la dirección horizontal */
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 2rem !important;
+    max-width: 1350px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    padding: 0 2rem;
 }
-
 .stat-item {
-    background: rgba(255, 255, 255, 0.4); /* Tarjetas semi-transparentes */
-    padding: 2.5rem;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.5); /* Tarjetas semi-transparentes */
+    padding: 2rem;
     border-radius: 25px;
     min-width: 250px;
     backdrop-filter: blur(5px);
@@ -496,7 +498,7 @@ body {
 
 .stat-number {
     display: block;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 3rem) !important; /* Números grandes y legibles */
     font-weight: 800;
     color: #E98596; /* Rosa fuerte institucional */
     margin-bottom: 0.5rem;
@@ -587,34 +589,37 @@ body {
    ========================================= */
 .como-ayudar-section { 
     width: 100%; 
-    max-width: 1450px; 
-    margin: 0 auto; /* Eliminamos el margen superior de 6rem */
-    padding: 1rem 2rem 4rem 2rem; /* Reducimos padding superior */
+    max-width: 1300px; 
+    margin: 0 auto !important; 
+    padding: 3rem 4rem 6rem 4rem !important;
     text-align: center; 
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
 }
 
 .como-ayudar-section h2 { 
-    font-size: clamp(2.5rem, 5vw, 3.5rem) !important; 
+    font-size: clamp(2.2rem, 5vw, 3.5rem) !important; 
     font-weight: 800; 
     color: #E98596; 
-    margin-top: 0; /* Pegamos el título arriba */
-    margin-bottom: 2rem; /* Espacio corto hacia las tarjetas */
+    margin-top: 0 !important;
+    margin-bottom: 3.5rem !important; 
 }
 
 .ayudar-grid { 
-    display: grid; 
-    /* Forzamos 4 columnas de igual tamaño */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 1.5rem; /* Espacio optimizado para laptops */
-    align-items: stretch; 
-    max-width: 100%;
+    display: flex !important; /* Cambiamos a Flex para alineación horizontal perfecta */
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .ayudar-card { 
+    flex: 1; /* Todos los bloques miden lo mismo */
     background-color: #fff0f3; 
-    border-radius: 30px; 
-    padding: 1.5rem 1rem; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    border-radius: 35px; 
+    padding: 2.5rem 1.5rem !important; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
     display: flex; 
     flex-direction: column; 
     align-items: center; 
@@ -627,10 +632,13 @@ body {
 }
 
 .ayudar-img-wrapper { 
-    width: 110px; /* Reducido de 140px para ganar espacio horizontal */
-    height: 110px; 
-    margin-bottom: 1.5rem; 
-    border: 4px solid #fff; 
+    width: 105px !important; 
+    height: 105px !important; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    margin-bottom: 2rem; 
+    border: 5px solid #fff; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .ayudar-img-wrapper img { 
@@ -645,8 +653,9 @@ body {
 }
 
 .ayudar-card h3 { 
-    font-size: 1.3rem; /* Tamaño reducido para evitar desbordes */
-    min-height: auto; 
+    font-size: 1.4rem !important; 
+    font-weight: 800; 
+    color: #E98596; 
     margin-bottom: 1rem;
     line-height: 1.2;
 }
@@ -1252,7 +1261,6 @@ body {
 }
 
 @media (max-width: 900px) {
-    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
     .reconocimientos-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
