@@ -221,9 +221,10 @@ body {
 
 .hero-text-column h1 {
     /* Mínimo 1.8rem, ideal 5vw, máximo 5rem */
-    font-size: clamp(1.8rem, 5vw, 5rem) !important; 
+    font-size: 3rem !important;
+    font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     max-width: 90%;
 
     color: #ffffff !important; 
@@ -232,12 +233,11 @@ body {
 }
 
 .hero-text-column p {
-    /* Párrafo más compacto para dejar aire a los botones */
-    font-size: clamp(0.95rem, 1.1vw, 1.3rem) !important;
-    line-height: 1.4;
-    max-width: 90%;
-    color: #ffffff !important; 
-    opacity: 0.95;
+    font-size: 1.1rem !important; /* Tamaño de lectura profesional */
+    line-height: 1.6;
+    color: #ffffff;
+    max-width: 850px;
+    margin-top: 1rem;
 }
 
 .hero-buttons { 
@@ -266,6 +266,45 @@ body {
     box-shadow: 0 15px 25px var(--color-sombra-hero); 
 }
 
+/* Contenedor del título para que no sea gigante */
+.clero-main-title-xl {
+    font-size: 1.1rem !important; /* Tamaño de lectura cómodo para el párrafo */
+    line-height: 1.6;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: left;
+    max-width: 850px;
+    margin-bottom: 2rem; /* Espacio antes de los botones */
+}
+
+/* Estilo para "Nuestro propósito" (Grande y Animado) */
+.resaltado-proposito {
+    display: inline-block; /* Permite que el texto siga en la misma línea */
+    font-size: 1.8rem !important; /* Más grande que el párrafo, pero armonioso */
+    font-weight: 900;
+    color: #f498a7;
+    margin-right: 8px;
+    vertical-align: baseline; /* Alinea la base de la letra con el párrafo */
+    animation: flotarProposito 3s ease-in-out infinite;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+/* Animación de respiración suave */
+@keyframes flotarProposito {
+    0%, 100% { 
+        transform: translateY(0px) scale(1); 
+    }
+    50% { 
+        transform: translateY(-5px) scale(1.02); 
+        color: #ff6395; /* Cambia ligeramente a naranja */
+    }
+}
+
+/* Ajuste de los botones para que no queden muy pegados al texto largo */
+.hero-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem;
+}
 /* =========================================
    4. SERVICIOS (VERSION FINAL EXTENDIDA)
    ========================================= */
