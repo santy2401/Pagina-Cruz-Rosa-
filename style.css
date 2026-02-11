@@ -842,7 +842,7 @@ body {
 
 /* Título imponente y fijo arriba */
 .beneficiarias-section h2 { 
-    font-size: clamp(2.5rem, 5vw, 4rem) !important; /* Ajustado a la escala 75% que usamos */
+    font-size: clamp(5.5rem, 5vw, 4rem) !important; /* Ajustado a la escala 75% que usamos */
     font-weight: 800; 
     color: #F9B680; 
     margin-top: 0;
