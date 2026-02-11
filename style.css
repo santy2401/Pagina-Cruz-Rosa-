@@ -831,8 +831,8 @@ body {
 
 .beneficiarias-section { 
     width: 100%; 
-    margin: 2rem auto; /* Reducimos el margen externo superior */
-    padding: 1rem 0 6rem 0; /* Reducimos el padding superior al mínimo (1rem) */
+    margin: 0 auto; /* Eliminamos el margen superior */
+    padding: 1rem 0 4rem 0; /* Padding superior mínimo de 2rem */
     box-sizing: border-box; 
     text-align: center; 
     display: flex;
@@ -842,11 +842,11 @@ body {
 
 /* Título imponente y fijo arriba */
 .beneficiarias-section h2 { 
-    font-size: 6.5rem; 
+    font-size: clamp(2.5rem, 5vw, 4rem) !important; /* Ajustado a la escala 75% que usamos */
     font-weight: 800; 
     color: #F9B680; 
-    /* Espacio amplio para que el título respire y no sea tapado por el menú */
-    margin-bottom: 5rem; 
+    margin-top: 0;
+    margin-bottom: 1.5rem; /* Reducido de 5rem para que los logos suban */
     text-shadow: 0 4px 10px rgba(0,0,0,0.05); 
     font-family: 'Poppins', sans-serif;
     position: relative;
@@ -860,26 +860,24 @@ body {
     /* Efecto de desvanecimiento a los lados para los logos */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); 
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    padding: 3rem 0;
+    padding: 1rem 0;
 }
 
 /* Tarjetas blancas extra grandes para máximo impacto de marca */
 .logo-item { 
-    width: 280px; /* Ancho aumentado para logos horizontales */
-    height: 260px; /* Altura aumentada para mayor visibilidad */
+    width: 350px; /* Aumentado de 280px para mayor impacto */
+    height: 240px; /* Altura optimizada para laptops */
     flex-shrink: 0; 
     background: #ffffff; 
-    border-radius: 25px; 
-    border: 1px solid #f5f5f5; 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+    border-radius: 35px; /* Bordes más redondeados */
+    border: 1px solid #f0f0f0; 
+    box-shadow: 0 20px 45px rgba(0,0,0,0.05); 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    /* Padding mínimo para que la imagen ocupe casi todo el cuadro */
-    padding: 0.8rem; 
+    padding: 2rem; /* Más aire interno para que el logo no toque los bordes */
     box-sizing: border-box; 
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
-    overflow: hidden;
 }
 
 /* Ajuste de imagen para tamaño máximo sin distorsión */
@@ -894,8 +892,8 @@ body {
 
 /* Animaciones al interactuar */
 .logo-item:hover { 
-    transform: translateY(-12px) scale(1.02); 
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1); 
+    transform: translateY(-15px) scale(1.05); 
+    box-shadow: 0 30px 60px rgba(233, 133, 150, 0.2); /* Sombra con toque rosa */
 }
 
 .logo-item:hover img {
@@ -906,7 +904,7 @@ body {
     display: flex; 
     flex-wrap: nowrap; 
     width: max-content; 
-    gap: 3rem; 
+    gap: 4rem; 
     animation: scroll-testimonios 40s linear infinite; /* Animación activada */
 }
 @keyframes scroll-testimonios {
@@ -921,7 +919,7 @@ body {
 }
 
 .logo-scroller[data-animated="true"] .scroller-inner { 
-    animation: scroll-left 45s linear infinite; 
+    animation: scroll-left 55s linear infinite; 
 }
 
 /* Pausar al pasar el mouse para facilitar la lectura */
