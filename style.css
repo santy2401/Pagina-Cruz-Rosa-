@@ -559,15 +559,17 @@ body {
     box-shadow: 0 15px 35px rgba(197, 29, 74, 0.08); 
     transition: all 0.4s ease; 
     min-height: 200px; /* Asegura una altura uniforme más grande */
+    justify-content: center;
 }
 .reconocimiento-item:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(197, 29, 74, 0.2); }
 .reconocimiento-img-wrapper { 
-    height: 120px; /* Aumentado de 80px a 120px para que el logo luzca más */
+    height: 160px; /* Aumentado de 80px a 120px para que el logo luzca más */
     width: 100%; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     margin-bottom: 1.5rem; 
+    overflow: hidden;
 }
 .reconocimiento-item img { 
     max-height: 100%; 
