@@ -221,10 +221,10 @@ body {
 
 .hero-text-column h1 {
     /* Mínimo 1.8rem, ideal 5vw, máximo 5rem */
-    font-size: 3rem !important;
+    font-size: clamp(2.8rem, 6vw, 3.8rem) !important;
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     max-width: 90%;
 
     color: #ffffff !important; 
@@ -233,19 +233,21 @@ body {
 }
 
 .hero-text-column p {
-    font-size: 1.1rem !important; /* Tamaño de lectura profesional */
-    line-height: 1.6;
+    font-size: 1.35rem !important; /* Tamaño de lectura profesional */
+    line-height: 1.7;
     color: #ffffff;
-    max-width: 850px;
+    max-width: 950px;
     margin-top: 1rem;
+    font-weight: 400;
+    opacity: 0.95;
 }
 
 .hero-buttons { 
    display: flex;
-    gap: 1rem;
+    gap: 2rem;
     flex-wrap: wrap; /* Permite que los botones se pongan uno abajo del otro si no caben */
     justify-content: flex-start;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
 }
 
 .btn-hero { 
@@ -280,10 +282,10 @@ body {
 /* Estilo para "Nuestro propósito" (Grande y Animado) */
 .resaltado-proposito {
     display: inline-block; /* Permite que el texto siga en la misma línea */
-    font-size: 1.8rem !important; /* Más grande que el párrafo, pero armonioso */
+    font-size: 2.2rem !important; /* Más grande que el párrafo, pero armonioso */
     font-weight: 900;
     color: #f498a7;
-    margin-right: 8px;
+    margin-right: 12px;
     vertical-align: baseline; /* Alinea la base de la letra con el párrafo */
     animation: flotarProposito 3s ease-in-out infinite;
     text-shadow: 0 4px 10px rgba(0,0,0,0.2);
