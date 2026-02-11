@@ -293,9 +293,9 @@ body {
 .servicio-card-expand {
     position: relative;
     width: 100%;
-    height: 790px; /* Aumentado significativamente */
+    height: 600px; /* Aumentado significativamente */
     background-color: #fbfbfb;
-    border-radius: 40px;
+    border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.05);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -355,14 +355,14 @@ body {
 }
 
 .img-eje-custom {
-    width: 140px;
+    width: 100px;
     height: auto;
     margin-bottom: 2rem;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .expand-title {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
     font-weight: 700;
     color: #E63C7D; /* Color rosa fuerte institucional */
     margin: 0;
@@ -379,7 +379,7 @@ body {
     text-align: left; /* Alinea el texto a ambos lados */
     text-justify: inter-word; /* Mejora el espacio entre palabras para que se vea más limpio */
     
-    font-size: 1.35rem;
+    font-size: 1.1rem;
     line-height: 1.4;
     color: #636363;
     padding: 0 20px; /* Un poco de margen extra para que el justificado no toque los bordes */
@@ -436,10 +436,10 @@ body {
 }
 
 .titulo-impacto-colores {
-    font-size: 6.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem) !important; /* Bajamos de 6.5rem a 4rem */
     font-weight: 900;
     text-align: center; /* <--- ESTA ES LA LÍNEA QUE CENTRA EL TEXTO */
-    margin-bottom: 4rem; /* <--- CORREGIDO: Antes tenías '4rem 0', lo cual es incorrecto para margin-bottom */
+    margin-bottom: 2.5rem; /* <--- CORREGIDO: Antes tenías '4rem 0', lo cual es incorrecto para margin-bottom */
     text-transform: uppercase;
     background: linear-gradient(to right, #F1BDC8, #E98596, #F9B680, #F1BDC8);
     background-size: 300% auto;
@@ -495,7 +495,7 @@ body {
 
 .stat-number {
     display: block;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: #E98596; /* Rosa fuerte institucional */
     margin-bottom: 0.5rem;
@@ -554,10 +554,10 @@ body {
     background-color: rgba(255, 255, 255, 0.95); 
     backdrop-filter: blur(5px); 
     border-radius: 30px; /* Bordes más redondeados y suaves */
-    padding: 3rem 2rem; /* Más espacio interno para que el logo respire */
+    padding: 2rem; /* Más espacio interno para que el logo respire */
     box-shadow: 0 15px 35px rgba(197, 29, 74, 0.08); 
     transition: all 0.4s ease; 
-    min-height: 250px; /* Asegura una altura uniforme más grande */
+    min-height: 200px; /* Asegura una altura uniforme más grande */
 }
 .reconocimiento-item:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(197, 29, 74, 0.2); }
 .reconocimiento-img-wrapper { 
@@ -595,7 +595,7 @@ body {
 
 .como-ayudar-section h2 { 
     /* Título más grande para jerarquía visual */
-    font-size: 5.5rem; 
+    font-size: 3.5rem; 
     font-weight: 800; 
     color: #E98596; 
     margin-bottom: 4rem; 
@@ -611,7 +611,7 @@ body {
 .ayudar-card { 
     background-color: #fff0f3; 
     border-radius: 40px; /* Bordes más curvos y modernos */
-    padding: 4rem 2rem; /* Aumentamos el padding interno */
+    padding: 2rem 1.5rem; /* Aumentamos el padding interno */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05); 
     display: flex; 
     flex-direction: column; 
@@ -626,8 +626,8 @@ body {
 
 .ayudar-img-wrapper { 
     /* Círculos mucho más grandes y visibles */
-    width: 200px; 
-    height: 200px; 
+    width: 140px; 
+    height: 140px; 
     border-radius: 50%; 
     overflow: hidden; 
     margin-bottom: 2.5rem; 
@@ -726,7 +726,7 @@ body {
 /* Título mucho más grande y animado */
 .titulo-informes-xl {
     font-family: 'Poppins', sans-serif;
-    font-size: 5.5rem; /* Tamaño masivo solicitado */
+    font-size: 3.5rem; /* Tamaño masivo solicitado */
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 2.5rem;
@@ -744,11 +744,11 @@ body {
 /* Texto descriptivo escalado */
 
 .descripcion-informes-xl {
-    font-size: 2.2rem; /* Aumentado para mayor impacto visual */
+    font-size: 1.4rem; /* Aumentado para mayor impacto visual */
     color: #444; /* Un tono un poco más oscuro para que resalte sobre el fondo rosa claro */
     font-weight: 500; /* Grosor medio para darle más cuerpo a las letras */
     max-width: 1100px; /* Un poco más ancho para acomodar el texto más grande */
-    margin: 0 auto 5rem auto;
+    margin-bottom: 3rem;
     line-height: 1.4;
     text-align: center;
     font-family: 'DM Sans', sans-serif;
@@ -767,11 +767,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90px; /* Cuadros más altos */
+    height: 65px; /* Cuadros más altos */
     border-radius: 20px;
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.6rem; /* Texto del año más grande */
+    font-size: 1.2rem; /* Texto del año más grande */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background: white;
     color: #E98596;
@@ -862,8 +862,8 @@ body {
 
 /* Tarjetas blancas extra grandes para máximo impacto de marca */
 .logo-item { 
-    width: 380px; /* Ancho aumentado para logos horizontales */
-    height: 220px; /* Altura aumentada para mayor visibilidad */
+    width: 280px; /* Ancho aumentado para logos horizontales */
+    height: 260px; /* Altura aumentada para mayor visibilidad */
     flex-shrink: 0; 
     background: #ffffff; 
     border-radius: 25px; 
