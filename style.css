@@ -712,27 +712,29 @@ body {
 /* --- SECCIÓN INFORMES XL --- */
 .informes-section-xl {
     width: 100%;
-    padding: 10rem 2rem;
-    /* Recuperamos el degradado de fondo suave */
+    /* Reducimos el padding superior y añadimos padding lateral de seguridad */
+    padding: 4rem 4rem 8rem 4rem !important; 
     background: linear-gradient(135deg, #fffafa 0%, #fff0f3 100%);
     text-align: center;
-    position: relative; /* Necesario para las ondas absolutas */
+    position: relative;
     overflow: hidden;
+    box-sizing: border-box; /* Asegura que el padding no desborde el ancho */
 }
-
 .informes-content-container {
     position: relative;
     z-index: 2;
-    max-width: 1400px;
+    /* Reducimos de 1400px a 1250px para laptops de 1366px */
+    max-width: 1250px; 
     margin: 0 auto;
 }
+
 /* Título mucho más grande y animado */
 .titulo-informes-xl {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem; /* Tamaño masivo solicitado */
+    font-size: clamp(2.2rem, 4vw, 3.2rem) !important; /* Ajustado a escala 75% */
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     background: linear-gradient(to right, #E63C7D, #F9B680, #E63C7D);
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -747,10 +749,11 @@ body {
 /* Texto descriptivo escalado */
 
 .descripcion-informes-xl {
-    font-size: 1.4rem; /* Aumentado para mayor impacto visual */
-    color: #444; /* Un tono un poco más oscuro para que resalte sobre el fondo rosa claro */
-    font-weight: 500; /* Grosor medio para darle más cuerpo a las letras */
-    max-width: 1100px; /* Un poco más ancho para acomodar el texto más grande */
+    font-size: 1.2rem; /* Aumentado para mayor impacto visual */
+    color: #555; /* Un tono un poco más oscuro para que resalte sobre el fondo rosa claro */
+    font-weight: 600; /* Grosor medio para darle más cuerpo a las letras */
+    max-width: 900px; /* Un poco más ancho para acomodar el texto más grande */
+    margin: 0 auto 3rem auto;
     margin-bottom: 3rem;
     line-height: 1.4;
     text-align: center;
@@ -760,9 +763,11 @@ body {
 /* Grid de botones de años grandes */
 .grid-informes-botones {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Cuadros más anchos */
-    gap: 2rem;
-    padding: 1rem;
+    /* Ajustamos el minmax de 180px a 160px para que quepan más en una fila sin desbordar */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+    gap: 1.5rem; /* Espacio entre botones un poco más compacto */
+    padding: 1rem 0;
+    width: 100%;
 }
 
 /* Estilo Premium para los Cuadros de Año */
@@ -773,7 +778,7 @@ body {
     height: 65px; /* Cuadros más altos */
     border-radius: 20px;
     text-decoration: none;
-    font-weight: 800;
+    font-weight: 800 !important;
     font-size: 1.2rem; /* Texto del año más grande */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background: white;
@@ -788,6 +793,7 @@ body {
     color: white;
     border-color: #E98596;
     box-shadow: 0 15px 35px rgba(233, 133, 150, 0.4);
+    font-weight: 900 !important; /* Negrita aún más intensa en hover */
 }
 
 /* Ajuste Responsivo */
