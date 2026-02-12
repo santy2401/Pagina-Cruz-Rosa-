@@ -1080,12 +1080,12 @@ h3.expand-title + h3.expand-title {
 }
 
 .testimonial-card { 
-    width: 500px; /* Tamaño aumentado */
-    min-height: 400px;
+    width: 380px;        /* Reducido de 500px a 380px para que sea más esbelto */
+    min-height: 320px;   /* Reducido de 400px para que no sobre tanto espacio vertical */
     flex-shrink: 0; 
     background: #ffffff; 
     border-radius: 30px; 
-    padding: 3.5rem; 
+    padding: 2.5rem;     /* Reducido un poco el padding interno (antes 3.5rem) */
     box-shadow: 0 15px 35px rgba(230, 60, 125, 0.1); 
     border: 2px solid #f1bdc8; 
     display: flex; 
@@ -1094,6 +1094,7 @@ h3.expand-title + h3.expand-title {
     text-align: center; 
     transition: transform 0.4s ease;
 }
+
 .testimonial-card:hover {
     transform: scale(1.02);
     border-color: #E98596;
@@ -1108,11 +1109,11 @@ h3.expand-title + h3.expand-title {
     border: 4px solid #FFE3E6;
 }
 .testimonio-texto {
-    font-size: 1.45rem; 
-    line-height: 1.6;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 2rem;
+    font-size: 1.2rem;    /* Reducido de 1.45rem para ajustarse al nuevo tamaño del cuadro */
+    line-height: 1.5; 
+    color: #555; 
+    font-style: italic; 
+    margin-bottom: 1.5rem; 
     font-family: 'DM Sans', sans-serif;
 }
 .paciente-nombre {
