@@ -1437,21 +1437,23 @@ h3.expand-title + h3.expand-title {
 
 .info-content {
     text-align: left;
-    color: #ffffff; /* Texto oscuro para resaltar sobre el blanco */
+    color: #ffffff; 
     z-index: 10;
-    padding: 2.5rem 2.5rem; /* Espaciado interno para el "cuadro de texto" */
-    border-radius: 25px; /* Bordes redondeados para que parezca una tarjeta flotante */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque premium detrás del blanco */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
-    margin-bottom: 3rem; /* Separación del borde inferior */
-    margin-left: 3rem; /* Separación del borde izquierdo */
+    /* Ajustamos el padding para dar más aire y el ancho para cubrir la palabra */
+    padding: 2.5rem 3.5rem; /* Aumentamos el padding lateral a 3.5rem */
+    border-radius: 25px; 
+    backdrop-filter: blur(5px); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 3rem; 
+    margin-left: 3rem; 
     border: 1px solid rgba(255, 255, 255, 0.253);
-    max-width: 450px;
+    max-width: 550px; /* Aumentado de 450px a 550px para que quepa Guadalajara */
 }
 
 .info-content h3 {
-    font-size: clamp(2rem, 5vw, 4.5rem) !important; 
-    color: #E98596; /* Color rosa institucional */
+    /* Mantenemos el estilo, pero aseguramos que el tamaño sea responsivo */
+    font-size: clamp(2rem, 4.5vw, 4rem) !important; 
+    color: #E98596; 
     font-weight: 900;
     margin: 0;
     line-height: 1;
