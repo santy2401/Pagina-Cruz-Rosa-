@@ -492,19 +492,21 @@ h3.expand-title + h3.expand-title {
 }
 
 .titulo-impacto-colores {
-    font-size: clamp(2.2rem, 5vw, 3.5rem) !important; /* Bajamos de 6.5rem a 4rem */
+    font-size: clamp(2.2rem, 5vw, 3.5rem) !important;
     font-weight: 900;
-    text-align: center; /* <--- ESTA ES LA LÍNEA QUE CENTRA EL TEXTO */
-    margin-bottom: 2.5rem; /* <--- CORREGIDO: Antes tenías '4rem 0', lo cual es incorrecto para margin-bottom */
+    text-align: center;
+    margin-bottom: 2.5rem;
     margin-top: 0 !important;
-    text-transform: uppercase;
+    /* text-transform: uppercase;  <--- ELIMINA O COMENTA ESTA LÍNEA */
+    text-transform: none;      /* <--- AGREGA ESTA PARA RESPETAR EL HTML */
     background: linear-gradient(to right, #F1BDC8, #E98596, #F9B680, #F1BDC8);
     background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: colorFlow 4s linear infinite;
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho para poder centrar */
+    width: 100%;
 }
+
 /* Animación 1: Flujo de colores institucional */
 @keyframes colorFlow {
     0% { background-position: 0% center; }
@@ -1216,11 +1218,13 @@ h3.expand-title + h3.expand-title {
     position: relative;
     overflow: hidden;
     line-height: 1.1;
-    text-transform: uppercase;
+    /* text-transform: uppercase;  <--- ELIMINA ESTA LÍNEA O COMENTALA */
+    text-transform: none; /* <--- O CAMBIALA POR ESTA */
     letter-spacing: -2px;
     cursor: pointer;
     display: inline-block;
 }
+
 .ejes-p-anim:hover span {
     color: #E98596 !important; /* Cambia todas las palabras a rosa institucional */
     transition: color 0.4s ease; /* Hace que el cambio sea suave */
