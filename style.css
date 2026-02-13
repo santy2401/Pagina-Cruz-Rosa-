@@ -673,14 +673,18 @@ h3.expand-title + h3.expand-title {
 }
 
 .ayudar-card { 
-    flex: 1; /* Todos los bloques miden lo mismo */
+    flex: 1; 
     background-color: #fff0f3; 
     border-radius: 35px; 
     padding: 2.5rem 1.5rem !important; 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+    
+    /* --- CAMBIOS AQUÍ --- */
     display: flex; 
     flex-direction: column; 
     align-items: center; 
+    justify-content: space-between; /* Empuja los elementos a los extremos */
+    min-height: 450px; /* Ajusta este valor según el tamaño que quieras que tengan todas */
     transition: all 0.4s ease; 
 }
 
@@ -726,6 +730,7 @@ h3.expand-title + h3.expand-title {
 }
 
 .btn-ayudar { 
+    margin-top: auto; /* Empuja el botón al fondo de la tarjeta */
     display: inline-block; 
     padding: 15px 35px; /* Botón más grande */
     border-radius: 50px; 
@@ -740,6 +745,10 @@ h3.expand-title + h3.expand-title {
 }
 /* --- ESTADO INICIAL: Texto Oculto por defecto --- */
 .ayudar-content {
+    flex-grow: 1; /* Esto hace que el área de texto ocupe todo el espacio disponible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     max-height: 0;           /* Altura cero para ocultar */
     opacity: 0;              /* Invisible */
     overflow: hidden;        /* Corta el texto sobrante */
