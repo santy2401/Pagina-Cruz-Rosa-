@@ -398,7 +398,7 @@ body {
 .expand-eje-label {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #d5465e; 
+    color: #d4465d; 
     margin-bottom: 5px;
     transition: all 0.4s ease; /* <--- IMPORTANTE para que se desvanezca suave */
     display: block;
@@ -432,15 +432,18 @@ h3.expand-title + h3.expand-title {
     transform: translateY(30px);
     transition: all 0.5s ease;
     
-    /* CAMBIOS AQUÍ */
-    text-align: left; /* Alinea el texto a ambos lados */
-    text-justify: inter-word; /* Mejora el espacio entre palabras para que se vea más limpio */
+    /* ALINEACIÓN */
+    text-align: left; 
+    text-justify: inter-word; 
     
-    font-size: 1.1rem;
+    /* ESTILO DE FUENTE */
+    font-size: 1.3rem;
+    font-weight: 700; /* <--- ESTO AGREGA LA NEGRITA */
     line-height: 1.4;
-    color: #636363;
-    padding: 0 20px; /* Un poco de margen extra para que el justificado no toque los bordes */
+    color: #444;      /* Un gris un poco más oscuro ayuda a que la negrita resalte mejor */
+    padding: 0 20px; 
 }
+
 .servicio-card-expand:hover .expand-content {
     /* Al hacer hover, alineamos arriba para dejar espacio al texto */
     justify-content: flex-start;
@@ -1337,9 +1340,12 @@ h3.expand-title + h3.expand-title {
 
 /* Estilo para el subtítulo del número de eje en las tarjetas */
 .eje-numero {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #F9B680 !important; /* Color naranja para que contraste */
 }
+/* --- TEXTO DE LOS EJES (HOSPEDAJE, NUTRICIÓN, ETC) --- */
+
 
 /* =========================================
    19. EFECTO SPLIT IMAGE (SOLO MÓVIL)
