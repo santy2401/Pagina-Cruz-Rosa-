@@ -1641,6 +1641,84 @@ h3.expand-title + h3.expand-title {
     visibility: visible;
     top: -55px;
 }
+/* =========================================
+   FOOTER - TRANSPARENCIA Y LEGAL
+   ========================================= */
+.footer-transparencia {
+    background-color: #fcfcfc;
+    border-top: 1px solid #f1bdc8;
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.footer-logo img {
+    height: 60px;
+    opacity: 0.8;
+}
+
+.footer-info p {
+    font-size: 1.1rem;
+    color: #636363;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 0.5rem;
+}
+
+.enlace-confio a {
+    color: #F9B680;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.enlace-confio a:hover {
+    border-bottom-color: #F9B680;
+}
+
+.footer-legal {
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+    width: 100%;
+}
+
+.footer-legal p {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 0.5rem;
+}
+
+.link-privacidad {
+    color: #E98596;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.link-privacidad:hover {
+    color: #d30d59;
+    text-decoration: underline;
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .footer-transparencia {
+        padding-bottom: 100px; /* Espacio para que el menú móvil no lo tape */
+    }
+}
 
     /* =========================================
    1.2 NUEVA PAGINA ACEERCA DE CRUZ ROSA - ESTILOS GENERALES`
