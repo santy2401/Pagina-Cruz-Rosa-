@@ -54,3 +54,13 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+function toggleCard(element) {
+    const card = element.parentElement;
+    
+    // Opcional: Cerrar otras tarjetas al abrir una nueva
+    document.querySelectorAll('.modelo-card').forEach(c => {
+        if (c !== card) c.classList.remove('active');
+    });
+
+    card.classList.toggle('active');
+}
