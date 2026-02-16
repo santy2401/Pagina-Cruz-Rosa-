@@ -2617,39 +2617,75 @@ main h1 {
 /* --- SECCIÓN PROPÓSITOS (CRUZ INTERACTIVA) --- */
 .propositos-section {
     padding: 8rem 2rem;
-    background-color: white;
+    background-color: #ffffff;
     overflow: hidden;
 }
-
 .propositos-container {
     position: relative;
-    max-width: 1100px;
-    height: 700px;
+    max-width: 1300px;
+    /* Usamos min-height para que el texto grande estire la sección si es necesario */
+    min-height: 1000px; 
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 100px; /* Espacio para la cruz */
+    /* Espacio amplio para que la cruz respire en medio */
+    gap: 150px; 
+    align-items: stretch;
+}
+.propositos-container .card-vision {
+    background: #f9f9f9;
+    border-radius: 40px;
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 15px 15px 40px #e0e0e0, -15px -15px 40px #ffffff;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.8);
+    z-index: 2;
+    position: relative;
 }
 
+.propositos-container .card-vision:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 20px 20px 50px #d1d1d1, -20px -20px 50px #ffffff;
+}
+
+.propositos-container .card-vision-content p {
+    font-size: 1.5rem !important;
+    font-weight: 800 !important; 
+    line-height: 1.5;
+    color: #444;
+    margin: 0;
+}
+.propositos-container .card-vision-content ion-icon {
+    font-size: 3.5rem;
+    color: #F9B680; 
+    margin-bottom: 1.5rem;
+}
 /* Estilo de la Cruz Central */
 .eje-central {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+    width: 90%; /* Ajustado para que no toque los bordes */
+    height: 90%;
     pointer-events: none;
     z-index: 1;
 }
-
 .linea-vertical, .linea-horizontal {
     position: absolute;
-    background-color: #F9B680; /* Naranja de la empresa */
+    background-color: #F9B680;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(249, 182, 128, 0.4);
 }
+
+.linea-vertical { width: 12px; height: 100%; left: 50%; transform: translateX(-50%); }
+.linea-horizontal { height: 12px; width: 100%; top: 50%; transform: translateY(-50%); }
 
 .linea-vertical {
     width: 12px;
@@ -2657,6 +2693,7 @@ main h1 {
     left: 50%;
     transform: translateX(-50%);
 }
+
 
 /* Flechas de la cruz */
 .linea-vertical::before, .linea-vertical::after {
@@ -2679,28 +2716,23 @@ main h1 {
     transform: translateY(-50%);
 }
 
-.linea-horizontal::before, .linea-horizontal::after {
-    content: '';
-    position: absolute;
-    width: 0; height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    top: 50%;
-    transform: translateY(-50%);
-}
+/* Flechas de la cruz con tamaño ajustado */
+.linea-vertical::before { content: ''; position: absolute; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 30px solid #F9B680; top: -30px; left: 50%; transform: translateX(-50%); }
+.linea-vertical::after { content: ''; position: absolute; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 30px solid #F9B680; bottom: -30px; left: 50%; transform: translateX(-50%); }
+.linea-horizontal::before { content: ''; position: absolute; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-right: 30px solid #F9B680; left: -30px; top: 50%; transform: translateY(-50%); }
+.linea-horizontal::after { content: ''; position: absolute; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-left: 30px solid #F9B680; right: -30px; top: 50%; transform: translateY(-50%); }
 
-.linea-horizontal::before { border-right: 30px solid #F9B680; left: -30px; }
-.linea-horizontal::after { border-left: 30px solid #F9B680; right: -30px; }
 
-/* Círculo central con pulso */
 .circulo-pulso {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 40px; height: 40px;
+    width: 50px; height: 50px;
     background-color: #e89c5e;
     border-radius: 50%;
-    border: 4px solid white;
+    border: 5px solid white;
+    z-index: 5;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 /* Estilo de los Cuadrantes */
@@ -2732,8 +2764,7 @@ main h1 {
     z-index: 10;
 }
 
-/* Responsive para móvil */
-@media (max-width: 850px) {
+/* Responsive para móvil */@media (max-width: 850px) {
     .propositos-container {
         height: auto;
         display: flex;
@@ -2741,6 +2772,15 @@ main h1 {
         gap: 2rem;
     }
     .eje-central { display: none; } /* Ocultamos la cruz en móvil para mejor lectura */
+    
+    .propositos-container .card-vision {
+        padding: 2rem;
+        border-radius: 30px;
+    }
+    
+    .propositos-container .card-vision-content p {
+        font-size: 1.1rem !important;
+    }
 }
 
 /* --- ANIMACIÓN DE TÍTULOS EN ACERCA DE --- */
@@ -2774,14 +2814,6 @@ main h1 {
 }
 
 /* Línea naranja que se expande debajo del título */
-.linea-decorativa {
-    width: 0;
-    height: 4px;
-    background: linear-gradient(to right, #F9B680, #E98596);
-    margin: 10px auto 0;
-    border-radius: 2px;
-    animation: expandirLinea 1s ease forwards 0.8s;
-}
 
 /* KEYFRAMES */
 @keyframes subirRevelar {
