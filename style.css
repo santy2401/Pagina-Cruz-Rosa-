@@ -3114,7 +3114,53 @@ main h1 {
     .hexagon-item:nth-child(even) { transform: translateX(30px); }
     .hexagon-item:nth-child(odd) { transform: translateX(-30px); }
 }
-/* --- PAGINA ORGANIGRAMA ----------------------------------------------------------------------------*/
+/* --- PAGINA ORGANIGRAMA ------------------------------------------------------------------------------------------------*/
+/* --- BOTÓN DE REGRESO --- */
+.contenedor-boton-regreso {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 80px 0; /* Espacio para que no quede pegado al final */
+}
+
+.btn-regresar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: transparent;
+    color: #E98596; /* Rosa Institucional */
+    border: 2px solid #E98596;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-regresar ion-icon {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-regresar:hover {
+    background-color: #E98596;
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(233, 133, 150, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Animación del icono al pasar el mouse */
+.btn-regresar:hover ion-icon {
+    transform: translateX(-5px); /* El icono se mueve a la izquierda */
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+    .btn-regresar {
+        width: 80%;
+        justify-content: center;
+    }
+}
 /* --- DISEÑO EXCLUSIVO TÍTULO ORGANIGRAMA --- */
 .titulo-organigrama-especial {
     text-align: center;
@@ -3478,5 +3524,348 @@ main h1 {
     
     .card-header h3 {
         font-size: 1.1rem;
+    }
+}
+
+/* --- SECCIÓN NOMBRES PATRONATO ORGANIZADO --- */
+.seccion-patronato-nombres {
+    padding: 80px 20px;
+    background-color: #ffffff; /* Fondo blanco puro para limpieza */
+    display: flex;
+    justify-content: center;
+}
+
+.patronato-grid-nombres {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 60px 30px; /* Más espacio entre filas para que respiren los cargos */
+    max-width: 1200px;
+    width: 100%;
+}
+
+.tarjeta-integrante {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px; 
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.badge-cargo {
+    position: absolute;
+    top: 0;
+    background-color: #F9B680; 
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(249, 182, 128, 0.3);
+    border: 3px solid white;
+    text-align: center;
+    width: auto; /* Se ajusta al texto */
+    min-width: 180px;
+}
+
+.cuerpo-nombre {
+    background: #ffffff;
+    width: 100%;
+    padding: 50px 20px 30px 20px;
+    border-radius: 25px;
+    border: 2px solid #f8f8f8; /* Borde casi invisible */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04); /* Sombra muy suave */
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    min-height: 250px; /* Altura fija para que todas sean iguales */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea contenido arriba */
+}
+
+.tarjeta-integrante:hover .cuerpo-nombre {
+    transform: translateY(-10px);
+    border-color: #f1bdc8; 
+    box-shadow: 0 20px 50px rgba(233, 133, 150, 0.12);
+}
+
+.nombre-item {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin: 8px 0;
+}
+
+.nombre-item.destaque {
+    font-size: 1.3rem;
+    color: #E98596; /* Nombre principal en Rosa */
+    margin-top: 15px;
+}
+
+.lista-nombres {
+    margin-bottom: 10px;
+}
+
+.lista-nombres p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 4px 0;
+    color: #444;
+}
+
+.zona-suplente {
+    margin-top: auto; /* Empuja el suplente al fondo de la tarjeta */
+    padding-top: 15px;
+    border-top: 1px solid #f5f5f5;
+}
+
+.zona-suplente span {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #F9B680; /* Naranja para el texto de Suplente */
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.zona-suplente p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #777;
+    margin: 0;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .patronato-grid-nombres { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .patronato-grid-nombres { grid-template-columns: 1fr; }
+    .cuerpo-nombre { min-height: auto; }
+}
+/* --- SECCIÓN MENSAJE EDITORIAL (PRESIDENTA) --- */
+.seccion-mensaje-editorial {
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #ffffff, #fff5f6);
+    display: flex;
+    justify-content: center;
+}
+
+.mensaje-editorial-container {
+    max-width: 1200px;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* Estilo de la Foto */
+.columna-foto-presidenta {
+    flex: 1;
+    position: sticky;
+    top: 100px;
+    text-align: center;
+}
+
+.marco-foto {
+    position: relative;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid #f1bdc8;
+    display: inline-block;
+}
+
+.marco-foto img {
+    max-width: 320px;
+    height: auto;
+    display: block;
+}
+
+.info-presidenta-lateral {
+    margin-top: 25px;
+}
+
+.firma-manuscrita {
+    font-family: 'Dancing Script', cursive; /* Asegúrate de importar esta fuente o usa una similar */
+    font-size: 2.5rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.nombre-cargo {
+    color: #E98596;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.sub-cargo {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 600;
+}
+
+/* Estilo de la Tarjeta de Texto */
+.columna-texto-mensaje {
+    flex: 2;
+}
+
+.card-mensaje-editorial {
+    background: white;
+    padding: 60px;
+    border-radius: 5px; /* Estilo papel editorial */
+    box-shadow: 0 10px 50px rgba(0,0,0,0.03);
+    position: relative;
+    border-left: 10px solid #E98596;
+}
+
+.icono-comillas-bg {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    font-size: 6rem;
+    color: #fde2e7;
+    opacity: 0.5;
+}
+
+.titulo-mensaje {
+    font-size: 3rem;
+    color: #E98596;
+    margin-bottom: 40px;
+    font-weight: 900;
+}
+
+.saludo-inicial {
+    font-size: 1.5rem;
+    color: #E98596;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.cuerpo-mensaje p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.frase-resaltada {
+    font-size: 1.4rem;
+    color: #F9B680;
+    font-weight: 700;
+    padding: 30px;
+    margin: 40px 0;
+    border-top: 2px solid #F9B680;
+    border-bottom: 2px solid #F9B680;
+    text-align: center;
+    font-style: italic;
+}
+
+.txt-rosa-bold {
+    color: #E98596;
+    font-weight: 800;
+}
+
+/* --- RESPONSIVO PARA MÓVIL --- */
+@media (max-width: 992px) {
+    .mensaje-editorial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .columna-foto-presidenta {
+        position: static;
+        margin-bottom: 50px;
+    }
+
+    .card-mensaje-editorial {
+        padding: 40px 25px;
+        border-left: 0;
+        border-top: 10px solid #E98596;
+    }
+
+    .titulo-mensaje {
+        font-size: 2.2rem;
+    }
+}
+/* --- AJUSTES PARA VISTA DE TELÉFONO (MENSAJE PRESIDENTA) --- */
+@media (max-width: 992px) {
+    .mensaje-editorial-container {
+        flex-direction: column; /* Apila la foto sobre el texto */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .columna-foto-presidenta {
+        position: static; /* Quita el efecto pegajoso en móvil */
+        width: 100%;
+        max-width: 350px; /* Limita el tamaño de la foto en tablets */
+    }
+
+    .marco-foto img {
+        max-width: 100%; /* La imagen se ajusta al marco */
+    }
+
+    .columna-texto-mensaje {
+        width: 100%;
+    }
+
+    .card-mensaje-editorial {
+        padding: 40px 20px; /* Menos espacio interno para que quepa más texto */
+        border-left: 0;
+        border-top: 8px solid #E98596; /* Cambiamos borde lateral por superior */
+        border-radius: 20px;
+    }
+
+    .titulo-mensaje {
+        font-size: 2.2rem; /* Título más pequeño para móvil */
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .icono-comillas-bg {
+        font-size: 4rem; /* Comillas más pequeñas */
+        top: 20px;
+        right: 20px;
+    }
+
+    .saludo-inicial {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .cuerpo-mensaje p {
+        font-size: 1.05rem; /* Tamaño de letra cómodo para celular */
+        text-align: left; /* Cambiamos de justificado a izquierda para evitar huecos */
+        line-height: 1.7;
+    }
+
+    .frase-resaltada {
+        font-size: 1.15rem;
+        padding: 20px;
+        margin: 30px 0;
+    }
+
+    .info-presidenta-lateral {
+        margin-top: 15px;
+    }
+
+    .firma-manuscrita {
+        font-size: 2rem;
+    }
+}
+
+/* Optimización para pantallas muy pequeñas (iPhone SE, etc) */
+@media (max-width: 400px) {
+    .titulo-mensaje {
+        font-size: 1.8rem;
+    }
+    
+    .card-mensaje-editorial {
+        padding: 30px 15px;
     }
 }
