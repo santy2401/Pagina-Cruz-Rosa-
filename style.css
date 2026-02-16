@@ -2880,3 +2880,230 @@ main h1 {
 .modelo-card-circular:hover .circle-icon.no-bg img {
     transform: scale(1.05); /* La imagen crece sutilmente al pasar el mouse */
 }
+/* --- SECCIÓN MODELO DE ATENCIÓN --- */
+.modelo-atencion-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.atencion-card-container {
+    max-width: 900px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.atencion-card-animada {
+    background: #ffffff;
+    padding: 60px 50px;
+    border-radius: 40px;
+    border: 2px solid #f1bdc8;
+    box-shadow: 0 20px 50px rgba(233, 133, 150, 0.15);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUpAtencion 1s forwards ease-out;
+}
+
+.atencion-text {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #444;
+    font-weight: 500;
+    margin: 0;
+}
+
+.txt-cruz { color: #F9B680; font-weight: 900; }
+.txt-rosa-logo { color: #E98596; font-weight: 900; }
+
+.txt-rosa-logo {
+    color: #E98596; /* Rosa */
+    font-weight: 900;
+}
+
+/* Keyframes para la animación */
+@keyframes fadeInUpAtencion {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --- AJUSTES PARA TELÉFONO (VISTA MÓVIL OPTIMIZADA) --- */
+@media (max-width: 768px) {
+    .modelo-atencion-section {
+        padding: 30px 15px; /* Reducimos el espacio arriba y abajo de la sección */
+    }
+
+    .titulo-shimmer {
+        font-size: 1.8rem; /* Título más compacto */
+        letter-spacing: 1px;
+    }
+
+    .atencion-card-container {
+        margin-top: 20px; /* Menos separación del título */
+        max-width: 95%; /* Asegura que no toque los bordes del cel */
+    }
+
+    .atencion-card-animada {
+        padding: 25px 18px; /* Tarjeta más pequeña y ajustada */
+        border-radius: 20px; /* Bordes redondeados más sutiles */
+    }
+
+    .atencion-text {
+        font-size: 1rem; /* Letra un poco más pequeña para evitar mucho scroll */
+        line-height: 1.5; /* Interlineado más cerrado pero legible */
+        text-align: center; /* En textos cortos se ve mejor centrado en móvil */
+    }
+
+    .subrayado-animado {
+        width: 80px; /* Línea decorativa más pequeña */
+        height: 3px;
+    }
+}
+/* --- DISEÑO DE PANAL VERTICAL --- */
+.honeycomb-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    padding-bottom: 80px; /* Más espacio al final */
+}
+
+.hexagon-item {
+    width: 190px;
+    height: 220px;
+    margin-bottom: -50px; /* Controla qué tanto se enciman uno con otro */
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.1));
+}
+
+/* Zig-Zag automático: Los pares a la derecha, los impares a la izquierda */
+.hexagon-item:nth-child(even) {
+    transform: translateX(50px);
+}
+
+.hexagon-item:nth-child(odd) {
+    transform: translateX(-50px);
+}
+
+.hexagon-inner {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+}
+
+/* Colores */
+.hexagon-item.color-rosa .hexagon-inner { background: #F9B680; }
+.hexagon-item.color-naranja .hexagon-inner { background: #F9B680; }
+.hexagon-item.color-verde .hexagon-inner { background: #E98596; }
+.hexagon-item.color-rosa-oscuro .hexagon-inner { background: #E98596; }
+
+.hexagon-content {
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.hexagon-content h3 {
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin-top: 5px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    opacity: 0.9;
+}
+.porcentaje {
+    display: block;
+    font-size: 1.8rem; /* El número más grande */
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+.hexagon-item:hover .porcentaje {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.hexagon-item:hover {
+    z-index: 50;
+    transform: scale(1.15) !important; /* Crece y se pone al frente */
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2));
+}
+
+/* Ajuste para tablets y celulares */
+@media (max-width: 600px) {
+    .hexagon-item {
+        width: 150px;
+        height: 175px;
+        margin-bottom: -40px;
+    }
+    .hexagon-item:nth-child(even) { transform: translateX(40px); }
+    .hexagon-item:nth-child(odd) { transform: translateX(-40px); }
+}
+/* --- AJUSTE PARA TELÉFONO (VISTA MÓVIL HEXÁGONOS) --- */
+@media (max-width: 768px) {
+    .financiamiento-section {
+        padding: 40px 10px; /* Reducimos espacio lateral */
+    }
+
+    .honeycomb-vertical {
+        margin-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .hexagon-item {
+        width: 140px;  /* Tamaño más pequeño para que quepan dos en zig-zag */
+        height: 165px;
+        margin-bottom: -35px; /* Ajustamos qué tanto se enciman */
+    }
+
+    /* Reducimos el desplazamiento lateral en móvil */
+    .hexagon-item:nth-child(even) {
+        transform: translateX(35px);
+    }
+
+    .hexagon-item:nth-child(odd) {
+        transform: translateX(-35px);
+    }
+
+    /* Ajustamos el contenido interno para que no se vea apretado */
+    .hexagon-content ion-icon {
+        font-size: 2rem;
+        margin-bottom: 2px;
+    }
+
+    .hexagon-content h3 {
+        font-size: 0.65rem;
+        letter-spacing: 0;
+    }
+
+    .porcentaje {
+        font-size: 1.4rem; /* Número un poco más pequeño para el cel */
+    }
+
+    /* Al tocar el hexágono en el cel, que crezca un poco menos */
+    .hexagon-item:hover {
+        transform: scale(1.1) !important;
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas (iPhone SE / pantallas de 320px) */
+@media (max-width: 380px) {
+    .hexagon-item {
+        width: 120px;
+        height: 140px;
+        margin-bottom: -30px;
+    }
+    .hexagon-item:nth-child(even) { transform: translateX(30px); }
+    .hexagon-item:nth-child(odd) { transform: translateX(-30px); }
+}
