@@ -57,10 +57,11 @@ window.addEventListener('scroll', () => {
 function toggleCard(element) {
     const card = element.parentElement;
     
-    // Opcional: Cerrar otras tarjetas al abrir una nueva
-    document.querySelectorAll('.modelo-card').forEach(c => {
+    // Cierra otras tarjetas para que solo una esté abierta
+    document.querySelectorAll('.modelo-card-circular').forEach(c => {
         if (c !== card) c.classList.remove('active');
     });
 
+    // Alterna la clase activa en la tarjeta seleccionada
     card.classList.toggle('active');
 }

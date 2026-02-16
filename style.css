@@ -76,6 +76,13 @@ body {
     pointer-events: auto; /* Permite clics solo en los elementos */
     margin: 0 10px; /* Espaciado uniforme entre el menú y el botón extra */
 }
+/* Esto separará los dos botones y los alineará correctamente */
+.header-buttons-container {
+    display: flex;
+    gap: 15px; /* Espacio de separación entre botones */
+    align-items: center;
+    margin-left: 20px; /* Separación del menú lateral si es necesario */
+}
 
 /* Contenedor del logo gigante */
 .logo-hero-container {
@@ -3106,4 +3113,370 @@ main h1 {
     }
     .hexagon-item:nth-child(even) { transform: translateX(30px); }
     .hexagon-item:nth-child(odd) { transform: translateX(-30px); }
+}
+/* --- PAGINA ORGANIGRAMA ----------------------------------------------------------------------------*/
+/* --- DISEÑO EXCLUSIVO TÍTULO ORGANIGRAMA --- */
+.titulo-organigrama-especial {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-top: 20px;
+}
+
+.titulo-custom {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #636363;
+    margin: 0;
+    text-transform: none; /* Esto quita las mayúsculas automáticas */
+    letter-spacing: -1px;
+    animation: aparecerSuave 1.2s ease-out;
+}
+
+.titulo-custom span {
+    background: linear-gradient(45deg, #E98596, #F9B680); /* Rosa a Naranja */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+/* Línea animada que nace del centro */
+.linea-decorativa {
+    height: 6px;
+    width: 0;
+    background: linear-gradient(to right, #E98596, #F9B680);
+    margin: 10px auto 0;
+    border-radius: 10px;
+    animation: expandirLinea 1s forwards 0.5s ease-in-out;
+}
+
+/* Animaciones */
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes expandirLinea {
+    to { width: 120px; }
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .titulo-custom {
+        font-size: 2.2rem;
+    }
+    .linea-decorativa {
+        width: 80px;
+    }
+}
+/* Color Naranja Institucional para la palabra CRUZ */
+.txt-cruz-nav {
+    color: #F9B680 !important; /* Naranja melón */
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Color Rosa Institucional para la palabra ROSA */
+.txt-rosa-nav {
+    color: #E98596 !important; /* Rosa fuerte */
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Ajuste para que el resto del título no salga siempre en mayúsculas */
+.titulo-shimmer {
+    text-transform: none !important; /* Esto permite que "Patronato" se vea normal */
+    font-size: 3rem;
+    font-weight: 800;
+    color: #636363;
+}
+
+/* Opcional: Que el subrayado tenga ambos colores */
+.subrayado-animado {
+    background: linear-gradient(to right, #F9B680, #E98596) !important;
+}
+
+.patronato-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.patronato-container {
+    max-width: 950px; /* Un poco más ancho para que luzcan las tarjetas grandes */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Alineación vertical */
+    gap: 30px; /* Más espacio entre tarjetas */
+}
+
+.patronato-main-card {
+    background: #fffafa;
+    border-left: 8px solid #E98596; /* Borde más grueso para resaltar */
+    padding: 50px 40px; /* Más aire arriba y abajo */
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(233, 133, 150, 0.1);
+    text-align: center;
+}
+
+.patronato-main-card p {
+    font-size: 1.6rem; /* Texto de cabecera más grande */
+    color: #333;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+/* Eliminamos el grid aquí para que fluyan en vertical gracias al contenedor */
+.patronato-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.func-item {
+    display: flex;
+    align-items: center; 
+    gap: 40px; /* Más espacio entre icono y texto */
+    padding: 40px; /* Tarjeta mucho más grande */
+    background: #ffffff;
+    border-radius: 30px; /* Bordes más redondeados */
+    border: 2px solid #fdf2f4;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.func-item:hover {
+    transform: scale(1.03); /* Crece un poquito más al pasar el mouse */
+    box-shadow: 0 20px 40px rgba(233, 133, 150, 0.12);
+    border-color: #E98596;
+}
+
+.func-item ion-icon {
+    font-size: 5rem; /* Icono XL */
+    color: #F9B680;
+    flex-shrink: 0;
+}
+
+.func-item h4 {
+    color: #E98596;
+    font-size: 1.4rem; /* Título de función más grande */
+    font-weight: 800;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.func-item p {
+    font-size: 1.2rem; /* Descripción más legible */
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- AJUSTE MÓVIL OPTIMIZADO --- */
+@media (max-width: 768px) {
+    .patronato-section {
+        padding: 40px 15px;
+    }
+    
+    .patronato-main-card {
+        padding: 30px 20px;
+    }
+
+    .patronato-main-card p {
+        font-size: 1.2rem;
+    }
+
+    .func-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+
+    .func-item ion-icon {
+        font-size: 4rem;
+    }
+
+    .func-item h4 {
+        font-size: 1.2rem;
+    }
+
+    .func-item p {
+        font-size: 1.05rem;
+    }
+}
+/* --- DISEÑO MAPA CONCEPTUAL (MÁS GRANDE Y EN NEGRITAS) --- */
+.mapa-conceptual-section {
+    padding: 100px 20px;
+    background-color: #fdfdfd;
+}
+
+.organigrama-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1300px; /* Aumentamos el ancho máximo */
+    margin: 0 auto;
+}
+
+.tree-card {
+    background: #fff;
+    border: 3px solid #f0f0f0; /* Borde un poco más grueso */
+    border-radius: 25px; /* Bordes más redondeados */
+    padding: 35px; /* Mucho más espacio interno */
+    width: 380px; /* Tarjetas más anchas */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+/* Colores de borde resaltados */
+.tree-card.principal { border-color: #F9B680; } 
+.tree-card.secundario { border-color: #E98596; }
+
+.tree-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(233, 133, 150, 0.25);
+    border-color: #E98596;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f9f9f9;
+    padding-bottom: 15px;
+}
+
+.card-header ion-icon {
+    font-size: 3rem; /* Icono más grande */
+    color: #F9B680;
+}
+
+.card-header h3 {
+    font-size: 1.5rem; /* Título de puesto más grande */
+    color: #E98596;
+    margin: 0;
+    font-weight: 800;
+}
+
+.card-body strong {
+    font-size: 1rem;
+    color: #444; /* Más oscuro para que resalte */
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 900; /* Super negrita para "OBJETIVO" */
+    text-transform: uppercase;
+}
+
+.card-body p {
+    font-size: 1.15rem; /* Texto de objetivo más grande */
+    color: #333; /* Texto más oscuro */
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 700; /* TEXTO EN NEGRITAS */
+}
+
+/* Conectores más visibles */
+.tree-line.vertical {
+    width: 4px;
+    height: 60px; /* Conectores más largos */
+    background: #f1bdc8;
+}
+
+.tree-branches {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Más espacio entre las tarjetas inferiores */
+    padding-top: 60px;
+    position: relative;
+    border-top: 4px solid #f1bdc8;
+    width: 90%;
+}
+
+/* Ajuste Móvil */
+@media (max-width: 1024px) {
+    .tree-branches {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        width: 100%;
+        gap: 30px;
+    }
+    
+    .tree-card {
+        width: 100%;
+        max-width: 450px;
+    }
+}
+/* --- AJUSTES PARA VISTA DE TELÉFONO (MAPA CONCEPTUAL) --- */
+@media (max-width: 768px) {
+    .mapa-conceptual-section {
+        padding: 50px 15px; /* Reducimos el espacio exterior */
+    }
+
+    .organigrama-tree {
+        width: 100%;
+    }
+
+    .tree-card {
+        width: 100% !important; /* La tarjeta ocupa todo el ancho disponible */
+        max-width: 100%;
+        padding: 25px 20px; /* Un poco más compacto */
+        margin: 0 auto;
+    }
+
+    .card-header h3 {
+        font-size: 1.3rem; /* Título un poco más pequeño para que no salte de línea */
+    }
+
+    .card-body p {
+        font-size: 1.05rem; /* Tamaño de lectura cómodo para móvil */
+        text-align: left; /* Alineación a la izquierda para mejor lectura */
+    }
+
+    /* Ajuste de las líneas conectoras en móvil */
+    .tree-line.vertical {
+        height: 30px; /* Líneas más cortas entre puestos principales */
+    }
+
+    .tree-branches {
+        flex-direction: column; /* Alineamos Secretario, Tesorero y Vocales hacia abajo */
+        align-items: center;
+        gap: 20px;
+        padding-top: 0;
+        border-top: none; /* Quitamos la línea horizontal que no funciona en móvil */
+        width: 100%;
+    }
+
+    /* Agregamos una pequeña línea vertical entre las tarjetas de abajo para mantener la conexión */
+    .tree-branches .tree-card:not(:last-child)::after {
+        content: '';
+        display: block;
+        width: 4px;
+        height: 20px;
+        background: #f1bdc8;
+        margin: 20px auto -20px auto;
+    }
+}
+
+/* Pantallas muy pequeñas (iPhone SE, etc) */
+@media (max-width: 380px) {
+    .card-header ion-icon {
+        font-size: 2.2rem;
+    }
+    
+    .card-header h3 {
+        font-size: 1.1rem;
+    }
 }
