@@ -2639,150 +2639,115 @@ main h1 {
 }
 
 /* --- SECCIÓN VALORES --- */
-.valores-section {
-    padding: 8rem 2rem;
-    background-color: #ffffff;
+.titulo-valores-container {
     text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-/* Animación del Título Nuestros Valores */
 .titulo-shimmer {
     font-family: 'Poppins', sans-serif;
     font-size: 3.5rem;
-    font-weight: 700;
-    color: #DDDDDD; /* Gris institucional */
-    background: linear-gradient(to right, #DDDDDD 20%, #F9B680 40%, #E98596 60%, #DDDDDD 80%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: brilloTexto 4s linear infinite;
+    font-weight: 900;
+    color: #636363;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Animación de entrada suave */
+    animation: fadeInDown 1s ease-out;
 }
-
 .subrayado-animado {
-    width: 80px;
+    width: 0;
     height: 5px;
-    background: #F9B680;
-    margin: 10px auto 4rem;
+    background: linear-gradient(to right, #F9B680, #E98596);
+    margin-top: 10px;
     border-radius: 10px;
-    animation: latido 2s infinite ease-in-out;
+    transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-/* Grid de Tarjetas */
-.valores-grid {
+.valores-section:hover .subrayado-animado {
+    width: 150px;
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --- DISEÑO DE VALORES (ESTILO IMAGEN) --- */
+.valores-grid-clean {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 3rem;
-    max-width: 1100px;
-    margin: 0 auto;
+    /* Cambiamos esto para que siempre sean 3 columnas */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    max-width: 1000px; /* Reducimos un poco el ancho para que se vea más compacto */
+    margin: 3rem auto;
+    padding: 0 20px;
 }
 
-.valor-card {
-    padding: 2rem;
-    transition: 0.3s;
-}
-
-/* Animación Flotante para los Iconos */
-.icono-flotante {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 1.5rem;
+.valor-card-minimal {
+    background: #ffffff;
+    border: 2px solid #F9B680;
+    border-radius: 25px;
+    padding: 40px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    font-size: 3rem;
-    background: #FFF8FA;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    animation: flotar 3s infinite ease-in-out;
+    aspect-ratio: 1 / 1; /* Esto hace que las tarjetas sean cuadradas como en la imagen */
 }
 
-/* Colores específicos para cada círculo de icono */
-.color-rosa ion-icon { color: #E98596; }
-.color-naranja ion-icon { color: #F9B680; }
-.color-gris ion-icon { color: #DDDDDD; }
-.color-rosa-claro ion-icon { color: #F1BDC8; }
-
-/* Retrasos en la animación para que no floten todos igual */
-.valores-grid .valor-card:nth-child(2) .icono-flotante { animation-delay: 0.5s; }
-.valores-grid .valor-card:nth-child(3) .icono-flotante { animation-delay: 1s; }
-.valores-grid .valor-card:nth-child(4) .icono-flotante { animation-delay: 1.5s; }
-
-/* KEYFRAMES */
-@keyframes brilloTexto {
-    to { background-position: 200% center; }
+.valor-card-minimal:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(249, 182, 128, 0.2);
+    background-color: #fffaf7; /* Fondo muy suave al pasar el mouse */
 }
 
-@keyframes flotar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+.valor-card-minimal .icon-wrapper {
+    margin-bottom: 20px;
 }
 
-@keyframes latido {
-    0%, 100% { width: 80px; opacity: 1; }
-    50% { width: 120px; opacity: 0.6; }
+.valor-card-minimal ion-icon {
+    font-size: 4.5rem;   /* Iconos grandes como en la imagen */
+    color: #F9B680;      /* Color melón para el icono */
+    stroke-width: 32; 
+   
+       /* Hace el trazo del icono un poco más fino/elegante */
 }
 
-/* Efecto hover en la tarjeta */
-.valor-card:hover h3 {
-    color: #E98596;
-    transform: scale(1.1);
-    transition: 0.3s;
+.valor-card-minimal h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #F9B680;      /* Color del texto igual al de la imagen */
+    margin: 0;
 }
 
-/* --- CONTENEDOR DE FIGURAS --- */
-.decoracion-geometrica {
-    position: relative;
-    overflow: hidden; /* Evita que las figuras creen scroll lateral */
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+    .valores-grid-clean {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en móvil */
+        gap: 15px;
+    }
+    .valor-card-minimal {
+        padding: 20px 10px;
+    }
+    .valor-card-minimal ion-icon {
+        font-size: 3rem;
+    }
 }
-
-/* Círculo Grande Rosa (Fondo) */
-.decoracion-geometrica::before {
-    content: "";
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    background-color: #FFE3E6; /* Rosa claro institucional */
-    border-radius: 50%;
-    top: -100px;
-    right: -100px;
-    z-index: 0;
-    opacity: 0.6;
-    animation: flotarSuave 8s infinite ease-in-out;
-}
-
-/* Óvalo Naranja (Fondo) */
-.decoracion-geometrica::after {
-    content: "";
-    position: absolute;
-    width: 200px;
-    height: 300px;
-    background-color: #F9B680; /* Naranja institucional */
-    border-radius: 100px; /* Forma de óvalo */
-    bottom: -50px;
-    left: -80px;
-    transform: rotate(30deg);
-    z-index: 0;
-    opacity: 0.3;
-    animation: flotarSuave 12s infinite ease-in-out reverse;
-}
-
-/* Círculo Rosa Fuerte Pequeño (Decorativo) */
-.circulo-decorativo-extra {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background-color: #F1BDC8; /* Rosa medio */
-    border-radius: 50%;
-    top: 20%;
-    left: 10%;
-    z-index: 1;
-    opacity: 0.8;
-}
-
-/* --- ANIMACIÓN --- */
-@keyframes flotarSuave {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(20px, -30px) rotate(10deg); }
+@media (max-width: 768px) {
+    .valores-grid-clean {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
 }
 /* --- MODELO DE INTERVENCIÓN FIJO --- */
 
