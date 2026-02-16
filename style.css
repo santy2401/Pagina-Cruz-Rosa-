@@ -197,6 +197,7 @@ body {
     }
 }
 
+
 /* =========================================
    3. HERO SECCIÓN (OPTIMIZADA PARA TODO TIPO DE PANTALLAS)
    ========================================= */
@@ -1948,6 +1949,7 @@ h3.expand-title + h3.expand-title {
     max-width: 300px;
     margin-left: 12px;
 }
+
 /* --- SECCIÓN HISTORIA ACERCA DE --- */
 .titulo-seccion-superior {
     font-size: 3.5rem !important; /* Aumentado significativamente */
@@ -2091,6 +2093,19 @@ main h1 {
     transform: rotate(4deg);
 }
 
+@media (max-width: 768px) {
+    .marcos-fotos-container {
+        gap: 1rem;
+    }
+    .marco-foto {
+        transform: rotate(0deg) !important; /* Quitamos rotación en móvil para maximizar espacio */
+        width: 45%; /* Dos fotos por fila */
+        padding: 10px 10px 30px 10px !important;
+    }
+    .marco-foto img {
+        width: 100% !important;
+    }
+}
 /* --- ANIMACIÓN AL PASAR EL MOUSE (HOVER) --- */
 .marco-foto:hover {
     transform: rotate(0deg) scale(1.1) translateY(-10px);
@@ -2153,9 +2168,25 @@ main h1 {
     .historia-container {
         grid-template-columns: 1fr;
     }
-    .titulo-historia {
-        font-size: 2.2rem;
+   .titulo-historia {
+        font-size: clamp(2.2rem, 8vw, 3rem) !important; /* Ajuste fluido para móvil */
+        letter-spacing: -1px !important; /* Eliminamos el espaciado negativo excesivo */
+        margin-bottom: 1.5rem !important;
+        line-height: 1.2 !important;
     }
+    .titulo-seccion-superior {
+        font-size: 2.2rem !important;
+        margin-bottom: 2rem !important;
+        padding: 0 10px;
+    }
+
+    /* Ajuste para el texto introductorio */
+    .intro-text {
+        font-size: 1.1rem !important; /* Tamaño de lectura cómodo */
+        margin-bottom: 3rem !important;
+        padding: 0 15px;
+    }
+}
     .imagenes-stack {
         height: 300px;
         margin-top: 2rem;
@@ -2163,7 +2194,8 @@ main h1 {
     .img-card {
         width: 280px;
     }
-}
+
+
 /* --- SECCIÓN CONSTITUCIÓN LEGAL --- */
 .constitucion-section {
     padding: 4rem 2rem;
@@ -2205,6 +2237,21 @@ main h1 {
     -webkit-text-fill-color: transparent;
     animation: brilloElegante 6s linear infinite;
 }
+@media (max-width: 768px) {
+    .constitucion-header h2 {
+        font-size: 2.2rem !important; /* Más pequeño para móvil */
+        letter-spacing: -1px !important; /* Espaciado normal */
+        line-height: 1.2;
+    }
+    .constitucion-card {
+        padding: 2rem !important; /* Más aire interno */
+        border-left-width: 8px !important; /* Borde más delgado */
+    }
+    .constitucion-card p {
+        font-size: 1.1rem !important; /* Texto legible */
+    }
+}
+
 @keyframes brilloElegante {
     to { background-position: 200% center; }
 }
@@ -2281,8 +2328,39 @@ main h1 {
     .constitucion-card {
         padding: 1.5rem;
     }
-    .constitucion-header h2 {
-        font-size: 1.6rem;
+   .constitucion-header h2 {
+        font-size: 2.2rem !important;
+        letter-spacing: -1px !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+@media (max-width: 768px) {
+    .modelo-card-circular {
+        border-radius: 30px !important;
+    }
+    .modelo-header-circle {
+        flex-direction: column; /* Icono arriba, título abajo */
+        text-align: center;
+        gap: 15px;
+    }
+    .circle-icon.no-bg {
+        width: 100px !important; /* Círculo más pequeño en móvil */
+        height: 100px !important;
+    }
+    .modelo-body-circle {
+        padding: 0 20px 20px 20px !important; /* Texto centrado debajo del círculo */
+        text-align: center;
+    }
+    .modelo-header-circle h3 {
+        margin-left: 0 !important;
+        font-size: 1.2rem !important;
+    }
+}
+@media (max-width: 768px) {
+    .card-vision {
+        padding: 2rem !important;
+        box-shadow: 10px 10px 20px #e0e0e0, -10px -10px 20px #ffffff !important;
     }
 }
 /* --- SECCIÓN OBJETO SOCIAL ESTILO IMAGEN --- */
@@ -2365,17 +2443,18 @@ main h1 {
 }
 
 /* Ajuste móvil */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .fila-objeto {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
     }
     .flecha-guia {
-        transform: rotate(90deg); /* Apunta hacia abajo en móvil */
+        transform: rotate(90deg); /* Flecha apuntando hacia abajo */
+        margin: 10px 0;
     }
     .card-mini {
-        width: 100%;
-        max-width: 400px;
+        width: 100% !important;
+        height: auto !important; /* Que se ajuste al contenido */
     }
 }
 /* --- SECCIÓN DONATARIA AUTORIZADA --- */
@@ -3062,8 +3141,8 @@ main h1 {
     }
 
     .titulo-shimmer {
-        font-size: 1.8rem; /* Título más compacto */
-        letter-spacing: 1px;
+     font-size: 1.8rem !important;
+        letter-spacing: 1px !important;
     }
 
     .atencion-card-container {
@@ -3083,7 +3162,7 @@ main h1 {
     }
 
     .subrayado-animado {
-        width: 80px; /* Línea decorativa más pequeña */
+        width: 60px !important; /* Línea decorativa más pequeña */
         height: 3px;
     }
 }
