@@ -186,6 +186,16 @@ body {
     max-width: 300px; 
     margin-left: 12px;
 }
+/* Busca el media query @media (max-width: 768px) y añade esto: */
+@media (max-width: 768px) {
+    .logo-hero-container {
+        left: 20px; /* Menos margen en móvil */
+        top: 15px;
+    }
+    .logo-hero-container img {
+        width: 100px; /* Reduce el tamaño del logo en móviles */
+    }
+}
 
 /* =========================================
    3. HERO SECCIÓN (OPTIMIZADA PARA TODO TIPO DE PANTALLAS)
@@ -583,6 +593,15 @@ h3.expand-title + h3.expand-title {
 @media (max-width: 768px) {
     .titulo-impacto-colores { font-size: 3.5rem; }
 }
+@media (max-width: 768px) {
+    .stats-grid {
+        flex-direction: column !important; /* Apilarlos verticalmente en móvil */
+        gap: 1.5rem !important;
+    }
+    .stat-item {
+        min-width: unset; /* Quita el ancho mínimo para que use el 100% */
+    }
+}
 
 /* =========================================
    8. RECONOCIMIENTOS
@@ -784,6 +803,32 @@ h3.expand-title + h3.expand-title {
     transform: scale(0.95);
     background-image: linear-gradient(135deg, #F1BDC8 0%, #E98596 100%);
     color: white;
+}
+@media (max-width: 768px) {
+    /* Forzamos que las tarjetas se apilen una tras otra */
+    .ayudar-grid {
+        flex-direction: column !important; 
+        align-items: center !important;
+        padding: 0 1rem !important;
+        gap: 1.5rem !important; /* Espacio entre tarjetas */
+    }
+
+    .ayudar-card {
+        width: 100% !important; /* Que ocupen todo el ancho disponible */
+        max-width: 400px; /* Para que no se vean gigantes en tablets pequeñas */
+        min-height: auto !important; /* Evita espacios vacíos innecesarios */
+        padding: 2rem 1.5rem !important;
+    }
+
+    /* Ajuste para que el contenido expandible no rompa el diseño */
+    .ayudar-card.tarjeta-abierta .ayudar-content {
+        max-height: 500px; /* Suficiente espacio para el texto móvil */
+    }
+}
+@media (max-width: 768px) {
+    .ayudar-card:hover {
+        transform: scale(1.02); /* Un ligero crecimiento en lugar de saltar hacia arriba */
+    }
 }
 
 /* --- SECCIÓN INFORMES XL --- */
@@ -1351,6 +1396,22 @@ h3.expand-title + h3.expand-title {
     font-weight: 800 !important;
     color: #F9B680 !important; /* Color naranja para que contraste */
 }
+.ejes-p-anim {
+    font-size: clamp(2.5rem, 8vw, 5.5rem); /* Ajusta el mínimo a 2.5rem para móviles */
+}
+@media (max-width: 768px) {
+    .servicio-card-expand {
+        height: auto; /* Que la tarjeta crezca según el texto */
+        min-height: 400px;
+        padding-bottom: 20px;
+    }
+    
+    /* El efecto hover de "expandir" no funciona igual en touch, 
+       es mejor que el texto sea visible o se active con un tap simple */
+    .servicio-card-expand:hover .expand-desc {
+        transform: translateY(0); /* Evita que el texto suba demasiado y tape todo */
+    }
+}
 /* --- TEXTO DE LOS EJES (HOSPEDAJE, NUTRICIÓN, ETC) --- */
 
 
@@ -1477,10 +1538,12 @@ h3.expand-title + h3.expand-title {
     background-color: #ffffff; /* Fondo base blanco por si la imagen tarda en cargar */
 }
 .ubicacion-img-container img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 1.2s ease;
-}
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Esta es la clave: recorta la imagen para que llene el cuadro sin deformarse */
+        object-position: center; /* Centra la foto para que no se corten partes importantes */
+    }
+
 
 .ubicacion-overlay-full {
     position: absolute;
@@ -1699,6 +1762,61 @@ h3.expand-title + h3.expand-title {
     opacity: 1;
     visibility: visible;
     top: -55px;
+}
+/* Agrega esto dentro de tu media query @media (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Asegura que la tarjeta use todo el ancho de la pantalla */
+    .ubicacion-link-card {
+        height: 60vh !important; /* Usar vh (viewport height) ayuda a que se vea bien en cualquier largo de celular */
+        width: 100% !important;
+        margin-bottom: 0 !important; /* Elimina espacios entre sedes si prefieres un diseño continuo */
+    }
+    .ubicacion-img-container {
+        width: 100% !important;
+        height: 100% !important;
+        position: relative;
+    }
+
+    .ubicacion-overlay-full {
+        background: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.7) 100%) !important;
+        flex-direction: column !important; /* Apilamos contenido y redes */
+        justify-content: flex-end !important;
+        align-items: center !important;
+        padding-bottom: 30px !important;
+    }
+
+    .info-content {
+        margin-left: 0 !important;
+        margin-bottom: 20px !important;
+        padding: 1.5rem !important;
+        width: 90% !important;
+        text-align: center !important;
+    }
+
+    .info-content h3 {
+        font-size: 2.5rem !important; /* Tamaño más balanceado para móvil */
+    }
+}
+@media (max-width: 768px) {
+    .card-location {
+        left: 50% !important;
+        transform: translateX(-50%) scale(0); /* Centrada horizontalmente */
+        bottom: 120% !important;
+    }
+    
+    .reference:active .card-location {
+        transform: translateX(-50%) scale(1) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+@media (max-width: 768px) {
+    .ubicacion-overlay-full {
+        background: linear-gradient(to bottom, 
+            rgba(0,0,0,0) 0%, 
+            rgba(0,0,0,0.2) 50%, 
+            rgba(0,0,0,0.8) 100%) !important;
+    }
 }
 /* =========================================
    FOOTER - TRANSPARENCIA Y LEGAL
