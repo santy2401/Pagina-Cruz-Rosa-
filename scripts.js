@@ -65,3 +65,25 @@ function toggleCard(element) {
     // Alterna la clase activa en la tarjeta seleccionada
     card.classList.toggle('active');
 }
+// Cambia el nombre por el de tu nuevo archivo
+const urlImagenNueva = 'TDC F-8.png'; 
+
+const img = new Image();
+img.src = urlImagenNueva;
+img.onload = function() {
+    const canvas = document.getElementById('pdf-render'); // Reutilizamos el id del canvas
+    const ctx = canvas.getContext('2d');
+    
+    // Ajustamos el canvas al tamaño de la nueva imagen
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+
+    // Inicializamos el Panzoom con la nueva imagen
+    const panzoom = Panzoom(canvas, {
+        maxScale: 5,
+        contain: 'outside'
+    });
+    
+    canvas.parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
+};
