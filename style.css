@@ -2897,11 +2897,10 @@ main h1 {
 /* --- DISEÑO DE VALORES (ESTILO IMAGEN) --- */
 .valores-grid-clean {
     display: grid;
-    /* Cambiamos esto para que siempre sean 3 columnas */
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
     gap: 30px;
-    max-width: 1000px; /* Reducimos un poco el ancho para que se vea más compacto */
-    margin: 3rem auto;
+    max-width: 1100px;
+    margin: 4rem auto;
     padding: 0 20px;
 }
 
@@ -2916,13 +2915,21 @@ main h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 1 / 1; /* Esto hace que las tarjetas sean cuadradas como en la imagen */
+    aspect-ratio: 1 / 1;
 }
-
 .valor-card-minimal:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(249, 182, 128, 0.2);
-    background-color: #fffaf7; /* Fondo muy suave al pasar el mouse */
+    background-color: #fffaf7;
+}
+/* Estilo para tus nuevas imágenes PNG */
+.valor-card-minimal .icon-wrapper img {
+    width: 100px; /* Tamaño XL para que luzcan */
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    /* Esto ayuda a que el color institucional resalte si la imagen es oscura */
+    filter: drop-shadow(0 5px 10px rgba(249, 182, 128, 0.2));
 }
 
 .valor-card-minimal .icon-wrapper {
@@ -2939,9 +2946,10 @@ main h1 {
 
 .valor-card-minimal h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #F9B680;      /* Color del texto igual al de la imagen */
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #F9B680;
+    text-transform: uppercase;
     margin: 0;
 }
 
@@ -2962,7 +2970,15 @@ main h1 {
     .valores-grid-clean {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+        }
+    .valor-card-minimal .icon-wrapper img {
+        width: 60px;
+        height: 60px;
     }
+    .valor-card-minimal h3 {
+        font-size: 0.9rem;
+    }
+
 }
 
 /* --- ESTILOS ODS CON ANIMACIÓN Y VISTA MÓVIL --- */
