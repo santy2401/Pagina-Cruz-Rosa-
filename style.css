@@ -3298,6 +3298,67 @@ main h1 {
     }
 }
 /* --- DISEÑO DE PANAL VERTICAL --- */
+.financiamiento-section {
+    position: relative;
+    background-color: #FFF8FA; /* Tu color solicitado */
+    overflow: hidden; /* Evita que los hexágonos se salgan de la sección */
+    z-index: 1;
+}
+.hexagon-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Se mantiene detrás del texto */
+}
+.hexagons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.hexagons li {
+    position: absolute;
+    list-style: none;
+    display: block;
+    background-color: #E98596; /* Color de los hexágonos */
+    opacity: 0.3; /* Transparencia para que se vea elegante */
+    /* Forma de Hexágono */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    bottom: -150px;
+    animation: animate-hex 25s linear infinite;
+}
+/* Tamaños y posiciones aleatorias */
+.hexagons li:nth-child(1) { left: 25%; width: 80px; height: 90px; animation-delay: 0s; }
+.hexagons li:nth-child(2) { left: 10%; width: 30px; height: 35px; animation-delay: 2s; animation-duration: 12s; }
+.hexagons li:nth-child(3) { left: 70%; width: 20px; height: 25px; animation-delay: 4s; }
+.hexagons li:nth-child(4) { left: 40%; width: 60px; height: 70px; animation-delay: 0s; animation-duration: 18s; }
+.hexagons li:nth-child(5) { left: 65%; width: 20px; height: 25px; animation-delay: 0s; }
+.hexagons li:nth-child(6) { left: 75%; width: 110px; height: 125px; animation-delay: 3s; }
+.hexagons li:nth-child(7) { left: 35%; width: 150px; height: 170px; animation-delay: 7s; }
+.hexagons li:nth-child(8) { left: 50%; width: 25px; height: 30px; animation-delay: 15s; animation-duration: 45s; }
+.hexagons li:nth-child(9) { left: 20%; width: 15px; height: 20px; animation-delay: 2s; animation-duration: 35s; }
+.hexagons li:nth-child(10) { left: 85%; width: 150px; height: 170px; animation-delay: 0s; animation-duration: 11s; }
+
+/* Animación de flotado y rotación */
+@keyframes animate-hex {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+
 .honeycomb-vertical {
     display: flex;
     flex-direction: column;
