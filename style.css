@@ -2613,30 +2613,35 @@ main h1 {
     .donataria-img { order: -1; margin-bottom: 2rem; }
     .donataria-content { padding: 2rem; }
 }
-
-/* --- SECCIÓN PROPÓSITOS (CRUZ INTERACTIVA) --- */
+/* --- SECCIÓN PROPÓSITOS (UNIFICADO: NEUMÓRFICO + CRUZ) --- */
 .propositos-section {
     padding: 8rem 2rem;
     background-color: #ffffff;
     overflow: hidden;
 }
+
 .propositos-container {
     position: relative;
-    max-width: 1300px;
-    /* Usamos min-height para que el texto grande estire la sección si es necesario */
-    min-height: 1000px; 
-    margin: 0 auto;
+    max-width: 1200px; /* Reducimos el ancho total del contenedor */
+    min-height: 900px; 
+    margin: 4rem auto 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    /* Espacio amplio para que la cruz respire en medio */
-    gap: 150px; 
-    align-items: stretch;
+    /* Aumentamos mucho el gap horizontal para proteger el espacio de la cruz */
+    gap: 180px 100px; 
+    align-items: center;
+    justify-items: center;
 }
+
+/* Aplicamos el estilo neumórfico XL (Igual a sección Visión) */
 .propositos-container .card-vision {
     background: #f9f9f9;
     border-radius: 40px;
-    padding: 3.5rem;
+    padding: 2.5rem 2rem; /* Reducimos padding interno */
+    width: 100%;
+    max-width: 380px; /* Limitamos el ancho para que no tapen el centro */
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2646,7 +2651,6 @@ main h1 {
     transition: all 0.4s ease;
     border: 1px solid rgba(255,255,255,0.8);
     z-index: 2;
-    position: relative;
 }
 
 .propositos-container .card-vision:hover {
@@ -2654,29 +2658,32 @@ main h1 {
     box-shadow: 20px 20px 50px #d1d1d1, -20px -20px 50px #ffffff;
 }
 
+/* Texto XL y Super Negrita */
 .propositos-container .card-vision-content p {
-    font-size: 1.5rem !important;
-    font-weight: 800 !important; 
-    line-height: 1.5;
+    font-size: 1.25rem !important; /* Bajamos un poco de 1.5 a 1.25 para equilibrio */
+    font-weight: 800 !important;
+    line-height: 1.4;
     color: #444;
-    margin: 0;
 }
+
 .propositos-container .card-vision-content ion-icon {
-    font-size: 3.5rem;
-    color: #F9B680; 
+    font-size: 4rem;
+    color: #F9B680; /* Naranja institucional */
     margin-bottom: 1.5rem;
 }
-/* Estilo de la Cruz Central */
+
+/* --- CRUZ CENTRAL CORREGIDA --- */
 .eje-central {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Ajustado para que no toque los bordes */
-    height: 90%;
+    width: 95%; 
+    height: 95%;
     pointer-events: none;
     z-index: 1;
 }
+
 .linea-vertical, .linea-horizontal {
     position: absolute;
     background-color: #F9B680;
@@ -2684,37 +2691,8 @@ main h1 {
     box-shadow: 0 0 15px rgba(249, 182, 128, 0.4);
 }
 
-.linea-vertical { width: 12px; height: 100%; left: 50%; transform: translateX(-50%); }
-.linea-horizontal { height: 12px; width: 100%; top: 50%; transform: translateY(-50%); }
-
-.linea-vertical {
-    width: 12px;
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-/* Flechas de la cruz */
-.linea-vertical::before, .linea-vertical::after {
-    content: '';
-    position: absolute;
-    width: 0; height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.linea-vertical::before { border-bottom: 30px solid #F9B680; top: -30px; }
-.linea-vertical::after { border-top: 30px solid #F9B680; bottom: -30px; }
-
-.linea-horizontal {
-    height: 12px;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-}
+.linea-vertical { width: 14px; height: 100%; left: 50%; transform: translateX(-50%); }
+.linea-horizontal { height: 14px; width: 100%; top: 50%; transform: translateY(-50%); }
 
 /* Flechas de la cruz con tamaño ajustado */
 .linea-vertical::before { content: ''; position: absolute; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 30px solid #F9B680; top: -30px; left: 50%; transform: translateX(-50%); }
@@ -2722,64 +2700,33 @@ main h1 {
 .linea-horizontal::before { content: ''; position: absolute; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-right: 30px solid #F9B680; left: -30px; top: 50%; transform: translateY(-50%); }
 .linea-horizontal::after { content: ''; position: absolute; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-left: 30px solid #F9B680; right: -30px; top: 50%; transform: translateY(-50%); }
 
-
 .circulo-pulso {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px; height: 50px;
+    width: 60px; height: 60px;
     background-color: #e89c5e;
     border-radius: 50%;
     border: 5px solid white;
     z-index: 5;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
 }
 
-/* Estilo de los Cuadrantes */
-.cuadrante {
-    background: rgb(255, 236, 242);
-    border: 2px solid #c0c0c0;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-}
-
-.cuadrante-contenido p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #444;
-    text-align: center;
-    margin: 0;
-}
-
-/* Animaciones al Hover */
-.cuadrante:hover {
-    transform: scale(1.05);
-    border-color: #E98596; /* Cambia a rosa al interactuar */
-    box-shadow: 0 15px 35px rgba(233, 133, 150, 0.15);
-    z-index: 10;
-}
-
-/* Responsive para móvil */@media (max-width: 850px) {
+/* --- VISTA MÓVIL OPTIMIZADA --- */
+@media (max-width: 850px) {
     .propositos-container {
-        height: auto;
+        min-height: auto;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.5rem;
     }
-    .eje-central { display: none; } /* Ocultamos la cruz en móvil para mejor lectura */
-    
+    .eje-central { display: none; } /* Ocultar cruz en móvil para leer mejor */
     .propositos-container .card-vision {
-        padding: 2rem;
-        border-radius: 30px;
+        padding: 3rem 1.5rem;
+        border-radius: 35px;
     }
-    
     .propositos-container .card-vision-content p {
-        font-size: 1.1rem !important;
+        font-size: 1.25rem !important;
     }
 }
 
