@@ -3055,6 +3055,35 @@ main h1 {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
 }
+.ods-texto-base {
+    font-size: 1.8rem !important;
+    font-weight: 700;
+    color: #444;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.5;
+}
+.ods-resaltado {
+    color: #E98596; /* Rosa institucional para el ODS 3 */
+    font-weight: 900;
+    display: block; /* Lo pone en una línea propia para que destaque */
+    font-size: 2.2rem;
+    margin-top: 10px;
+}
+.ods-lema-principal {
+    font-size: 2.2rem !important; /* Más grande para que sea el foco */
+    font-weight: 800 !important; /* Super negrita */
+    color: #636363; /* Gris institucional */
+    text-align: center;
+    max-width: 900px;
+    margin: 2rem auto 4rem auto;
+    line-height: 1.4;
+    font-style: italic;
+    padding: 20px;
+    background: rgba(249, 182, 128, 0.05); /* Un fondo naranja muy sutil */
+    border-radius: 20px;
+}
 
 .ods-texto-principal {
     font-size: 1.6rem;
@@ -3092,11 +3121,22 @@ main h1 {
     .ods-icon-box {
         font-size: 3rem;
     }
+    .ods-texto-base {
+        font-size: 1.2rem !important;
+    }
+    .ods-resaltado {
+        font-size: 1.6rem;
+    }
+    .ods-lema-principal {
+        font-size: 1.3rem !important;
+        margin-bottom: 2rem !important;
+    }
 
     /* Reducimos la flotación en móvil para que no sea molesto */
     @keyframes flotarODS {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-8px); }
+        
     }
 }
 
