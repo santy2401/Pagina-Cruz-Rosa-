@@ -65,25 +65,39 @@ function toggleCard(element) {
     // Alterna la clase activa en la tarjeta seleccionada
     card.classList.toggle('active');
 }
-// Cambia el nombre por el de tu nuevo archivo
-const urlImagenNueva = 'TDC F-8.png'; 
-
+// 1. Configuración de la imagen
+const urlImagen = 'TDC F-8.png'; // Asegúrate de que el nombre sea exacto
+const canvas = document.getElementById('pdf-render');
+const ctx = canvas.getContext('2d');
 const img = new Image();
-img.src = urlImagenNueva;
+
+img.src = urlImagen;
+
 img.onload = function() {
-    const canvas = document.getElementById('pdf-render'); // Reutilizamos el id del canvas
-    const ctx = canvas.getContext('2d');
-    
-    // Ajustamos el canvas al tamaño de la nueva imagen
+    // Ajustamos el canvas al tamaño real de la imagen
     canvas.width = img.width;
     canvas.height = img.height;
+    
+    // Dibujamos la imagen en el canvas
     ctx.drawImage(img, 0, 0);
 
-    // Inicializamos el Panzoom con la nueva imagen
+    // 2. Inicializar Panzoom sobre el canvas
     const panzoom = Panzoom(canvas, {
         maxScale: 5,
-        contain: 'outside'
+        minScale: 0.5,
+        contain: 'outside',
+        startScale: 1
     });
-    
+
+    // 3. Hacer que los botones funcionen
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+    const resetBtn = document.getElementById('reset');
+
+    zoomInBtn.addEventListener('click', () => panzoom.zoomIn());
+    zoomOutBtn.addEventListener('click', () => panzoom.zoomOut());
+    resetBtn.addEventListener('click', () => panzoom.reset());
+
+    // 4. Habilitar zoom con la rueda del ratón
     canvas.parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
 };
