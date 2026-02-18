@@ -1983,6 +1983,8 @@ h3.expand-title + h3.expand-title {
 }
 
 /* --- SECCIÓN HISTORIA ACERCA DE --- */
+
+
 .titulo-seccion-superior {
     font-size: 3.5rem !important; /* Aumentado significativamente */
     font-weight: 800;
@@ -2035,6 +2037,16 @@ h3.expand-title + h3.expand-title {
     max-width: 1200px;
     margin: 0 auto;
 }
+.historia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Mitad exacta para texto y mitad para fotos */
+    gap: 4rem;
+    align-items: center; 
+    max-width: 1300px;
+    margin: 4rem auto;
+    padding: 0 20px;
+}
+
 .acerca-contenedor-principal h1, 
 main h1 {
     font-size: 3rem !important; /* Aumentado de tamaño significativamente */
@@ -2077,57 +2089,73 @@ main h1 {
         transform: translateY(0); /* Termina en su posición original */
     }
 }
-
 .historia-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Mitad y mitad */
-    gap: 4rem;
+    grid-template-columns: 1fr 1.4fr; /* Damos más espacio a la derecha para las fotos grandes */
+    gap: 2rem; /* Reducimos un poco el gap para dar aire a las fotos */
     align-items: center;
 }
 
 /* Cuadro Rosa del lado izquierdo */
+
+/* FORZAR CUADRO ROSA A SER CUADRADO */
 .cuadro-rosa-info {
-   background-color: #E98596;
-    padding: 4.5rem; /* Más espacio interno */
+    background-color: #E98596;
     border-radius: 40px;
     color: white;
-    box-shadow: 0 20px 45px rgba(233, 133, 150, 0.3);
-    font-size: 1.6rem !important; /* Texto más grande solicitado */
+    aspect-ratio: 1 / 1; /* Forza el cuadrado */
+    width: 100%;
+    max-width: 500px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    box-shadow: 0 25px 50px rgba(233, 133, 150, 0.3);
+    font-size: 1.5rem !important;
     line-height: 1.6;
-    height: fit-content;
+    text-align: justify; /* Texto justificado como pediste */
+    margin: 0 auto;
 }
+
 .marcos-fotos-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Apiladas verticalmente */
     align-items: center;
-    gap: 2rem; /* Espacio entre las dos fotos */
-    perspective: 1000px; /* Añade profundidad 3D */
+    gap: 2.5rem; /* Espacio entre fotos */
 }
+
 .marco-foto {
     background-color: #ffffff;
-    padding: 15px 15px 50px 15px; /* Padding inferior más grande para estilo Polaroid */
+    padding: 15px 15px 60px 15px; /* Estilo Polaroid pero recto */
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    border-radius: 5px; /* Bordes ligeramente curvos */
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+    /* Eliminamos cualquier rotación previa */
+    transform: rotate(0deg) !important; 
 }
+
 .marco-foto img {
-    width: 240px; /* Tamaño de la imagen */
+    /* Tamaño aumentado significativamente */
+    width: 450px; 
     height: auto;
     display: block;
-    border: 1px solid #eee; /* Borde sutil a la foto */
+    border: 1px solid #eee;
 }
+
 .polaroid-1 {
-    transform: rotate(-4deg);
+    transform: rotate(-5deg) translateX(-30px);
+    z-index: 1;
 }
 
 .polaroid-2 {
-    transform: rotate(4deg);
+    transform: rotate(5deg) translateX(30px) translateY(-20px);
+    z-index: 2;
 }
 
 @media (max-width: 768px) {
     .marcos-fotos-container {
-        gap: 1rem;
+        flex-direction: column; /* Fotos una debajo de otra en celular */
+        gap: 3rem;
     }
     .marco-foto {
         transform: rotate(0deg) !important; /* Quitamos rotación en móvil para maximizar espacio */
@@ -2140,12 +2168,13 @@ main h1 {
 }
 /* --- ANIMACIÓN AL PASAR EL MOUSE (HOVER) --- */
 .marco-foto:hover {
-    transform: rotate(0deg) scale(1.1) translateY(-10px);
+    transform: rotate(0deg) scale(1.05) translateY(-15px);
     z-index: 10;
-    box-shadow: 0 25px 50px rgba(233, 133, 150, 0.3); /* Sombra rosa al resaltar */
+    box-shadow: 0 35px 60px rgba(233, 133, 150, 0.4);
 }
+
 /* Ajuste para que se vea bien en tablets/móviles */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     .historia-container {
         grid-template-columns: 1fr;
         gap: 5rem;
@@ -2153,6 +2182,9 @@ main h1 {
     .marcos-fotos-container {
         flex-direction: row;
         flex-wrap: wrap;
+    }
+   .marco-foto img {
+        width: 300px; /* Tamaño intermedio para tablets */
     }
 }
 
