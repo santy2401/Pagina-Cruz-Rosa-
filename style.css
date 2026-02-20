@@ -2092,7 +2092,7 @@ main h1 {
 .historia-container {
     display: grid;
     grid-template-columns: 1fr 1.4fr; /* Damos más espacio a la derecha para las fotos grandes */
-    gap: 2rem; /* Reducimos un poco el gap para dar aire a las fotos */
+    gap: 8rem; /* Reducimos un poco el gap para dar aire a las fotos */
     align-items: center;
 }
 
@@ -2121,7 +2121,7 @@ main h1 {
     display: flex;
     flex-direction: column; /* Apiladas verticalmente */
     align-items: center;
-    gap: 2.5rem; /* Espacio entre fotos */
+    gap: 1.5rem; /* Espacio entre fotos */
 }
 
 .marco-foto {
@@ -2136,7 +2136,7 @@ main h1 {
 
 .marco-foto img {
     /* Tamaño aumentado significativamente */
-    width: 450px; 
+    width: 850px; 
     height: auto;
     display: block;
     border: 1px solid #eee;
@@ -3446,17 +3446,15 @@ main h1 {
 /* --- DISEÑO DE PANAL VERTICAL ------------------------------------------------------ */
 .financiamiento-section {
     position: relative;
-    background-color: #FFF8FA; /* Tu color solicitado */
-    overflow: hidden; /* Evita que los hexágonos se salgan de la sección */
+    background-color: #FFF8FA;
+    overflow: hidden;
     z-index: 1;
+    padding: 80px 0;
 }
 .hexagon-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Se mantiene detrás del texto */
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
 }
 .hexagons {
     position: absolute;
@@ -3467,13 +3465,12 @@ main h1 {
     margin: 0;
     padding: 0;
 }
+
 .hexagons li {
     position: absolute;
     list-style: none;
-    display: block;
-    background-color: #E98596; /* Color de los hexágonos */
-    opacity: 0.3; /* Transparencia para que se vea elegante */
-    /* Forma de Hexágono */
+    background-color: #E98596;
+    opacity: 0.2;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     bottom: -150px;
     animation: animate-hex 25s linear infinite;
@@ -3497,72 +3494,74 @@ main h1 {
 .hexagons li:nth-child(16) { left: 30%; width: 45px; height: 50px; animation-delay: 10s; animation-duration: 22s; }
 /* Animación de flotado y rotación */
 @keyframes animate-hex {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.3;
-        border-radius: 0;
-    }
-    100% {
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-        border-radius: 50%;
-    }
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+    100% { transform: translateY(-1200px) rotate(720deg); opacity: 0; }
 }
 
+/* --- DISEÑO DE PANAL VERTICAL RESTAURADO --- */
 
 .honeycomb-vertical {
     display: flex;
-    flex-direction: column; /* Volvemos a vertical */
+    flex-direction: column;
     align-items: center;
-    gap: 0; /* Eliminamos el gap para usar márgenes negativos */
+    gap: 0;
     margin: 4rem auto;
     max-width: 600px;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
 }
 
 .hexagon-item {
     width: 200px;
     height: 220px;
-    margin-bottom: -55px; /* Este margen negativo los "encaja" uno dentro de otro */
     position: relative;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     filter: drop-shadow(0 8px 15px rgba(0,0,0,0.1));
+    z-index: 1;
 }
 
-.hexagon-item:nth-child(even),
-.hexagon-item:nth-child(odd) {
-    transform: none; 
-    margin-top: 0;
+/* El truco del encaje: margen negativo para que se metan uno dentro de otro */
+.hexagon-item:not(:first-child) {
+    margin-top: -55px; 
 }
 
-/* Zig-Zag automático: Los pares a la derecha, los impares a la izquierda */
-.hexagon-item:nth-child(even) {
-    transform: translateX(60px); /* Los pares se mueven a la derecha */
+/* Zig-Zag: Pares derecha (60px), Impares izquierda (-60px) */
+.hexagon-item:nth-child(even) { transform: translateX(60px); }
+.hexagon-item:nth-child(odd) { transform: translateX(-75px); }
+
+/* --- ESTADOS HOVER CORREGIDOS --- */
+/* Importante: Mantener el translateX original mientras se aplica el scale */
+
+.hexagon-item:nth-child(even):hover { 
+    transform: translateX(60px) scale(1.15) !important; 
+    z-index: 50;
+    filter: drop-shadow(0 15px 30px rgba(233, 133, 150, 0.3));
 }
 
-.hexagon-item:nth-child(odd) {
-    transform: translateX(-60px); /* Los impares se mueven a la izquierda */
+.hexagon-item:nth-child(odd):hover { 
+    transform: translateX(-60px) scale(1.15) !important; 
+    z-index: 50;
+    filter: drop-shadow(0 15px 30px rgba(233, 133, 150, 0.3));
 }
-.hexagon-item:first-child {
-    margin-top: 0;
-}
+
+/* El resto de tus estilos (.hexagon-inner, .hexagon-content, etc.) están perfectos */
 
 .hexagon-inner {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.4s ease;
+    display: flex; align-items: center; justify-content: center;
 }
 
 /* Colores */
-.hexagon-item.color-rosa .hexagon-inner { background: #F9B680; }
+.hexagon-item.color-rosa .hexagon-inner,
 .hexagon-item.color-naranja .hexagon-inner { background: #F9B680; }
-.hexagon-item.color-verde .hexagon-inner { background: #E98596; }
+.hexagon-item.color-verde .hexagon-inner,
 .hexagon-item.color-rosa-oscuro .hexagon-inner { background: #E98596; }
+
+.hexagon-content { color: white; text-align: center; padding: 15px; }
+.hexagon-content ion-icon { font-size: 2.5rem; margin-bottom: 5px; }
+.hexagon-content h3 { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin: 5px 0; }
+.porcentaje { font-size: 1.8rem; font-weight: 900; display: block; }
 
 .hexagon-content {
     color: white;
@@ -3609,51 +3608,15 @@ main h1 {
     .hexagon-item:nth-child(even) { transform: translateX(40px); }
     .hexagon-item:nth-child(odd) { transform: translateX(-40px); }
 }
-/* --- AJUSTE PARA TELÉFONO (VISTA MÓVIL HEXÁGONOS) --- */
+/* Ajuste Móvil */
 @media (max-width: 768px) {
-    .financiamiento-section {
-        padding: 40px 10px; /* Reducimos espacio lateral */
-    }
-
-    .honeycomb-vertical {
-        margin-top: 30px;
-        padding-bottom: 50px;
-    }
-
-    .hexagon-item {
-        width: 140px;  /* Tamaño más pequeño para que quepan dos en zig-zag */
-        height: 165px;
-        margin-bottom: -35px; /* Ajustamos qué tanto se enciman */
-    }
-
-    /* Reducimos el desplazamiento lateral en móvil */
-    .hexagon-item:nth-child(even) {
-        transform: translateX(35px);
-    }
-
-    .hexagon-item:nth-child(odd) {
-        transform: translateX(-35px);
-    }
-
-    /* Ajustamos el contenido interno para que no se vea apretado */
-    .hexagon-content ion-icon {
-        font-size: 2rem;
-        margin-bottom: 2px;
-    }
-
-    .hexagon-content h3 {
-        font-size: 0.65rem;
-        letter-spacing: 0;
-    }
-
-    .porcentaje {
-        font-size: 1.4rem; /* Número un poco más pequeño para el cel */
-    }
-
-    /* Al tocar el hexágono en el cel, que crezca un poco menos */
-    .hexagon-item:hover {
-        transform: scale(1.1) !important;
-    }
+    .hexagon-item { width: 150px; height: 175px; }
+    .hexagon-item:not(:first-child) { margin-top: -35px; }
+    .hexagon-item:nth-child(even) { transform: translateX(40px); }
+    .hexagon-item:nth-child(odd) { transform: translateX(-40px); }
+    .hexagon-item:nth-child(even):hover { transform: translateX(40px) scale(1.1) !important; }
+    .hexagon-item:nth-child(odd):hover { transform: translateX(-40px) scale(1.1) !important; }
+    .porcentaje { font-size: 1.4rem; }
 }
 
 /* Ajuste para pantallas muy pequeñas (iPhone SE / pantallas de 320px) */
