@@ -2112,9 +2112,11 @@ main h1 {
 }
 .historia-container {
     display: grid;
-    grid-template-columns: 1fr 1.4fr; /* Damos más espacio a la derecha para las fotos grandes */
-    gap: 8rem; /* Reducimos un poco el gap para dar aire a las fotos */
+    grid-template-columns: 1fr 1fr; /* Damos más espacio a la derecha para las fotos grandes */
+    gap: 2rem; /* Reducimos un poco el gap para dar aire a las fotos */
     align-items: center;
+    max-width: 1300px;
+    margin: 4rem auto;
 }
 
 /* Cuadro Rosa del lado izquierdo */
@@ -2142,25 +2144,27 @@ main h1 {
     display: flex;
     flex-direction: column; /* Apiladas verticalmente */
     align-items: center;
-    gap: .5rem; /* Espacio entre fotos */
+    gap: 20px; /* Espacio entre fotos */
 }
 
 .marco-foto {
     background-color: #ffffff;
-    padding: 15px 15px 60px 15px; /* Estilo Polaroid pero recto */
+    padding: 15px 15px 40px 15px; /* Estilo Polaroid (borde blanco inferior más ancho) */
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     border-radius: 8px;
     transition: transform 0.4s ease;
-    /* Eliminamos cualquier rotación previa */
+    
+    /* ELIMINAMOS TODA ROTACIÓN PARA QUE ESTÉN DERECHAS */
     transform: rotate(0deg) !important; 
+    margin: 0 !important; 
 }
 
 .marco-foto img {
     /* Tamaño aumentado significativamente */
-    width: 450px; 
+    width: 650px !important; 
     height: auto;
     display: block;
-    border: 1px solid #eee;
+    border-radius: 4px;
 }
 
 .polaroid-1 {
@@ -2184,12 +2188,13 @@ main h1 {
         padding: 10px 10px 30px 10px !important;
     }
     .marco-foto img {
-        width: 100% !important;
+       width: 90% !important; /* Casi todo el ancho del celular */
+        max-width: 400px;
     }
 }
 /* --- ANIMACIÓN AL PASAR EL MOUSE (HOVER) --- */
 .marco-foto:hover {
-    transform: rotate(0deg) scale(1.05) translateY(-15px);
+    transform: rotate(0deg) scale(1.03) translateY(-15px);
     z-index: 10;
     box-shadow: 0 35px 60px rgba(233, 133, 150, 0.4);
 }
@@ -4326,6 +4331,11 @@ main h1 {
 
     .titulo-mensaje {
         font-size: 2.2rem;
+    }
+}
+@media (max-width: 1100px) {
+    .marco-foto img {
+        width: 350px !important; /* Un poco más pequeñas en pantallas medianas */
     }
 }
 /* --- AJUSTES PARA VISTA DE TELÉFONO (MENSAJE PRESIDENTA) --- */
