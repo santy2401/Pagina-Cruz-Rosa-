@@ -3916,9 +3916,10 @@ main h1 {
         font-size: 1.05rem;
     }
 }
+
 /* --- DISEÑO MAPA CONCEPTUAL (MÁS GRANDE Y EN NEGRITAS) --- */
 .mapa-conceptual-section {
-    padding: 100px 20px;
+    padding: 60px 20px;
     background-color: #fdfdfd;
 }
 
@@ -3926,67 +3927,90 @@ main h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1300px; /* Aumentamos el ancho máximo */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .tree-card {
     background: #fff;
-    border: 3px solid #f0f0f0; /* Borde un poco más grueso */
-    border-radius: 25px; /* Bordes más redondeados */
-    padding: 35px; /* Mucho más espacio interno */
-    width: 380px; /* Tarjetas más anchas */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid #ddd;
+    border-radius: 15px; /* Bordes redondeados sutiles */
+    width: 260px; /* Reducido de 380px a 260px */
+    padding: 20px; /* Padding reducido */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
     z-index: 2;
 }
 
-/* Colores de borde resaltados */
-.tree-card.principal { border-color: #F9B680; } 
-.tree-card.secundario { border-color: #E98596; }
+/* Colores de cabecera */
+.tree-card.principal { border-top: 5px solid #F9B680; }
+.tree-card.secundario { border-top: 5px solid #E98596; }
+
+.tree-card.secundario, .tree-card:not(.principal) {
+    background-color: #f9f9f9;
+}
 
 .tree-card:hover {
-    transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(233, 133, 150, 0.25);
-    border-color: #E98596;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(233, 133, 150, 0.15);
 }
 
 .card-header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #f9f9f9;
-    padding-bottom: 15px;
+    gap: 10px;
 }
 
 .card-header ion-icon {
-    font-size: 3rem; /* Icono más grande */
+    font-size: 1.8rem; /* Icono más pequeño */
     color: #F9B680;
 }
 
 .card-header h3 {
-    font-size: 1.5rem; /* Título de puesto más grande */
-    color: #E98596;
-    margin: 0;
+    font-size: 1.1rem; /* Título ajustado */
     font-weight: 800;
+    color: #555;
+    margin: 0;
 }
 
+.card-header h3 { font-size: 1.2rem; font-weight: 800; color: #555; margin: 0; }
+.card-body p { font-size: 0.95rem; line-height: 1.4; color: #444; font-weight: 500; }
+
+.tree-connector-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.line-vertical-short {
+    width: 2px;
+    height: 30px;
+    background-color: #f1bdc8;
+}
+.line-horizontal-wide {
+    width: 75%; /* Ancho de la línea que une las 4 cajas */
+    height: 2px;
+    background-color: #f1bdc8;
+}
+
+
 .card-body strong {
-    font-size: 1rem;
-    color: #444; /* Más oscuro para que resalte */
+    font-size: 0.75rem;
+    color: #999;
     display: block;
-    margin-bottom: 8px;
-    font-weight: 900; /* Super negrita para "OBJETIVO" */
-    text-transform: uppercase;
+    margin-bottom: 5px;
 }
 
 .card-body p {
-    font-size: 1.15rem; /* Texto de objetivo más grande */
-    color: #333; /* Texto más oscuro */
-    line-height: 1.6;
+    font-size: 0.88rem; /* Texto más pequeño para ahorrar espacio vertical */
+    line-height: 1.4;
+    color: #444;
+    font-weight: 700; /* Se mantiene negrita solicitado */
     margin: 0;
-    font-weight: 700; /* TEXTO EN NEGRITAS */
 }
 
 /* Conectores más visibles */
@@ -3999,11 +4023,19 @@ main h1 {
 .tree-branches {
     display: flex;
     justify-content: center;
-    gap: 40px; /* Más espacio entre las tarjetas inferiores */
-    padding-top: 60px;
-    position: relative;
-    border-top: 4px solid #f1bdc8;
-    width: 90%;
+    gap: 20px; /* Espacio entre tarjetas reducido */
+    width: 100%;
+    margin-top: 0;
+}
+.branch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.branch-line {
+    width: 2px;
+    height: 20px;
+    background-color: #f1bdc8;
 }
 
 /* Ajuste Móvil */
@@ -4015,7 +4047,9 @@ main h1 {
         width: 100%;
         gap: 30px;
     }
-    
+    .line-horizontal-wide, .branch-line {
+        display: none;
+    }
     .tree-card {
         width: 100%;
         max-width: 450px;
