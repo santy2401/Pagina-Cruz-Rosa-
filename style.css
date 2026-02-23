@@ -3215,34 +3215,45 @@ main h1 {
 .pdf-controls {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 50%;
+    transform: translateX(-50%); /* Lo centra horizontalmente sobre la imagen */
     z-index: 10;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex-direction: row; /* Alineación horizontal de los botones */
+    align-items: center;
+    gap: 15px; /* Espacio entre botones y texto */
+    background: rgba(255, 255, 255, 0.85); /* Fondo más sutil */
+    backdrop-filter: blur(5px); /* Efecto de cristal */
+    padding: 8px 20px; /* Más delgado verticalmente */
+    border-radius: 50px; /* Bordes redondeados tipo píldora */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid rgba(249, 182, 128, 0.3); /* Borde naranja muy fino */
+}
+.pdf-controls span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #636363;
+    white-space: nowrap;
 }
 
 .pdf-controls button {
-    width: 40px;
-    height: 40px;
+    width: 32px; /* Botones un poco más pequeños y estéticos */
+    height: 32px;
     border: none;
     background: #F9B680;
     color: white;
-    border-radius: 10px;
+    border-radius: 30%; /* Botones circulares */
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
-
-.pdf-controls button:hover { background: #E98596; }
-
+.pdf-controls button:hover {
+    background: #E98596;
+    transform: scale(1.1);
+}
 .canvas-viewport {
     width: 100%;
     height: 800px;
@@ -4441,16 +4452,23 @@ main h1 {
 /* 4. Modelo de Intervención (Texto introductorio) */
 .modelo-descripcion-introduccion {
     max-width: 1000px;
-    margin: 2rem auto 3rem auto;
-    font-size: 1.4rem; /* Tamaño XL para legibilidad */
-    line-height: 1.6;
-    color: #555;
-    font-weight: 500;
-    padding: 0 20px;
-
-    text-align: justify !important;
+    margin: 2rem auto 4rem auto;
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 30px;
+    border-left: 8px solid #E98596; /* Acento rosa */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    text-align: justify;
     text-justify: inter-word;
 }
+.modelo-descripcion-introduccion p {
+    font-size: 1.4rem; /* Tamaño XL para legibilidad */
+    line-height: 1.7;
+    color: #444;
+    margin: 0;
+    font-weight: 700;
+}
+
 .modelo-descripcion-introduccion strong {
     color: #F9B680; /* Naranja institucional */
     font-weight: 800;
@@ -4470,7 +4488,13 @@ main h1 {
     .cuadro-rosa-info,
     .constitucion-card p,
     .cuerpo-mensaje p,
-    .modelo-descripcion-introduccion {
-        text-align: left !important; /* Más legible en pantallas angostas */
+   .modelo-descripcion-introduccion {
+        margin: 1.5rem 20px 3rem 20px;
+        padding: 25px;
+        border-left-width: 5px;
+    }
+    .modelo-descripcion-introduccion p {
+        font-size: 1.1rem;
+        text-align: left;
     }
 }
