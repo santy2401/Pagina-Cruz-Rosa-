@@ -3806,21 +3806,23 @@ main h1 {
 }
 
 .patronato-container {
-    max-width: 950px; /* Un poco más ancho para que luzcan las tarjetas grandes */
+   max-width: 1400px !important; 
+    width: 95%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* Alineación vertical */
-    gap: 30px; /* Más espacio entre tarjetas */
+    flex-direction: column;
+    gap: 20px;
 }
 
 .patronato-main-card {
     background: #fffafa;
     border-left: 8px solid #E98596; /* Borde más grueso para resaltar */
-    padding: 50px 40px; /* Más aire arriba y abajo */
+    padding: 40px 20px !important; /* Más aire arriba y abajo */
     border-radius: 20px;
     margin-bottom: 20px;
     box-shadow: 0 10px 30px rgba(233, 133, 150, 0.1);
     text-align: center;
+    width: 100%;
 }
 
 .patronato-main-card p {
@@ -3841,7 +3843,7 @@ main h1 {
     display: flex;
     align-items: center; 
     gap: 40px; /* Más espacio entre icono y texto */
-    padding: 40px; /* Tarjeta mucho más grande */
+    padding: 25px 40px !important; /* Padding vertical moderado y horizontal amplio */
     background: #ffffff;
     border-radius: 30px; /* Bordes más redondeados */
     border: 2px solid #fdf2f4;
@@ -3872,10 +3874,12 @@ main h1 {
 }
 
 .func-item p {
-    font-size: 1.2rem; /* Descripción más legible */
-    color: #555;
+    /* Ajustamos el tamaño de fuente si es necesario para que quepa en una línea */
+    font-size: 1.15rem; 
+    line-height: 1.4;
     margin: 0;
-    line-height: 1.6;
+    /* Evita que el texto se amontone si la pantalla es muy ancha */
+    flex: 1; 
 }
 
 /* --- AJUSTE MÓVIL OPTIMIZADO --- */
