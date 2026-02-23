@@ -2121,7 +2121,7 @@ main h1 {
     display: flex;
     flex-direction: column; /* Apiladas verticalmente */
     align-items: center;
-    gap: 1.5rem; /* Espacio entre fotos */
+    gap: .5rem; /* Espacio entre fotos */
 }
 
 .marco-foto {
@@ -2136,7 +2136,7 @@ main h1 {
 
 .marco-foto img {
     /* Tamaño aumentado significativamente */
-    width: 850px; 
+    width: 450px; 
     height: auto;
     display: block;
     border: 1px solid #eee;
