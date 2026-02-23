@@ -521,6 +521,27 @@ h3.expand-title + h3.expand-title {
 .light-card:hover .expand-desc {
     color: #636363 !important;
 }
+/* --- COLORES PERSONALIZADOS PARA LAS ETIQUETAS DE EJE --- */
+
+/* Eje 1 - Color Rosa */
+.servicios-container .servicio-card-expand:nth-child(1) .expand-eje-label {
+    color: #f13b59 !important;
+}
+
+/* Eje 2 - Color Naranja */
+.servicios-container .servicio-card-expand:nth-child(2) .expand-eje-label {
+    color: #fd8f35 !important;
+}
+
+/* Eje 3 - Color Naranja */
+.servicios-container .servicio-card-expand:nth-child(3) .expand-eje-label {
+    color: #F1BDC8 !important;
+}
+
+/* Eje 4 - Color Rosa */
+.servicios-container .servicio-card-expand:nth-child(4) .expand-eje-label {
+    color: #ea3b58 !important;
+}
 
 /* Responsivo */
 @media (max-width: 1200px) {
