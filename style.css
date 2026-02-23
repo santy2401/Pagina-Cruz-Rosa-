@@ -4118,12 +4118,98 @@ main h1 {
 }
 
 /* --- SECCIÓN NOMBRES PATRONATO ORGANIZADO --- */
+.fundadores-badge {
+    position: relative !important;
+    left: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 50px !important;
+    margin-bottom: -15px;
+}
 .seccion-patronato-nombres {
     padding: 80px 20px;
     background-color: #ffffff; /* Fondo blanco puro para limpieza */
     display: flex;
     justify-content: center;
 }
+.patronato-layout-wrapper {
+    max-width: 1600px; /* Aumentamos el ancho total para que quepan todos en línea */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Espacio entre fundadores y directiva */
+}
+.fila-fundadores {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.fundadores-ancho {
+    min-width: 600px; /* Caja más ancha para los dos nombres */
+}
+.nombres-fundadores-flex {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+/* --- DISEÑO DE TARJETAS CON TRASLAPE CIRCULAR --- */
+.fila-directiva {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px; /* Espacio entre cada conjunto de cargo/nombre */
+    width: 100%;
+    padding-top: 40px;
+}
+
+.tarjeta-integrante {
+    position: relative;
+    display: flex;
+    align-items: center; /* Centra el círculo verticalmente respecto a la caja */
+    min-width: 300px;
+    flex: 1;
+}
+
+
+.cuerpo-nombre {
+    background-color: #FFE3E6; /* Rosa suave de la guía */
+    padding: 20px 20px 20px 70px; /* Padding extra a la izquierda para no tapar el texto con el círculo */
+    border-radius: 10px;
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.05);
+    border: none;
+}
+
+/* Estilos de Texto dentro de la caja rosa */
+.nombre-item {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #444;
+    margin: 0;
+}
+
+.zona-suplente {
+    margin-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 5px;
+}
+
+.zona-suplente span {
+    font-size: 0.7rem;
+    text-decoration: underline;
+    color: #666;
+}
+
+/* Ajuste específico para Vocales (que tiene más nombres) */
+.tarjeta-integrante:last-child .cuerpo-nombre {
+    min-height: 200px;
+}
+
 
 .patronato-grid-nombres {
     display: grid;
@@ -4133,47 +4219,22 @@ main h1 {
     width: 100%;
 }
 
-.tarjeta-integrante {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px; 
-    animation: fadeInUp 0.8s ease forwards;
-}
-
 .badge-cargo {
     position: absolute;
     top: 0;
-    background-color: #F9B680; 
+    background-color: #F9B680;
     color: white;
-    padding: 10px 25px;
+    padding: 8px 20px;
     border-radius: 50px;
     font-weight: 800;
-    font-size: 0.8rem;
-    text-transform: uppercase;
+    font-size: 0.75rem;
     z-index: 5;
-    box-shadow: 0 4px 12px rgba(249, 182, 128, 0.3);
     border: 3px solid white;
+    min-width: 160px;
     text-align: center;
-    width: auto; /* Se ajusta al texto */
-    min-width: 180px;
 }
 
-.cuerpo-nombre {
-    background: #ffffff;
-    width: 100%;
-    padding: 50px 20px 30px 20px;
-    border-radius: 25px;
-    border: 2px solid #f8f8f8; /* Borde casi invisible */
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04); /* Sombra muy suave */
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    min-height: 250px; /* Altura fija para que todas sean iguales */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Alinea contenido arriba */
-}
+
 
 .tarjeta-integrante:hover .cuerpo-nombre {
     transform: translateY(-10px);
@@ -4181,17 +4242,12 @@ main h1 {
     box-shadow: 0 20px 50px rgba(233, 133, 150, 0.12);
 }
 
-.nombre-item {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #333;
-    margin: 8px 0;
-}
+
 
 .nombre-item.destaque {
-    font-size: 1.3rem;
-    color: #E98596; /* Nombre principal en Rosa */
-    margin-top: 15px;
+    color: #E98596;
+    font-size: 1.2rem;
+    font-weight: 800;
 }
 
 .lista-nombres {
@@ -4205,20 +4261,6 @@ main h1 {
     color: #444;
 }
 
-.zona-suplente {
-    margin-top: auto; /* Empuja el suplente al fondo de la tarjeta */
-    padding-top: 15px;
-    border-top: 1px solid #f5f5f5;
-}
-
-.zona-suplente span {
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: #F9B680; /* Naranja para el texto de Suplente */
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 4px;
-}
 
 .zona-suplente p {
     font-size: 0.9rem;
@@ -4228,8 +4270,23 @@ main h1 {
 }
 
 /* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+    .fila-directiva {
+        flex-wrap: wrap; /* En tablets bajan los que no quepan */
+        justify-content: center;
+    }
+    .tarjeta-integrante {
+        flex: none;
+        width: 300px;
+    }
+}
 @media (max-width: 1024px) {
     .patronato-grid-nombres { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .fundadores-ancho { min-width: 100%; }
+    .nombres-fundadores-flex { flex-direction: column; }
+    .fila-directiva { flex-direction: column; align-items: center; }
 }
 
 @media (max-width: 600px) {
