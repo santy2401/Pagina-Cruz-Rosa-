@@ -494,7 +494,7 @@ h3.expand-title + h3.expand-title {
     text-justify: inter-word; 
     
     /* CAMBIO AQUÍ: Bajamos de 1.1rem a 0.95rem */
-    font-size: 1.1rem; 
+    font-size: 1.2rem; 
     font-weight: 700; 
     line-height: 1.4; /* Ajustamos el interlineado para que no se vea tan pegado */
     color: #444;
@@ -502,7 +502,7 @@ h3.expand-title + h3.expand-title {
 }
 
 .expand-eje-label, .expand-title {
-    font-size: 1.1rem; /* Bajamos de 1.5rem a 1.3rem para que sea proporcional */
+    font-size: 1.3rem; /* Bajamos de 1.5rem a 1.3rem para que sea proporcional */
     transition: all 0.4s ease;
 }
 .servicio-card-expand:hover .expand-content {
