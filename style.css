@@ -386,8 +386,8 @@ body {
 /* --- EJES DE ACCIÓN EN INDEX.HTML --- */
 
 .eje-card p {
-    font-size: 0.95rem; /* Texto más chico y elegante */
-    line-height: 1.6;
+    font-size: 2.6rem; /* Texto más chico y elegante */
+    line-height: 2.6;
     color: #555;
     font-weight: 500;
     margin-top: 10px;
@@ -494,9 +494,9 @@ h3.expand-title + h3.expand-title {
     text-justify: inter-word; 
     
     /* CAMBIO AQUÍ: Bajamos de 1.1rem a 0.95rem */
-    font-size: 0.95rem; 
+    font-size: 1.5rem; 
     font-weight: 700; 
-    line-height: 1.5; /* Ajustamos el interlineado para que no se vea tan pegado */
+    line-height: 1.4; /* Ajustamos el interlineado para que no se vea tan pegado */
     color: #444;
     padding: 0 20px; 
 }
