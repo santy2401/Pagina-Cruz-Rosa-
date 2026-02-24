@@ -4146,7 +4146,7 @@ main h1 {
     justify-content: center;
 }
 .patronato-layout-wrapper {
-    max-width: 1500px; /* Aumentamos el ancho máximo del contenedor */
+    max-width: 1550px; /* Aumentamos el ancho máximo del contenedor */
     width: 95%;
     margin: 0 auto;
     display: flex;
@@ -4169,6 +4169,34 @@ main h1 {
     margin: 0;
     letter-spacing: 1px;
 }
+.fila-fundadores-unica {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.tarjeta-fundador-doble {
+    position: relative;
+    width: 800px; /* Ancho suficiente para ambos nombres */
+    max-width: 90%;
+}
+.caja-rosa-fundadores-ancha {
+    background-color: #FFE3E6;
+    border: 5px solid #E98596; /* Borde rosa institucional */
+    border-radius: 20px;
+    padding: 45px 30px 25px 30px;
+    display: flex;
+    justify-content: space-around; /* Separa los nombres hacia los extremos */
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+.nombre-fundador {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #444;
+    flex: 1;
+    text-align: center;
+}
 
 .fila-fundadores {
     display: flex;
@@ -4177,6 +4205,23 @@ main h1 {
     width: 100%;
     margin-bottom: 30px;
 }
+.fila-fundadores-unica .badge-estilo-fundador {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #F9B680;
+    color: white;
+    padding: 8px 30px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 3px solid white;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
 .tarjeta-fundador {
     position: relative;
     width: 400px; /* Tamaño reducido solicitado */
@@ -4232,25 +4277,25 @@ main h1 {
     display: flex;
     justify-content: center;
     align-items: stretch; /* Hace que todas tengan la misma altura si quieres, o flex-start para compacto */
-    gap: 25px;
+    gap: 15px;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .tarjeta-directiva {
     position: relative;
     flex: 1;
     min-width: 220px;
-    max-width: 280px;
+    max-width: 260px;
 }
 .badge-estilo-fundador {
     position: absolute;
-    top: -18px;
+    top: -25px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #F9B680; /* Naranja institucional */
     color: white;
-    padding: 8px 25px;
+    padding: 10px 35px;
     border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 800;
@@ -4260,10 +4305,14 @@ main h1 {
     border: 3px solid white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+/* Líneas conectoras del color de la marca */
+.organigrama-linea-v { width: 3px; height: 30px; background: #E98596; }
+.organigrama-linea-h { width: 85%; height: 3px; background: #E98596; margin-bottom: 20px; }
+
 .caja-nombres-compacta {
     background-color: #FFE3E6; /* Rosa suave */
     border: 3px solid #E98596; /* Borde rosa fuerte */
-    padding: 40px 20px 25px 20px;
+    padding: 10px 10px 12px 10px;
     border-radius: 12px;
     text-align: center;
     height: 100%;
@@ -4271,6 +4320,13 @@ main h1 {
     flex-direction: column;
     justify-content: flex-start;
     min-height: 160px;
+}
+.nombres-juntos {
+    margin-bottom: 5px;
+}
+.nombres-juntos .nom-p {
+    font-size: 0.85rem;
+    margin: 1px 0;
 }
 .caja-rosa {
     background-color: #FFE3E6;
@@ -4296,12 +4352,12 @@ main h1 {
     font-size: 1.2rem;
 }
 .zona-sup-compacta {
-    margin-top: 8px;
-    padding-top: 8px;
+    margin-top: 5px;
+    padding-top: 5px;
     border-top: 1px solid rgba(233, 133, 150, 0.3);
 }
 .sup-label {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: #8d4a5a;
     font-weight: 800;
     text-transform: uppercase;
@@ -4317,7 +4373,7 @@ main h1 {
     font-weight: 600;
 }
 .nom-sup {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: #666;
     font-weight: 600;
     margin: 0;
