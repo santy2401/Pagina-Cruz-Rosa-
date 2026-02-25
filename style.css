@@ -494,9 +494,9 @@ h3.expand-title + h3.expand-title {
     text-justify: inter-word; 
     
     /* CAMBIO AQUÍ: Bajamos de 1.1rem a 0.95rem */
-    font-size: 1.2rem; 
+    font-size: 1.1rem; 
     font-weight: 700; 
-    line-height: 1.4; /* Ajustamos el interlineado para que no se vea tan pegado */
+    line-height: 1.2; /* Ajustamos el interlineado para que no se vea tan pegado */
     color: #444;
     padding: 0 20px; 
 }

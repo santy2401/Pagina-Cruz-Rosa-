@@ -1,4 +1,4 @@
-// 1. Lógica del Contador de Impacto
+// 1. Lógica del Contador de Impacto (Sin signo +)
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll('.counter-value');
     
@@ -15,13 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const easeOut = 1 - Math.pow(1 - progress, 3);
             const currentValue = Math.floor(easeOut * target);
 
-            // Formatear con signo + y separador de miles
-            counter.innerText = "+" + currentValue.toLocaleString();
+            // Se elimina el "+" y solo se muestra el número formateado con miles
+            counter.innerText = currentValue.toLocaleString();
 
             if (progress < 1) {
                 requestAnimationFrame(updateCount);
             } else {
-                counter.innerText = "+" + target.toLocaleString();
+                // Al finalizar, asegura que se muestre el número exacto sin "+"
+                counter.innerText = target.toLocaleString();
             }
         };
         requestAnimationFrame(updateCount);
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     counters.forEach(counter => counterObserver.observe(counter));
 });
+
 // 2. Lógica del Logo (Desaparece al bajar)
 window.addEventListener('scroll', () => {
     const logo = document.getElementById('main-large-logo');
