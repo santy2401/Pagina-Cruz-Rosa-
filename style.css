@@ -3777,12 +3777,147 @@ main h1 {
 
 /* --- DISEÑO DE PANAL VERTICAL ------------------------------------------------------ */
 .financiamiento-section {
-    position: relative;
-    background-color: #FFF8FA;
-    overflow: hidden;
-    z-index: 1;
-    padding: 80px 0;
+    padding: 80px 20px;
+    background-color: #ffffff;
+    text-align: center;
 }
+.financiamiento-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+.finan-card {
+    background: #fdfdfd;
+    border: 2px solid #FFE3E6;
+    border-radius: 20px;
+    padding: 30px 20px;
+    width: 200px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(233, 133, 150, 0.05);
+}
+.finan-card:hover {
+    transform: translateY(-10px);
+    background: #FFE3E6;
+    border-color: #E98596;
+    box-shadow: 0 15px 40px rgba(233, 133, 150, 0.15);
+}
+.finan-icon {
+    font-size: 2.5rem;
+    color: #E98596;
+    margin-bottom: 15px;
+    transition: color 0.4s ease;
+}
+.finan-card:hover .finan-icon {
+    color: #ffffff;
+}
+.finan-porcentaje {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #444;
+    margin-bottom: 5px;
+}
+.finan-nombre {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.finan-card:hover .finan-porcentaje,
+.finan-card:hover .finan-nombre {
+    color: #333;
+}
+/* Responsivo */
+@media (max-width: 768px) {
+    .finan-card {
+        width: 45%; /* Dos por fila en móviles */
+    }
+}
+
+/* --- SECCIÓN FINANCIAMIENTO HEXAGONAL --- */
+
+.hexagon-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* Estructura Base del Hexágono */
+.hexagon-card {
+    width: 220px;
+    height: 250px;
+    /* Mantenemos el recorte geométrico exacto */
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+
+/* Efecto Hover Sutil */
+.hexagon-card:hover {
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+.hexagon-card:hover .hexagon-inner {
+    background-color: #FFE3E6; /* Fondo rosa clarito interno al hacer hover */
+}
+.hexagon-inner ion-icon {
+    font-size: 2.5rem;
+    color: #E98596;
+    margin-bottom: 10px;
+}
+.hex-porcentaje {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #444;
+    margin: 0;
+}
+.hex-nombre {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #444;
+    text-transform: uppercase;
+}
+
+.hexagon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Espacio vertical entre las dos filas de hexágonos */
+    gap: 20px; 
+    margin-top: 50px;
+}
+
+
+.hex-row {
+    display: flex;
+    justify-content: center;
+    /* Espacio horizontal entre los hexágonos de la misma fila */
+    gap: 40px; 
+}
+.hex-row.row-offset {
+    margin-top: 10px; 
+}
+
+.hex-rosa { background-color: #E98596; }
+.hex-naranja { background-color: #F9B680; }
+.hex-rosa-claro { background-color: #F1BDC8; }
+.hex-naranja-suave { background-color: #fccfb0; }
+.hex-gris { background-color: #fab867; }
+
 .hexagon-background {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -3879,10 +4014,23 @@ main h1 {
 /* El resto de tus estilos (.hexagon-inner, .hexagon-content, etc.) están perfectos */
 
 .hexagon-inner {
-    width: 100%; height: 100%;
+    width: 210px;
+    height: 240px;
+    background-color: #ffffff;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
+/* Mantenemos el color del icono igual al borde del hexágono */
+.hex-rosa .hexagon-inner ion-icon, .hex-rosa .hex-porcentaje { color: #E98596; }
+.hex-naranja .hexagon-inner ion-icon, .hex-naranja .hex-porcentaje { color: #F9B680; }
+.hex-rosa-claro .hexagon-inner ion-icon, .hex-rosa-claro .hex-porcentaje { color: #F1BDC8; }
+.hex-naranja-suave .hexagon-inner ion-icon, .hex-naranja-suave .hex-porcentaje { color: #fccfb0; }
+.hex-gris .hexagon-inner ion-icon, .hex-gris .hex-porcentaje { color: #F9B680; }
 
 /* Colores */
 .hexagon-item.color-rosa .hexagon-inner,
