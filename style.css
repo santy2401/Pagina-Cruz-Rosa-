@@ -4791,12 +4791,14 @@ main h1 {
 }
 
 .card-mensaje-editorial {
+    padding: 60px 50px; /* Más espacio interno para que se vea robusto */
+    border-radius: 30px;
     background: white;
-    padding: 60px;
-    border-radius: 5px; /* Estilo papel editorial */
     box-shadow: 0 10px 50px rgba(0,0,0,0.03);
-    position: relative;
-    border-left: 10px solid #E98596;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .icono-comillas-bg {
@@ -4823,11 +4825,12 @@ main h1 {
 }
 
 .cuerpo-mensaje p {
-    font-size: 1.15rem;
-    line-height: 1.9;
+    font-size: 1.35rem;
+    line-height: 1.8;
     color: #444;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: justify;
+    text-justify: inter-word;
 }
 
 .frase-resaltada {
@@ -4845,6 +4848,62 @@ main h1 {
 .txt-rosa-bold {
     color: #E98596;
     font-weight: 800;
+}
+/* --- ANIMACIONES PARA LA TARJETA DE LA PRESIDENTA --- */
+
+/* 1. Definición de las animaciones */
+
+/* Entrada suave: aparece de abajo hacia arriba con opacidad */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Levitación: movimiento vertical infinito casi imperceptible */
+@keyframes sutilFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* 2. Aplicación a la tarjeta rosa */
+
+.tarjeta-identidad-rosa {
+    /* ... tus estilos anteriores ... */
+    
+    /* Animación de entrada: dura 1 segundo al cargar la página */
+    animation: fadeInUp 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    
+    will-change: transform, opacity;
+}
+
+/* 3. Efecto extra al pasar el mouse (Hover) */
+
+.tarjeta-identidad-rosa:hover {
+    transform: scale(1.02); /* Crece un 2% */
+    box-shadow: 0 20px 45px rgba(233, 133, 150, 0.25);
+    transition: all 0.4s ease-in-out;
+}
+
+/* 4. Animación sutil solo para la foto dentro del cuadro */
+
+.marco-foto-ovalada {
+    /* ... tus estilos anteriores ... */
+    
+    /* La foto "flota" suavemente todo el tiempo */
+    animation: sutilFloat 5s ease-in-out infinite;
+}
+
+/* 5. Destello sutil en el texto al entrar */
+
+.nombre-presidenta {
+    animation: fadeInUp 1.5s ease-out forwards;
 }
 
 /* --- RESPONSIVO PARA MÓVIL --- */
@@ -5024,3 +5083,96 @@ main h1 {
     }
 }
 /*------ Nuevo estilo patronato Cruz rosa ---*/
+/* --- TARJETA DE IDENTIDAD ROSA (IZQUIERDA) --- */
+
+.tarjeta-identidad-rosa {
+    background-color: #FFE3E6;
+    border-radius: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Centrado vertical */
+    align-items: center;     /* Centrado horizontal */
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(233, 133, 150, 0.15);
+}
+.contenido-centrado-identidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.marco-foto-ovalada {
+    width: 300px;  /* Aumentado de 250px a 300px */
+    height: 400px; /* Aumentado de 330px a 400px */
+    border-radius: 150px; /* Óvalo proporcional al nuevo tamaño */
+    overflow: hidden;
+    border: 8px solid #ffffff;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.marco-foto-ovalada img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-perfil-centrada {
+    width: 100%;
+}
+
+.gratitud-texto {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.nombre-presidenta {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #E98596; /* Rosa institucional */
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.cargo-descripcion {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #444;
+    margin: 2px 0;
+}
+
+/* --- AJUSTE DE COLUMNAS --- */
+
+.mensaje-editorial-container {
+    max-width: 1400px; /* Más ancho para reducir espacios vacíos en las orillas */
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    align-items: stretch; /* Ambas columnas miden lo mismo de alto */
+}
+
+.columna-foto-presidenta {
+    flex: 0 0 480px; /* Ancho fijo para la tarjeta rosa */
+}
+
+.columna-texto-mensaje {
+    flex: 1;
+}
+
+/* --- RESPONSIVO PARA MÓVIL --- */
+
+@media (max-width: 992px) {
+    .mensaje-editorial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .columna-foto-presidenta {
+        width: 100%;
+        max-width: 400px;
+    }
+}
