@@ -4503,7 +4503,7 @@ main h1 {
     color: white;
     padding: 10px 35px;
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.80rem;
     font-weight: 800;
     text-transform: uppercase;
     white-space: nowrap;
@@ -4518,14 +4518,14 @@ main h1 {
 .caja-nombres-compacta {
     background-color: #FFE3E6; /* Rosa suave */
     border: 3px solid #E98596; /* Borde rosa fuerte */
-    padding: 10px 10px 12px 10px;
+    padding: 15px 10px;
     border-radius: 12px;
     text-align: center;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    min-height: 160px;
+    justify-content: center;
+    min-height: 100px;
 }
 .nombres-juntos {
     margin-bottom: 5px;
@@ -4548,11 +4548,11 @@ main h1 {
     color: #444;
 }
 .nom-p {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #444;
-    margin: 4px 0; /* Espaciado mínimo entre nombres */
-    line-height: 1.2;
+    margin: 2px 0; /* Espaciado mínimo entre nombres */
+    line-height: 1.1;
 }
 .nom-p.destaque-rosa {
     font-size: 1.2rem;
@@ -4563,7 +4563,7 @@ main h1 {
     border-top: 1px solid rgba(233, 133, 150, 0.3);
 }
 .sup-label {
-    font-size: 0.6rem;
+    font-size: 1.4rem;
     color: #8d4a5a;
     font-weight: 800;
     text-transform: uppercase;
@@ -4579,7 +4579,7 @@ main h1 {
     font-weight: 600;
 }
 .nom-sup {
-    font-size: 0.75rem;
+    font-size: 1.05rem;
     color: #666;
     font-weight: 600;
     margin: 0;
