@@ -1248,6 +1248,7 @@ h3.expand-title + h3.expand-title {
 .testimonial-card { 
     width: 320px;        /* Reducido de 500px a 380px para que sea más esbelto */
     min-height: 280px;   /* Reducido de 400px para que no sobre tanto espacio vertical */
+    min-width: 350px;
     flex-shrink: 0; 
     background: #ffffff; 
     border-radius: 25px; 
@@ -1291,6 +1292,17 @@ h3.expand-title + h3.expand-title {
     font-weight: 800;
 }
 
+.eje-tag {
+    display: inline-block;
+    background-color: #FFE3E6;
+    color: #E98596;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
 /* =========================================
    17. ESTILOS AGRADECIMIENTO (ESCALADO XL)
    ========================================= */
