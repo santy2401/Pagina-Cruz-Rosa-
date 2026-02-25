@@ -538,7 +538,7 @@ h3.expand-title + h3.expand-title {
 
 /* Eje 1 - Color Rosa */
 .servicios-container .servicio-card-expand:nth-child(1) .expand-eje-label {
-    color: #f13b59 !important;
+    color: #E98596 !important;
 }
 
 /* Eje 2 - Color Naranja */
@@ -4776,7 +4776,7 @@ main h1 {
     margin-bottom: 5px;
 }
 .nombres-juntos .nom-p {
-    font-size: 0.85rem;
+    font-size: 1.5rem;
     margin: 1px 0;
 }
 .caja-rosa {
@@ -4808,7 +4808,7 @@ main h1 {
     border-top: 1px solid rgba(233, 133, 150, 0.3);
 }
 .sup-label {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #8d4a5a;
     font-weight: 800;
     text-transform: uppercase;
