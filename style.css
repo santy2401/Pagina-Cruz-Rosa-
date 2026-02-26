@@ -4795,7 +4795,7 @@ main h1 {
 .nom-p {
     font-size: 1rem;
     font-weight: 700;
-    color: #444;
+    color: #121212;
     margin: 2px 0; /* Espaciado mínimo entre nombres */
     line-height: 1.1;
 }
@@ -4825,7 +4825,7 @@ main h1 {
 }
 .nom-sup {
     font-size: 1.2rem;
-    color: #666;
+    color: #090808;
     font-weight: 600;
     margin: 0;
 }
