@@ -3789,10 +3789,13 @@ main h1 {
 
 /* --- DISEÑO DE PANAL VERTICAL ------------------------------------------------------ */
 .financiamiento-section {
-    padding: 80px 20px;
+    position: relative;
+    padding: 100px 20px;
     background-color: #ffffff;
     text-align: center;
+    overflow: hidden; /* Importante para que los hexágonos de fondo no se salgan */
 }
+
 .financiamiento-grid {
     display: flex;
     justify-content: center;
@@ -3906,13 +3909,14 @@ main h1 {
 }
 
 .hexagon-wrapper {
+    position: relative;
+    z-index: 2; /* Por encima del fondo animado */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px; 
+    gap: 35px;
     margin-top: 60px;
 }
-
 
 .hex-row {
     display: flex;
@@ -3938,11 +3942,14 @@ main h1 {
 .hex-gris .hex-porcentaje, .hex-gris ion-icon { color: #636363; }
 
 
+/* --- FONDO ANIMADO --- */
 .hexagon-background {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
+    z-index: 1;
+    pointer-events: none;
 }
+
 .hexagons {
     position: absolute;
     top: 0;
@@ -3957,11 +3964,12 @@ main h1 {
     position: absolute;
     list-style: none;
     background-color: #E98596;
-    opacity: 0.2;
+    opacity: 0.1;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     bottom: -150px;
     animation: animate-hex 25s linear infinite;
 }
+
 /* Tamaños y posiciones aleatorias */
 .hexagons li:nth-child(1) { left: 25%; width: 80px; height: 90px; animation-delay: 0s; }
 .hexagons li:nth-child(2) { left: 10%; width: 30px; height: 35px; animation-delay: 2s; animation-duration: 12s; }
@@ -4129,6 +4137,12 @@ main h1 {
     }
     .hexagon-item:nth-child(even) { transform: translateX(30px); }
     .hexagon-item:nth-child(odd) { transform: translateX(-30px); }
+}
+/* Responsive Móvil */
+@media (max-width: 850px) {
+    .hex-row { flex-direction: column; gap: 20px; }
+    .hexagon-card { width: 180px; height: 205px; }
+    .hexagon-inner { width: 168px; height: 193px; }
 }
 /* --- PAGINA ORGANIGRAMA ------------------------------------------------------------------------------------------------*/
 /* --- BOTÓN DE REGRESO --- */
