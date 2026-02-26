@@ -4790,7 +4790,7 @@ main h1 {
     margin-bottom: 5px;
 }
 .nombres-juntos .nom-p {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin: 1px 0;
 }
 .caja-rosa {
@@ -4822,7 +4822,7 @@ main h1 {
     border-top: 1px solid rgba(233, 133, 150, 0.3);
 }
 .sup-label {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #8d4a5a;
     font-weight: 800;
     text-transform: uppercase;
@@ -4838,7 +4838,7 @@ main h1 {
     font-weight: 600;
 }
 .nom-sup {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #090808;
     font-weight: 600;
     margin: 0;
