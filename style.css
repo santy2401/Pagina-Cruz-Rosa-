@@ -2571,7 +2571,7 @@ main h1 {
 .intro-objeto-social {
     max-width: 900px;
     margin: 0 auto 4rem auto;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: #000000;
     line-height: 1.6;
 }
@@ -2623,7 +2623,7 @@ main h1 {
 }
 
 .card-mini-txt p {
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     line-height: 1.4;
     opacity: 0.9;
 }
