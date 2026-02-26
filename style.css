@@ -106,12 +106,6 @@ body {
     animation: entranceLogo 1.2s ease-out, floatLogo 4s ease-in-out infinite;
 }
 
-/* Clase que aplicaremos con JS al bajar */
-.logo-hidden {
-    opacity: 0;
-    transform: translateY(-50px) scale(0.8);
-    pointer-events: none;
-}
 
 /* Animación de entrada (Aparece y cae un poco) */
 @keyframes entranceLogo {
