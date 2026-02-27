@@ -249,10 +249,10 @@ body {
 
 .hero-text-column h1 {
     /* Mínimo 1.8rem, ideal 5vw, máximo 5rem */
-    font-size: clamp(2rem, 5vw, 3.2rem) !important;
+    font-size: clamp(2rem, 5vw, 3.8rem) !important;
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     max-width: 95%;
 
     color: #ffffff !important; 
@@ -262,11 +262,11 @@ body {
 
 .hero-text-column p {
     /* El tamaño del texto se adapta a la altura de la pantalla */
-    font-size: clamp(0.95rem, 1.2vw, 1.2rem) !important; 
-    line-height: 1.5;
+    font-size: clamp(0.9rem, 1.2vw, 1.35rem) !important; 
+    line-height: 1.6;
     color: #ffffff;
     max-width: 900px;
-    margin-top: 0.5rem;
+    margin-top: 0.8rem;
     font-weight: 400;
 }
 
@@ -310,7 +310,7 @@ body {
 /* Estilo para "Nuestro propósito" (Grande y Animado) */
 .resaltado-proposito {
     display: inline-block; /* Permite que el texto siga en la misma línea */
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important; /* Más grande que el párrafo, pero armonioso */
+    font-size: clamp(1.4rem, 2.5vw, 2.9rem) !important; /* Más grande que el párrafo, pero armonioso */
     font-weight: 900;
     color: #f498a7;
     margin-right: 8px;
@@ -617,6 +617,71 @@ h3.expand-title + h3.expand-title {
 @media (max-width: 600px) {
     .servicios-container { grid-template-columns: 1fr; }
 }
+/* =========================================
+   REDISEÑO RESPONSIVO PARA LAPTOPS PEQUEÑAS
+   ========================================= */
+   /* Ajuste general del contenedor para pantallas medianas */
+@media (max-width: 1440px) {
+    .servicios-container {
+        max-width: 95%;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .servicio-card-expand {
+        height: 600px; /* Reducimos la altura base para laptops */
+    }
+
+    .expand-content {
+        padding-top: 100px; /* Subimos un poco el contenido inicial */
+    }
+}
+@media (max-width: 1366px), (max-height: 800px) {
+    .servicios-section-full {
+        padding: 6rem 0 2rem 0; /* Menos padding superior */
+    }
+
+    .servicio-card-expand {
+        height: 550px; /* Altura compacta */
+    }
+
+    /* Reducimos el tamaño de las fuentes para que el texto quepa al expandirse */
+    .expand-title {
+        font-size: 1.1rem !important;
+    }
+
+    .expand-eje-label {
+        font-size: 1.1rem !important;
+    }
+
+    .expand-desc {
+        font-size: 0.85rem !important; /* Texto más pequeño pero legible */
+        line-height: 1.3;
+        padding: 0 15px;
+    }
+/* Ajuste de la animación al hacer hover */
+    .servicio-card-expand:hover .expand-desc {
+        transform: translateY(-130px); /* Ajustamos el desplazamiento */
+    }
+
+    .servicio-card-expand:hover .expand-content {
+        padding-top: 60px; 
+    }
+
+    .img-eje-custom {
+        width: 55px; /* Iconos más pequeños */
+    }
+}
+@media (max-width: 1100px) {
+    .servicios-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .servicio-card-expand {
+        height: 500px;
+    }
+}
+
 
 /* =========================================
    SECCIÓN IMPACTO - ANIMACIÓN INSTITUCIONAL
