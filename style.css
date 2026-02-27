@@ -211,10 +211,11 @@ body {
    ========================================= */
 .hero-section {
     width: 100%; 
+    min-height: 100vh; /* Permite que la sección crezca si el contenido lo requiere */
     height: 100vh; 
     display: flex; 
     background-color: #F1BDC8;
-    overflow: hidden; /* Evita scrolls accidentales por zoom */
+    overflow: hidden; 
 }
 
 .hero-video-column { 
@@ -236,22 +237,23 @@ body {
 }
 
 .hero-text-column {
-    flex: 0.9; /* Reduce ligeramente el ancho de la columna de texto */
+    flex: 0.9;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 4% 6% !important; 
+    /* Ajustamos el padding para ganar espacio vertical */
+    padding: 2% 5% !important; 
     box-sizing: border-box;
     z-index: 10;
 }
 
 .hero-text-column h1 {
     /* Mínimo 1.8rem, ideal 5vw, máximo 5rem */
-    font-size: clamp(2.8rem, 6vw, 3.8rem) !important;
+    font-size: clamp(2rem, 5vw, 3.2rem) !important;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    max-width: 90%;
+    max-width: 95%;
 
     color: #ffffff !important; 
     font-weight: 700;
@@ -259,13 +261,13 @@ body {
 }
 
 .hero-text-column p {
-    font-size: 1.35rem !important; /* Tamaño de lectura profesional */
-    line-height: 1.7;
+    /* El tamaño del texto se adapta a la altura de la pantalla */
+    font-size: clamp(0.95rem, 1.2vw, 1.2rem) !important; 
+    line-height: 1.5;
     color: #ffffff;
-    max-width: 950px;
-    margin-top: 1rem;
+    max-width: 900px;
+    margin-top: 0.5rem;
     font-weight: 400;
-    opacity: 0.95;
 }
 
 .hero-buttons { 
@@ -308,10 +310,10 @@ body {
 /* Estilo para "Nuestro propósito" (Grande y Animado) */
 .resaltado-proposito {
     display: inline-block; /* Permite que el texto siga en la misma línea */
-    font-size: 2.2rem !important; /* Más grande que el párrafo, pero armonioso */
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important; /* Más grande que el párrafo, pero armonioso */
     font-weight: 900;
     color: #f498a7;
-    margin-right: 12px;
+    margin-right: 8px;
     vertical-align: baseline; /* Alinea la base de la letra con el párrafo */
     animation: flotarProposito 3s ease-in-out infinite;
     text-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -329,9 +331,61 @@ body {
 
 /* Ajuste de los botones para que no queden muy pegados al texto largo */
 .hero-buttons {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+}
+
+/* =========================================
+   MEDIA QUERY PARA LAPTOPS (13" y 11") 
+   Especialmente cuando la altura es poca
+   ========================================= */
+@media (max-height: 750px) {
+    .hero-text-column {
+        padding-top: 80px !important; /* Espacio para el menú */
+    }
+    
+    .hero-text-column h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-text-column p {
+        font-size: 0.9rem !important;
+        line-height: 1.4;
+    }
+    
+    .resaltado-proposito {
+        font-size: 1.3rem !important;
+    }
+
+    .hero-buttons {
+        margin-top: 0.8rem;
+    }
+
+    .btn-hero {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+}
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+    .hero-video-column {
+        height: 40vh;
+        flex: none;
+    }
+    .hero-text-column {
+        flex: none;
+        padding: 40px 20px !important;
+    }
 }
 
 /* =========================================
