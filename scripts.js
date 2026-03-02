@@ -107,3 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTestimonio(); // Carga el primero
     }
 });
+// Localiza esta sección en tu scripts.js
+const urlImagen = 'TDC.png'; // Cambia la ruta larga por solo el nombre del archivo
+const canvas = document.getElementById('pdf-render');
+const ctx = canvas.getContext('2d');
+const img = new Image();
+
+img.src = urlImagen;
+
+img.onload = function() {
+    // El resto del código que ya tienes para el renderizado...
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+    
+    // Si usas Panzoom, asegúrate de que se inicialice aquí
+    const panzoom = Panzoom(canvas, {
+        maxScale: 5,
+        minScale: 0.5,
+        contain: 'outside',
+        startScale: 1
+    });
+    // ... rest of your logic
+};

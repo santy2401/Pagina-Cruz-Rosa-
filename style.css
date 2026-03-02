@@ -3684,7 +3684,33 @@ main h1 {
 }
 
 /* --- MODELO DE INTERVENCIÓN FIJO --- */
-
+.btn-modelo-movil-container {
+    display: none; /* Oculto en escritorio */
+    text-align: center;
+    margin: 20px 0;
+}
+.btn-modelo-movil {
+    background-color: #E98596; /* Rosa institucional */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(233, 133, 150, 0.4);
+}
+@media (max-width: 768px) {
+    /* Ocultamos el visor complicado en celular porque se corta */
+    .map-style-pdf-wrapper {
+        display: none !important;
+    }
+    /* Mostramos el botón sencillo */
+    .btn-modelo-movil-container {
+        display: block;
+    }
+}
 /* --- VISOR TIPO MAPA PARA PDF --- */
 .map-style-pdf-wrapper {
     max-width: 1400px;

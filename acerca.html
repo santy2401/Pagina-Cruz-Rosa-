@@ -339,19 +339,25 @@
         </p>
     </div>
 
+    <div class="btn-modelo-movil-container">
+        <a href="TDC.png" target="_blank" class="btn-modelo-movil">
+            <ion-icon name="image-outline"></ion-icon>
+            <span class="btn-text-movil">Ver Modelo de Intervención</span>
+        </a>
+    </div>
+
     <div class="map-style-pdf-wrapper">
         <div class="pdf-controls">
-            <button id="zoom-in"><ion-icon name="add-outline"></ion-icon></button>
-            <button id="zoom-out"><ion-icon name="remove-outline"></ion-icon></button>
-            <button id="reset"><ion-icon name="refresh-outline"></ion-icon></button>
+            <button id="zoom-in" title="Aumentar"><ion-icon name="add-outline"></ion-icon></button>
+            <button id="zoom-out" title="Disminuir"><ion-icon name="remove-outline"></ion-icon></button>
+            <button id="reset" title="Restablecer"><ion-icon name="refresh-outline"></ion-icon></button>
             <span>Usa la rueda del mouse para hacer zoom</span>
         </div>
         
         <div id="pdf-canvas-container" class="canvas-viewport">
-    <canvas id="pdf-render"></canvas>
-</div>
+            <canvas id="pdf-render"></canvas>
+        </div>
     </div>
-    
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
