@@ -49,7 +49,7 @@ window.addEventListener('scroll', () => {
 
 // 3. Lógica de Testimonios Dinámicos
 const testimoniosData = [
-    { eje: "EJE 1 – ALBERGUE", author: "Alicia Flores", img: "Testimonios/EJE 1.JPG", text: "“Durante mi estancia en su albergue, me sentí arropada por un ambiente de calidez y esperanza. La atención integral que ofrecen es fundamental.”" },
+    { eje: "EJE 1 – ALBERGUE", author: "Alicia Flores", img: "Testimonios/EJE 1 MTY.JPG", text: "“Durante mi estancia en su albergue, me sentí arropada por un ambiente de calidez y esperanza. La atención integral que ofrecen es fundamental.”" },
     { eje: "EJE 2 – APOYO EN EL PROCESO", author: "Flora Hernández", img: "Testimonios/EJE 2.png", text: "“Mi más sincero agradecimiento por el apoyo con los medicamentos mi quimioterapia. Su ayuda y comprensión han sido fundamentales.”" },
     { eje: "EJE 3 – EDUCATIVO INFORMATIVO", author: "Elida Perales", img: "Testimonios/EJE 3.jpeg", text: "“Las pláticas de Cruz Rosa siempre nos dejan algo motivante en medio de la preocupación del tratamiento. Agradecemos todo lo que hacen.”" },
     { eje: "EJE 4 – DESARROLLO INTEGRAL", author: "Esther Diaz López", img: "Testimonios/EJE 4.JPG", text: "“Me siento muy agradecida por todo el apoyo, me salvaron tanto física como emocionalmente. Gracias a Cruz Rosa puedo decir que lo estoy logrando.”" },
