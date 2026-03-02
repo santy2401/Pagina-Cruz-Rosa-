@@ -387,6 +387,22 @@ body {
         padding: 40px 20px !important;
     }
 }
+@media (max-height: 700px) {
+    .hero-text-column {
+        padding-top: 60px !important;
+    }
+    .hero-text-column h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.5rem;
+    }
+    .hero-text-column p {
+        font-size: 0.85rem !important;
+        line-height: 1.4;
+    }
+    .hero-buttons {
+        margin-top: 10px;
+    }
+}
 
 /* =========================================
    4. SERVICIOS (VERSION FINAL EXTENDIDA)
@@ -1347,80 +1363,124 @@ h3.expand-title + h3.expand-title {
     .subtitulo-comunidad-xl { font-size: 1.3rem; }
 }
 
-/* =========================================
-   16. TESTIMONIOS AISLADOS
-   ========================================= */
-.testimonios-aislados-section { 
-    width: 100%; 
-    margin: 6rem auto; 
-    padding: 5rem 0; 
-    background-color: #FFF8FA; 
-    border-top: 1px solid #ffeef2; 
-    overflow: hidden; 
-}
-.testimonial-scroller { 
-    max-width: 100%; /* Permitimos que ocupe todo el ancho para el movimiento */
-    margin: 0 auto; 
+/* --- SECCIÓN TESTIMONIOS ESTILO VIDEO --- */
+.testimonios-premium-section {
+    padding: 80px 20px;
+    background: #fefdfd;
+    display: flex;
+    justify-content: center;
 }
 
-.testimonial-card { 
-    width: 320px;        /* Reducido de 500px a 380px para que sea más esbelto */
-    min-height: 280px;   /* Reducido de 400px para que no sobre tanto espacio vertical */
-    min-width: 350px;
-    flex-shrink: 0; 
-    background: #ffffff; 
-    border-radius: 25px; 
-    padding: 1.5rem;     /* Reducido un poco el padding interno (antes 3.5rem) */
-    box-shadow: 0 15px 35px rgba(230, 60, 125, 0.1); 
-    border: 2px solid #f1bdc8; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    transition: transform 0.4s ease;
+.carousel-main-wrapper {
+    /* Mantenemos el ancho máximo de 1400px para que sea grande */
+    max-width: 1400px; 
+    width: 95%; /* Asegura que respire en los bordes de la pantalla */
+    background: #FFE3E6; /* Color rosa claro del fondo final */
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+    /* Altura ampliada solicitada anteriormente */
+    height: 700px; 
+    margin: 0 auto;
 }
 
-.testimonial-card:hover {
-    transform: scale(1.02);
-    border-color: #E98596;
+.carousel-split-card {
+    display: grid;
+    /* CAMBIO CLAVE: División perfecta de 2 columnas iguales */
+    grid-template-columns: 1fr 1fr; 
+    min-height: 650px;
+    height: 100%;
+    transition: opacity 0.3s ease;
 }
 
-.testimonial-card img { 
-    width: 70px; /* Foto más grande */
-    height: 70px; 
-    border-radius: 50%; 
-    margin-bottom: 1rem; 
-    object-fit: cover; 
-    border: 4px solid #FFE3E6;
+.text-side-content {
+    /* Ajustamos el padding para un balance visual */
+    padding: 80px 60px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #444; /* Texto oscuro para el fondo claro */
+    position: relative;
+    height: 100%; /* Asegura que el contenido se centre en los 700px */
+    box-sizing: border-box;
 }
-.testimonio-texto {
-    font-size: 1.05rem;    /* Reducido de 1.45rem para ajustarse al nuevo tamaño del cuadro */
-    line-height: 1.4; 
-    color: #555; 
-    font-style: italic; 
-    margin-bottom: 1.5rem; 
-    font-family: 'DM Sans', sans-serif;
-}
-.paciente-nombre {
+.eje-label-dinamico {
+    background: #E98596;
+    color: rgb(255, 255, 255);
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
     font-weight: 800;
-    color: #E63C7D;
-    font-size: 1.1rem;
-    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 30px;
     letter-spacing: 1px;
-    font-weight: 800;
+}
+.main-quote-text {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+.paciente-name {
+    color: #F9B680;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
-.eje-tag {
-    display: inline-block;
-    background-color: #FFE3E6;
-    color: #E98596;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+.image-side-content {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #2a2a2a; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
+
+.img-slide-anim {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+    padding: 0;
+}
+.carousel-nav {
+    margin-top: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-arrow {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgb(30, 29, 29);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+.nav-arrow:hover {
+    background: #E98596;
+    border-color: #E98596;
+    transform: scale(1.1);
+}
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .carousel-split-card { grid-template-columns: 1fr; }
+    .image-side-content { height: 300px; order: -1; }
+    .text-side-content { padding: 40px 30px; }
+}
+/* nuevo css testimonios */
+
+
 /* =========================================
    17. ESTILOS AGRADECIMIENTO (ESCALADO XL)
    ========================================= */
