@@ -1362,124 +1362,201 @@ h3.expand-title + h3.expand-title {
     .carrusel-premium-container { height: 450px; }
     .subtitulo-comunidad-xl { font-size: 1.3rem; }
 }
-
-/* --- SECCIÓN TESTIMONIOS ESTILO VIDEO --- */
-.testimonios-premium-section {
-    padding: 80px 20px;
-    background: #fefdfd;
-    display: flex;
-    justify-content: center;
-}
-
-.carousel-main-wrapper {
-    /* Mantenemos el ancho máximo de 1400px para que sea grande */
-    max-width: 1400px; 
-    width: 95%; /* Asegura que respire en los bordes de la pantalla */
-    background: #FFE3E6; /* Color rosa claro del fondo final */
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
-    /* Altura ampliada solicitada anteriormente */
-    height: 700px; 
+/*============================================
+testimonios carrusel infinito
+=============================================*/
+.testimonios-carrusel-section {
+    padding: 60px 0;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 100%; /* Eliminamos restricciones de ancho anteriores */
     margin: 0 auto;
+    overflow: hidden;
 }
 
-.carousel-split-card {
-    display: grid;
-    /* CAMBIO CLAVE: División perfecta de 2 columnas iguales */
-    grid-template-columns: 1fr 1fr; 
-    min-height: 650px;
-    height: 100%;
-    transition: opacity 0.3s ease;
+.testimonios-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    /* Añadimos una máscara suave en los bordes para un efecto premium */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.text-side-content {
-    /* Ajustamos el padding para un balance visual */
-    padding: 80px 60px; 
+.testimonios-track-infinite {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    /* Ajusta la duración (40s) según prefieras la velocidad */
+    animation: scrollTestimonios 65s linear infinite;
+}
+
+/* Pausa la animación cuando el usuario lee un testimonio */
+.testimonios-track-infinite:hover {
+    animation-play-state: paused;
+}
+
+.testimonios-track {
+    display: flex;
+    /* Esto hace que el deslizamiento se sienta "premium" y fluido */
+    transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+    will-change: transform;
+}
+
+.testimonio-slide {
+    width: 420px; /* Tamaño similar al de Nuestra Comunidad */
+    flex-shrink: 0;
+}
+
+.testimonio-card-premium {
+    background: #FFE3E6;
+    border-radius: 35px; /* Bordes un poco más curvos para el nuevo tamaño */
+    min-height: 600px; /* Altura mínima para que todas las tarjetas sean iguales */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    color: #444; /* Texto oscuro para el fondo claro */
-    position: relative;
-    height: 100%; /* Asegura que el contenido se centre en los 700px */
-    box-sizing: border-box;
 }
-.eje-label-dinamico {
+.testimonio-card-premium img {
+    width: 90%; /* Reducimos ligeramente el ancho para que no toque los bordes laterales */
+    height: 300px;
+    object-fit: cover;
+    margin: 15px auto 0; /* Centramos la imagen y damos un pequeño margen superior */
+    display: block;
+    
+    /* Bordes redondeados en la imagen */
+    border-radius: 25px; 
+    
+    /* Opcional: una sombra muy suave para que la imagen resalte sobre el fondo rosa */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.testimonio-info {
+    padding: 25px 35px 35px;
+}
+
+
+.testimonio-card-new {
+    background: #FFE3E6; /* Color rosa suave de fondo */
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+.testimonio-img-box {
+    width: 100%;
+    height: 400px;
+}
+.testimonio-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen llene el espacio */
+}
+.testimonio-info-box {
+    padding: 40px;
+    text-align: left;
+}
+.eje-tag-new {
+    display: inline-block;
     background: #E98596;
-    color: rgb(255, 255, 255);
-    padding: 6px 20px;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    font-weight: 800;
-    width: fit-content;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
-.main-quote-text {
-    font-size: 1.6rem;
-    line-height: 1.8;
-    font-style: italic;
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 2;
-}
-.paciente-name {
-    color: #F9B680;
-    font-size: 1.2rem;
+
+.quote-new {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    font-style: coblique;
+    margin-bottom: 15px;
+    color: #000; /* Texto negro puro */
     font-weight: 700;
 }
 
-.image-side-content {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background: #2a2a2a; 
+.autor-new {
+    color: #F9B680;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+@keyframes scrollTestimonios {
+    0% { transform: translateX(0); }
+    /* Cálculo: (Ancho tarjeta 450px + gap 40px) * 8 originales */
+    100% { transform: translateX(calc(-490px * 8)); }
+}
+
+/* Controles */
+.testimonios-controls {
     display: flex;
-    align-items: center;
     justify-content: center;
-    position: relative;
+    gap: 20px;
+    margin-top: 30px;
 }
-
-.img-slide-anim {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
-    padding: 0;
-}
-.carousel-nav {
-    margin-top: 40px;
-    display: flex;
-    gap: 15px;
-}
-
-.nav-arrow {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: rgb(30, 29, 29);
+.nav-btn {
+    background: #fff;
+    border: 2px solid #E98596;
+    color: #E98596;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.3s ease;
+    transition: 0.3s;
 }
-.nav-arrow:hover {
+.nav-btn:hover {
     background: #E98596;
-    border-color: #E98596;
-    transform: scale(1.1);
+    color: white;
 }
-/* Mobile Responsive */
-@media (max-width: 900px) {
-    .carousel-split-card { grid-template-columns: 1fr; }
-    .image-side-content { height: 300px; order: -1; }
-    .text-side-content { padding: 40px 30px; }
-}
-/* nuevo css testimonios */
+@media (max-width: 1366px) {
+    .testimonio-slide {
+        width: 380px; /* Tarjetas un poco más angostas */
+    }
+    
+    .testimonio-card-premium {
+        min-height: 550px;
+    }
 
+    @keyframes scrollTestimonios {
+        0% { transform: translateX(0); }
+        /* Ajuste de cálculo: (380px + 40px gap) * 8 */
+        100% { transform: translateX(calc(-420px * 8)); }
+    }
+}
+@media (max-width: 768px) {
+    .testimonios-track-infinite {
+        gap: 20px;
+        /* Animación más rápida en móvil (35s) para mantener dinamismo */
+        animation: scrollTestimoniosMobile 35s linear infinite;
+    }
+
+    .testimonio-slide {
+        width: 300px; /* Tamaño ideal para teléfonos */
+    }
+
+    .testimonio-card-premium {
+        min-height: 500px;
+        border-radius: 30px;
+    }
+
+    .testimonio-card-premium img {
+        height: 200px; /* Imagen más pequeña en móvil */
+    }
+
+    .testimonio-info {
+        padding: 20px;
+    }
+
+    .quote-new {
+        font-size: 0.95rem; /* Fuente ajustada para pantallas pequeñas */
+    }
+
+    @keyframes scrollTestimoniosMobile {
+        0% { transform: translateX(0); }
+        /* Ajuste de cálculo móvil: (300px + 20px gap) * 8 */
+        100% { transform: translateX(calc(-320px * 8)); }
+    }
+}
 
 /* =========================================
    17. ESTILOS AGRADECIMIENTO (ESCALADO XL)

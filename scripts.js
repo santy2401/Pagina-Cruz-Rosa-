@@ -47,48 +47,19 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 3. Lógica de Testimonios Dinámicos
-const testimoniosData = [
-    { eje: "EJE 1 – ALBERGUE", author: "Alicia Flores", img: "Testimonios/EJE 1 MTY.JPG", text: "“Durante mi estancia en su albergue, me sentí arropada por un ambiente de calidez y esperanza. La atención integral que ofrecen es fundamental.”" },
-    { eje: "EJE 2 – APOYO EN EL PROCESO", author: "Flora Hernández", img: "Testimonios/EJE 2.png", text: "“Mi más sincero agradecimiento por el apoyo con los medicamentos mi quimioterapia. Su ayuda y comprensión han sido fundamentales.”" },
-    { eje: "EJE 3 – EDUCATIVO INFORMATIVO", author: "Elida Perales", img: "Testimonios/EJE 3.jpeg", text: "“Las pláticas de Cruz Rosa siempre nos dejan algo motivante en medio de la preocupación del tratamiento. Agradecemos todo lo que hacen.”" },
-    { eje: "EJE 4 – DESARROLLO INTEGRAL", author: "Esther Diaz López", img: "Testimonios/EJE 4 MTY.JPG", text: "“Me siento muy agradecida por todo el apoyo, me salvaron tanto física como emocionalmente. Gracias a Cruz Rosa puedo decir que lo estoy logrando.”" },
-    { eje: "EJE 1 – ALBERGUE", author: "Leticia", img: "Testimonios/eje 1 gdl.jpg", text: "“El albergue se volvió un refugio en medio de todo el tratamiento, un lugar donde pude descansar, agarrar fuerzas para seguir y sentir que no estaba sola.”" },
-    { eje: "EJE 2 – APOYO EN EL PROCESO", author: "María Elena", img: "Testimonios/eje 2 gdl.JPG", text: "“Me apoyaron con la manga y los vendajes, pero lo más valioso ha sido el cariño y la confianza de las fisios. He visto una gran mejoría.”" },
-    { eje: "EJE 3 – EDUCATIVO INFORMATIVO", author: "Ma. Teresa", img: "Testimonios/eje 3 gdl.jpg", text: "“En el módulo encontré orientación y mucha calma. Me explicaron los pasos a seguir y me dieron información clara. No estás sola.”" },
-    { eje: "EJE 4 – DESARROLLO INTEGRAL", author: "Margarita", img: "Testimonios/eje 4 gdl.jpg", text: "“Los talleres ocupacionales se volvieron un espacio para distraerme, convivir y despejar la mente. En Cruz Rosa encontré un lugar donde mi bienestar importa.”" }
-];
-
-let currentPos = 0;
-
-function updateTestimonio() {
-    const data = testimoniosData[currentPos];
-    const imgDisplay = document.getElementById('img-display');
-    const badge = document.getElementById('eje-display');
-    const text = document.getElementById('text-display');
-    const author = document.getElementById('author-display');
-    const card = document.getElementById('carousel-card');
-
-    if (!imgDisplay || !badge || !text || !author || !card) return;
-
-    card.style.opacity = "0";
-    
-    setTimeout(() => {
-        badge.innerText = data.eje;
-        text.innerText = data.text;
-        author.innerText = "— " + data.author;
-        imgDisplay.src = data.img;
-
-        imgDisplay.onload = () => {
-            card.style.opacity = "1";
-        };
-        
-        imgDisplay.onerror = () => {
-            console.error("Error cargando imagen: " + data.img);
-            card.style.opacity = "1";
-        };
-    }, 300);
-}
+// 3. Lógica de Carrusel Infinito (Estilo Comunidad)
+// Eliminamos moveSlide() y autoPlayInterval porque ahora la animación es por CSS
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById('testimonios-track');
+    if (track) {
+        // Clonamos los testimonios para crear el efecto infinito sin saltos
+        const slides = Array.from(track.children);
+        slides.forEach(slide => {
+            const clone = slide.cloneNode(true);
+            track.appendChild(clone);
+        });
+    }
+});
 
 // Inicialización de botones
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,7 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTestimonio(); // Carga el primero
     }
 });
-// Localiza esta sección en tu scripts.js
+
+
+// modelo de intervencion 
 const urlImagen = 'TDC.png'; // Cambia la ruta larga por solo el nombre del archivo
 const canvas = document.getElementById('pdf-render');
 const ctx = canvas.getContext('2d');
