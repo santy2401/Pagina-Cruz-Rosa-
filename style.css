@@ -1209,7 +1209,30 @@ h3.expand-title + h3.expand-title {
         transform: scale(1.02); /* Un ligero crecimiento en lugar de saltar hacia arriba */
     }
 }
-
+.icono-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white; /* Fondo blanco para resaltar el icono */
+    border: 3px solid #E98596 !important; /* Borde rosa sutil */
+}
+.icono-wrapper i {
+    font-size: 2.5rem; /* Tamaño del icono */
+    color: #E98596;    /* Color rosa de Cruz Rosa */
+    transition: all 0.4s ease;
+}
+.ayudar-card:hover .icono-wrapper i {
+    transform: scale(1.2) rotate(5deg);
+    color: #F9B680; /* Cambia a naranja al hacer hover */
+}
+.ayudar-img-wrapper { 
+    width: 100px !important; 
+    height: 100px !important; 
+    border-radius: 50%; 
+    margin-bottom: 1.5rem; 
+    box-shadow: 0 8px 20px rgba(233, 133, 150, 0.15);
+    overflow: visible !important; /* Para que el icono no se corte si crece */
+}
 /* --- SECCIÓN INFORMES XL --- */
 .informes-section-xl {
     width: 100%;
@@ -1850,6 +1873,15 @@ testimonios carrusel infinito
 .txt-naranja { color: #F9B680; }
 .txt-rosa { color: #E98596; }
 
+.titulo-seccion-especial {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem; /* Ajusta según el diseño móvil/escritorio */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase; /* Opcional: para que todo sea mayúsculas como en Ejes */
+}
+
 /* Línea blanca que cruza horizontalmente en el hover */
 .ejes-p-anim:before { 
     content: ""; 
@@ -2457,7 +2489,10 @@ testimonios carrusel infinito
 }
 
 /* --- SECCIÓN HISTORIA ACERCA DE --- */
-
+/* Ajusta el valor (80px o 100px) según la altura real de tu menú */
+.main-content-acerca { 
+    padding-top: 100px; 
+}
 
 .titulo-seccion-superior {
     font-size: 3.5rem !important; /* Aumentado significativamente */
@@ -2466,6 +2501,7 @@ testimonios carrusel infinito
     text-align: center;
     margin-bottom: 4rem;
     letter-spacing: 1px;
+    padding-top: 100px;
 }
 .cuadro-rosa-interactivo {
     background: linear-gradient(135deg, #E98596 0%, #d36b7d 100%);
