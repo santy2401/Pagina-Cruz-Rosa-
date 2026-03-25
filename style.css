@@ -2566,15 +2566,21 @@ main h1 {
     color: #E98596;
 }
 
-.titulo-historia {
+.titulo-historia, 
+.acerca-main-container h1,
+.main-content-acerca h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: 5.5rem !important; /* Tamaño masivo para impacto visual inmediato */
+    font-size: 5.5rem !important; /* Mismo tamaño para todos */
     font-weight: 900;
     text-align: center;
     margin-bottom: 3rem;
     line-height: 1.1;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
+    width: 100%;
+    display: block;
 }
+
+
 
 .intro-text {
     color: #636363; /* Color institucional solicitado */
@@ -2671,7 +2677,14 @@ main h1 {
         margin-left: 0;
     }
 }
-
+@media (max-width: 768px) {
+    .titulo-historia, 
+    .acerca-main-container h1,
+    .main-content-acerca h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 2rem;
+    }
+}
 /* Cuadro Rosa del lado izquierdo */
 
 /* FORZAR CUADRO ROSA A SER CUADRADO */
@@ -5145,12 +5158,14 @@ main h1 {
     align-items: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
-.nombre-fundador {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #444;
-    flex: 1;
-    text-align: center;
+.nombre-fundador, 
+.nom-p, 
+.nombres-juntos .nom-p {
+    font-size: 1.15rem !important; /* Tamaño único para nombres titulares */
+    font-weight: 700;
+    color: #121212;
+    margin: 4px 0;
+    line-height: 1.2;
 }
 
 .fila-fundadores {
@@ -5243,7 +5258,8 @@ main h1 {
     min-width: 220px;
     max-width: 260px;
 }
-.badge-estilo-fundador {
+.badge-estilo-fundador, 
+.badge-cargo {
     position: absolute;
     top: -25px;
     left: 50%;
@@ -5259,6 +5275,7 @@ main h1 {
     z-index: 5;
     border: 3px solid white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    letter-spacing: 0.5px;
 }
 /* Líneas conectoras del color de la marca */
 .organigrama-linea-v { width: 3px; height: 30px; background: #E98596; }
@@ -5274,15 +5291,10 @@ main h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100px;
+    min-height: 140px;
 }
-.nombres-juntos {
-    margin-bottom: 5px;
-}
-.nombres-juntos .nom-p {
-    font-size: 1.1rem;
-    margin: 1px 0;
-}
+
+
 .caja-rosa {
     background-color: #FFE3E6;
     border: 3px solid #E98596;
@@ -5296,13 +5308,7 @@ main h1 {
     font-size: 0.85rem;
     color: #444;
 }
-.nom-p {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #121212;
-    margin: 2px 0; /* Espaciado mínimo entre nombres */
-    line-height: 1.1;
-}
+
 .nom-p.destaque-rosa {
     font-size: 1.1rem;
 }
@@ -5317,7 +5323,7 @@ main h1 {
     font-weight: 800;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 .sup-p { 
     font-size: 0.7rem; 
@@ -5398,20 +5404,7 @@ main h1 {
     width: 100%;
 }
 
-.badge-cargo {
-    position: absolute;
-    top: 0;
-    background-color: #F9B680;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    z-index: 5;
-    border: 3px solid white;
-    min-width: 160px;
-    text-align: center;
-}
+
 
 
 
