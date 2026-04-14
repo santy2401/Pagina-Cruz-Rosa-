@@ -1057,13 +1057,13 @@ h3.expand-title + h3.expand-title {
     width: 100%; 
     max-width: 1300px; 
     margin: 0 auto !important; 
-    padding: 3rem 4rem 6rem 4rem !important;
+    padding: 5rem 5rem 6rem 4rem !important;
     text-align: center; 
     box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
 }
 
 .como-ayudar-section h2 { 
-    font-size: clamp(2.2rem, 5vw, 3.5rem) !important; 
+    font-size: clamp(5.5rem, 5vw, 3.5rem) !important; 
     font-weight: 800; 
     color: #E98596; 
     margin-top: 0 !important;
@@ -1409,7 +1409,7 @@ h3.expand-title + h3.expand-title {
 
 /* Título imponente y fijo arriba */
 .beneficiarias-section h2 { 
-    font-size: clamp(5.5rem, 5vw, 4rem) !important; /* Ajustado a la escala 75% que usamos */
+    font-size: 5.5rem !important; /* Ajustado a la escala 75% que usamos */
     font-weight: 800; 
     color: #F9B680; 
     margin-top: 0;
@@ -1876,10 +1876,10 @@ testimonios carrusel infinito
 .titulo-seccion-especial {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 2.2rem; /* Ajusta según el diseño móvil/escritorio */
+    font-size: 5.5rem !important; /* Forzamos el tamaño */
     text-align: center;
     margin-bottom: 1.5rem;
-    text-transform: uppercase; /* Opcional: para que todo sea mayúsculas como en Ejes */
+     /* Opcional: para que todo sea mayúsculas como en Ejes */
 }
 
 /* Línea blanca que cruza horizontalmente en el hover */
@@ -2629,7 +2629,7 @@ main h1 {
 
 .marco-polaroid-gigante {
     background-color: #ffffff;
-    padding: 15px 15px 45px 15px;
+    padding: 5px 5px 5px 5px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.12);
     border-radius: 10px;
     transition: transform 0.4s ease;
@@ -2641,8 +2641,8 @@ main h1 {
 
 .marco-polaroid-gigante img {
     /* Ajustamos el tamaño a uno intermedio (entre 500px y 600px) */
-    width: 550px !important; 
-    max-width: 100%; 
+    width: 750px !important; 
+    max-width: 500%; 
     height: auto;
     display: block;
     border-radius: 5px;
@@ -3040,14 +3040,14 @@ main h1 {
 
 .titulo-seccion-centro {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
+    font-size: 5.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
 .intro-objeto-social {
     max-width: 900px;
-    margin: 0 auto 4rem auto;
+    margin: 0 auto 2rem auto;
     font-size: 1.5rem;
     color: #000000;
     line-height: 1.6;
@@ -3376,7 +3376,7 @@ main h1 {
 
 .titulo-revelado {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
+    font-size: 5.5rem;
     font-weight: 700;
     margin: 0;
     display: flex;
@@ -3492,7 +3492,7 @@ main h1 {
 /* --- SECCIÓN VALORES --- */
 .titulo-valores-container {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 5.5rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -3500,7 +3500,7 @@ main h1 {
 }
 .titulo-shimmer {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
+    font-size: 5.5rem;
     font-weight: 900;
     color: #636363;
     margin: 0;
@@ -3627,7 +3627,7 @@ main h1 {
     margin-bottom: 50px;
 }
 .ods-main-title {
-    font-size: 2.5rem;
+    font-size: 5.5rem;
     color: #444;
     font-weight: 800;
 }
@@ -4703,7 +4703,7 @@ main h1 {
 
 .titulo-custom {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
+    font-size: 5.5rem;
     font-weight: 800;
     color: #636363;
     margin: 0;
@@ -4758,7 +4758,6 @@ main h1 {
 .txt-cruz-nav {
     color: #F9B680 !important; /* Naranja melón */
     font-weight: 900;
-    text-transform: uppercase;
 }
 
 /* Color Rosa Institucional para la palabra ROSA */
@@ -4771,7 +4770,7 @@ main h1 {
 /* Ajuste para que el resto del título no salga siempre en mayúsculas */
 .titulo-shimmer {
     text-transform: none !important; /* Esto permite que "Patronato" se vea normal */
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: 800;
     color: #636363;
 }
