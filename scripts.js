@@ -78,28 +78,29 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTestimonio(); // Carga el primero
     }
 });
-
-
-// modelo de intervencion 
-const urlImagen = 'TDC.png'; // Cambia la ruta larga por solo el nombre del archivo
-const canvas = document.getElementById('pdf-render');
-const ctx = canvas.getContext('2d');
-const img = new Image();
-
-img.src = urlImagen;
-
-img.onload = function() {
-    // El resto del código que ya tienes para el renderizado...
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0);
+// --- LÓGICA MODELO DE INTERVENCIÓN (IMAGEN CON ZOOM) ---
+document.addEventListener("DOMContentLoaded", () => {
+    const imagen = document.getElementById('modelo-imagen');
     
-    // Si usas Panzoom, asegúrate de que se inicialice aquí
-    const panzoom = Panzoom(canvas, {
-        maxScale: 5,
-        minScale: 0.5,
-        contain: 'outside',
-        startScale: 1
-    });
-    // ... rest of your logic
-};
+    if (imagen) {
+        // Inicializamos Panzoom sobre la imagen
+        const panzoom = Panzoom(imagen, {
+            maxScale: 4,
+            minScale: 1,
+            contain: 'outside',
+            startScale: 1
+        });
+
+        // Vincular los botones que ya tienes en el HTML
+        const zoomInBtn = document.getElementById('zoom-in');
+        const zoomOutBtn = document.getElementById('zoom-out');
+        const resetBtn = document.getElementById('reset');
+
+        if (zoomInBtn) zoomInBtn.addEventListener('click', panzoom.zoomIn);
+        if (zoomOutBtn) zoomOutBtn.addEventListener('click', panzoom.zoomOut);
+        if (resetBtn) resetBtn.addEventListener('click', panzoom.reset);
+
+        // Habilitar el zoom con la rueda del ratón
+        imagen.parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
+    }
+});
