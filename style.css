@@ -2789,21 +2789,18 @@ main h1 {
 }
 
 .historia-container {
-    display: grid;
-    /* Mantenemos la proporción pero aseguramos el espacio */
-    grid-template-columns: 1fr 1fr; 
-    /* Aumentamos el gap a 6rem para separar bien el cuadro de las fotos */
-    gap: 6rem; 
-    align-items: center;
-    max-width: 1400px;
-    margin: 4rem auto;
+    display: flex;
+    flex-direction: column; /* Esto pone el cuadro arriba y la foto abajo */
+    align-items: center;    /* Centra ambos elementos horizontalmente */
+    gap: 40px;             /* Espacio entre el cuadro y la foto */
+    width: 100%;
+    margin-top: 2rem;
 }
 
 .marcos-fotos-container-xl {
     display: flex;
     flex-direction: column;
-    /* Alineamos a la derecha para ganar más aire en el centro */
-    align-items: flex-end; 
+    align-items: center;    /* Centramos la foto */
     gap: 30px;
     width: 100%;
 }
